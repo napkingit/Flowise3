@@ -1,0 +1,861 @@
+<title>Sprinter W907 L2H2 – Strom-, Licht- und Bedienkonzept</title>
+<style>
+:root{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;
+  --ac:#b23a48; --dc:#1f6f8b;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --disp:"Bahnschrift","DIN Alternate","Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;
+  --ac:#e08b95; --dc:#6fc3dd;}}
+:root[data-theme="dark"]{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;
+  --ac:#e08b95; --dc:#6fc3dd;}
+:root[data-theme="light"]{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;
+  --ac:#b23a48; --dc:#1f6f8b;}
+html{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.55;font-size:16px}
+body{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{font-family:var(--disp);text-wrap:balance;line-height:1.15}
+h1{font-size:2rem;margin:0 0 4px}
+h2{font-size:1.4rem;margin:56px 0 12px;padding-top:18px;border-top:2px solid var(--ink)}
+h2 .no{color:var(--ink2);font-family:var(--mono);font-size:1rem;margin-right:10px}
+h3{font-size:1.05rem;margin:26px 0 8px}
+h4{font-family:var(--disp);font-size:.95rem;margin:18px 0 6px;color:var(--ink2);letter-spacing:.03em;text-transform:uppercase}
+p{margin:10px 0;max-width:82ch}
+ul,ol{max-width:84ch} li{margin:4px 0}
+.kopf{border:2px solid var(--ink);padding:18px 20px;display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;margin-bottom:8px}
+.kopf .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink2);line-height:1.7}
+.legende{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:.78rem;margin:14px 0 4px}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:2px;display:inline-block}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.86rem;font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--grid);font-family:var(--disp);font-weight:600;font-size:.82rem}
+td.num,th.num{text-align:right;font-family:var(--mono);font-size:.82rem}
+td.mono{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+tr.sum td{font-weight:700;background:var(--grid)}
+.tw{overflow-x:auto;margin:14px 0}
+.tw table{margin:0;min-width:760px}
+.zbox{border:1.5px solid var(--ink);background:var(--panel);margin:22px 0;overflow-x:auto}
+.zbox .zk{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 20px;border-bottom:1.5px solid var(--ink);padding:8px 14px;font-family:var(--mono);font-size:.75rem;color:var(--ink2)}
+.zbox .zk b{color:var(--ink);font-family:var(--disp);font-size:.9rem;letter-spacing:.02em}
+.zbox svg{display:block;margin:10px auto;min-width:680px;max-width:100%}
+.zbox figcaption{padding:0 14px 12px;color:var(--ink2);font-size:.85rem}
+.hin{border-left:4px solid var(--var);background:var(--panel);padding:10px 14px;margin:16px 0;max-width:84ch}
+.ok{border-left-color:var(--conf)}
+.no{border-left-color:var(--ac)}
+.toc{font-family:var(--mono);font-size:.82rem;columns:2;gap:40px;margin:18px 0;padding:14px 18px;border:1px solid var(--line);background:var(--panel)}
+.toc a{color:var(--ink);text-decoration:none;display:block;padding:2px 0}
+.toc a:hover,.toc a:focus-visible{color:var(--var);outline:none;text-decoration:underline}
+@media (max-width:700px){.toc{columns:1}}
+.pill{font-family:var(--mono);font-size:.72rem;padding:1px 7px;border-radius:10px;border:1px solid;white-space:nowrap}
+.pAC{color:var(--ac);border-color:var(--ac)}
+.pDC{color:var(--dc);border-color:var(--dc)}
+.pU{color:var(--conf);border-color:var(--conf)}
+svg text{font-family:var(--mono)}
+.p{stroke:var(--ink);fill:none;stroke-width:4}
+.pt{stroke:var(--ink);fill:none;stroke-width:2.2}
+.soft{fill:var(--grid);fill-opacity:.55;stroke:var(--ink);stroke-width:2.2}
+.wand{stroke:var(--ink);stroke-width:8;fill:none}
+.dash{stroke-dasharray:16 12}
+.dim{stroke:var(--ink2);stroke-width:2;fill:none}
+.dt{fill:var(--ink);font-size:1em}
+.dt2{fill:var(--ink2);font-size:.8em}
+.dv{fill:var(--var);font-size:.95em;font-weight:700}
+.symAC{fill:none;stroke:var(--ac);stroke-width:5}
+.symDC{fill:none;stroke:var(--dc);stroke-width:5}
+.symU{fill:none;stroke:var(--conf);stroke-width:5}
+.symL{fill:var(--ink);stroke:none}
+.tAC{fill:var(--ac);font-size:.8em;font-weight:700}
+.tDC{fill:var(--dc);font-size:.8em;font-weight:700}
+.tU{fill:var(--conf);font-size:.8em;font-weight:700}
+.lbl{fill:var(--ink);font-size:.9em;font-family:var(--disp)}
+.axis{stroke:var(--ink);stroke-width:3;fill:none}
+.axt{fill:var(--ink);font-size:1.1em;font-weight:700}
+.blk{fill:var(--panel);stroke:var(--ink);stroke-width:4}
+.blkAC{fill:var(--panel);stroke:var(--ac);stroke-width:4}
+.wireDC{stroke:var(--dc);stroke-width:6;fill:none}
+.wireAC{stroke:var(--ac);stroke-width:6;fill:none}
+.wireS{stroke:var(--ink2);stroke-width:3;fill:none}
+</style>
+
+<header class="kopf">
+  <div>
+    <h1>Strom-, Licht- und Bedienkonzept — Sprinter W907 L2H2</h1>
+    <p style="margin:2px 0 0;color:var(--ink2)">Einbauplan für 2 Personen · autarkes Camping + mobiles Arbeiten · aufbauend auf Grundriss SPR-GA-01</p>
+    <div class="legende">
+      <span><span class="dot" style="background:var(--dc)"></span>12&nbsp;V DC</span>
+      <span><span class="dot" style="background:var(--ac)"></span>230&nbsp;V AC</span>
+      <span><span class="dot" style="background:var(--conf)"></span>USB-C / Kleinspannung</span>
+      <span><span class="dot" style="background:var(--var)"></span>am Fahrzeug prüfen</span>
+    </div>
+  </div>
+  <div class="meta">
+    Zeichnungssatz&nbsp;SPR-EL-01 · Rev&nbsp;A<br>
+    Koordinaten wie SPR-GA-01:<br>
+    X&nbsp;=&nbsp;Breite (0&nbsp;=&nbsp;Verkleidung Fahrerseite)<br>
+    Y&nbsp;=&nbsp;Fahrtrichtung (0&nbsp;=&nbsp;Hecktüren)<br>
+    Z&nbsp;=&nbsp;Höhe (0&nbsp;=&nbsp;OK fertiger Boden)<br>
+    Alle Positionen in mm
+  </div>
+</header>
+
+<nav class="toc" aria-label="Inhalt">
+  <a href="#s1">1 · Kurzfazit</a>
+  <a href="#s2">2 · Annahmen und Planungsgrundlagen</a>
+  <a href="#s3">3 · Verbrauchs- und Lastanalyse</a>
+  <a href="#s4">4 · Empfehlung Energiesystem</a>
+  <a href="#s5">5 · Layout-Plan nach Zonen</a>
+  <a href="#s6">6 · Draufsicht als Einbauplanung</a>
+  <a href="#s7">7 · Steckdosen- und Ladepunkteliste</a>
+  <a href="#s8">8 · Lichtkonzept</a>
+  <a href="#s9">9 · iPad- und Halterungskonzept</a>
+  <a href="#s10">10 · Technische Umsetzung</a>
+  <a href="#s11">11 · Stückliste / BOM</a>
+  <a href="#s12">12 · Variantenvergleich</a>
+  <a href="#s13">13 · Konkrete Empfehlung</a>
+</nav>
+
+<h2 id="s1"><span class="no">1</span>Kurzfazit</h2>
+
+<h4>Die drei Erkenntnisse, die alles andere bestimmen</h4>
+<div class="hin no"><b>1. Dachklimaanlage und ernstzunehmende Solaranlage schließen sich auf einem L2H2 gegenseitig aus.</b>
+Das Dach gibt netto etwa 3,0&nbsp;×&nbsp;1,35&nbsp;m her. Mit MaxxAir bleiben ~3,6&nbsp;m² → <b>700–800&nbsp;Wp</b>.
+Kommt eine Dachklima (~1000&nbsp;×&nbsp;700&nbsp;mm plus Abstand) dazu, zerfällt die Restfläche in Streifen und
+es bleiben realistisch <b>300–350&nbsp;Wp</b>. Gleichzeitig zieht die Klima 3–4&nbsp;kWh pro Nacht — also
+mehr als die gesamte übrige Anlage am Tag. Du würdest den Verbrauch verdreifachen und die Erzeugung
+halbieren. <b>Meine klare Empfehlung: keine Dachklima.</b> Stattdessen MaxxAir + Thermomatten +
+die zwei 12-V-Ventilatoren, und für echte Hitzewellen den Campingplatz mit Landstrom einplanen.</div>
+
+<div class="hin"><b>2. Der Wechselrichter, nicht die Batterie, ist der Flaschenhals beim Kochen.</b>
+Ein Victron MultiPlus 12/2000 liefert dauerhaft nur 1600&nbsp;W bei 25&nbsp;°C und 1300&nbsp;W bei 40&nbsp;°C —
+eine 2000-W-Induktionsplatte läuft damit <b>nicht</b> auf voller Stufe. Wer Induktion, Airfryer und
+Kaffeemaschine ohne Nachdenken nutzen will, braucht die <b>3000-VA-Klasse</b>. Das zieht 12&nbsp;V-seitig
+bis 240&nbsp;A und erzwingt 95&nbsp;mm²-Kabel, 400&nbsp;A-Class-T-Sicherung und eine Batterie mit
+≥&nbsp;250&nbsp;A Dauerentladestrom.</div>
+
+<div class="hin ok"><b>3. Du hast bereits die beste Off-Grid-Kochlösung im Fahrzeug.</b>
+Der CAMPANY-Küchenblock enthält laut Rechnung einen <b>Schubkasten für einen Kartuschenkocher</b>.
+Damit wird Induktion zum Sonnen- und Landstromgerät und nicht zur Grundlast. Diese Zweigleisigkeit
+spart mehr Batterie als jede Optimierung an der Anlage: ein Kochvorgang auf Gas statt Induktion sind
+600&nbsp;Wh weniger pro Tag — bei 400&nbsp;Ah rund 12&nbsp;% der nutzbaren Kapazität.</div>
+
+<h4>Größte Engpässe, ehrlich benannt</h4>
+<div class="tw"><table>
+<tr><th>Wunsch</th><th>Off-Grid-Realität</th><th>Pragmatische Lösung</th></tr>
+<tr><td>Klimaanlage</td><td><b>Nicht autark machbar.</b> 3–4 kWh je Nacht = mehr als eine 400-Ah-Batterie hergibt, bei gleichzeitig halbierter Solarfläche</td><td>Weglassen. MaxxAir + Verdunkelung + 2 Ventilatoren; Hitze über Standortwahl und Landstrom lösen</td></tr>
+<tr><td>E-Roller laden</td><td>0,7–1,0 kWh je Ladung = ein Drittel eines guten Solartags</td><td>Grundsätzlich <b>während der Fahrt</b> (Ladebooster liefert 1,3 kW) oder am Landstrom. Off-Grid nur an Sonnentagen</td></tr>
+<tr><td>Induktion als Hauptkocher</td><td>600–900 Wh/Tag; braucht 3000-VA-Klasse</td><td>Induktion für Wasser/Schnelles, Kartuschenkocher für alles Lange (Nudeln, Schmoren)</td></tr>
+<tr><td>Airfryer</td><td>400–700 Wh je Nutzung, 1600 W Dauerlast</td><td>Machbar, aber Gerät bewusst mit ≤ 1500 W kaufen. Nicht parallel zu Induktion</td></tr>
+<tr><td>Kaffeemaschine</td><td>Siebträger mit Boiler ist der schlechteste Fall (Aufheizen + Warmhalten)</td><td>Kapsel/Filter (~50–130 Wh/Tag) oder Handhebel/Bialetti auf dem Kartuschenkocher (0 Wh)</td></tr>
+<tr><td>Winterautarkie</td><td>Solar liefert Nov–Feb 0,2–0,6 kWh/Tag — praktisch nichts</td><td>Im Winter ist der <b>Ladebooster die Hauptstromquelle</b>. Deshalb 100 A statt 50 A einplanen</td></tr>
+</table></div>
+
+<h4>Die wichtigste Designentscheidung</h4>
+<p><b>Zwei getrennte Energiepfade konsequent trennen:</b> alles was den ganzen Tag läuft
+(Kühlschrank, Heizung, Licht, Lüfter, Pumpe, <b>Laptop- und Tablet-Ladung über USB-C&nbsp;PD</b>) läuft
+rein auf 12&nbsp;V und braucht den Wechselrichter nie. Der Wechselrichter wird nur für die kurzen,
+großen 230-V-Lasten eingeschaltet und läuft ansonsten aus. Das spart allein
+<b>250–400&nbsp;Wh am Tag</b> gegenüber einem dauernd laufenden Wechselrichter und ist der Unterschied
+zwischen „geht gerade so“ und „muss nicht drüber nachdenken“.</p>
+<p>Konkret heißt das: <b>USB-C&nbsp;PD-Dosen mit 65–100&nbsp;W direkt aus 12&nbsp;V</b> am Arbeitsplatz und an
+beiden Bettseiten. Der Laptop lädt damit ohne Netzteil und ohne Wechselrichter, mit rund 15&nbsp;%
+weniger Verlust.</p>
+
+<h2 id="s2"><span class="no">2</span>Annahmen und Planungsgrundlagen</h2>
+<h4>Übernommen aus SPR-GA-01 (Grundriss) — gesichert</h4>
+<div class="tw"><table>
+<tr><th>Bereich</th><th class="num">X von…bis</th><th class="num">Y von…bis</th><th class="num">Z</th></tr>
+<tr><td>Bett fest / Auszug</td><td class="num">15 … 1705</td><td class="num">20 … 1620 / bis 2020</td><td class="num">OK Matratze 1115</td></tr>
+<tr><td>Technikbereich (Garage, Fahrerseite hinten)</td><td class="num">0 … 600</td><td class="num">0 … 700</td><td class="num">0 … 937</td></tr>
+<tr><td>Kühlschrankschrank</td><td class="num">0 … 580</td><td class="num">1640 … 2130</td><td class="num">0 … 900</td></tr>
+<tr><td>Sitzbank</td><td class="num">0 … 650</td><td class="num">2130 … 2630</td><td class="num">0 … 510</td></tr>
+<tr><td>Tisch</td><td class="num">0 … 900</td><td class="num">2630 … 3110</td><td class="num">OK 770</td></tr>
+<tr><td>Küchenblock + Wassertanks darunter</td><td class="num">1270 … 1720</td><td class="num">1640 … 2690</td><td class="num">0 … 900</td></tr>
+<tr><td>Schiebetürausschnitt</td><td class="num">Wand 1720</td><td class="num">1990 … 3250</td><td class="num">0 … 1818</td></tr>
+<tr><td>Eingangsbereich</td><td class="num">1270 … 1720</td><td class="num">2690 … 3250</td><td class="num">—</td></tr>
+<tr><td>Hängeschränke (6× CAMPANY, LED-Leiste dimmbar inkl.)</td><td class="num">0…340 / 1380…1720</td><td class="num">siehe Kap. 8</td><td class="num">1450 … 1820</td></tr>
+<tr><td>Gang</td><td class="num">580…1270 bzw. 650…1270</td><td class="num">—</td><td class="num">Stehhöhe 1979</td></tr>
+</table></div>
+
+<h4>Planungsannahmen — bewusst gesetzt, bitte gegenprüfen</h4>
+<ul>
+<li><b>Fensterlage:</b> Fahrerseite-Fenster liegt gegenüber der Schiebetür, also etwa Y&nbsp;2000–3200, Unterkante Z&nbsp;≈&nbsp;1020. Über dem Bett ist auf der Fahrerseite <b>freie Wand</b> — dort liegen die Bettkonsolen. <span class="pill" style="color:var(--var);border-color:var(--var)">prüfen</span></li>
+<li><b>MaxxAir</b> bei Y&nbsp;2600–3000, X&nbsp;660–1060 (mittig über dem Tisch), wie von dir vorgegeben.</li>
+<li><b>Dachnutzfläche für Solar:</b> Y&nbsp;250–2500 und Y&nbsp;3050–3400, Breite ≈&nbsp;1350&nbsp;mm zwischen den Dachsicken. <span class="pill" style="color:var(--var);border-color:var(--var)">prüfen</span></li>
+<li><b>Lichtmaschine W907:</b> Smart-Alternator mit variabler Spannung, 180–250&nbsp;A. Ein DC-DC-Ladebooster ist <b>zwingend</b>, eine einfache Trennrelais-Lösung funktioniert nicht.</li>
+<li><b>Bodenaufbau ≈ 30 mm</b> — darin liegt kein Kabel (Quetschgefahr, keine Wartung). Alle Leitungen laufen in einem Kanal hinter den Möbeln.</li>
+<li><b>Zulässiges Gesamtgewicht 3,5 t</b> angenommen. Die Elektrik wiegt je nach Variante 100–230&nbsp;kg — das ist ein relevanter Anteil der Zuladung. <span class="pill" style="color:var(--var);border-color:var(--var)">Restzuladung prüfen</span></li>
+</ul>
+
+<h4>Offene Punkte, die die Auslegung noch verschieben können</h4>
+<ol>
+<li><b>Wie oft wirklich Klimaanlage?</b> Das ist die teuerste Einzelentscheidung im ganzen Plan.</li>
+<li><b>Reiseprofil:</b> Wie viele Standtage am Stück ohne Fahren? Bei ≤ 2 Standtagen reicht Option A locker, bei 4–5 Standtagen braucht es Option B.</li>
+<li><b>Winterreisen ja/nein?</b> Bestimmt Batterieheizung und Ladeboostergröße.</li>
+<li><b>E-Roller-Akkukapazität</b> (400 Wh oder 1000 Wh?) — Faktor 2,5 im Ladebedarf.</li>
+<li><b>Genaue Fensterunterkante</b> — bestimmt, ob die Wandpaneele bei Z&nbsp;850–980 passen.</li>
+</ol>
+<h2 id="s3"><span class="no">3</span>Verbrauchs- und Lastanalyse</h2>
+<p>Gerechnet wird ab Batterie, also inklusive Wandlungsverlusten (Wechselrichter ≈ 90&nbsp;%,
+USB-C&nbsp;PD aus 12&nbsp;V ≈ 93&nbsp;%). Zwei Szenarien: <b>Sommer autark</b> (kein Heizen, Kühlschrank
+arbeitet hart) und <b>Übergangszeit</b> (Heizung läuft, Kühlschrank entspannt).</p>
+
+<h4>Tagesbilanz</h4>
+<div class="tw"><table>
+<tr><th>Verbraucher</th><th>Ebene</th><th class="num">P (W)</th><th>Nutzung/Tag</th><th class="num">Wh Sommer</th><th class="num">Wh Übergang</th><th>Bemerkung</th></tr>
+<tr><td>Kühlschrank Dometic NRX 60C</td><td><span class="pill pDC">12 V</span></td><td class="num">45</td><td>ED 35–45 %</td><td class="num">450</td><td class="num">330</td><td>bei 32 °C Außentemperatur bis 700 Wh</td></tr>
+<tr><td>Dieselheizung (nur Strom)</td><td><span class="pill pDC">12 V</span></td><td class="num">14–35</td><td>0 / 8 h</td><td class="num">0</td><td class="num">250</td><td>Glühkerze beim Start ~110 W / 2 min</td></tr>
+<tr><td>Wasserpumpe</td><td><span class="pill pDC">12 V</span></td><td class="num">60</td><td>15 min</td><td class="num">15</td><td class="num">15</td><td>Spitze 5 A</td></tr>
+<tr><td>MaxxAir Dachlüfter</td><td><span class="pill pDC">12 V</span></td><td class="num">10–35</td><td>6 h / 1 h</td><td class="num">130</td><td class="num">25</td><td>Stufe 3–5 realistisch</td></tr>
+<tr><td>2 × 12-V-Ventilator</td><td><span class="pill pDC">12 V</span></td><td class="num">2 × 8</td><td>4 h</td><td class="num">65</td><td class="num">0</td><td>Bett + Übergangszone</td></tr>
+<tr><td>Beleuchtung gesamt (LED)</td><td><span class="pill pDC">12 V</span></td><td class="num">≈ 25</td><td>4 h / 5,5 h</td><td class="num">100</td><td class="num">140</td><td>alle Zonen zusammen, gedimmt weniger</td></tr>
+<tr><td>Steuerung, Shunt, BMS, Panel</td><td><span class="pill pDC">12 V</span></td><td class="num">2</td><td>24 h</td><td class="num">50</td><td class="num">50</td><td>Dauerlast, wird gern vergessen</td></tr>
+<tr><td>Smartphones 2×, Zahnbürsten</td><td><span class="pill pU">USB-C</span></td><td class="num">—</td><td>—</td><td class="num">45</td><td class="num">45</td><td>—</td></tr>
+<tr><td>iPads 2×</td><td><span class="pill pU">USB-C</span></td><td class="num">30</td><td>je 1 Ladung</td><td class="num">80</td><td class="num">80</td><td>—</td></tr>
+<tr><td>Laptop</td><td><span class="pill pU">USB-C PD</span></td><td class="num">65</td><td>3 h Ladung</td><td class="num">200</td><td class="num">200</td><td><b>ohne Wechselrichter</b> — spart ~35 Wh/Tag</td></tr>
+<tr><td>Kameraakkus + Drohne</td><td><span class="pill pU">USB-C</span></td><td class="num">—</td><td>im Mittel</td><td class="num">100</td><td class="num">100</td><td>Drohnentag: bis 250 Wh</td></tr>
+<tr><td>Kaffee (Kapsel/Filter)</td><td><span class="pill pAC">230 V</span></td><td class="num">1300</td><td>2 × 3 min</td><td class="num">130</td><td class="num">130</td><td>Siebträger wäre 300–500 Wh</td></tr>
+<tr><td>Induktion, 1 Platte</td><td><span class="pill pAC">230 V</span></td><td class="num">1400–2100</td><td>20 min</td><td class="num">600</td><td class="num">600</td><td>entfällt komplett bei Kartuschenkocher</td></tr>
+<tr><td>Airfryer</td><td><span class="pill pAC">230 V</span></td><td class="num">1500</td><td>jeden 2. Tag 20 min</td><td class="num">270</td><td class="num">270</td><td>Nutzungstag: 550 Wh</td></tr>
+<tr><td>Wechselrichter-Standby</td><td><span class="pill pAC">230 V</span></td><td class="num">12 (Eco)</td><td>10 h</td><td class="num">120</td><td class="num">120</td><td>ohne Eco-Modus 24 h → <b>480 Wh</b></td></tr>
+<tr class="sum"><td colspan="4">Summe Basistag (ohne Klima, ohne E-Roller)</td><td class="num">2355</td><td class="num">2355</td><td>≈ 2,4 kWh</td></tr>
+<tr><td>E-Roller, 1 Ladung</td><td><span class="pill pAC">230 V</span></td><td class="num">150</td><td>5 h</td><td class="num">+750</td><td class="num">+750</td><td>bei 1000-Wh-Akku bis 1150 Wh</td></tr>
+<tr><td>Dachklimaanlage 12 V</td><td><span class="pill pDC">12 V</span></td><td class="num">Ø 550</td><td>8 h Nacht</td><td class="num">+3500</td><td class="num">—</td><td>Anlaufspitze ~1200 W</td></tr>
+<tr class="sum"><td colspan="4">„Alles-Tag“ mit E-Roller und Klimanacht</td><td class="num">6605</td><td class="num">—</td><td>≈ 6,6 kWh</td></tr>
+</table></div>
+
+<h4>Spitzenlasten und kritische Kombinationen</h4>
+<div class="tw"><table>
+<tr><th>Situation</th><th class="num">Leistung</th><th class="num">Strom @12 V</th><th>Bewertung</th></tr>
+<tr><td>Induktion volle Stufe</td><td class="num">2100 W</td><td class="num">≈ 195 A</td><td>Braucht 3000-VA-Klasse. Mit 2000 VA nur bis Stufe ~7</td></tr>
+<tr><td>Airfryer</td><td class="num">1500 W</td><td class="num">≈ 140 A</td><td>OK ab 2000 VA, sofern nichts parallel läuft</td></tr>
+<tr><td>Kaffeemaschine</td><td class="num">1300 W</td><td class="num">≈ 120 A</td><td>unkritisch</td></tr>
+<tr><td><b>Induktion + Kaffee gleichzeitig</b></td><td class="num">3400 W</td><td class="num">≈ 315 A</td><td><b>Kritisch.</b> Auch 3000 VA reicht nicht dauerhaft → Bedienregel: nur ein Großverbraucher</td></tr>
+<tr><td>Induktion + Kühlschrankanlauf + Pumpe</td><td class="num">≈ 2300 W</td><td class="num">≈ 215 A</td><td>Grenzwertig bei 2000 VA, unkritisch bei 3000 VA</td></tr>
+<tr><td>Klimaanlage Anlauf + Kühlschrankanlauf</td><td class="num">≈ 1350 W</td><td class="num">≈ 125 A</td><td>elektrisch unkritisch, energetisch der Killer</td></tr>
+<tr><td>Laden am Landstrom 16 A + Induktion</td><td class="num">3680 W Netz</td><td class="num">—</td><td>MultiPlus regelt Ladestrom automatisch herunter (PowerControl)</td></tr>
+<tr><td>Campingplatz mit 6 A Anschluss + Induktion</td><td class="num">1380 W Netz</td><td class="num">—</td><td><b>PowerAssist</b> ergänzt aus der Batterie → funktioniert trotzdem. Starkes Argument für MultiPlus statt separatem Wechselrichter</td></tr>
+</table></div>
+
+<h4>Erzeugung — was realistisch reinkommt</h4>
+<div class="tw"><table>
+<tr><th>Quelle</th><th class="num">Hochsommer</th><th class="num">April / September</th><th class="num">Nov–Feb</th><th>Anmerkung</th></tr>
+<tr><td>Solar 700 Wp, flach auf dem Dach</td><td class="num">2,4–3,2 kWh</td><td class="num">1,1–1,8 kWh</td><td class="num">0,2–0,6 kWh</td><td>flach liegend, mit Verschmutzung und Teilverschattung gerechnet</td></tr>
+<tr><td>Solar 350 Wp (Restfläche neben Dachklima)</td><td class="num">1,2–1,6 kWh</td><td class="num">0,5–0,9 kWh</td><td class="num">0,1–0,3 kWh</td><td>deckt nicht einmal Kühlschrank + Standby</td></tr>
+<tr><td>Ladebooster 50 A, 1 h Fahrt</td><td class="num">0,65 kWh</td><td class="num">0,65 kWh</td><td class="num">0,65 kWh</td><td>wetterunabhängig</td></tr>
+<tr><td>Ladebooster 100 A, 2 h Fahrt</td><td class="num">2,6 kWh</td><td class="num">2,6 kWh</td><td class="num">2,6 kWh</td><td><b>im Winter die Hauptquelle</b></td></tr>
+<tr><td>Landstrom, MultiPlus 120 A</td><td class="num">1,5 kW dauerhaft</td><td class="num">—</td><td class="num">—</td><td>400 Ah von 20 → 95 % in ca. 3,5 h</td></tr>
+</table></div>
+<div class="hin"><b>Die entscheidende Zahl:</b> Basistag 2,4&nbsp;kWh gegen 2,4–3,2&nbsp;kWh Solar im Hochsommer.
+Das ist im Sommer <b>gerade eben ausgeglichen</b> — mit Puffer nur, wenn einmal am Tag auf Gas gekocht
+wird. In der Übergangszeit fehlen täglich rund 1&nbsp;kWh, die aus Fahrstrom kommen müssen. Deshalb ist
+der Ladebooster kein Nice-to-have, sondern gleichwertige Hauptquelle.</div>
+
+<h2 id="s4"><span class="no">4</span>Empfehlung für das Energiesystem</h2>
+
+<div class="tw"><table>
+<tr><th>Komponente</th><th>Empfehlung</th><th>Begründung</th></tr>
+<tr><td><b>Batteriechemie</b></td><td>LiFePO4 (LFP), mit <b>integrierter Zellheizung</b></td><td>Bei 2,4 kWh Tagesumsatz ist Blei/AGM disqualifiziert (halbe nutzbare Kapazität, dreifaches Gewicht, kein Schnellladen). Heizung, weil LFP unter 0 °C nicht geladen werden darf und der Technikbereich in der Garage nachts auskühlt.</td></tr>
+<tr><td><b>Kapazität</b></td><td><b>400 Ah / 12 V = 5,1 kWh</b> (Option A: 300 Ah)</td><td>2 Standtage ohne Sonne bei vollem Komfort. 300 Ah reicht für 1,3 Tage — spürbar knapper und limitiert zusätzlich den Entladestrom. Wichtig: Dauerentladestrom <b>≥ 250 A</b> spezifizieren, nicht nur die Kapazität.</td></tr>
+<tr><td><b>Solar</b></td><td><b>700–800 Wp</b>, 2 Strings, 2 × MPPT</td><td>Maximum, das mit MaxxAir aufs L2H2-Dach passt. Zwei getrennte MPPT statt einem großen: bei Teilverschattung durch Lüfter/Dachträger bricht dann nur ein String ein. Starre Module, nicht flexibel (Lebensdauer).</td></tr>
+<tr><td><b>Wechselrichter</b></td><td><b>Victron MultiPlus-II 12/3000/120</b></td><td>2400 W Dauerleistung deckt Induktion und Airfryer. Enthält gleichzeitig 120-A-Landstromladegerät, Umschaltautomatik und PowerAssist — spart ein separates Ladegerät und ca. 6 kg. Eco-Modus zwingend nutzen.</td></tr>
+<tr><td><b>Ladebooster</b></td><td><b>2 × Victron Orion XS 12/12-50 = 100 A</b></td><td>1,3 kW während der Fahrt. Bei einem Reiseprofil mit regelmäßigen Etappen die verlässlichste Quelle und im Winter die einzige. Der W907-Smart-Alternator braucht zwingend DC-DC, ein Trennrelais lädt nicht voll.</td></tr>
+<tr><td><b>Landstrom</b></td><td>CEE-Einspeisung 16 A + FI/LS, Ladung über MultiPlus</td><td>Eingangsstrom im Panel einstellbar (6/10/16 A) — damit funktioniert auch die schwache Campingplatzsäule. PowerAssist ergänzt fehlende Leistung aus der Batterie.</td></tr>
+<tr><td><b>Systemspannung</b></td><td><b>12 V</b></td><td>Kühlschrank, Heizung, Pumpe, Licht, Lüfter sind alle 12 V. 24 V würde die Ströme halbieren, erzwingt aber einen 24→12-Wandler für alles und einen aufwendigeren Weg von der 12-V-Lichtmaschine. 24 V lohnt erst ab ~4 kW Wechselrichterleistung (Option C).</td></tr>
+<tr><td><b>Klimaanlage</b></td><td><b>Bewusst weglassen</b></td><td>Siehe Kurzfazit. Wenn sie später doch kommen soll: Leerrohr 50 mm zum Dach und ein 50-mm²-Reservekreis am Busbar vorsehen — dann kostet die Nachrüstung nur Solarfläche, keine Demontage.</td></tr>
+</table></div>
+
+<figure class="zbox"><div class="zk"><b>E-01 · Systemschema (Einlinie)</b><span>Empfehlung Option B · blau = 12 V DC, rot = 230 V AC, grau = Signal/Daten</span><span>SPR-EL-01-E01</span></div>
+<svg viewBox="-60 -80 2620 1560" style="font-size:34px" role="img" aria-label="Systemschema">
+<defs><marker id="e1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,1.5 L9,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+
+<!-- Spalte 1: Quellen -->
+<rect class="blk" x="0" y="40" width="360" height="140" rx="8"/>
+<text class="lbl" x="22" y="95">Solar 700–800 Wp</text><text class="dt2" x="22" y="150">2 × ~390 Wp</text>
+<rect class="blk" x="0" y="250" width="360" height="140" rx="8"/>
+<text class="lbl" x="22" y="305">Lichtmaschine</text><text class="dt2" x="22" y="360">W907 Smart-Alt.</text>
+<rect class="blkAC" x="0" y="640" width="360" height="140" rx="8"/>
+<text class="lbl" x="22" y="695">Landstrom CEE</text><text class="dt2" x="22" y="750">16 A, Fahrerseite</text>
+
+<!-- Spalte 2: Wandler -->
+<rect class="blk" x="500" y="20" width="360" height="90" rx="8"/><text class="lbl" x="522" y="78">MPPT 100/30</text>
+<rect class="blk" x="500" y="130" width="360" height="90" rx="8"/><text class="lbl" x="522" y="188">MPPT 100/30</text>
+<rect class="blk" x="500" y="250" width="360" height="140" rx="8"/>
+<text class="lbl" x="522" y="305">2 × Orion XS</text><text class="dt2" x="522" y="360">12/12-50 → 100 A</text>
+<rect class="blkAC" x="500" y="640" width="360" height="140" rx="8"/>
+<text class="lbl" x="522" y="695">FI 30 mA Typ A</text><text class="dt2" x="522" y="750">+ LS B16</text>
+
+<g class="wireDC">
+<path d="M360,110 L500,65" marker-end="url(#e1)"/><path d="M360,110 L500,175" marker-end="url(#e1)"/>
+<path d="M360,320 L500,320" marker-end="url(#e1)"/>
+</g>
+<g class="wireAC"><path d="M360,710 L500,710" marker-end="url(#e1)"/></g>
+
+<!-- Busbar -->
+<rect class="blk" x="1020" y="20" width="150" height="560" rx="8" style="fill:var(--grid)"/>
+<text class="lbl" x="1095" y="300" transform="rotate(-90 1095 300)">DC-Hauptverteiler</text>
+<g class="wireDC">
+<path d="M860,65 L1020,90" marker-end="url(#e1)"/><path d="M860,175 L1020,180" marker-end="url(#e1)"/>
+<path d="M860,320 L1020,300" marker-end="url(#e1)"/>
+</g>
+<text class="dt2" x="878" y="45">40 A</text>
+<text class="dt2" x="878" y="272">2 × 80 A</text>
+
+<!-- Spalte 4 -->
+<rect class="blk" x="1330" y="20" width="470" height="250" rx="8"/>
+<text class="lbl" x="1352" y="75">12-V-Unterverteilung</text>
+<text class="dt2" x="1352" y="130">16 Sicherungen, 2 frei</text>
+<text class="dt2" x="1352" y="180">Kühlschrank, Heizung,</text>
+<text class="dt2" x="1352" y="230">Pumpe, Licht, Lüfter</text>
+<rect class="blk" x="1330" y="340" width="470" height="200" rx="8"/>
+<text class="lbl" x="1352" y="395">MultiPlus-II 12/3000</text>
+<text class="dt2" x="1352" y="450">2400 W dauerhaft, Eco</text>
+<text class="dt2" x="1352" y="505">Ladegerät 120 A</text>
+<g class="wireDC">
+<path d="M1170,120 L1330,120" marker-end="url(#e1)"/>
+<path d="M1170,430 L1330,430" marker-end="url(#e1)"/>
+</g>
+<text class="dt2" x="1182" y="98">16 mm²</text>
+<text class="dt2" x="1182" y="408">95 mm²</text>
+
+<!-- Batterie -->
+<rect class="blk" x="1020" y="900" width="490" height="200" rx="8"/>
+<text class="lbl" x="1042" y="955">LiFePO4 400 Ah / 12 V</text>
+<text class="dt2" x="1042" y="1010">5,1 kWh, beheizt</text>
+<text class="dt2" x="1042" y="1060">Class-T 400 A am Pol</text>
+<g class="wireDC"><path d="M1095,580 L1095,900" marker-end="url(#e1)"/></g>
+<text class="dt2" x="1115" y="760">95 mm²</text>
+<rect class="blk" x="1580" y="920" width="330" height="120" rx="8"/>
+<text class="lbl" x="1602" y="975">SmartShunt</text><text class="dt2" x="1602" y="1020">500 A, im Minus</text>
+<g class="wireDC"><path d="M1510,980 L1580,980"/></g>
+<rect class="blk" x="1020" y="1180" width="380" height="140" rx="8"/>
+<text class="lbl" x="1042" y="1235">Minus-Busbar</text><text class="dt2" x="1042" y="1285">Sternpunkt · Chassis 35</text>
+<g class="wireDC"><path d="M1095,1100 L1095,1180"/></g>
+<rect class="blk" x="1470" y="1180" width="440" height="140" rx="8"/>
+<text class="lbl" x="1492" y="1235">Cerbo GX + Touch</text><text class="dt2" x="1492" y="1285">Panel am Eingang</text>
+<g class="wireS" style="stroke-dasharray:10 8">
+<path d="M1745,1040 L1745,1180"/>
+<path d="M680,220 L680,1250 L1470,1250"/>
+</g>
+
+<!-- 230 V Weg -->
+<g class="wireAC"><path d="M860,710 L1565,710 L1565,540" marker-end="url(#e1)"/></g>
+<text class="dt2" x="880" y="688">3 × 2,5 mm²</text>
+
+<!-- Spalte 5 -->
+<rect class="blk" x="1960" y="20" width="470" height="250" rx="8" style="stroke-dasharray:14 10"/>
+<text class="lbl" x="1982" y="75">12-V-Verbraucher</text>
+<text class="dt2" x="1982" y="130">USB-C PD 65/100 W</text>
+<text class="dt2" x="1982" y="180">ohne Wechselrichter</text>
+<text class="dt2" x="1982" y="230">5 Lichtzonen, 2 Lüfter</text>
+<rect class="blkAC" x="1960" y="340" width="470" height="250" rx="8"/>
+<text class="lbl" x="1982" y="395">230-V-Verteilung</text>
+<text class="dt2" x="1982" y="450">LS B16 Induktion</text>
+<text class="dt2" x="1982" y="500">LS B10 Steckdosen</text>
+<text class="dt2" x="1982" y="550">LS B10 E-Roller</text>
+<rect class="blk" x="1960" y="670" width="470" height="150" rx="8" style="stroke-dasharray:14 10"/>
+<text class="lbl" x="1982" y="725">RESERVE 150 A</text>
+<text class="dt2" x="1982" y="780">für spätere Klimaanlage</text>
+<g class="wireDC"><path d="M1800,145 L1960,145" marker-end="url(#e1)"/></g>
+<g class="wireAC"><path d="M1800,440 L1960,440" marker-end="url(#e1)"/></g>
+<g class="wireDC" style="stroke-dasharray:14 10"><path d="M1170,540 L1880,620 L1880,745 L1960,745" marker-end="url(#e1)"/></g>
+
+<text class="dt2" x="0" y="1400">Regel: alles was dauerhaft läuft, hängt am 12-V-Zweig. Der MultiPlus wird nur für Induktion, Airfryer, Kaffee und E-Roller eingeschaltet.</text>
+<text class="dt2" x="0" y="1450">Alle Sicherungen sitzen so nah wie möglich an der Quelle. Class-T am Batteriepluspol, weil LiFePO4 im Kurzschluss mehrere tausend Ampere liefert.</text>
+</svg>
+</figure>
+
+<h4>Warum diese Architektur — kurz begründet</h4>
+<ul>
+<li><b>MultiPlus statt Wechselrichter + separates Ladegerät:</b> ein Gerät, ein Kabelsatz, automatische Netzvorrangschaltung, PowerAssist am schwachen Landstrom. Kostet ähnlich viel wie zwei Einzelgeräte, spart aber Platz, Gewicht und eine Fehlerquelle.</li>
+<li><b>Zwei MPPT statt einem:</b> auf einem Van-Dach ist Teilverschattung der Normalfall (Lüfter, Dachluke, Bäume). Zwei getrennte Regler halbieren den Einbruch und geben Redundanz.</li>
+<li><b>USB-C PD direkt aus 12 V:</b> Laptop, iPads, Kameras und Drohne laden ohne den Wechselrichter. Das ist der größte einzelne Effizienzhebel im ganzen Konzept.</li>
+<li><b>Class-T statt MEGA am Batteriepol:</b> LiFePO4 hat einen extrem hohen Kurzschlussstrom; nur Class-T hat das nötige Ausschaltvermögen.</li>
+<li><b>Reservekreis von Anfang an:</b> Busbar, Hauptsicherung und Batteriefach werden für die Endausbaustufe dimensioniert. Nachträglich LiFePO4 parallel zu bereits gealterten Zellen zu schalten ist die häufigste teure Fehlentscheidung — <b>lieber jetzt einmal groß kaufen</b>.</li>
+</ul>
+<h2 id="s5"><span class="no">5</span>Layout-Plan nach Zonen</h2>
+<p>Alle Positionen als X/Y/Z in mm im Koordinatensystem von SPR-GA-01.
+<span class="pill pDC">12 V</span> <span class="pill pAC">230 V</span> <span class="pill pU">USB-C</span> ·
+<b>fest</b> = jetzt einbauen, <b>opt.</b> = Leerrohr legen, später nachrüstbar.</p>
+
+<h3>Zone 1 · Fahrerhaus / Drehsitze — ab Y 3110</h3>
+<div class="tw"><table>
+<tr><th>Element</th><th class="num">Anz.</th><th>Art</th><th>Position</th><th>Warum dort</th><th>Status</th></tr>
+<tr><td>USB-C-PD-Doppeldose 2 × 45 W</td><td class="num">1</td><td><span class="pill pU">USB-C</span></td><td>Stirnseite des Fahrerseiten-Möbels, X 60, <b>Y 3110</b>, Z 700</td><td>Von beiden gedrehten Sitzen erreichbar; lädt Telefone während der Fahrt, ohne dass Kabel über den Tisch laufen</td><td>fest</td></tr>
+<tr><td>12-V-Bordsteckdose</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>daneben, X 60, Y 3110, Z 620</td><td>Kompressor, Kühltasche, Ladeschale — Dinge, die 12 V direkt wollen</td><td>fest</td></tr>
+<tr><td>Handyhalterung Armaturenbrett</td><td class="num">2</td><td>—</td><td>Fahrzeug-Serienpositionen</td><td>Navigation; nicht Teil der Wohnraum-Elektrik</td><td>opt.</td></tr>
+</table></div>
+<div class="hin"><b>Bewusst weggelassen:</b> keine 230-V-Steckdose im Fahrerhaus. Sie verleitet dazu, den
+Wechselrichter während der Fahrt dauerhaft laufen zu lassen — genau das, was das Konzept vermeiden will.</div>
+
+<h3>Zone 2 · Sitzgruppe / Tisch / Arbeitsplatz — Y 2130–3110</h3>
+<div class="tw"><table>
+<tr><th>Element</th><th class="num">Anz.</th><th>Art</th><th>Position</th><th>Warum dort</th><th>Status</th></tr>
+<tr><td><b>Arbeitspaneel</b> (Sammelblende)</td><td class="num">1</td><td>—</td><td>Fahrerseitenwand, X 20, <b>Y 2820–3020</b>, Z 850–970</td><td>Über dem Bankpolster (510) und unter der Fensterunterkante (~1020). Aus Bank <i>und</i> gedrehtem Fahrersitz erreichbar, Kabel hängen nicht im Durchgang</td><td>fest</td></tr>
+<tr><td>Schuko im Arbeitspaneel</td><td class="num">2</td><td><span class="pill pAC">230 V</span></td><td>Y 2850 / 2950, Z 900</td><td>Laptopnetzteil als Rückfall, Ladegerät Drohne, Kamerazubehör</td><td>fest</td></tr>
+<tr><td>USB-C PD 100 W</td><td class="num">1</td><td><span class="pill pU">USB-C</span></td><td>Y 2880, Z 950</td><td><b>Kernelement:</b> lädt den Laptop direkt aus 12 V, Wechselrichter bleibt aus</td><td>fest</td></tr>
+<tr><td>USB-C PD 45 W</td><td class="num">1</td><td><span class="pill pU">USB-C</span></td><td>Y 2930, Z 950</td><td>iPad/Telefon parallel</td><td>fest</td></tr>
+<tr><td>12-V-Dose</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>Y 2990, Z 900</td><td>Tischventilator, Lötkolben, Reserve</td><td>fest</td></tr>
+<tr><td>Dimmer Licht Sitzgruppe</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>Y 3040, Z 950</td><td>Am Sitzplatz, nicht an der Tür — man dimmt im Sitzen</td><td>fest</td></tr>
+<tr><td>iPad-Ballkopfbasis</td><td class="num">1</td><td>—</td><td>an der Tisch-Wandschiene, Y 2900, Z ~810</td><td>iPad als zweiter Bildschirm neben dem Laptop; nutzt die vorhandene CAMPANY-Schiene, keine zusätzliche Wandbohrung</td><td>fest</td></tr>
+<tr><td>Schuko unter der Sitzbank</td><td class="num">1</td><td><span class="pill pAC">230 V</span></td><td>X 600, Y 2400, Z 300</td><td>Reserve für Akkuladegeräte, die lange und unsichtbar laden sollen</td><td>opt.</td></tr>
+</table></div>
+
+<h3>Zone 3 · Küchenbereich — Y 1640–2690, Beifahrerseite</h3>
+<div class="hin"><b>Planerische Besonderheit:</b> Über dem Küchenblock gibt es fast keine Wand — der
+Schiebetürausschnitt beginnt bei Y&nbsp;1990. Nutzbar ist nur der <b>350-mm-Wandstreifen zwischen Bett
+und Türöffnung (Y 1640–1990)</b>. Genau dorthin gehört das Küchen-Bedienpaneel. Alles andere muss von
+der Decke oder aus der Möbelfront kommen.</div>
+<div class="tw"><table>
+<tr><th>Element</th><th class="num">Anz.</th><th>Art</th><th>Position</th><th>Warum dort</th><th>Status</th></tr>
+<tr><td><b>Küchenpaneel</b></td><td class="num">1</td><td>—</td><td>Wand X 1700, <b>Y 1760–1960</b>, Z 1040–1160</td><td>Der einzige Wandstreifen; 140 mm über der Arbeitsplatte, spritzwasserfern, aus dem Stehen bedienbar</td><td>fest</td></tr>
+<tr><td>Schuko 230 V (Induktion / Airfryer)</td><td class="num">2</td><td><span class="pill pAC">230 V</span></td><td>Y 1800 / 1900, Z 1080</td><td>Eigener B16-Kreis. Die Induktionsplatte steht dann auf dem hinteren Plattenabschnitt</td><td>fest</td></tr>
+<tr><td>USB-C PD 45 W</td><td class="num">1</td><td><span class="pill pU">USB-C</span></td><td>Y 1860, Z 1140</td><td>iPad-Rezept lädt beim Kochen</td><td>fest</td></tr>
+<tr><td>Schalter Arbeitslicht + Wasserpumpe (mit Kontroll-LED)</td><td class="num">2</td><td><span class="pill pDC">12 V</span></td><td>Y 1780 / 1940, Z 1140</td><td>Kontroll-LED an der Pumpe ist Pflicht — eine vergessene Pumpe entleert den Tank in die Bilge</td><td>fest</td></tr>
+<tr><td>Tankanzeige / Statusdisplay</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>Y 1880, Z 1100</td><td>Frisch- und Abwasser dort ablesen, wo man Wasser verbraucht</td><td>fest</td></tr>
+<tr><td>Deckenspots über der Arbeitsplatte</td><td class="num">2</td><td><span class="pill pDC">12 V</span></td><td>X 1400, <b>Y 2050 und 2450</b>, Decke</td><td>Leuchten von vorn auf die Platte, nicht in den eigenen Schatten. 4000 K neutralweiß</td><td>fest</td></tr>
+<tr><td>LED-Profil Dachkante über der Schiebetür</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>X 1710, Y 2000–2650, Z ~1850</td><td>Indirektes Licht über Küche und Eingang. <b>Höhe prüfen:</b> über dem Türausschnitt bleiben nur ~190 mm</td><td>opt.</td></tr>
+<tr><td>Sockelbeleuchtung Küchenblock</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>X 1280, Y 1660–2670, Z 60</td><td>Nachtlicht und Orientierung; blendet niemanden</td><td>fest</td></tr>
+<tr><td>Schuko an der Möbelfront</td><td class="num">1</td><td><span class="pill pAC">230 V</span></td><td>X 1280, <b>Y 2560</b>, Z 760</td><td>Kaffeemaschine und Nutzung an der ausgeklappten Arbeitsplattenverlängerung / bei offener Tür</td><td>fest</td></tr>
+<tr><td>iPad-Ballkopfbasis Küche</td><td class="num">1</td><td>—</td><td>Wand X 1705, Y 1850, Z 1300</td><td>Rezept auf Augenhöhe, außerhalb des Spritzbereichs</td><td>fest</td></tr>
+</table></div>
+
+<h3>Zone 4 · Bettbereich links (Fahrerseite, X 0–860)</h3>
+<div class="tw"><table>
+<tr><th>Element</th><th class="num">Anz.</th><th>Art</th><th>Position</th><th>Warum dort</th><th>Status</th></tr>
+<tr><td><b>Bettkonsole links</b></td><td class="num">1</td><td>—</td><td>Wand X 20, <b>Y 260–520</b>, Z 1170–1340</td><td>Kopfende. 55 mm über der Matratzenoberkante (1115) — im Liegen mit ausgestrecktem Arm erreichbar, ohne sich aufzusetzen</td><td>fest</td></tr>
+<tr><td>USB-C PD 45 W + USB-C 20 W</td><td class="num">2</td><td><span class="pill pU">USB-C</span></td><td>Y 300 / 360, Z 1250</td><td>Ein Anschluss für das Tablet über Nacht, einer fürs Telefon</td><td>fest</td></tr>
+<tr><td>Ablage 300 × 140 mit Qi-Pad 15 W (bündig eingelassen)</td><td class="num">1</td><td><span class="pill pU">USB-C</span></td><td>Y 260–560, OK Z 1160</td><td>Telefonablage und induktives Laden in einem. Speisung aus einem versteckten USB-C hinter der Blende</td><td>fest</td></tr>
+<tr><td>Nische Apple-Watch-Puck</td><td class="num">1</td><td><span class="pill pU">USB-C</span></td><td>in der Ablage, Y 500</td><td>Der Watch-Puck funktioniert <b>nicht</b> durch Holz — er braucht eine offene Mulde. AirPods laden dagegen problemlos auf dem Qi-Pad</td><td>fest</td></tr>
+<tr><td>Leselicht Schwanenhals, dimmbar</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>Y 420, Z 1340</td><td>Über Schulterhöhe, richtbar auf das Buch statt auf den Partner</td><td>fest</td></tr>
+<tr><td>Taster: Leselicht / Nachtlicht / <b>Master-Aus</b></td><td class="num">3</td><td><span class="pill pDC">12 V</span></td><td>Y 470–520, Z 1250</td><td>Master-Aus schaltet über ein bistabiles Relais die gesamte Innenbeleuchtung — kein Aufstehen mehr</td><td>fest</td></tr>
+<tr><td>Ventilator 12 V, schwenkbar</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>Decke/Wandübergang, <b>X 860, Y 300</b>, Z ~1550</td><td>Mittig am Kopfende: erreicht beide Bettseiten, ein Gerät statt zwei. Stufenschalter am Gerät</td><td>fest</td></tr>
+<tr><td>iPad-Ballkopfbasis Fußseite</td><td class="num">1</td><td>—</td><td>Wand X 20, <b>Y 1450</b>, Z 1350</td><td>Blickrichtung beim Liegen (Kopf am Heck). Der Arm schwenkt über die Bettmitte, beide sehen mit</td><td>fest</td></tr>
+</table></div>
+
+<h3>Zone 5 · Bettbereich rechts (Beifahrerseite, X 860–1720)</h3>
+<p>Spiegelbildlich identisch zu Zone 4 — bewusst <b>gleiche Teile, gleiche Positionen</b>, damit sich
+niemand daran gewöhnen muss, auf welcher Seite was ist:</p>
+<div class="tw"><table>
+<tr><th>Element</th><th class="num">Anz.</th><th>Art</th><th>Position</th><th>Warum dort</th><th>Status</th></tr>
+<tr><td>Bettkonsole rechts, identisch bestückt</td><td class="num">1</td><td>—</td><td>Wand X 1700, Y 260–520, Z 1170–1340</td><td>Hier unter dem Hängeschrank — die Konsole kann direkt an dessen Unterboden angeschraubt werden</td><td>fest</td></tr>
+<tr><td>2 × USB-C, Qi-Ablage, Watch-Nische, Leselicht, 3 Taster</td><td class="num">je 1</td><td><span class="pill pU">USB-C</span> <span class="pill pDC">12 V</span></td><td>gespiegelt</td><td>siehe Zone 4</td><td>fest</td></tr>
+<tr><td>iPad-Ballkopfbasis</td><td class="num">1</td><td>—</td><td>Unterseite Hängeschrank, X 1560, Y 1450</td><td>zweite Blickposition, falls jemand allein im Bett schaut</td><td>fest</td></tr>
+<tr><td>Ventilator „Übergangszone“</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td><b>X 80, Y 1680</b>, Z ~1500 (Fahrerseite, über dem Kühlschrankschrank)</td><td>Genau an der Grenze Bett/Wohnraum: schwenkt nach hinten aufs Bett oder nach vorn in die Sitzgruppe. Erfüllt beide Wünsche mit einem Gerät</td><td>fest</td></tr>
+</table></div>
+
+<h3>Zone 6 · Heckbereich / Türen — Y 0–700</h3>
+<div class="tw"><table>
+<tr><th>Element</th><th class="num">Anz.</th><th>Art</th><th>Position</th><th>Warum dort</th><th>Status</th></tr>
+<tr><td>Garagenleuchten mit Türkontakt</td><td class="num">2</td><td><span class="pill pDC">12 V</span></td><td>Hecktürzargen, X 250 und 1450, Y 60, Z 750</td><td>Licht geht beim Öffnen automatisch an — der meistvergessene Komfort im Heck</td><td>fest</td></tr>
+<tr><td><b>Schuko „E-Roller“</b></td><td class="num">1</td><td><span class="pill pAC">230 V</span></td><td>X 700, Y 350, Z 420</td><td>Eigener LS-Kreis; der Roller lädt in der Garage, nicht im Wohnraum. Ladegerät wird warm — deshalb mit Abstand zu Textilien montieren</td><td>fest</td></tr>
+<tr><td>12-V-Dose Garage</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>X 800, Y 350, Z 420</td><td>Kompressor fürs Rad, Arbeitsleuchte</td><td>fest</td></tr>
+<tr><td>Außenleuchte Heck</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>außen über den Hecktüren, X 860</td><td>Beladen und Kochen am Heck bei Dunkelheit</td><td>fest</td></tr>
+<tr><td>Außenleuchte / Markisenlicht Schiebetür</td><td class="num">1</td><td><span class="pill pDC">12 V</span></td><td>außen, X 1750, Y ~2900, Z ~1900</td><td>Die Hauptaußenzone. <b>Mit Kontroll-LED innen</b>, sonst brennt sie die halbe Nacht</td><td>fest</td></tr>
+<tr><td>Hecktürfenster (2 Kipp)</td><td class="num">—</td><td>—</td><td>—</td><td>Keine Elektrik. Wichtig für die Querlüftung: MaxxAir vorn saugt ab, Heckfenster liefern nach — Luftstrom genau über das Bett</td><td>—</td></tr>
+</table></div>
+
+<h3>Zone 7 · Technikbereich — X 0–600, Y 0–700, Z 0–937</h3>
+<div class="tw"><table>
+<tr><th>Element</th><th>Position im Fach</th><th>Warum dort</th></tr>
+<tr><td>LiFePO4 400 Ah (beheizt)</td><td>unten, X 0–500, Y 0–450, Z 0–280</td><td>Schwerpunkt tief und knapp vor der Hinterachse; kurze Wege zu allen Wandlern</td></tr>
+<tr><td>Class-T 400 A + Hauptschalter 300 A</td><td>X 520, Y 100, Z 300</td><td><b>Von der geöffneten Hecktür direkt greifbar</b> — im Notfall zählt jede Sekunde</td></tr>
+<tr><td>MultiPlus-II 12/3000</td><td>stehend an der Trennwand, X 0–200, Y 450–700, Z 300–800</td><td>Braucht Luft: 60 mm frei oben und unten, Lüfter bläst nach oben</td></tr>
+<tr><td>Lynx-Verteiler / Busbars + Shunt</td><td>X 250–520, Y 450–700, Z 500–750</td><td>Sternpunkt zentral, alle Kabel sternförmig davon weg</td></tr>
+<tr><td>2 × MPPT, 2 × Orion XS</td><td>Rückwand X 0–520, Y 550–700, Z 750–930</td><td>Oben, weil sie Wärme abgeben; Bluetooth erreicht so auch die Kabine</td></tr>
+<tr><td>12-V-Sicherungsbox (16 Wege)</td><td>X 300, Y 200, Z 700–850</td><td>Deutlich beschriftet, ohne Werkzeug erreichbar</td></tr>
+<tr><td>230-V-Verteilung FI + 3 × LS</td><td>X 100, Y 150, Z 700–870, eigener Deckel</td><td>Räumlich <b>getrennt</b> von der 12-V-Ebene — nie in eine gemeinsame Box</td></tr>
+<tr><td>CEE-Einspeisung 16 A</td><td>außen Fahrerseite, Y ~500, Z ~700</td><td>Kurzer Weg zum FI; Kabel läuft <b>nicht</b> über die Wohn- und Markisenseite</td></tr>
+<tr><td>2 Lüftungsgitter 100 mm</td><td>Trennwand zum Wohnraum, Z 200 und Z 880</td><td>Kaminwirkung für Wechselrichter- und Batterieabwärme</td></tr>
+<tr><td>Dieselheizung</td><td>X 0–400, Y 200–600, Z 0–300, Abgas nach unten</td><td>Warmluftkanal 75 mm nach vorn im Bodenkanal der Fahrerseite → Auslass unter der Sitzbank; ein Auslass bleibt in der Garage</td></tr>
+</table></div>
+
+<h2 id="s6"><span class="no">6</span>Draufsicht als Einbauplanung</h2>
+<figure class="zbox"><div class="zk"><b>E-02 · Elektro-Grundriss</b><span>Heck links · Front rechts · Fahrerseite oben · Symbole siehe Legende</span><span>SPR-EL-01-E02</span></div>
+<svg viewBox="-520 -420 4700 3060" style="font-size:44px" role="img" aria-label="Elektro-Grundriss">
+<defs><marker id="p1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,1.5 L9,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<g transform="translate(-380,2280)"><line class="axis" x1="0" y1="0" x2="180" y2="0" marker-end="url(#p1)"/><line class="axis" x1="0" y1="0" x2="0" y2="-180" marker-end="url(#p1)"/><text class="axt" x="195" y="16">Y</text><text class="axt" x="-30" y="-205">X</text></g>
+
+<line class="wand" x1="0" y1="0" x2="0" y2="1720"/>
+<line class="wand" x1="0" y1="0" x2="3270" y2="0"/>
+<line class="wand" x1="0" y1="1720" x2="1990" y2="1720"/>
+<line class="wand" x1="3250" y1="1720" x2="3270" y2="1720"/>
+<line class="pt dash" x1="1990" y1="1720" x2="3250" y2="1720"/>
+<path class="pt dash" d="M3270,0 L3900,0 M3270,1720 L3900,1720 M3900,0 L3900,1720"/>
+
+<rect class="soft" x="20" y="15" width="1600" height="1690"/>
+<text class="lbl" x="760" y="1000">BETT</text>
+<rect class="pt dash" x="1620" y="15" width="400" height="1690"/>
+<rect class="soft" x="0" y="0" width="700" height="600"/>
+<text class="lbl" x="30" y="90">TECHNIK</text>
+<rect class="soft" x="1640" y="0" width="490" height="580"/><text class="lbl" x="1770" y="330">KS</text>
+<rect class="soft" x="2130" y="0" width="500" height="650"/><text class="lbl" x="2270" y="330">BANK</text>
+<rect class="pt dash" x="2630" y="0" width="480" height="900"/><text class="lbl" x="2770" y="780">TISCH</text>
+<rect class="soft" x="1640" y="1270" width="1050" height="450"/><text class="lbl" x="2280" y="1520">KÜCHE</text>
+<rect class="pt dash" x="2600" y="660" width="400" height="400"/><text class="dt2" x="2640" y="890">MaxxAir</text>
+<rect class="soft" x="3270" y="110" width="520" height="500" rx="40"/>
+<rect class="soft" x="3270" y="1090" width="520" height="500" rx="40"/>
+<text class="dt2" x="3330" y="380">Drehsitz</text><text class="dt2" x="3330" y="1360">Drehsitz</text>
+
+<!-- Technik -->
+<rect class="symDC" x="70" y="230" width="140" height="110" rx="8"/><text class="tDC" x="98" y="300">BAT</text>
+<rect class="symAC" x="270" y="230" width="140" height="110" rx="8"/><text class="tAC" x="303" y="300">WR</text>
+<rect class="symAC" x="470" y="230" width="140" height="110" rx="8"/><text class="tAC" x="500" y="300">FI</text>
+<circle class="symAC" cx="-90" cy="450" r="48"/><text class="tAC" x="-330" y="465">CEE</text>
+<!-- Heck / Garage -->
+<circle class="symDC" cx="-90" cy="860" r="48"/><text class="tDC" x="-320" y="875">L10</text>
+<circle class="symDC" cx="70" cy="1500" r="48"/><text class="tDC" x="70" y="1630">L8</text>
+<circle class="symAC" cx="500" cy="760" r="48"/><text class="tAC" x="480" y="890">A4</text>
+<circle class="symDC" cx="700" cy="760" r="48"/><text class="tDC" x="680" y="890">D3</text>
+<!-- Bett -->
+<rect class="symU" x="300" y="30" width="240" height="100" rx="12"/><text class="tU" x="360" y="98">K1</text>
+<rect class="symU" x="300" y="1590" width="240" height="100" rx="12"/><text class="tU" x="360" y="1658">K2</text>
+<circle class="symDC" cx="300" cy="860" r="48"/><text class="tDC" x="380" y="875">V1</text>
+<circle class="symDC" cx="1450" cy="120" r="42"/><text class="dt2" x="1420" y="230">P1</text>
+<circle class="symDC" cx="1450" cy="1520" r="42"/><text class="dt2" x="1420" y="1440">P2</text>
+<circle class="symDC" cx="1690" cy="120" r="48"/><text class="tDC" x="1770" y="135">V2</text>
+<!-- Küche -->
+<rect class="symAC" x="1760" y="1620" width="220" height="100" rx="12"/><text class="tAC" x="1830" y="1688">K3</text>
+<circle class="symDC" cx="2050" cy="1400" r="48"/><circle class="symDC" cx="2450" cy="1400" r="48"/>
+<text class="tDC" x="2180" y="1250">L2</text>
+<circle class="symAC" cx="2560" cy="1310" r="48"/><text class="tAC" x="2610" y="1250">A2</text>
+<!-- Eingang -->
+<rect class="symDC" x="2700" y="1620" width="220" height="100" rx="12"/><text class="tDC" x="2770" y="1688">K4</text>
+<circle class="symDC" cx="2900" cy="1830" r="48"/><text class="tDC" x="2970" y="1848">L9</text>
+<!-- Arbeitsplatz + vorn -->
+<rect class="symAC" x="2800" y="20" width="240" height="100" rx="12"/><text class="tAC" x="2870" y="88">K5</text>
+<circle class="symDC" cx="2900" cy="330" r="42"/><text class="dt2" x="2960" y="345">P3</text>
+<rect class="symU" x="3120" y="20" width="150" height="100" rx="12"/><text class="tU" x="3155" y="88">U9</text>
+
+<!-- Legende -->
+<g transform="translate(0,2000)">
+<rect class="symAC" x="0" y="0" width="90" height="70" rx="8"/><text class="dt2" x="115" y="52">230 V</text>
+<rect class="symU" x="440" y="0" width="90" height="70" rx="8"/><text class="dt2" x="555" y="52">USB-C</text>
+<circle class="symDC" cx="960" cy="35" r="40"/><text class="dt2" x="1030" y="52">12 V / Leuchte / Lüfter</text>
+<rect class="soft" x="1900" y="0" width="90" height="70"/><text class="dt2" x="2015" y="52">Möbel</text>
+<text class="dt2" x="2400" y="52">gestrichelt = über Kopfhöhe oder ausgezogen</text>
+</g>
+<text class="dt2" x="0" y="2200">Kein Kabel im Bodenaufbau — alles im Kanal 80 × 80 mm hinter den Möbeln der Fahrerseite.</text>
+<text class="dt2" x="0" y="2270">Leerrohre ab Technik: 2 × 25 mm nach vorn, 1 × 25 mm Küche, 1 × 25 mm je Bettseite, 1 × 32 mm Dach, 1 × 50 mm Reserve Dach.</text>
+</svg>
+<figcaption><b>Legende:</b>
+BAT&nbsp;Batterie · WR&nbsp;MultiPlus · FI&nbsp;230-V-Verteilung · CEE&nbsp;Landstromeinspeisung ·
+A2/A4&nbsp;Schuko (Küchenfront / E-Roller) · D3&nbsp;12-V-Dose Garage ·
+K1/K2&nbsp;Bettkonsole links/rechts · K3&nbsp;Küchenpaneel · K4&nbsp;Schalterpaneel Eingang · K5&nbsp;Arbeitspaneel ·
+U9&nbsp;USB-C Fahrerhaus · V1&nbsp;Ventilator Bett · V2&nbsp;Ventilator Übergangszone ·
+P1–P3&nbsp;iPad-Kugelbasen · L2&nbsp;Deckenspots Küche · L8&nbsp;Garagenlicht · L9/L10&nbsp;Außenlicht Schiebetür/Heck.
+Die vollständigen Positionen stehen in Kapitel 5 und 7.</figcaption>
+</figure>
+
+<h4>Textliche Einbauplanung, von hinten nach vorn</h4>
+<div class="tw"><table>
+<tr><th class="num">Y</th><th>Fahrerseite (X 0–860)</th><th>Mitte</th><th>Beifahrerseite (X 860–1720)</th></tr>
+<tr><td class="num">−60</td><td colspan="3">außen: Außenleuchte Heck über den Türen, X 860</td></tr>
+<tr><td class="num">0–700</td><td><b>TECHNIKBEREICH:</b> Batterie unten, Hauptschalter + Class-T bei X 520/Z 300, MultiPlus an der Trennwand, Busbars, 12-V-Box, 230-V-Box mit FI, Dieselheizung. CEE außen bei Y 500</td><td>Garagen-Stauraum</td><td>Stauraum. Garagenleuchte X 1450 / Y 60 mit Türkontakt</td></tr>
+<tr><td class="num">260–560</td><td><b>Bettkonsole L</b> an der Wand Z 1170–1340: 2 × USB-C, Leselicht, 3 Taster, Ablage mit Qi + Watch-Nische</td><td>Ventilator Bett, X 860 / Y 300, Z 1550</td><td><b>Bettkonsole R</b> identisch, unter dem Hängeschrank</td></tr>
+<tr><td class="num">350</td><td>Schuko E-Roller X 700 / Z 420 · 12-V-Dose X 800</td><td>—</td><td>—</td></tr>
+<tr><td class="num">200–1700</td><td>freie Wand (Bettkonsole, iPad-Basis)</td><td>Bett</td><td>3 Hängeschränke mit dimmbarer LED-Leiste (im Lieferumfang)</td></tr>
+<tr><td class="num">1450</td><td>iPad-Ballkopf Wand Z 1350 (Fußseite)</td><td>—</td><td>iPad-Ballkopf unter dem Hängeschrank</td></tr>
+<tr><td class="num">1620</td><td colspan="3">Bettvorderkante · darunter Sockel-/Nachtlicht-Streifen über die volle Breite</td></tr>
+<tr><td class="num">1640–2130</td><td><b>Kühlschrankschrank.</b> Ventilator Übergangszone X 80 / Y 1680 / Z 1500</td><td>Gang 690</td><td><b>Küchenpaneel</b> Y 1760–1960, Z 1040–1160: 2 × Schuko, USB-C, Schalter Licht + Pumpe, Tankanzeige · iPad-Basis Z 1300</td></tr>
+<tr><td class="num">2050 / 2450</td><td>—</td><td>—</td><td>2 Deckenspots über der Arbeitsplatte, X 1400</td></tr>
+<tr><td class="num">2130–2630</td><td><b>Sitzbank</b> (Trelino-Auszug). Schuko unter der Bank optional</td><td>Gang 620</td><td>Küchenblock, Spüle</td></tr>
+<tr><td class="num">2560</td><td>—</td><td>—</td><td>Schuko an der Möbelfront X 1280 / Z 760</td></tr>
+<tr><td class="num">2600–3000</td><td>—</td><td><b>MaxxAir</b> X 660–1060</td><td>—</td></tr>
+<tr><td class="num">2690–3250</td><td>—</td><td>—</td><td><b>Eingang.</b> Schalterpaneel X 1690 / Y 2750 / Z 1100 · Außenlicht außen Y 2900</td></tr>
+<tr><td class="num">2820–3020</td><td><b>Arbeitspaneel</b> Z 850–970: 2 × Schuko, USB-C PD 100 W, USB-C 45 W, 12 V, Dimmer</td><td>Tisch</td><td>—</td></tr>
+<tr><td class="num">2900</td><td>iPad-Ballkopf an der Tischschiene</td><td>—</td><td>—</td></tr>
+<tr><td class="num">3110</td><td>USB-C 2 × 45 W + 12-V-Dose an der Möbelstirnseite</td><td>—</td><td>—</td></tr>
+<tr><td class="num">ab 3270</td><td colspan="3">Drehsitze — keine Wohnraumelektrik</td></tr>
+</table></div>
+
+<h2 id="s7"><span class="no">7</span>Steckdosen- und Ladepunkteliste</h2>
+<div class="tw"><table>
+<tr><th class="num">Nr.</th><th>Position (X / Y / Z)</th><th>Typ</th><th class="num">Anz.</th><th>Spannung / Leistung</th><th>Verwendungszweck</th></tr>
+<tr><td class="num">A1</td><td>1700 / 1800 / 1080</td><td>Schuko, Einbau</td><td class="num">2</td><td><span class="pill pAC">230 V · B16</span></td><td>Induktionsplatte, Airfryer</td></tr>
+<tr><td class="num">A2</td><td>1280 / 2560 / 760</td><td>Schuko, Möbelfront</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td>Kaffeemaschine, Nutzung an der Klappverlängerung</td></tr>
+<tr><td class="num">A3</td><td>20 / 2850–2950 / 900</td><td>Schuko, Paneel</td><td class="num">2</td><td><span class="pill pAC">230 V · B10</span></td><td>Laptopnetzteil, Drohnen- und Kameraladegeräte</td></tr>
+<tr><td class="num">A4</td><td>700 / 350 / 420</td><td>Schuko, Garage</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td><b>E-Roller</b>, Werkzeugakkus</td></tr>
+<tr><td class="num">A5</td><td>600 / 2400 / 300</td><td>Schuko unter der Bank</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td>Reserve / Dauerladegeräte — optional</td></tr>
+<tr><td class="num">U1</td><td>20 / 2880 / 950</td><td>USB-C PD, Einbau</td><td class="num">1</td><td><span class="pill pU">100 W</span></td><td><b>Laptop ohne Wechselrichter</b></td></tr>
+<tr><td class="num">U2</td><td>20 / 2930 / 950</td><td>USB-C PD</td><td class="num">1</td><td><span class="pill pU">45 W</span></td><td>iPad am Arbeitsplatz</td></tr>
+<tr><td class="num">U3</td><td>20 / 300–360 / 1250</td><td>USB-C PD Doppel</td><td class="num">2</td><td><span class="pill pU">45 + 20 W</span></td><td>Bett links: Tablet + Telefon</td></tr>
+<tr><td class="num">U4</td><td>1700 / 300–360 / 1250</td><td>USB-C PD Doppel</td><td class="num">2</td><td><span class="pill pU">45 + 20 W</span></td><td>Bett rechts</td></tr>
+<tr><td class="num">U5</td><td>20 / 400 / 1160 (in der Ablage)</td><td>Qi-Pad 15 W, bündig</td><td class="num">1</td><td><span class="pill pU">15 W</span></td><td>Telefon + AirPods, Bett links</td></tr>
+<tr><td class="num">U6</td><td>1700 / 400 / 1160</td><td>Qi-Pad 15 W</td><td class="num">1</td><td><span class="pill pU">15 W</span></td><td>Bett rechts</td></tr>
+<tr><td class="num">U7</td><td>20 / 500 / 1160 · 1700 / 500 / 1160</td><td>Apple-Watch-Puck in offener Mulde</td><td class="num">2</td><td><span class="pill pU">5 W</span></td><td>Apple Watch je Bettseite</td></tr>
+<tr><td class="num">U8</td><td>1700 / 1860 / 1140</td><td>USB-C PD</td><td class="num">1</td><td><span class="pill pU">45 W</span></td><td>iPad beim Kochen</td></tr>
+<tr><td class="num">U9</td><td>60 / 3110 / 700</td><td>USB-C PD Doppel</td><td class="num">2</td><td><span class="pill pU">2 × 45 W</span></td><td>Laden während der Fahrt</td></tr>
+<tr><td class="num">D1</td><td>60 / 3110 / 620</td><td>12-V-Bordsteckdose</td><td class="num">1</td><td><span class="pill pDC">12 V · 10 A</span></td><td>Kompressor, Kühltasche</td></tr>
+<tr><td class="num">D2</td><td>20 / 2990 / 900</td><td>12-V-Dose</td><td class="num">1</td><td><span class="pill pDC">12 V · 10 A</span></td><td>Tischventilator, Reserve</td></tr>
+<tr><td class="num">D3</td><td>800 / 350 / 420</td><td>12-V-Dose Garage</td><td class="num">1</td><td><span class="pill pDC">12 V · 15 A</span></td><td>Kompressor, Arbeitsleuchte</td></tr>
+<tr class="sum"><td colspan="3">Summe</td><td class="num">7 × 230 V · 13 × USB-C · 3 × 12 V</td><td colspan="2">—</td></tr>
+</table></div>
+<div class="hin"><b>Zwei Details, die im Alltag den Unterschied machen:</b> ① Jede USB-C-Dose bekommt ein
+<b>eigenes kurzes Kabel fest zugeordnet</b> (magnetische Kabelhalter neben der Dose) — sonst sucht man
+abends im Dunkeln. ② Die 230-V-Dosen am Arbeitsplatz und in der Küche liegen auf <b>getrennten
+LS-Kreisen</b>: löst der Induktionskreis aus, arbeitet der Laptop weiter.</div>
+<h2 id="s8"><span class="no">8</span>Lichtkonzept</h2>
+<div class="hin ok"><b>Guter Ausgangspunkt:</b> Die sechs CAMPANY-Hängeschränke bringen laut Rechnung
+je eine <b>dimmbare LED-Leiste</b> mit. Das ist bereits das komplette indirekte Grundlicht — du musst
+nur noch zuordnen, wo die Schränke hängen, und die Zonen sinnvoll zusammenschalten.</div>
+<div class="hin"><b>Zielkonflikt, den du vor der Lichtplanung entscheiden musst:</b> Hängeschränke
+(UK 1450) und Seitenfenster (OK typischerweise ~1550) konkurrieren um dieselbe Wandhöhe.
+Meine Empfehlung: <b>2 + 2 Hängeschränke über dem Bett</b> (je Seite Y 250–1250) und die restlichen
+2 auf der Fahrerseite über der Sitzgruppe mit UK 1620 über dem Fensteroberrand. Vorteil: jede Bettseite
+bekommt einen eigenen Schrank — damit lässt sich die Bettkonsole samt Leselicht, USB-C und Ablage
+direkt am Schrankunterboden montieren statt an der Blechwand. Das ist die sauberste Umsetzung deines
+Wunsches „jede Bettseite eine eigene Komfortzone“.</div>
+
+<h4>Lichtzonen</h4>
+<div class="tw"><table>
+<tr><th class="num">Nr.</th><th>Zone</th><th>Leuchtmittel</th><th>Position</th><th>Farbtemp.</th><th class="num">W</th><th>Dimmung</th></tr>
+<tr><td class="num">L1</td><td>Grundlicht Wohnraum</td><td>4 Einbauspots Ø 65</td><td>Decke, X 500 und 1200, Y 2200 und 2800</td><td>2700 K</td><td class="num">4 × 3</td><td>gedimmt, 10–100 %</td></tr>
+<tr><td class="num">L2</td><td>Arbeitslicht Küche</td><td>2 Einbauspots + LED-Profil Dachkante</td><td>X 1400, Y 2050 / 2450 · Profil Y 2000–2650</td><td><b>4000 K</b></td><td class="num">2 × 4 + 5</td><td>ein/aus reicht</td></tr>
+<tr><td class="num">L3</td><td>Sitzgruppe</td><td>LED-Leisten der 2 Hängeschränke Fahrerseite</td><td>UK 1620, Y 2200–3200</td><td>2700 K</td><td class="num">2 × 4</td><td>gedimmt</td></tr>
+<tr><td class="num">L4</td><td>Bett / indirekt</td><td>LED-Leisten der 4 Hängeschränke über dem Bett</td><td>UK 1450, Y 250–1250 je Seite</td><td>2700 K</td><td class="num">4 × 4</td><td>gedimmt, je Seite getrennt</td></tr>
+<tr><td class="num">L5</td><td>Ambiente / Sockel</td><td>LED-Band im Sockel Küche + Bank, und unter der Bettvorderkante</td><td>Z 60 · Bettkante Y 1620</td><td>2700 K</td><td class="num">≈ 8</td><td>gedimmt</td></tr>
+<tr><td class="num">L6</td><td><b>Nachtlicht</b></td><td>LED-Band amber, sehr niedrig</td><td>gleiche Profile wie L5, zweiter Kanal</td><td><b>1800–2200 K</b></td><td class="num">≈ 2</td><td>fest niedrig</td></tr>
+<tr><td class="num">L7</td><td>Leselicht Bett</td><td>2 Schwanenhalsleuchten</td><td>je Bettkonsole, Z 1340</td><td>2700 K</td><td class="num">2 × 2</td><td>am Gerät dimmbar</td></tr>
+<tr><td class="num">L8</td><td>Garage / Technik</td><td>2 LED-Streifen</td><td>Hecktürzargen, Z 750</td><td>4000 K</td><td class="num">2 × 3</td><td>Türkontakt + Handschalter</td></tr>
+<tr><td class="num">L9</td><td>Außenlicht Schiebetür</td><td>1 Leuchte + Kontroll-LED innen</td><td>außen X 1750, Y 2900</td><td>2700 K</td><td class="num">4</td><td>ein/aus</td></tr>
+<tr><td class="num">L10</td><td>Außenlicht Heck</td><td>1 Leuchte</td><td>außen über den Hecktüren</td><td>4000 K</td><td class="num">4</td><td>ein/aus</td></tr>
+</table></div>
+
+<h4>Schaltlogik — bewusst einfach gehalten</h4>
+<div class="tw"><table>
+<tr><th>Bedienstelle</th><th>Position</th><th>Was liegt dort</th></tr>
+<tr><td><b>Eingang Schiebetür</b></td><td>X 1690, Y 2750, Z 1100</td><td>L1 Grundlicht (Dimmer) · L5 Ambiente · L9 Außenlicht mit Kontroll-LED · <b>Master-Taster</b></td></tr>
+<tr><td><b>Küche</b></td><td>X 1700, Y 1780/1940, Z 1140</td><td>L2 Arbeitslicht · Wasserpumpe mit Kontroll-LED</td></tr>
+<tr><td><b>Sitzgruppe</b></td><td>X 20, Y 3040, Z 950</td><td>L3 Dimmer</td></tr>
+<tr><td><b>Bett links / rechts</b></td><td>je Konsole, Z 1250</td><td>L7 eigenes Leselicht · L6 Nachtlicht · <b>Master-Taster</b></td></tr>
+<tr><td><b>Heck</b></td><td>Türzarge innen</td><td>L8 Garagenlicht (Handschalter parallel zum Türkontakt) · L10 Außenlicht Heck</td></tr>
+</table></div>
+<div class="hin ok"><b>Das Detail, das den größten Alltagsnutzen bringt:</b> ein <b>bistabiles Relais</b>
+(12 V, 30 A, stromlos haltend) in der Zuleitung der gesamten Innenbeleuchtung, angesteuert von
+Tastern am Eingang und an <b>beiden</b> Bettseiten. Damit schaltet ein Tastendruck von jeder Position
+alles Licht aus oder wieder auf den zuletzt eingestellten Zustand. Kostet ca. 25 € plus etwas
+Steuerleitung und ersetzt jede App. Die Zonendimmer bleiben dabei auf ihrem Wert stehen.</div>
+
+<h4>Nutzungslogik über den Tag</h4>
+<ul>
+<li><b>Kochen:</b> nur L2 (4000 K, hell, von vorn). Grundlicht bleibt aus — spart Strom und blendet nicht.</li>
+<li><b>Essen / Abend:</b> L3 gedimmt auf ~40 % plus L5 Sockel. Zusammen unter 8 W.</li>
+<li><b>Arbeiten:</b> L1 auf 100 % plus L3. Wichtig: der Laptop steht am Fenster, das Licht kommt von hinten-oben, nicht in den Bildschirm.</li>
+<li><b>Lesen:</b> nur L7, jede Seite unabhängig.</li>
+<li><b>Nachts aufs Klo:</b> L6 amber am Boden. Kein Weißlicht, keine geweckte zweite Person.</li>
+<li><b>Ankommen im Dunkeln:</b> Türkontakt L8 im Heck; am Eingang ein Griff aufs Paneel für L1 + L9.</li>
+</ul>
+<p><b>Dimmer:</b> drei PWM-Dimmer reichen (L1, L3+L4, L5). Nicht jede Zone braucht einen —
+Arbeits-, Nacht- und Außenlicht sind Ein/Aus-Funktionen. PWM-Dimmer immer mit ≥ 1&nbsp;kHz wählen,
+sonst flackern sie in Videoaufnahmen — ein Punkt, der bei Kamera-Nutzern regelmäßig übersehen wird.</p>
+
+<h2 id="s9"><span class="no">9</span>iPad- und Gerätehalterungskonzept</h2>
+<p><b>Grundprinzip: eine Mechanik, fünf Positionen.</b> Statt fünf komplette Halterungen zu kaufen,
+werden fünf <b>Ø-25-mm-Kugelbasen</b> (RAM Mount B-Kugel oder baugleich) fest montiert und dazu
+<i>ein</i> Doppelarm mit <i>einer</i> Tablet-Klemme beschafft, der umgesteckt wird. Das ist leichter,
+billiger und man hat nie eine leere Halterung im Blickfeld hängen.</p>
+<div class="tw"><table>
+<tr><th>Basis</th><th>Position (X / Y / Z)</th><th>Nutzung</th><th>Ladepunkt in Reichweite</th></tr>
+<tr><td>B1 · Bett Fußseite</td><td>20 / 1450 / 1350, Fahrerseitenwand</td><td>Film im Liegen; der Arm schwenkt über die Bettmitte, beide sehen mit</td><td>U3 (Bettkonsole links) über 1,5-m-Kabel im Kabelclip an der Wand</td></tr>
+<tr><td>B2 · Bett Beifahrerseite</td><td>1560 / 1450 / Unterboden Hängeschrank</td><td>zweite Blickposition, wenn eine Person allein schaut</td><td>U4</td></tr>
+<tr><td>B3 · Sitzgruppe</td><td>an der CAMPANY-Tischschiene, Y 2900, Z ~810</td><td><b>Arbeitsplatz:</b> iPad als zweiter Bildschirm neben dem Laptop (Sidecar)</td><td>U2 direkt daneben</td></tr>
+<tr><td>B4 · Küche</td><td>1705 / 1850 / 1300</td><td>Rezept auf Augenhöhe, außerhalb des Spritzbereichs, blockiert keine Arbeitsfläche</td><td>U8 im Küchenpaneel</td></tr>
+<tr><td>B5 · Eingang/Gang</td><td>1690 / 2600 / 1300</td><td>Musik/Video beim Kochen für die Sitzgruppe sichtbar; optional</td><td>U8</td></tr>
+</table></div>
+<h4>Kabelführung — der Teil, der sonst unordentlich wird</h4>
+<ul>
+<li>An jeder Basis ein <b>magnetischer Kabelhalter</b> und ein dediziertes, <b>abgelängtes</b> USB-C-Kabel (nicht 2 m, sondern exakt die benötigten 60–150 cm). Kabelsalat entsteht fast immer durch zu lange Kabel.</li>
+<li>Am Bett: das Kabel läuft von der Konsole (Y 300) in einem flachen Kabelkanal an der Wandunterkante bis Y 1450. Nicht über die Matratze.</li>
+<li>Am Tisch: Kabel durch eine Ø-20-mm-Durchführung in der Tischschiene → keine Kabel über die Tischkante.</li>
+<li><b>Ladeleistung beachten:</b> ein iPad Pro will 30–45 W. USB-A-Dosen mit 2,4 A (12 W) laden es nicht sinnvoll — deshalb im ganzen Fahrzeug <b>ausschließlich USB-C&nbsp;PD</b>, kein USB-A.</li>
+<li>Beim Kochen ist die Küchenbasis B4 bewusst <b>nicht</b> über der Arbeitsplatte, sondern seitlich: sonst tropft und spritzt es aufs Gerät.</li>
+</ul>
+
+<h2 id="s10"><span class="no">10</span>Technische Umsetzung</h2>
+
+<h4>12-V-Stromkreise</h4>
+<div class="tw"><table>
+<tr><th>Kreis</th><th>Verbraucher</th><th class="num">Absicherung</th><th class="num">Querschnitt</th><th>Bemerkung</th></tr>
+<tr><td class="mono">HV</td><td>Batterie → Class-T → Hauptschalter → Busbar</td><td class="num">400 A Class-T</td><td class="num">95 mm²</td><td>Sicherung ≤ 300 mm vom Pluspol</td></tr>
+<tr><td class="mono">F0</td><td>MultiPlus-II 12/3000</td><td class="num">400 A Class-T</td><td class="num">95 mm²</td><td>Leitung ≤ 1,5 m halten</td></tr>
+<tr><td class="mono">F1</td><td>MPPT 1 (String Dach vorn)</td><td class="num">40 A MIDI</td><td class="num">10 mm²</td><td>PV-Seite 6 mm², getrennter Steckverbinder</td></tr>
+<tr><td class="mono">F2</td><td>MPPT 2 (String Dach hinten)</td><td class="num">40 A MIDI</td><td class="num">10 mm²</td><td>—</td></tr>
+<tr><td class="mono">F3/F4</td><td>Ladebooster 2 × 50 A</td><td class="num">je 80 A MIDI</td><td class="num">je 25 mm²</td><td><b>an beiden Enden absichern</b> (Starter- und Aufbauseite), Weg ca. 5 m</td></tr>
+<tr><td class="mono">F5</td><td>12-V-Unterverteilung</td><td class="num">60 A MIDI</td><td class="num">16 mm²</td><td>speist die Sicherungsbox</td></tr>
+<tr><td class="mono">1</td><td>Kühlschrank</td><td class="num">15 A</td><td class="num">4 mm²</td><td>eigener Kreis, nie mit Licht kombinieren</td></tr>
+<tr><td class="mono">2</td><td>Dieselheizung</td><td class="num">20 A</td><td class="num">4 mm²</td><td>Glühkerzenstrom beachten</td></tr>
+<tr><td class="mono">3</td><td>Wasserpumpe</td><td class="num">10 A</td><td class="num">2,5 mm²</td><td>mit Kontroll-LED am Schalter</td></tr>
+<tr><td class="mono">4</td><td>Licht Wohnraum L1/L2/L3</td><td class="num">10 A</td><td class="num">1,5 mm²</td><td>über bistabiles Relais</td></tr>
+<tr><td class="mono">5</td><td>Licht Bett L4/L6/L7</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">6</td><td>Sockel/Ambiente L5</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">7</td><td>Außen- und Garagenlicht L8/L9/L10</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>Türkontakt in der Zuleitung</td></tr>
+<tr><td class="mono">8</td><td>USB-C Bett links</td><td class="num">15 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">9</td><td>USB-C Bett rechts</td><td class="num">15 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">10</td><td>USB-C + 12 V Sitzgruppe/Fahrerhaus</td><td class="num">20 A</td><td class="num">4 mm²</td><td>100-W-PD zieht bis 9 A</td></tr>
+<tr><td class="mono">11</td><td>USB-C Küche</td><td class="num">10 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">12</td><td>Ventilatoren</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">13</td><td>MaxxAir</td><td class="num">10 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">14</td><td>12-V-Dose Garage</td><td class="num">15 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
+<tr><td class="mono">15/16</td><td><b>Reserve</b></td><td class="num">15 A</td><td class="num">2,5 mm² vorverlegt</td><td>ein Reservepaar bis zur Küche und eins nach vorn</td></tr>
+<tr><td class="mono">R</td><td><b>Großreserve am Busbar</b> (z. B. spätere Klima)</td><td class="num">150 A</td><td class="num">50 mm² Anschluss vorbereitet</td><td>nur Anschlusspunkt, kein Kabel</td></tr>
+</table></div>
+<p><b>Dimensionierungsregel:</b> Spannungsfall ≤ 3&nbsp;% bei 12&nbsp;V, gerechnet über die
+<i>doppelte</i> Leitungslänge (Hin- und Rückleitung). Beispiel Ladebooster: 100&nbsp;A über 2 × 5&nbsp;m
+mit 25&nbsp;mm² je Strang ergibt ca. 0,35&nbsp;V — vertretbar; mit 16&nbsp;mm² wären es 0,55&nbsp;V
+und der Booster regelt herunter.</p>
+
+<h4>230-V-Stromkreise</h4>
+<div class="tw"><table>
+<tr><th>Kreis</th><th>Umfang</th><th class="num">Schutz</th><th class="num">Querschnitt</th></tr>
+<tr><td>Einspeisung</td><td>CEE 16 A → LS B16 → MultiPlus AC-in</td><td class="num">LS B16</td><td class="num">3 × 2,5 mm² H07RN-F</td></tr>
+<tr><td>Verteilung</td><td>MultiPlus AC-out → FI 30 mA Typ A, 2-polig</td><td class="num">FI 25 A / 30 mA</td><td class="num">3 × 2,5 mm²</td></tr>
+<tr><td>AC1</td><td>Küche A1 (Induktion, Airfryer)</td><td class="num">LS B16</td><td class="num">3 × 2,5 mm²</td></tr>
+<tr><td>AC2</td><td>Steckdosen A2, A3, A5 (Küchenfront, Arbeitsplatz, Bank)</td><td class="num">LS B10</td><td class="num">3 × 1,5 mm²</td></tr>
+<tr><td>AC3</td><td>Garage A4 (E-Roller)</td><td class="num">LS B10</td><td class="num">3 × 1,5 mm²</td></tr>
+</table></div>
+<ul>
+<li><b>Immer feindrähtige Leitung</b> (H05VV-F / H07RN-F), niemals starres NYM — starre Adern brechen im Fahrzeug durch Vibration.</li>
+<li>Der MultiPlus verbindet im Wechselrichterbetrieb intern N und PE (Erdungsrelais). <b>Das ist Voraussetzung, damit der FI überhaupt auslösen kann</b> — Funktion nach dem Einbau prüfen.</li>
+<li>PE-Schiene mit <b>6 mm² auf das Chassis</b>, an einer blanken, entlackten und anschließend konservierten Stelle.</li>
+<li>Der 230-V-Teil sollte am Ende von einer Elektrofachkraft geprüft und dokumentiert werden (Isolations-, FI- und Durchgangsprüfung). Für Versicherung und Wiederverkauf ist das viel wert und kostet wenig.</li>
+</ul>
+
+<h4>Massekonzept</h4>
+<p>Ein <b>Sternpunkt</b>: die Minus-Sammelschiene im Technikbereich. Batterie-Minus geht über den
+Shunt auf diese Schiene, alle Verbraucher-Minusleitungen kommen einzeln dorthin zurück. <b>Keine
+Rückleitung über das Chassis</b> für Wohnraumverbraucher — das erzeugt Störungen und Korrosion an
+schlecht definierten Übergängen. Nur zwei Chassisverbindungen: 35&nbsp;mm² Potentialausgleich
+Minus-Schiene → Karosserie, und die dedizierte Minus-Rückleitung des Ladeboosters nach vorn
+(25&nbsp;mm², nicht über das Chassis).</p>
+
+<h4>Wartungszugang, Brandschutz, Sicherheit</h4>
+<ul>
+<li><b>Hauptschalter</b> 300 A von der geöffneten Hecktür ohne Werkzeug erreichbar. Zusätzlich einen zweiten, kleinen Trennschalter für den 230-V-Zweig.</li>
+<li>Alle Sicherungen und Klemmen <b>ohne Ausbau von Möbeln</b> erreichbar. Die Technikfront wird eine abnehmbare Platte mit Vierteldrehverschlüssen, keine verschraubte Verkleidung.</li>
+<li><b>Beschriften</b>: jede Ader an beiden Enden, Sicherungsbox mit lasergedrucktem Belegungsplan, ein laminiertes Schema im Technikfach.</li>
+<li><b>CO-Melder ist Pflicht</b> (Dieselheizung + Kartuschenkocher), Position: Wohnraum in Kopfhöhe, ca. X 800 / Y 2400. Dazu ein Rauchmelder vorn und eine Löschdecke griffbereit an der Küchenfront.</li>
+<li><b>Gaswarner</b> optional, sinnvoll wenn regelmäßig mit Kartuschen gekocht wird — Montage bodennah (Butan/Propan ist schwerer als Luft).</li>
+<li>Keine Sicherungen und keine Schraubverbindungen in geschlossenen Batteriekästen. Alle Krimpverbindungen mit hydraulischer Presse, danach Schrumpfschlauch mit Kleber.</li>
+<li>Leitungen durch Blech <b>immer</b> mit Kabeltülle und Kantenschutz; Kabelbinder alle 300 mm.</li>
+<li>Ein Temperaturfühler an der Batterie, Ladefreigabe unter 0 °C nur mit aktiver Heizung.</li>
+</ul>
+
+<h4>Reserven für später — jetzt kostenlos, nachträglich teuer</h4>
+<ol>
+<li><b>Leerrohre</b>: 2 × 25 mm nach vorn, 1 × 25 mm Küche, 1 × 25 mm je Bettseite, 1 × 32 mm Dach (Solar), <b>1 × 50 mm Dach</b> (spätere Klima oder zweites Solarfeld).</li>
+<li><b>Busbar und Hauptsicherung</b> auf die Endausbaustufe dimensionieren, nicht auf den heutigen Bedarf.</li>
+<li><b>Batteriefach</b> von Anfang an für die volle Zielkapazität bauen — LiFePO4 später parallel zu gealterten Zellen zu schalten ist die häufigste teure Fehlentscheidung im Vanausbau.</li>
+<li>Zwei freie 12-V-Sicherungsplätze <b>mit bereits verlegtem Kabel</b> (Küche und vorn).</li>
+<li>Ein freier LS-Platz in der 230-V-Verteilung.</li>
+<li>Am Dach zwei zusätzliche MC4-Enden unter einer Serviceklappe herausführen — dann ist ein drittes Modul eine Sache von 20 Minuten.</li>
+</ol>
+
+<h2 id="s11"><span class="no">11</span>Stückliste (BOM) — Empfehlung Option B</h2>
+<div class="tw"><table>
+<tr><th>Gruppe</th><th>Artikel</th><th class="num">Anz.</th><th class="num">≈ kg</th><th class="num">≈ €</th><th>Bemerkung</th></tr>
+<tr><td>Speicher</td><td>LiFePO4 12 V 200 Ah, beheizt, ≥ 200 A Dauer (z. B. Victron Smart / Fraron / Liontron)</td><td class="num">2</td><td class="num">48</td><td class="num">2600–3600</td><td>parallel = 400 Ah, 250 A+; gleiche Charge kaufen</td></tr>
+<tr><td>Wandler</td><td>Victron MultiPlus-II 12/3000/120-50</td><td class="num">1</td><td class="num">19</td><td class="num">1100</td><td>Wechselrichter + Ladegerät + Umschalter</td></tr>
+<tr><td>Solar</td><td>Modul ca. 390 Wp starr, 1720 × 1130</td><td class="num">2</td><td class="num">44</td><td class="num">400</td><td>780 Wp gesamt; Vorabmaß am Dach nehmen</td></tr>
+<tr><td>Solar</td><td>Victron SmartSolar MPPT 100/30</td><td class="num">2</td><td class="num">3</td><td class="num">380</td><td>zwei Strings gegen Teilverschattung</td></tr>
+<tr><td>Solar</td><td>Alu-Spoiler/Klebehalter + Sika 252 + Kabeldurchführung</td><td class="num">1 Satz</td><td class="num">6</td><td class="num">250</td><td>geklebt, nicht gebohrt</td></tr>
+<tr><td>Laden</td><td>Victron Orion XS 12/12-50</td><td class="num">2</td><td class="num">3</td><td class="num">600</td><td>100 A gesamt</td></tr>
+<tr><td>Schutz</td><td>Class-T 400 A + Halter, MIDI-Satz, Hauptschalter 300 A</td><td class="num">1 Satz</td><td class="num">3</td><td class="num">220</td><td>Class-T zwingend bei LiFePO4</td></tr>
+<tr><td>Verteilung</td><td>Victron Lynx Distributor + Minus-Busbar + SmartShunt 500 A</td><td class="num">1</td><td class="num">4</td><td class="num">380</td><td>—</td></tr>
+<tr><td>Verteilung</td><td>12-V-Sicherungsbox 16-fach mit Sammelminus</td><td class="num">1</td><td class="num">1</td><td class="num">60</td><td>—</td></tr>
+<tr><td>230 V</td><td>CEE-Einbaudose 16 A, FI 30 mA Typ A, 3 × LS, Kleinverteiler</td><td class="num">1 Satz</td><td class="num">3</td><td class="num">200</td><td>—</td></tr>
+<tr><td>Kabel</td><td>95 mm² rot/schwarz (je 3 m), 25 mm² (2 × 6 m), 16/10/6/4/2,5/1,5 mm² Meterware</td><td class="num">1 Satz</td><td class="num">22</td><td class="num">600</td><td>Kabelschuhe + Presszange nicht vergessen</td></tr>
+<tr><td>Kabel</td><td>H07RN-F 3G2,5 und 3G1,5, Leerrohre 25/32/50 mm</td><td class="num">1 Satz</td><td class="num">6</td><td class="num">160</td><td>—</td></tr>
+<tr><td>Steckdosen</td><td>Schuko-Einbaudosen</td><td class="num">7</td><td class="num">1</td><td class="num">120</td><td>—</td></tr>
+<tr><td>Laden</td><td>USB-C-PD-Einbaudose 100 W</td><td class="num">1</td><td class="num">—</td><td class="num">70</td><td>Arbeitsplatz</td></tr>
+<tr><td>Laden</td><td>USB-C-PD-Einbaudose 45 W (doppelt)</td><td class="num">5</td><td class="num">—</td><td class="num">200</td><td>Bett 2×, Tisch, Küche, vorn</td></tr>
+<tr><td>Laden</td><td>Qi-Ladepad 15 W bündig + Apple-Watch-Puck</td><td class="num">2 + 2</td><td class="num">—</td><td class="num">160</td><td>Watch braucht offene Mulde</td></tr>
+<tr><td>Laden</td><td>12-V-Bordsteckdosen</td><td class="num">3</td><td class="num">—</td><td class="num">40</td><td>—</td></tr>
+<tr><td>Licht</td><td>LED-Einbauspots 12 V dimmbar (2700 K / 4000 K)</td><td class="num">6</td><td class="num">1</td><td class="num">140</td><td>L1 und L2</td></tr>
+<tr><td>Licht</td><td>LED-Band 12 V warmweiß + amber, Alu-Profil mit Opalabdeckung, ca. 8 m</td><td class="num">1 Satz</td><td class="num">2</td><td class="num">180</td><td>L5, L6, Küchendachkante</td></tr>
+<tr><td>Licht</td><td>Leselampe Schwanenhals dimmbar</td><td class="num">2</td><td class="num">1</td><td class="num">90</td><td>—</td></tr>
+<tr><td>Licht</td><td>Außenleuchten 12 V</td><td class="num">2</td><td class="num">1</td><td class="num">70</td><td>Schiebetür + Heck</td></tr>
+<tr><td>Licht</td><td>PWM-Dimmer ≥ 1 kHz, bistabiles Relais 30 A, Türkontaktschalter</td><td class="num">3 / 1 / 2</td><td class="num">1</td><td class="num">130</td><td>—</td></tr>
+<tr><td>Schalter</td><td>Kippschalter/Taster mit Kontroll-LED, Paneelblenden</td><td class="num">14</td><td class="num">1</td><td class="num">180</td><td>—</td></tr>
+<tr><td>Klima/Luft</td><td>12-V-Ventilator schwenkbar</td><td class="num">2</td><td class="num">1</td><td class="num">90</td><td>Bett + Übergangszone</td></tr>
+<tr><td>Halterungen</td><td>Kugelbasis Ø 25 mm</td><td class="num">5</td><td class="num">1</td><td class="num">75</td><td>—</td></tr>
+<tr><td>Halterungen</td><td>Doppelarm + Tablet-Klemme</td><td class="num">1</td><td class="num">1</td><td class="num">80</td><td>wird umgesteckt</td></tr>
+<tr><td>Monitoring</td><td>Victron Cerbo GX + GX Touch 50</td><td class="num">1</td><td class="num">1</td><td class="num">500</td><td><b>optional</b> — SmartShunt + App tut es auch</td></tr>
+<tr><td>Sicherheit</td><td>CO-Melder, Rauchmelder, Löschdecke, Feuerlöscher 2 kg</td><td class="num">1 Satz</td><td class="num">4</td><td class="num">150</td><td>nicht verhandelbar</td></tr>
+<tr class="sum"><td colspan="3">Summe Option B (ohne Kleinteile, ohne Arbeitszeit)</td><td class="num">≈ 175 kg</td><td class="num">≈ 9 200–10 500 €</td><td>—</td></tr>
+</table></div>
+
+<h2 id="s12"><span class="no">12</span>Variantenvergleich</h2>
+<div class="tw"><table>
+<tr><th>Kriterium</th><th>A · Realistisch &amp; ausgewogen</th><th>B · Komfort &amp; Autarkie</th><th>C · High-Power mit Klima</th></tr>
+<tr><td>Systemspannung</td><td>12 V</td><td>12 V</td><td><b>24 V</b> + 24→12-Wandler 70 A</td></tr>
+<tr><td>Batterie</td><td>300 Ah / 3,8 kWh</td><td><b>400 Ah / 5,1 kWh</b></td><td>300 Ah @ 24 V / 7,7 kWh</td></tr>
+<tr><td>Solar</td><td>700 Wp</td><td>780 Wp</td><td>350 Wp (Rest neben der Klima)</td></tr>
+<tr><td>Wechselrichter</td><td>MultiPlus 12/2000/80<br><small>1600 W dauerhaft</small></td><td>MultiPlus-II 12/3000/120<br><small>2400 W dauerhaft</small></td><td>MultiPlus-II 24/5000<br><small>4000 W dauerhaft</small></td></tr>
+<tr><td>Ladebooster</td><td>1 × 50 A</td><td>2 × 50 A = 100 A</td><td>Zweite Lichtmaschine 24 V oder 3 × Orion 12/24</td></tr>
+<tr><td>Klimaanlage</td><td>nein</td><td>nein (Leerrohr vorbereitet)</td><td>ja, Dach 12/24 V</td></tr>
+<tr><td>Induktion volle Stufe</td><td>nur bis ~Stufe 7</td><td>ja</td><td>ja, auch zwei Platten</td></tr>
+<tr><td>Airfryer</td><td>ja, wenn ≤ 1400 W</td><td>ja</td><td>ja</td></tr>
+<tr><td>E-Roller off-grid</td><td>nur an Sonnentagen</td><td>an Sonnentagen problemlos</td><td>problemlos</td></tr>
+<tr><td>Autarkie Sommer ohne Fahren</td><td><b>2 Tage</b> (mit Gas kochen: 3)</td><td><b>2,5–3 Tage</b></td><td>1 Nacht mit Klima, sonst 3 Tage</td></tr>
+<tr><td>Autarkie Winter ohne Fahren</td><td>1,5 Tage</td><td>2 Tage</td><td>3 Tage</td></tr>
+<tr><td>Gewicht Elektrik</td><td class="num">≈ 130 kg</td><td class="num">≈ 175 kg</td><td class="num">≈ 240 kg</td></tr>
+<tr><td>Kostenklasse Material</td><td class="num">6 500–7 500 €</td><td class="num">9 200–10 500 €</td><td class="num">17 000–21 000 €</td></tr>
+<tr><td>Vorteile</td><td>leicht, günstig, alles gut beherrschbar; passt sicher in die Zuladung</td><td>keine Denkarbeit im Alltag; Reserven für Gäste, Hitze, schlechtes Wetter; alles noch 12 V</td><td>Klima nutzbar; Kochen ohne jede Rücksicht</td></tr>
+<tr><td>Nachteile</td><td>Kochen und Airfryer erfordern Geräteauswahl nach Watt; bei 4+ Standtagen wird es eng</td><td>Gewicht und Kosten; 95-mm²-Verkabelung ist handwerklich anspruchsvoll</td><td>Solar praktisch wirkungslos, dadurch <b>fahr- oder landstromabhängig</b>; sehr teuer; Zuladung wird kritisch; zweite Lichtmaschine ist ein Eingriff ins Fahrzeug</td></tr>
+<tr><td>Eignung für dein Profil</td><td>gut — wenn ihr überwiegend alle 1–2 Tage fahrt</td><td><b>sehr gut</b></td><td>nur sinnvoll bei regelmäßigen Reisen in heiße Regionen</td></tr>
+</table></div>
+
+<h2 id="s13"><span class="no">13</span>Konkrete Empfehlung</h2>
+<h4>Was ich bauen würde: Option B</h4>
+<p>400&nbsp;Ah LiFePO4 beheizt, 780&nbsp;Wp auf zwei MPPT, MultiPlus-II 12/3000/120,
+2 × Orion&nbsp;XS 50&nbsp;A, CEE-Landstrom — und <b>keine Klimaanlage</b>. Der Aufpreis von A nach B
+sind rund 2.500–3.000&nbsp;€ und 45&nbsp;kg; dafür bekommst du den Unterschied zwischen „Anlage im Kopf
+mitrechnen“ und „einfach benutzen“. Bei einem Ausbau dieser Qualität ist das die richtige Stelle für
+das Geld — ein 2000-VA-System, das beim Kochen ans Limit geht, ärgert dich zehn Jahre lang.</p>
+
+<h4>Was ich zwingend so machen würde</h4>
+<ol>
+<li><b>USB-C&nbsp;PD überall statt USB-A</b>, mit 100&nbsp;W am Arbeitsplatz. Der Laptop lädt damit ohne Wechselrichter. Größter Effizienzhebel im ganzen Konzept.</li>
+<li><b>Wechselrichter im Eco-Modus</b> und bewusst geschaltet, nicht dauerhaft an. Spart 250–400&nbsp;Wh am Tag.</li>
+<li><b>Zwei getrennte MPPT.</b> Auf einem Van-Dach ist Teilverschattung Normalzustand.</li>
+<li><b>Class-T-Sicherung</b> am Batteriepluspol und <b>Hauptschalter von der Hecktür aus erreichbar</b>.</li>
+<li><b>Bistabiles Relais mit Master-Tastern</b> an Eingang und beiden Bettseiten.</li>
+<li><b>Kabelkanal 80 × 80 mm</b> entlang der Fahrerseite hinter den Möbeln, plus die sechs Leerrohre. Vor dem Verkleiden. Das ist die eine Entscheidung, die man später nie mehr korrigieren kann.</li>
+<li><b>Batterie mit Heizung</b> und Temperaturfühler — auch wenn ihr „eigentlich keine Winterreisen“ plant. Ein Frostmorgen im April reicht, um nicht laden zu können.</li>
+<li><b>CO-Melder</b> im Wohnraum. Dieselheizung plus Kartuschenkocher lassen keine andere Wahl.</li>
+</ol>
+
+<h4>Was ich bewusst weglassen oder anders lösen würde</h4>
+<div class="tw"><table>
+<tr><th>Statt…</th><th>…lieber</th><th>Warum</th></tr>
+<tr><td>Dachklimaanlage</td><td>MaxxAir + Thermomatten für alle Fenster + die zwei Ventilatoren + Standortwahl</td><td>Halbiert die Solarfläche und verdreifacht den Verbrauch. Für ~800 € Isolierung und Verdunkelung bekommst du 80 % des Effekts</td></tr>
+<tr><td>Induktion als Hauptkocher</td><td>Kartuschenkocher (ist im Küchenblock schon vorgesehen) für alles Lange, Induktion für Schnelles</td><td>Spart 600 Wh am Tag — mehr als jede Optimierung an der Anlage</td></tr>
+<tr><td>Siebträgermaschine</td><td>Kapsel/Filter, oder Bialetti auf dem Kartuschenkocher</td><td>Aufheizen und Warmhalten sind der eigentliche Verbrauch, nicht der Kaffee</td></tr>
+<tr><td>E-Roller im Wohnraum laden</td><td>Garage, eigener LS-Kreis, bevorzugt während der Fahrt</td><td>Ladegeräte werden heiß; und 750 Wh gehören in die Fahrzeit, nicht in die Standzeit</td></tr>
+<tr><td>Smart-Home-Steuerung fürs Licht</td><td>Physische Schalter je Zone + ein bistabiles Relais</td><td>Licht muss auch funktionieren, wenn das Telefon leer ist oder ein Update hängt</td></tr>
+<tr><td>USB-A-Dosen „für die Gäste“</td><td>ausschließlich USB-C PD</td><td>Ein iPad Pro lädt an 12 W praktisch nicht. USB-A ist 2026 nur noch Ballast</td></tr>
+<tr><td>Wechselrichter 2000 VA sparen</td><td>3000 VA nehmen</td><td>Der Unterschied kostet ~400 €, ist aber täglich spürbar</td></tr>
+<tr><td>Später Batterie nachrüsten</td><td>jetzt 400 Ah in einer Charge kaufen</td><td>Gemischt alte und neue LiFePO4 parallel altert unschön und ist schwer zu diagnostizieren</td></tr>
+</table></div>
+
+<h4>Drei Details, die fast immer vergessen werden</h4>
+<ol>
+<li><b>Kontroll-LEDs</b> an Wasserpumpe und Außenlicht. Eine vergessene Pumpe pumpt den Tank in die Bilge, ein vergessenes Außenlicht kostet über Nacht mehr Strom als der Kühlschrank.</li>
+<li><b>PWM-Dimmer mit ≥ 1 kHz</b>. Billige Dimmer flackern sichtbar in jeder Videoaufnahme — bei einem Fahrzeug, in dem Kamera und Drohne mitreisen, ein echtes Ärgernis.</li>
+<li><b>Der Kühlschrank braucht Luft, nicht nur Strom.</b> Der NRX 60C sitzt in einem geschlossenen Eigenbau-Schrank; ohne Zuluft unten und Abluft oben steigt sein Verbrauch um 30–50 %. Das ist der billigste kWh-Gewinn im ganzen Fahrzeug — zwei Gitter für 30 €.</li>
+</ol>
+
+<p style="margin-top:40px;border-top:1px solid var(--line);padding-top:14px"><small>
+SPR-EL-01 Rev A · Auslegung auf Basis von SPR-GA-01, der CAMPANY-Rechnung RE2601250 und den
+angegebenen Geräten. Verbrauchswerte sind Erfahrungswerte mit ±&nbsp;20&nbsp;% Streuung; Solarerträge
+sind Mitteleuropa-Annahmen. Die 230-V-Installation ist vor Inbetriebnahme durch eine Elektrofachkraft
+zu prüfen. Kein Ersatz für eine Prüfung nach DIN VDE 0100-721 bzw. EN 1648-2.</small></p>
