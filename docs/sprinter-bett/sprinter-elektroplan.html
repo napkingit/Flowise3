@@ -98,7 +98,7 @@ svg text{font-family:var(--mono)}
     </div>
   </div>
   <div class="meta">
-    Zeichnungssatz&nbsp;SPR-EL-01 · Rev&nbsp;A<br>
+    Zeichnungssatz&nbsp;SPR-EL-01 · <b>Rev&nbsp;F</b><br>
     Koordinaten wie SPR-GA-01:<br>
     X&nbsp;=&nbsp;Breite (0&nbsp;=&nbsp;Verkleidung Fahrerseite)<br>
     Y&nbsp;=&nbsp;Fahrtrichtung (0&nbsp;=&nbsp;Hecktüren)<br>
@@ -124,18 +124,33 @@ svg text{font-family:var(--mono)}
   <a href="#s14">14 · Abgleich Stromkonzept &amp; Rev C</a>
 </nav>
 
+<div class="hin ok"><b>Rev F — was sich gegenüber Rev E geändert hat</b> (Vorgaben des Bauherrn vom 06.08.2026):
+<b>①</b> Klimaanlage = <b>Mestic Sorin SPA-5100 Split-Unit als Mitnahmegerät</b> auf AC-out-2;
+<b>alle festen Klimakanäle, die drei Luftauslässe, der Kondensatkanal und das feste Klimafach sind
+gestrichen</b> — es bleibt eine einzige 230-V-Dose (A5).
+<b>②</b> Solar = <b>600 Wp aus 3 × ECTIVE MSP 200 Flex</b> auf MPPT 100/30 + 75/15.
+<b>③</b> Alle Lade­punkte <b>USB-C PD 100 W, kein USB-A</b>; am Tisch <b>vier</b> 100-W-Ports auf einem
+eigenen 40-A-Kreis.
+<b>④</b> Neue Kapitel-6-Zeichnungen EL-03…EL-06 (Wandabwicklungen, Paneelbestückung 1:5, Lichtplan).
+<b>⑤</b> iPad-Hauptbasis IP1 an der Beifahrerwand, verriegelbar und ausziehbar.
+<b>⑥</b> Hochlastverriegelung jetzt <b>elektrisch <i>und</i> mechanisch</b>, Induktion auf 1 800 W begrenzt.
+<b>⑦</b> Alle sechs Hängeschränke auf der Fahrerseite, Beifahrer-Bettwand bleibt frei.
+<b>⑧</b> Preis- und Gewichtsübersicht der Elektronik am Ende von Kapitel 11.</div>
+
 <h2 id="s1"><span class="no">1</span>Kurzfazit</h2>
 
 <h4>Die drei Erkenntnisse, die alles andere bestimmen</h4>
-<div class="hin ok"><b>1. Die Klimaanlage gehört auf AC-out-2 — dann ist der Zielkonflikt gelöst.</b>
-Eine <b>Dach</b>klimaanlage und eine ernstzunehmende Solaranlage schließen sich auf einem L2H2
-gegenseitig aus: das Dach gibt netto ~3,6&nbsp;m² her (mit MaxxAir), also 700–780&nbsp;Wp — ein
-Dachgerät (~790&nbsp;×&nbsp;580&nbsp;mm, ~24&nbsp;kg) zerlegt die Restfläche auf ~350&nbsp;Wp.
-Gleichzeitig zieht Klimatisierung 3–4&nbsp;kWh pro Nacht, also mehr als die gesamte übrige Anlage am Tag.
-<b>Die Lösung ist nicht Verzicht, sondern Trennung:</b> ein <b>Staukastengerät</b> unter der hinteren
-Bettseite, angeschlossen an <b>AC-out-2</b> des MultiPlus. Dieser Ausgang ist im Wechselrichterbetrieb
-physisch spannungsfrei — die Klimaanlage kann die Batterie also gar nicht leeren, ist am Landstrom
-aber voll nutzbar. Das Dach bleibt frei für 780&nbsp;Wp.</div>
+<div class="hin ok"><b>1. Die Klimaanlage ist ein Mitnahmegerät auf AC-out-2 — damit ist der
+Zielkonflikt vollständig aufgelöst.</b> Eine <b>Dach</b>klimaanlage und eine ernstzunehmende
+Solaranlage schließen sich auf einem L2H2 gegenseitig aus, und Klimatisierung zieht 3–4&nbsp;kWh pro
+Nacht — mehr als die gesamte übrige Anlage am Tag. <b>Entscheidung Rev F:</b> statt eines fest
+eingebauten Geräts kommt eine <b>Mestic Sorin SPA-5100 Split-Unit</b> ins Fahrzeug, und zwar
+<b>nur dann, wenn wirklich eine heiße Region angefahren wird</b>. Das Gerät wird plug&amp;play in eine
+Fensteröffnung gestellt und braucht <b>ausschließlich einen 230-V-Anschluss</b>: keine Luftkanäle,
+keine Auslässe, kein Kondensatkanal, kein festes Klimafach. Angeschlossen wird es an <b>AC-out-2</b>
+des MultiPlus — dieser Ausgang ist im Wechselrichterbetrieb physisch spannungsfrei, die Klimaanlage
+kann die Batterie also gar nicht leeren, ist am Landstrom aber voll nutzbar. Das Dach bleibt komplett
+frei für <b>600&nbsp;Wp</b> flexible Module.</div>
 
 <div class="hin"><b>2. Der Wechselrichter, nicht die Batterie, ist der Flaschenhals beim Kochen.</b>
 Ein Victron MultiPlus 12/2000 liefert dauerhaft nur 1600&nbsp;W bei 25&nbsp;°C und 1300&nbsp;W bei 40&nbsp;°C —
@@ -153,7 +168,7 @@ spart mehr Batterie als jede Optimierung an der Anlage: ein Kochvorgang auf Gas 
 <h4>Größte Engpässe, ehrlich benannt</h4>
 <div class="tw"><table>
 <tr><th>Wunsch</th><th>Off-Grid-Realität</th><th>Pragmatische Lösung</th></tr>
-<tr><td>Klimaanlage</td><td><b>Off-grid nicht machbar.</b> 3–4 kWh je Nacht = mehr als die halbe Batterie, bei einem Dachgerät zusätzlich halbierte Solarfläche</td><td><b>Staukastengerät auf AC-out-2</b> — am Landstrom voll nutzbar, off-grid technisch abgeschaltet. Dach bleibt frei. Zusätzlich MaxxAir + Verdunkelung + 2 Ventilatoren</td></tr>
+<tr><td>Klimaanlage</td><td><b>Off-grid nicht machbar.</b> 3–4 kWh je Nacht = mehr als die halbe Batterie</td><td><b>Mestic Sorin SPA-5100 als Mitnahmegerät auf AC-out-2</b> (563 W, 2,6 A) — am Landstrom voll nutzbar, off-grid technisch abgeschaltet, kein Einbau, kein Gewicht wenn sie zu Hause bleibt. Zusätzlich MaxxAir + Verdunkelung + 2 Ventilatoren</td></tr>
 <tr><td>E-Roller laden</td><td>0,7–1,0 kWh je Ladung = ein Drittel eines guten Solartags</td><td>Grundsätzlich <b>während der Fahrt</b> (Ladebooster liefert 1,3 kW) oder am Landstrom. Off-Grid nur an Sonnentagen</td></tr>
 <tr><td>Induktion als Hauptkocher</td><td>600–900 Wh/Tag; braucht 3000-VA-Klasse</td><td>Induktion für Wasser/Schnelles, Kartuschenkocher für alles Lange (Nudeln, Schmoren)</td></tr>
 <tr><td>Airfryer</td><td>400–700 Wh je Nutzung, 1600 W Dauerlast</td><td>Machbar, aber Gerät bewusst mit ≤ 1500 W kaufen. Nicht parallel zu Induktion</td></tr>
@@ -192,7 +207,7 @@ weniger Verlust.</p>
 <ul>
 <li><b>Fensterlage:</b> Fahrerseite-Fenster liegt gegenüber der Schiebetür, also etwa Y&nbsp;2000–3200, Unterkante Z&nbsp;≈&nbsp;1020. Über dem Bett ist auf der Fahrerseite <b>freie Wand</b> — dort liegen die Bettkonsolen. <span class="pill" style="color:var(--var);border-color:var(--var)">prüfen</span></li>
 <li><b>MaxxAir</b> bei Y&nbsp;2600–3000, X&nbsp;660–1060 (mittig über dem Tisch), wie von dir vorgegeben.</li>
-<li><b>Dachnutzfläche für Solar:</b> Y&nbsp;250–2500 und Y&nbsp;3050–3400, Breite ≈&nbsp;1350&nbsp;mm zwischen den Dachsicken. <span class="pill" style="color:var(--var);border-color:var(--var)">prüfen</span></li>
+<li><b>Dachnutzfläche für Solar:</b> Y&nbsp;250–2500 und Y&nbsp;3050–3400, Breite ≈&nbsp;1350&nbsp;mm zwischen den Dachsicken. Für 3 × MSP 200 Flex (je 1595 × 710) reicht das: zwei Module quer nebeneinander vor dem MaxxAir, eines dahinter. <span class="pill" style="color:var(--var);border-color:var(--var)">prüfen</span></li>
 <li><b>Lichtmaschine W907:</b> Smart-Alternator mit variabler Spannung, 180–250&nbsp;A. Ein DC-DC-Ladebooster ist <b>zwingend</b>, eine einfache Trennrelais-Lösung funktioniert nicht.</li>
 <li><b>Bodenaufbau ≈ 30 mm</b> — darin liegt kein Kabel (Quetschgefahr, keine Wartung). Alle Leitungen laufen in einem Kanal hinter den Möbeln.</li>
 <li><b>Zulässiges Gesamtgewicht 3,5 t</b> angenommen. Die Elektrik wiegt je nach Variante 100–230&nbsp;kg — das ist ein relevanter Anteil der Zuladung. <span class="pill" style="color:var(--var);border-color:var(--var)">Restzuladung prüfen</span></li>
@@ -231,7 +246,7 @@ arbeitet hart) und <b>Übergangszeit</b> (Heizung läuft, Kühlschrank entspannt
 <tr><td>Wechselrichter-Standby</td><td><span class="pill pAC">230 V</span></td><td class="num">12 (Eco)</td><td>10 h</td><td class="num">120</td><td class="num">120</td><td>ohne Eco-Modus 24 h → <b>480 Wh</b></td></tr>
 <tr class="sum"><td colspan="4">Summe Basistag (ohne Klima, ohne E-Roller)</td><td class="num">2355</td><td class="num">2355</td><td>≈ 2,4 kWh</td></tr>
 <tr><td>E-Roller, 1 Ladung</td><td><span class="pill pAC">230 V</span></td><td class="num">150</td><td>5 h</td><td class="num">+750</td><td class="num">+750</td><td>bei 1000-Wh-Akku bis 1150 Wh</td></tr>
-<tr><td>Klimaanlage (Staukasten, <b>AC-out-2</b>)</td><td><span class="pill pAC">230 V</span></td><td class="num">600–1200</td><td>variabel</td><td class="num"><b>0</b></td><td class="num"><b>0</b></td><td>läuft nur am Landstrom — belastet die Batterie nie</td></tr>
+<tr><td>Klimaanlage <b>Mestic SPA-5100</b> (<b>AC-out-2</b>)</td><td><span class="pill pAC">230 V</span></td><td class="num">563</td><td>variabel</td><td class="num"><b>0</b></td><td class="num"><b>0</b></td><td>läuft nur am Landstrom — belastet die Batterie nie</td></tr>
 <tr class="sum"><td colspan="4">Komforttag mit E-Roller (Klima läuft am Netz mit)</td><td class="num">3105</td><td class="num">3105</td><td>≈ 3,1 kWh aus der Batterie</td></tr>
 </table></div>
 
@@ -251,8 +266,8 @@ arbeitet hart) und <b>Übergangszeit</b> (Heizung läuft, Kühlschrank entspannt
 <h4>Erzeugung — was realistisch reinkommt</h4>
 <div class="tw"><table>
 <tr><th>Quelle</th><th class="num">Hochsommer</th><th class="num">April / September</th><th class="num">Nov–Feb</th><th>Anmerkung</th></tr>
-<tr><td>Solar 700 Wp, flach auf dem Dach</td><td class="num">2,4–3,2 kWh</td><td class="num">1,1–1,8 kWh</td><td class="num">0,2–0,6 kWh</td><td>flach liegend, mit Verschmutzung und Teilverschattung gerechnet</td></tr>
-<tr><td>Solar 350 Wp (Restfläche neben Dachklima)</td><td class="num">1,2–1,6 kWh</td><td class="num">0,5–0,9 kWh</td><td class="num">0,1–0,3 kWh</td><td>deckt nicht einmal Kühlschrank + Standby</td></tr>
+<tr><td><b>Solar 600 Wp</b> (3 × ECTIVE MSP 200 Flex), flach auf dem Dach</td><td class="num">2,0–2,7 kWh</td><td class="num">0,9–1,5 kWh</td><td class="num">0,2–0,5 kWh</td><td>flach liegend, mit Verschmutzung und Teilverschattung gerechnet. Flexmodule liegen dachnah — bei Hitze rechne ich zusätzlich 3–5 % Minderertrag ein, das ist in den Werten enthalten</td></tr>
+<tr><td>Solar 350 Wp (Restfläche neben einer Dachklimaanlage)</td><td class="num">1,2–1,6 kWh</td><td class="num">0,5–0,9 kWh</td><td class="num">0,1–0,3 kWh</td><td>deckt nicht einmal Kühlschrank + Standby — genau deshalb kommt kein Gerät aufs Dach</td></tr>
 <tr><td>Ladebooster 50 A, 1 h Fahrt</td><td class="num">0,65 kWh</td><td class="num">0,65 kWh</td><td class="num">0,65 kWh</td><td>wetterunabhängig</td></tr>
 <tr><td>Ladebooster 100 A, 2 h Fahrt</td><td class="num">2,6 kWh</td><td class="num">2,6 kWh</td><td class="num">2,6 kWh</td><td><b>im Winter die Hauptquelle</b></td></tr>
 <tr><td>Landstrom, MultiPlus 120 A</td><td class="num">1,5 kW dauerhaft</td><td class="num">—</td><td class="num">—</td><td>400 Ah von 20 → 95 % in ca. 3,5 h</td></tr>
@@ -272,10 +287,10 @@ die Begründung in Kapitel&nbsp;14.</div>
 <tr><td><b>Kapazität</b></td><td><b>2 × 12,8 V / 300 Ah = 600 Ah / 7,68 kWh</b></td><td>Nutzbar bei 80 % DoD ≈ 6,1 kWh. Das ergibt 4,4 Tage Grundbetrieb, 2,5 Tage mit Induktion und Kaffee, 2,0 Tage im vollen Komforttag. 600 Ah ist für ein 12-V-System die sinnvolle Obergrenze — mehr Leistung würde einen Wechsel auf 24 V bedeuten.</td></tr>
 <tr><td><b>BMS</b></td><td><b>Victron Lynx Smart BMS NG 500 A</b></td><td>500-A-Dauerkontaktor, integrierte Strommessung (ein separater SmartShunt entfällt), Vorladefunktion, gemeinsames Abschalten beider Batterien, direkte Anbindung an Cerbo GX. Bei zwei parallelen NG-Batterien ist ein Systembatteriemanagement Pflicht, keine Kür.</td></tr>
 <tr><td><b>Wechselrichter</b></td><td><b>Victron MultiPlus-II 12/3000/120-32</b></td><td>2400 W dauerhaft bei 25 °C, 2200 W bei 40 °C, 5500 W Spitze, 120-A-Ladegerät, PowerControl/PowerAssist. Leerlauf 13 W, Search-Mode 3 W. <b>Entscheidend: der zweite Ausgang AC-out-2</b> — siehe Klimaanlage.</td></tr>
-<tr><td><b>Solar</b></td><td><b>700–780 Wp</b>, 2 Strings, 2 × SmartSolar MPPT 100/30</td><td>Weil die Klimaanlage nicht aufs Dach kommt, bleibt die volle Fläche für Solar. Zwei getrennte Regler statt eines 100/50: bei Teilverschattung durch MaxxAir oder Dachträger bricht dann nur ein String ein. Je Regler max. 440 Wp im 12-V-System — passt für 2 × ~390 Wp.</td></tr>
+<tr><td><b>Solar</b></td><td><b>600 Wp = 3 × ECTIVE MSP 200 Flex</b>, 2 Strings, <b>SmartSolar MPPT 100/30 + 75/15</b></td><td>Flexible Monomodule 1595 × 710 × 3 mm, je 3,65 kg — zusammen nur <b>11 kg</b> auf dem Dach statt ~40 kg Rahmenmodule, und keine Dachlast-Diskussion. String A = 2 Module in Reihe (Uoc 2 × 24,6 = 49,2 V, kalt × 1,15 ≈ 57 V &lt; 100 V) an den 100/30; String B = 1 Modul an den 75/15. Zwei Regler statt einem: Teilverschattung durch MaxxAir, Dachträger oder Bäume nimmt dann nur einen String mit.</td></tr>
 <tr><td><b>Ladebooster</b></td><td><b>Victron Orion XS 12/12-70</b>, bei Inbetriebnahme auf <b>50 A begrenzt</b></td><td>Hardware für 70 A / 1000 W kaufen, aber vorsichtig in Betrieb nehmen: die konkrete W907-Lichtmaschine und die zulässige Dauerentnahme sind VIN-abhängig. Nach Messung von Spannungsfall und Lichtmaschinentemperatur bei warmem Motor auf 60–70 A erhöhen. Ein zweites Gerät erst, wenn die Fahrzeugfreigabe das hergibt.</td></tr>
 <tr><td><b>Landstrom</b></td><td>CEE 16 A, zweipolige Trennung, Ladung über den MultiPlus</td><td>Eingangsstrom am Panel auf 6/10/16 A einstellbar; PowerControl senkt zuerst den Ladestrom, PowerAssist ergänzt aus der Batterie. Damit funktioniert auch die schwache Campingplatzsäule.</td></tr>
-<tr><td><b>Klimaanlage</b></td><td><b>Staukastengerät auf AC-out-2</b> — nur bei Landstrom aktiv</td><td>Das ist die elegante Lösung des Konflikts: AC-out-2 ist im Wechselrichterbetrieb <b>physisch abgeschaltet</b>. Die Klimaanlage kann die Batterie also gar nicht leeren, ist am Campingplatz aber voll nutzbar. Als Unterbank-/Staukastengerät bleibt zusätzlich das Dach frei für 780 Wp Solar.</td></tr>
+<tr><td><b>Klimaanlage</b></td><td><b>Mestic Sorin SPA-5100 Split-Unit</b> als <b>Mitnahmegerät</b>, fest verdrahtete Dose <b>A5 auf AC-out-2</b></td><td>1471 W Kühlleistung bei 563 W Aufnahme (2,6 A), Innenteil 432 × 198 × 320, Außenteil 445 × 209 × 374, zusammen ca. 21 kg. Wird plug&amp;play in eine Fensteröffnung gehängt — <b>kein Einbau, keine Luftkanäle, keine Auslässe, kein Kondensatkanal, kein Klimafach</b>. Bauseitig ist nur <b>eine 230-V-Dose</b> zu stellen. AC-out-2 ist im Wechselrichterbetrieb physisch abgeschaltet: off-grid ist die Klimaanlage damit technisch ausgeschlossen, am Landstrom voll nutzbar. Bleibt sie zu Hause, spart das 21 kg Zuladung.</td></tr>
 <tr><td><b>Systemspannung</b></td><td><b>12 V</b></td><td>Kühlschrank, Heizung, Pumpe, Licht, Lüfter und alle USB-C-Module sind 12 V. 24 V würde die Ströme halbieren, erzwingt aber Wandler für alles und einen aufwendigeren Weg von der 12-V-Lichtmaschine. Lohnt erst ab ~4 kW Wechselrichterleistung.</td></tr>
 <tr><td><b>Hochlastverriegelung</b></td><td>Dreistufiger Wahlschalter + 2 verriegelte Schütze</td><td>Induktion, Airfryer und Kaffeemaschine ergeben zusammen 4,7 kW — technisch ausgeschlossen. Statt das nur zu beschriften, wird es <b>erzwungen</b>: Stufe 0 = aus, 1 = Induktion, 2 = Hochlaststeckdose. Beide Zweige können nie gleichzeitig Spannung führen.</td></tr>
 </table></div>
@@ -284,13 +299,13 @@ die Begründung in Kapitel&nbsp;14.</div>
 <svg viewBox="-60 -80 2620 1620" style="font-size:34px" role="img" aria-label="Systemschema">
 <defs><marker id="e1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,1.5 L9,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
 <rect class="blk" x="0" y="40" width="360" height="140" rx="8"/>
-<text class="lbl" x="22" y="95">Solar 700–780 Wp</text><text class="dt2" x="22" y="150">2 × ~390 Wp</text>
+<text class="lbl" x="22" y="95">Solar 600 Wp</text><text class="dt2" x="22" y="150">3 × ECTIVE MSP 200</text>
 <rect class="blk" x="0" y="250" width="360" height="140" rx="8"/>
 <text class="lbl" x="22" y="305">Lichtmaschine</text><text class="dt2" x="22" y="360">W907 Smart-Alt.</text>
 <rect class="blkAC" x="0" y="700" width="360" height="140" rx="8"/>
 <text class="lbl" x="22" y="755">Landstrom CEE</text><text class="dt2" x="22" y="810">16 A, Fahrerseite</text>
 <rect class="blk" x="500" y="20" width="360" height="90" rx="8"/><text class="lbl" x="522" y="78">MPPT 100/30</text>
-<rect class="blk" x="500" y="130" width="360" height="90" rx="8"/><text class="lbl" x="522" y="188">MPPT 100/30</text>
+<rect class="blk" x="500" y="130" width="360" height="90" rx="8"/><text class="lbl" x="522" y="188">MPPT 75/15</text>
 <rect class="blk" x="500" y="250" width="360" height="140" rx="8"/>
 <text class="lbl" x="522" y="305">Orion XS 12/12-70</text><text class="dt2" x="522" y="360">Start: 50 A begrenzt</text>
 <rect class="blkAC" x="500" y="700" width="360" height="140" rx="8"/>
@@ -336,13 +351,14 @@ die Begründung in Kapitel&nbsp;14.</div>
 <rect class="blkAC" x="1960" y="620" width="470" height="210" rx="8"/>
 <text class="lbl" x="1982" y="675">AC-out-2 · eigener FI</text>
 <text class="dt2" x="1982" y="730"><tspan font-weight="700">nur bei Landstrom aktiv</tspan></text>
-<text class="dt2" x="1982" y="780">KLIMAANLAGE</text>
+<text class="dt2" x="1982" y="780">A5 · KLIMA (Mestic)</text>
 <g class="wireDC"><path d="M1800,145 L1960,145" marker-end="url(#e1)"/></g>
 <g class="wireAC"><path d="M1800,420 L1960,420" marker-end="url(#e1)"/><path d="M1800,480 L1880,480 L1880,700 L1960,700" marker-end="url(#e1)"/></g>
 <rect class="blk" x="1620" y="960" width="480" height="150" rx="8"/>
 <text class="lbl" x="1642" y="1015">Cerbo GX + Touch 50</text><text class="dt2" x="1642" y="1065">nur Monitoring</text>
 <g class="wireS" style="stroke-dasharray:10 8"><path d="M1510,790 L1620,1000"/><path d="M680,220 L680,1040 L1620,1040"/></g>
 <text class="dt2" x="0" y="1300">Der Trick mit AC-out-2: die Klimaanlage hängt an einem Ausgang, den der MultiPlus im Batteriebetrieb komplett abschaltet. Sie kann die Batterie also nicht leeren.</text>
+<text class="dt2" x="0" y="1240">Klima = Mestic Sorin SPA-5100, Mitnahmegerät. Bauseits nur die Dose A5 — keine Kanäle, keine Auslässe, kein Kondensatweg, kein Klimafach.</text>
 <text class="dt2" x="0" y="1360">Alles was dauerhaft läuft, hängt am 12-V-Zweig. Der Wechselrichter wird nur für Induktion, Airfryer, Kaffee und E-Roller eingeschaltet.</text>
 <text class="dt2" x="0" y="1420">Sicherungen so nah wie möglich an der Quelle: je Batterie 300 A, MultiPlus-Abgang ca. 400 A, hohes Abschaltvermögen wegen LiFePO4-Kurzschlussstrom.</text>
 </svg>
@@ -351,9 +367,9 @@ die Begründung in Kapitel&nbsp;14.</div>
 <h4>Warum diese Architektur</h4>
 <ul>
 <li><b>AC-out-2 statt Verzicht auf Klima.</b> Mein ursprünglicher Vorschlag war, die Klimaanlage ganz zu streichen. Dein Stromkonzept hat die bessere Lösung: der zweite Wechselrichterausgang ist im Batteriebetrieb spannungsfrei. Damit ist die Klima am Landstrom voll nutzbar und off-grid technisch ausgeschlossen — ohne Disziplin, ohne Diskussion.</li>
-<li><b>Staukastengerät statt Dachklima.</b> Damit bleibt das Dach für 780 Wp frei. Preis dafür: Außenluftführung, Kondensatablauf und Schalldämmung müssen früh in den Möbelbau — das ist mechanisch anspruchsvoller als ein Dachgerät.</li>
+<li><b>Mitnahme-Split statt Einbaugerät.</b> Die Mestic Sorin SPA-5100 wird nur mitgenommen, wenn es wirklich heiß wird. Damit entfallen Luftkanäle, Auslässe, Kondensatführung und das feste Klimafach vollständig aus dem Möbelbau — es bleibt eine einzige 230-V-Dose. Das ist die mit Abstand einfachste und leichteste Lösung, und das Dach bleibt frei.</li>
 <li><b>Lynx Smart BMS NG statt Einzel-BMS + Shunt.</b> Zwei parallele 300-Ah-Batterien brauchen ein gemeinsames Abschaltorgan; die Strommessung ist gleich mit drin.</li>
-<li><b>Zwei MPPT statt einem 100/50.</b> Bei 780 Wp läge ein 100/50 an der Grenze (max. 700 W im 12-V-System), und Teilverschattung ist auf einem Van-Dach der Normalfall.</li>
+<li><b>Zwei MPPT statt einem.</b> 600 Wp auf zwei Strings (2 + 1 Modul): Teilverschattung nimmt nur einen Regler mit. Ein einzelner 100/50 wäre im 12-V-System bei ~700 W gedeckelt und hätte keine Reserve.</li>
 <li><b>Orion XS 70 A, zunächst gedrosselt.</b> Ehrlicher als eine feste Zahl: die Fahrzeugfreigabe ist VIN-abhängig und muss gemessen werden.</li>
 <li><b>USB-C PD direkt aus 12 V.</b> Laptop, iPads, Kameras laden ohne Wechselrichter — der größte Effizienzhebel im ganzen Konzept.</li>
 </ul>
@@ -447,7 +463,7 @@ niemand daran gewöhnen muss, auf welcher Seite was ist:</p>
 <tr><td>Class-T 400 A + Hauptschalter 300 A</td><td>X 520, Y 100, Z 300</td><td><b>Von der geöffneten Hecktür direkt greifbar</b> — im Notfall zählt jede Sekunde</td></tr>
 <tr><td>MultiPlus-II 12/3000</td><td>stehend an der Trennwand, X 0–200, Y 450–700, Z 300–800</td><td>Braucht Luft: 60 mm frei oben und unten, Lüfter bläst nach oben</td></tr>
 <tr><td>Lynx-Verteiler / Busbars + Shunt</td><td>X 250–520, Y 450–700, Z 500–750</td><td>Sternpunkt zentral, alle Kabel sternförmig davon weg</td></tr>
-<tr><td>2 × MPPT, 2 × Orion XS</td><td>Rückwand X 0–520, Y 550–700, Z 750–930</td><td>Oben, weil sie Wärme abgeben; Bluetooth erreicht so auch die Kabine</td></tr>
+<tr><td>MPPT 100/30 + 75/15, Orion XS</td><td>Rückwand X 0–520, Y 550–700, Z 750–930</td><td>Oben, weil sie Wärme abgeben; Bluetooth erreicht so auch die Kabine</td></tr>
 <tr><td>12-V-Sicherungsbox (16 Wege)</td><td>X 300, Y 200, Z 700–850</td><td>Deutlich beschriftet, ohne Werkzeug erreichbar</td></tr>
 <tr><td>230-V-Verteilung FI + 3 × LS</td><td>X 100, Y 150, Z 700–870, eigener Deckel</td><td>Räumlich <b>getrennt</b> von der 12-V-Ebene — nie in eine gemeinsame Box</td></tr>
 <tr><td>CEE-Einspeisung 16 A</td><td>außen Fahrerseite, Y ~500, Z ~700</td><td>Kurzer Weg zum FI; Kabel läuft <b>nicht</b> über die Wohn- und Markisenseite</td></tr>
@@ -877,27 +893,32 @@ man vergessen kann (Pumpe, Außenlicht), und der Hochlast-Wahlschalter direkt ne
 </figure>
 
 <h2 id="s7"><span class="no">7</span>Steckdosen- und Ladepunkteliste</h2>
+<div class="hin ok"><b>Grundregel Rev F:</b> jeder Ladepunkt an Arbeitsplatz, Bett und Tablet ist
+<b>USB-C&nbsp;PD 100 W</b>. <b>Kein USB-A</b> im ganzen Fahrzeug. Am Tisch sitzen <b>vier</b> echte
+100-W-Ports auf einem eigenen Kreis — nicht vier Buchsen an einem 60-W-Netzteil.</div>
 <div class="tw"><table>
 <tr><th class="num">Nr.</th><th>Position (X / Y / Z)</th><th>Typ</th><th class="num">Anz.</th><th>Spannung / Leistung</th><th>Verwendungszweck</th></tr>
-<tr><td class="num">A1</td><td>1700 / 1800 / 1080</td><td>Schuko, Einbau</td><td class="num">2</td><td><span class="pill pAC">230 V · B16</span></td><td>Induktionsplatte, Airfryer</td></tr>
-<tr><td class="num">A2</td><td>1280 / 2560 / 760</td><td>Schuko, Möbelfront</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td>Kaffeemaschine, Nutzung an der Klappverlängerung</td></tr>
-<tr><td class="num">A3</td><td>20 / 2850–2950 / 900</td><td>Schuko, Paneel</td><td class="num">2</td><td><span class="pill pAC">230 V · B10</span></td><td>Laptopnetzteil, Drohnen- und Kameraladegeräte</td></tr>
-<tr><td class="num">A4</td><td>700 / 350 / 420</td><td>Schuko, Garage</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td><b>E-Roller</b>, Werkzeugakkus</td></tr>
-<tr><td class="num">A5</td><td>600 / 2400 / 300</td><td>Schuko unter der Bank</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td>Reserve / Dauerladegeräte — optional</td></tr>
-<tr><td class="num">U1</td><td>20 / 2880 / 950</td><td>USB-C PD, Einbau</td><td class="num">1</td><td><span class="pill pU">100 W</span></td><td><b>Laptop ohne Wechselrichter</b></td></tr>
-<tr><td class="num">U2</td><td>20 / 2930 / 950</td><td>USB-C PD</td><td class="num">1</td><td><span class="pill pU">45 W</span></td><td>iPad am Arbeitsplatz</td></tr>
-<tr><td class="num">U3</td><td>20 / 300–360 / 1250</td><td>USB-C PD Doppel</td><td class="num">2</td><td><span class="pill pU">45 + 20 W</span></td><td>Bett links: Tablet + Telefon</td></tr>
-<tr><td class="num">U4</td><td>1700 / 300–360 / 1250</td><td>USB-C PD Doppel</td><td class="num">2</td><td><span class="pill pU">45 + 20 W</span></td><td>Bett rechts</td></tr>
-<tr><td class="num">U5</td><td>20 / 400 / 1160 (in der Ablage)</td><td>Qi-Pad 15 W, bündig</td><td class="num">1</td><td><span class="pill pU">15 W</span></td><td>Telefon + AirPods, Bett links</td></tr>
-<tr><td class="num">U6</td><td>1700 / 400 / 1160</td><td>Qi-Pad 15 W</td><td class="num">1</td><td><span class="pill pU">15 W</span></td><td>Bett rechts</td></tr>
-<tr><td class="num">U7</td><td>20 / 500 / 1160 · 1700 / 500 / 1160</td><td>Apple-Watch-Puck in offener Mulde</td><td class="num">2</td><td><span class="pill pU">5 W</span></td><td>Apple Watch je Bettseite</td></tr>
-<tr><td class="num">U8</td><td>1700 / 1860 / 1140</td><td>USB-C PD</td><td class="num">1</td><td><span class="pill pU">45 W</span></td><td>iPad beim Kochen</td></tr>
-<tr><td class="num">U9</td><td>60 / 3110 / 700</td><td>USB-C PD Doppel</td><td class="num">2</td><td><span class="pill pU">2 × 45 W</span></td><td>Laden während der Fahrt</td></tr>
+<tr><td class="num">A1</td><td>1700 / 1800 / 1080</td><td>Schuko, Küchenpaneel K3</td><td class="num">2</td><td><span class="pill pAC">230 V · B16</span></td><td>Induktion (≤ 1800 W) <b>oder</b> Airfryer/Kaffeemaschine — verriegelt</td></tr>
+<tr><td class="num">A2</td><td>1280 / 2560 / 760</td><td>Schuko, Möbelfront</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td>Kaffeemaschine an der Klappverlängerung</td></tr>
+<tr><td class="num">A3</td><td>20 / 2850–2950 / 970 (K5b)</td><td>Schuko, Arbeitspaneel</td><td class="num">2</td><td><span class="pill pAC">230 V · B10</span></td><td>Laptopnetzteil, Drohnen- und Kameraladegeräte</td></tr>
+<tr><td class="num">A4</td><td>700 / 350 / 420</td><td>Schuko, Garage</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td><b>E-Roller</b> auf eigenem Garagenkreis, Werkzeugakkus</td></tr>
+<tr><td class="num">A5</td><td>1780 / 2700 / 1100</td><td>Schuko, Eingang B-Säule</td><td class="num">1</td><td><span class="pill pAC">230 V · B10</span></td><td><b>Mestic Sorin SPA-5100</b>, fest auf AC-out-2 (siehe §4)</td></tr>
+<tr><td class="num">U1–U4</td><td>20 / 2820–3020 / 930–1010 (<b>K5a</b>)</td><td>USB-C PD, Einbau</td><td class="num">4</td><td><span class="pill pU">4 × 100 W</span></td><td><b>Tisch/Arbeitsplatz:</b> 2 Laptops + 2 iPads gleichzeitig, ohne Wechselrichter</td></tr>
+<tr><td class="num">U5 / U6</td><td>20 bzw. 1700 / 300–360 / 1250 (K1/K2)</td><td>USB-C PD Doppel je Bettseite</td><td class="num">4</td><td><span class="pill pU">je 2 × 100 W</span></td><td>Bett links / rechts: Tablet + Telefon je Seite</td></tr>
+<tr><td class="num">U7 / U8</td><td>20 bzw. 1700 / 400 / 1160 (Ablage)</td><td>Qi-Pad 15 W, bündig</td><td class="num">2</td><td><span class="pill pU">15 W</span></td><td>Telefon + AirPods je Bettseite</td></tr>
+<tr><td class="num">U9</td><td>20 bzw. 1700 / 500 / 1160</td><td>Apple-Watch-Puck in offener Mulde</td><td class="num">2</td><td><span class="pill pU">5 W</span></td><td>Apple Watch je Bettseite</td></tr>
+<tr><td class="num">U10</td><td>1700 / 1860 / 1140 (K3)</td><td>USB-C PD</td><td class="num">1</td><td><span class="pill pU">100 W</span></td><td>iPad beim Kochen</td></tr>
+<tr><td class="num">U11</td><td>60 / 3110 / 700</td><td>USB-C PD Doppel Fahrerhaus</td><td class="num">2</td><td><span class="pill pU">2 × 100 W</span></td><td>Laden während der Fahrt</td></tr>
 <tr><td class="num">D1</td><td>60 / 3110 / 620</td><td>12-V-Bordsteckdose</td><td class="num">1</td><td><span class="pill pDC">12 V · 10 A</span></td><td>Kompressor, Kühltasche</td></tr>
-<tr><td class="num">D2</td><td>20 / 2990 / 900</td><td>12-V-Dose</td><td class="num">1</td><td><span class="pill pDC">12 V · 10 A</span></td><td>Tischventilator, Reserve</td></tr>
+<tr><td class="num">D2</td><td>20 / 2990 / 970 (K5b)</td><td>12-V-Dose</td><td class="num">1</td><td><span class="pill pDC">12 V · 10 A</span></td><td>Tischventilator, Reserve</td></tr>
 <tr><td class="num">D3</td><td>800 / 350 / 420</td><td>12-V-Dose Garage</td><td class="num">1</td><td><span class="pill pDC">12 V · 15 A</span></td><td>Kompressor, Arbeitsleuchte</td></tr>
-<tr class="sum"><td colspan="3">Summe</td><td class="num">7 × 230 V · 13 × USB-C · 3 × 12 V</td><td colspan="2">—</td></tr>
+<tr class="sum"><td colspan="3">Summe</td><td class="num">7 × 230 V · 11 × USB-C PD 100 W · 2 × Qi · 2 × Watch · 3 × 12 V</td><td colspan="2">kein USB-A</td></tr>
 </table></div>
+<div class="hin"><b>Leistungsrechnung für K5a, damit „4 × 100 W“ auch stimmt:</b> vier gleichzeitig
+ausgereizte PD-Ports sind 400 W Ausgangsleistung, bei ~90 % Wandlerwirkungsgrad rund <b>37 A</b> auf
+der 12-V-Seite. Deshalb bekommt K5a einen <b>eigenen Kreis DC-14 mit 6 mm² und 40 A</b> — an einem
+Sammelkreis mit 2,5 mm² wäre das die klassische Fehlplanung. Realistisch sind zwei Ports voll belegt;
+die Auslegung stellt nur sicher, dass nichts warm wird, wenn doch alle vier hängen.</div>
 <div class="hin"><b>Zwei Details, die im Alltag den Unterschied machen:</b> ① Jede USB-C-Dose bekommt ein
 <b>eigenes kurzes Kabel fest zugeordnet</b> (magnetische Kabelhalter neben der Dose) — sonst sucht man
 abends im Dunkeln. ② Die 230-V-Dosen am Arbeitsplatz und in der Küche liegen auf <b>getrennten
@@ -908,21 +929,21 @@ je eine <b>dimmbare LED-Leiste</b> mit — das ist bereits ein großer Teil des 
 <b>Wichtig seit Rev B des Grundrisses:</b> alle sechs Schränke hängen auf der <b>Fahrerseite</b>.
 Die Beifahrerseite über dem Bett bekommt deshalb ein <b>eigenes LED-Profil in der Dachkante</b>
 (Y 200–1600), damit beide Bettseiten gleichwertiges indirektes Licht haben.</div>
-<div class="hin"><b>Zielkonflikt, den du vor der Lichtplanung entscheiden musst:</b> Hängeschränke
-(UK 1450) und Seitenfenster (OK typischerweise ~1550) konkurrieren um dieselbe Wandhöhe.
-Meine Empfehlung: <b>2 + 2 Hängeschränke über dem Bett</b> (je Seite Y 250–1250) und die restlichen
-2 auf der Fahrerseite über der Sitzgruppe mit UK 1620 über dem Fensteroberrand. Vorteil: jede Bettseite
-bekommt einen eigenen Schrank — damit lässt sich die Bettkonsole samt Leselicht, USB-C und Ablage
-direkt am Schrankunterboden montieren statt an der Blechwand. Das ist die sauberste Umsetzung deines
-Wunsches „jede Bettseite eine eigene Komfortzone“.</div>
+<div class="hin"><b>Festlegung Rev F (ersetzt den früheren 2+2-Vorschlag):</b> <b>alle sechs</b>
+Hängeschränke hängen auf der <b>Fahrerseite</b> und werden an den vorhandenen Airline-Schienen nach
+Herstellerangabe befestigt. HS1–HS3 sitzen über dem Bett mit UK&nbsp;1450, HS4–HS6 über der Sitzgruppe
+mit UK&nbsp;1620 über dem Fensteroberrand. Die <b>komplette Beifahrerwand im Bettbereich bleibt frei</b>
+— keine Schränke, keine Regale, keine vorstehenden Leuchten. Deshalb bekommt diese Seite ihr Licht aus
+einem <b>flach in die Dachkante eingelassenen LED-Profil</b> (L4b) und die Bettkonsole K2 wird direkt
+an der Wand montiert statt an einem Schrankboden.</div>
 
 <h4>Lichtzonen</h4>
 <div class="tw"><table>
 <tr><th class="num">Nr.</th><th>Zone</th><th>Leuchtmittel</th><th>Position</th><th>Farbtemp.</th><th class="num">W</th><th>Dimmung</th></tr>
 <tr><td class="num">L1</td><td>Grundlicht Wohnraum</td><td>4 Einbauspots Ø 65</td><td>Decke, X 500 und 1200, Y 2200 und 2800</td><td>2700 K</td><td class="num">4 × 3</td><td>gedimmt, 10–100 %</td></tr>
 <tr><td class="num">L2</td><td>Arbeitslicht Küche</td><td>2 Einbauspots + LED-Profil Dachkante</td><td>X 1400, Y 2050 / 2450 · Profil Y 2000–2650</td><td><b>4000 K</b></td><td class="num">2 × 4 + 5</td><td>ein/aus reicht</td></tr>
-<tr><td class="num">L3</td><td>Sitzgruppe</td><td>LED-Leisten der 2 Hängeschränke Fahrerseite</td><td>UK 1620, Y 2200–3200</td><td>2700 K</td><td class="num">2 × 4</td><td>gedimmt</td></tr>
-<tr><td class="num">L4</td><td>Bett / indirekt</td><td><b>Fahrerseite:</b> LED-Leisten der Hängeschränke HS1–3 · <b>Beifahrerseite:</b> eigenes LED-Profil in der Dachkante</td><td>Fahrer UK 1450, Y 200–1700 · Beifahrer Dachkante Y 200–1600</td><td>2700 K</td><td class="num">3 × 4 + 5</td><td>gedimmt, je Seite getrennt</td></tr>
+<tr><td class="num">L3</td><td>Sitzgruppe</td><td>LED-Leisten der Hängeschränke HS4–HS6 (im Lieferumfang)</td><td>Fahrerseite, UK 1620, Y 1750–3250</td><td>2700 K</td><td class="num">2 × 4</td><td>gedimmt</td></tr>
+<tr><td class="num">L4</td><td>Bett / indirekt</td><td><b>Fahrerseite:</b> LED-Leisten der Hängeschränke HS1–3 · <b>Beifahrerseite:</b> eigenes LED-Profil in der Dachkante</td><td>Fahrer UK 1450, Y 200–1700 · Beifahrer Dachkante Y 200–1600, flach, nicht vorstehend</td><td>2700 K</td><td class="num">3 × 4 + 5</td><td>gedimmt, je Seite getrennt</td></tr>
 <tr><td class="num">L5</td><td>Ambiente / Sockel</td><td>LED-Band im Sockel Küche + Bank, und unter der Bettvorderkante</td><td>Z 60 · Bettkante Y 1620</td><td>2700 K</td><td class="num">≈ 8</td><td>gedimmt</td></tr>
 <tr><td class="num">L6</td><td><b>Nachtlicht</b></td><td>LED-Band amber, sehr niedrig</td><td>gleiche Profile wie L5, zweiter Kanal</td><td><b>1800–2200 K</b></td><td class="num">≈ 2</td><td>fest niedrig</td></tr>
 <tr><td class="num">L7</td><td>Leselicht Bett</td><td>2 Schwanenhalsleuchten</td><td>je Bettkonsole, Z 1340</td><td>2700 K</td><td class="num">2 × 2</td><td>am Gerät dimmbar</td></tr>
@@ -960,25 +981,41 @@ Arbeits-, Nacht- und Außenlicht sind Ein/Aus-Funktionen. PWM-Dimmer immer mit �
 sonst flackern sie in Videoaufnahmen — ein Punkt, der bei Kamera-Nutzern regelmäßig übersehen wird.</p>
 
 <h2 id="s9"><span class="no">9</span>iPad- und Gerätehalterungskonzept</h2>
-<p><b>Grundprinzip: eine Mechanik, fünf Positionen.</b> Statt fünf komplette Halterungen zu kaufen,
-werden fünf <b>Ø-25-mm-Kugelbasen</b> (RAM Mount B-Kugel oder baugleich) fest montiert und dazu
-<i>ein</i> Doppelarm mit <i>einer</i> Tablet-Klemme beschafft, der umgesteckt wird. Das ist leichter,
-billiger und man hat nie eine leere Halterung im Blickfeld hängen.</p>
+<div class="hin ok"><b>Neu in Rev F:</b> eine <b>feste, flache, formschlüssig verriegelbare
+iPad-Hauptbasis IP1</b> an der Beifahrerwand — im oberen Drittel der Fahrzeugwand, so dass man
+<b>aufrecht im Bett sitzend fast waagerecht</b> auf das Display schaut. Sie ist die einzige Ausnahme
+von der Freihaltezone auf der Beifahrerseite und darf deshalb eingeklappt <b>≤ 35 mm</b> vorstehen.</div>
+
+<h4>IP1 · Hauptbasis Beifahrerwand</h4>
 <div class="tw"><table>
-<tr><th>Basis</th><th>Position (X / Y / Z)</th><th>Nutzung</th><th>Ladepunkt in Reichweite</th></tr>
-<tr><td>B1 · Bett Fußseite</td><td>20 / 1450 / 1350, Fahrerseitenwand</td><td>Film im Liegen; der Arm schwenkt über die Bettmitte, beide sehen mit</td><td>U3 (Bettkonsole links) über 1,5-m-Kabel im Kabelclip an der Wand</td></tr>
-<tr><td>B2 · Bett Beifahrerseite</td><td>1560 / 1450 / Unterboden Hängeschrank</td><td>zweite Blickposition, wenn eine Person allein schaut</td><td>U4</td></tr>
-<tr><td>B3 · Sitzgruppe</td><td>an der CAMPANY-Tischschiene, Y 2900, Z ~810</td><td><b>Arbeitsplatz:</b> iPad als zweiter Bildschirm neben dem Laptop (Sidecar)</td><td>U2 direkt daneben</td></tr>
-<tr><td>B4 · Küche</td><td>1705 / 1850 / 1300</td><td>Rezept auf Augenhöhe, außerhalb des Spritzbereichs, blockiert keine Arbeitsfläche</td><td>U8 im Küchenpaneel</td></tr>
-<tr><td>B5 · Eingang/Gang</td><td>1690 / 2600 / 1300</td><td>Musik/Video beim Kochen für die Sitzgruppe sichtbar; optional</td><td>U8</td></tr>
+<tr><th>Eigenschaft</th><th>Festlegung</th><th>Begründung / Prüfmaß</th></tr>
+<tr><td>Position</td><td><b>X 1760 (Wand) / Y 900 / Z 1550</b> — Mitte der Aufnahme</td><td>Augenhöhe sitzend im Bett: Matratze OK 1115 + Sitzaugenhöhe ≈ 700–780 → Blickachse 1815–1895; das Display steht 250–320 mm tiefer und wird um 15–20° nach oben gekippt. Y 900 ist die Mitte der freien Bettlänge</td></tr>
+<tr><td>Bauart</td><td>Grundplatte 120 × 120 × 8 mm auf einer <b>eingeharzten Verstärkungsplatte</b> hinter der Wandverkleidung, darauf ein <b>2-gliedriger Klapparm</b> mit Reibgelenken</td><td>Der Arm zieht ca. <b>400 mm</b> zur Bettmitte aus, schwenkt ±90° und wird formschlüssig verriegelt. Eingeklappt liegt er in einer 30 mm tiefen Mulde → 35 mm Gesamtvorstand</td></tr>
+<tr><td>Aufnahme</td><td><b>Formschlüssige Schale</b> mit Rastnase + Sicherungsschieber, zusätzlich MagSafe-Ring</td><td>Reiner Magnethalt ist auf Kopfsteinpflaster nicht zulässig — für die Fahrt kommt das Gerät in die Schale <b>und</b> hinter den Schieber</td></tr>
+<tr><td>Verriegelung Fahrt</td><td>Arm eingeklappt, Schieber geschlossen, <b>Kontrollmarkierung rot/grün</b> sichtbar</td><td>gehört auf die Abfahrtcheckliste (§13 der Bauanleitung)</td></tr>
+<tr><td>Laden</td><td>USB-C-Kabel aus der Bettkonsole <b>K2</b> (U6, 100 W) in einem flachen Kanal an der Wandunterkante bis Y 900</td><td>Kein Kabel über die Matratze, keine zweite Dose in der Freihaltezone</td></tr>
+<tr><td>Last</td><td>Auslegung <b>5 kg</b> statisch, Arm ausgezogen; Befestigung 4 × M5 in die Verstärkungsplatte</td><td>iPad Pro 13" mit Hülle ≈ 0,8 kg — Faktor 6, damit sich das Blech beim Anfassen nicht eindrückt</td></tr>
+</table></div>
+
+<h4>Weitere Basen — magnetisch und schwenkbar</h4>
+<p><b>Grundprinzip: eine Mechanik, mehrere Positionen.</b> Außer IP1 werden nur <b>Ø-25-mm-Kugelbasen</b>
+(RAM Mount B-Kugel oder baugleich) fest montiert und dazu <i>ein</i> Doppelarm mit <i>einer</i>
+MagSafe-Schwenkplatte beschafft, der umgesteckt wird. Das ist leichter, billiger und man hat nie eine
+leere Halterung im Blickfeld hängen.</p>
+<div class="tw"><table>
+<tr><th>Basis</th><th>Position (X / Y / Z)</th><th>Bauart</th><th>Nutzung</th><th>Ladepunkt</th></tr>
+<tr><td><b>IP1</b> · Hauptbasis</td><td>1760 / 900 / 1550</td><td>Klapparm + Formschluss + MagSafe, verriegelbar</td><td><b>Bett:</b> Film und Videocall im Sitzen und Liegen, Arm schwenkt über die Bettmitte</td><td>U6 (K2) über 1,5 m Kabel im Kanal</td></tr>
+<tr><td>IP2 · Sitzgruppe</td><td>an der CAMPANY-Tischschiene, Y 2900, Z ≈ 930</td><td>Kugelbasis + MagSafe, 360° schwenkbar</td><td><b>Arbeitsplatz:</b> iPad als zweiter Bildschirm neben dem Laptop</td><td>U1–U4 (K5a) direkt daneben</td></tr>
+<tr><td>IP3 · Küche</td><td>1705 / 1850 / 1300</td><td>Kugelbasis + MagSafe, schwenkbar</td><td>Rezept auf Augenhöhe, seitlich versetzt außerhalb des Spritzbereichs</td><td>U10 im Küchenpaneel K3</td></tr>
+<tr><td>IP4 · Fahrerhaus</td><td>Armaturenbrett / A-Säule Beifahrer</td><td>Kugelbasis + MagSafe</td><td>Navigation, Reiseplanung im Stand</td><td>U11</td></tr>
 </table></div>
 <h4>Kabelführung — der Teil, der sonst unordentlich wird</h4>
 <ul>
 <li>An jeder Basis ein <b>magnetischer Kabelhalter</b> und ein dediziertes, <b>abgelängtes</b> USB-C-Kabel (nicht 2 m, sondern exakt die benötigten 60–150 cm). Kabelsalat entsteht fast immer durch zu lange Kabel.</li>
-<li>Am Bett: das Kabel läuft von der Konsole (Y 300) in einem flachen Kabelkanal an der Wandunterkante bis Y 1450. Nicht über die Matratze.</li>
+<li>Am Bett: das Kabel läuft von der Konsole K2 (Y 300) in einem flachen Kabelkanal an der Wandunterkante bis IP1 bei Y 900. Nicht über die Matratze.</li>
 <li>Am Tisch: Kabel durch eine Ø-20-mm-Durchführung in der Tischschiene → keine Kabel über die Tischkante.</li>
-<li><b>Ladeleistung beachten:</b> ein iPad Pro will 30–45 W. USB-A-Dosen mit 2,4 A (12 W) laden es nicht sinnvoll — deshalb im ganzen Fahrzeug <b>ausschließlich USB-C&nbsp;PD</b>, kein USB-A.</li>
-<li>Beim Kochen ist die Küchenbasis B4 bewusst <b>nicht</b> über der Arbeitsplatte, sondern seitlich: sonst tropft und spritzt es aufs Gerät.</li>
+<li><b>Ladeleistung:</b> ein iPad Pro will 30–45 W, ein MacBook Pro bis 96 W. Deshalb im ganzen Fahrzeug <b>ausschließlich USB-C&nbsp;PD 100 W</b>, kein USB-A.</li>
+<li>Die Küchenbasis IP3 sitzt bewusst <b>nicht</b> über der Arbeitsplatte, sondern seitlich: sonst tropft und spritzt es aufs Gerät.</li>
 </ul>
 
 <h2 id="s10"><span class="no">10</span>Technische Umsetzung</h2>
@@ -1013,13 +1050,13 @@ billiger und man hat nie eine leere Halterung im Blickfeld hängen.</p>
 <tr><td class="mono">DC-09</td><td>Küchen-Arbeitslicht (L2)</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>4000 K</td></tr>
 <tr><td class="mono">DC-10</td><td>Ambiente + Nachtlicht (L5/L6)</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>zwei Kanäle</td></tr>
 <tr><td class="mono">DC-11</td><td>Außenlicht Markise + Heck (L9/L10)</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>getrennt schaltbar, Kontroll-LED innen</td></tr>
-<tr><td class="mono">DC-12</td><td>Bett links: USB-C + Qi + Leselicht</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>eigenes Modul</td></tr>
-<tr><td class="mono">DC-13</td><td>Bett rechts: USB-C + Qi + Leselicht</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>spiegelbildlich</td></tr>
-<tr><td class="mono">DC-14</td><td>Arbeitsplatz USB-C (100 W + 45 W)</td><td class="num">2 × 6 mm²</td><td class="num">25 A</td><td>100-W-PD zieht bis 9 A</td></tr>
-<tr><td class="mono">DC-15</td><td>Fahrerhaus USB-C + 12-V-Dose</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>—</td></tr>
+<tr><td class="mono">DC-12</td><td>Bett links K1: 2 × USB-C PD 100 W + Qi + Watch + Leselicht</td><td class="num">2 × 6 mm²</td><td class="num">25 A</td><td>2 × 100 W ≈ 18 A + Qi/Licht</td></tr>
+<tr><td class="mono">DC-13</td><td>Bett rechts K2: 2 × USB-C PD 100 W + Qi + Watch + Leselicht + IP1</td><td class="num">2 × 6 mm²</td><td class="num">25 A</td><td>spiegelbildlich</td></tr>
+<tr><td class="mono">DC-14</td><td><b>Arbeitspaneel K5a: 4 × USB-C PD 100 W</b></td><td class="num">2 × 6 mm²</td><td class="num">40 A</td><td>4 × 100 W = 400 W ≈ 37 A bei 90 % Wirkungsgrad — <b>maßgebender USB-Kreis</b></td></tr>
+<tr><td class="mono">DC-15</td><td>Fahrerhaus 2 × USB-C PD 100 W + 12-V-Dose</td><td class="num">2 × 6 mm²</td><td class="num">25 A</td><td>—</td></tr>
 <tr><td class="mono">DC-16</td><td>Cerbo GX, Sensorik, Tankgeber</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>Dauerbetrieb</td></tr>
 <tr><td class="mono">DC-17</td><td>Technikfachlüfter (thermostatisch)</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>ab ca. 35 °C</td></tr>
-<tr><td class="mono">DC-18</td><td>Küche USB-C + 12-V Garage</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>—</td></tr>
+<tr><td class="mono">DC-18</td><td>Küche USB-C PD 100 W (U10) + 12-V Garage</td><td class="num">2 × 4 mm²</td><td class="num">20 A</td><td>—</td></tr>
 <tr><td class="mono">DC-19</td><td><b>Reserve</b> hoch, bis vorn vorverlegt</td><td class="num">2 × 4 mm²</td><td class="num">20 A</td><td>z. B. LTE-Router</td></tr>
 <tr><td class="mono">DC-20</td><td><b>Reserve</b> Licht/Sensor, Dach/Heck</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>—</td></tr>
 </table></div>
@@ -1041,7 +1078,7 @@ richtet sie sich nach dem Querschnitt und der realen Länge, nicht nach der Ger�
 <p><b>AC-out-2 — nur bei anliegendem Landstrom:</b></p>
 <div class="tw"><table>
 <tr><th>Kreis</th><th>Verbraucher</th><th class="num">Leitung</th><th class="num">Schutz</th></tr>
-<tr><td class="mono">AC-07</td><td><b>Klimaanlage</b> (Staukastengerät)</td><td class="num">3 × 2,5 mm²</td><td class="num">eigener FI 30 mA Typ A + LS nach Gerät</td></tr>
+<tr><td class="mono">AC-07</td><td><b>Klimaanlage</b> Mestic SPA-5100 (Dose A5, Mitnahmegerät)</td><td class="num">3 × 2,5 mm²</td><td class="num">eigener FI 30 mA Typ A + LS B10</td></tr>
 <tr><td class="mono">AC-08</td><td><b>Reserve</b> für spätere reine Landstromlast</td><td class="num">Leerrohr</td><td class="num">nicht bestückt</td></tr>
 </table></div>
 <ul>
@@ -1057,7 +1094,13 @@ richtet sie sich nach dem Querschnitt und der realen Länge, nicht nach der Ger�
 <div class="hin ok"><b>Dreistufiger Wahlschalter an der Küchenstirnseite:</b>
 <b>0</b> = Hochlast aus · <b>1</b> = Induktion frei · <b>2</b> = Hochlaststeckdose frei (Airfryer oder
 Kaffeemaschine). Dahinter zwei zweipolige Schütze, gegeneinander verriegelt, mit Kontrollleuchte für
-den freigegebenen Zweig. Die Standard-Steckdosen bleiben in jeder Stellung versorgt, die Klimaanlage
+den freigegebenen Zweig. <b>Doppelte Verriegelung nach Vorgabe Rev F:</b> ① <b>elektrisch</b> — die
+Spulen der beiden Schütze liegen über je einen Öffnerkontakt des jeweils anderen Schützes, es kann also
+physikalisch nur einer anziehen; ② <b>mechanisch</b> — die beiden Schütze werden mit dem
+Original-Verriegelungsbügel des Herstellers (mechanische Wendeverriegelung) gekoppelt, und der
+Wahlschalter ist ein Stufenschalter mit nur einer Schaltstellung je Zweig. Auch bei verschweißtem
+Kontakt oder Steuerfehler können damit nie beide Zweige gleichzeitig Spannung führen.
+Die Induktionsplatte wird zusätzlich <b>geräteseitig auf maximal 1800 W</b> begrenzt. Die Standard-Steckdosen bleiben in jeder Stellung versorgt, die Klimaanlage
 hängt ohnehin unabhängig auf AC-out-2.
 <br><b>Warum nicht einfach ein Aufkleber:</b> Induktion + Kaffee sind 3,2 kW, Induktion + Airfryer
 3,3 kW — beides über der Dauerleistung des Wechselrichters. Ein Schütz kostet 40 €, ein
@@ -1130,12 +1173,12 @@ damit sie sich 1:1 aus jedem Katalog belegen lassen. <b>Sag mir, wofür WCS bei 
 <tr><td class="mono">E02</td><td>Victron Lynx Smart BMS NG 500 A</td><td class="num">1</td><td class="num">1,9</td><td class="num">650–800</td><td>Systemabschaltung + Strommessung; <b>ersetzt den SmartShunt</b></td></tr>
 <tr><td class="mono">E03</td><td>Victron Lynx Distributor</td><td class="num">1–2</td><td class="num">4</td><td class="num">200–400</td><td>Hochstromverteiler mit Sicherungsüberwachung</td></tr>
 <tr><td class="mono">E04</td><td>Victron MultiPlus-II 12/3000/120-32</td><td class="num">1</td><td class="num">20</td><td class="num">1100–1300</td><td>Wechselrichter + 120-A-Lader + Umschalter + <b>AC-out-2</b></td></tr>
-<tr><td class="mono">E05</td><td>Victron SmartSolar MPPT 100/30</td><td class="num">2</td><td class="num">3</td><td class="num">380</td><td>zwei Strings gegen Teilverschattung</td></tr>
+<tr><td class="mono">E05</td><td>Victron SmartSolar MPPT <b>100/30</b> (String A, 2 Module in Reihe) + <b>75/15</b> (String B, 1 Modul)</td><td class="num">1 + 1</td><td class="num">2,3</td><td class="num">320</td><td>zwei Strings gegen Teilverschattung; String A 400 Wp / Uoc kalt ≈ 57 V, String B 200 Wp / Uoc kalt ≈ 28 V</td></tr>
 <tr><td class="mono">E06</td><td>Victron Orion XS 12/12-70A</td><td class="num">1</td><td class="num">1,5</td><td class="num">380</td><td>bei Inbetriebnahme auf 50 A begrenzen</td></tr>
 <tr><td class="mono">E07</td><td>Victron Cerbo GX MK2 + GX Touch 50</td><td class="num">1</td><td class="num">1</td><td class="num">500</td><td>Monitoring; Licht bleibt bewusst unabhängig davon</td></tr>
 <tr><td class="mono">E08</td><td>Victron Digital Multi Control (oder Landstromgrenze über GX)</td><td class="num">1</td><td class="num">0,2</td><td class="num">120</td><td>6/10/16 A sichtbar am Bedienfeld</td></tr>
-<tr><td class="mono">E09</td><td>Solarmodul starr ca. 390 Wp, ~1720 × 1130</td><td class="num">2</td><td class="num">44</td><td class="num">400</td><td>Endmaß erst nach Dach-Aufmaß bestellen</td></tr>
-<tr><td class="mono">E10</td><td>Alu-Klebespoiler, Sika 252, Dachdurchführung</td><td class="num">1 Satz</td><td class="num">6</td><td class="num">250</td><td>geklebt statt gebohrt</td></tr>
+<tr><td class="mono">E09</td><td><b>ECTIVE MSP 200 Flex</b> — flexibles Monomodul 200 Wp, 1595 × 710 × 3 mm, 3,65 kg, Umpp 20,5 V / Impp 9,76 A, Uoc 24,6 V / Isc 10,8 A</td><td class="num">3</td><td class="num">11</td><td class="num">570–750</td><td><b>600 Wp gesamt.</b> Dachbelegung erst nach Aufmaß festlegen: 3 × 1595 mm längs neben MaxxAir; Fläche je Modul 1,13 m²</td></tr>
+<tr><td class="mono">E10</td><td>Klebemontage für Flexmodule: Sika 252 / Sikaflex-EBT+, Primer, Dachdurchführung mit Kabeltülle, umlaufende Entlüftungslücke</td><td class="num">1 Satz</td><td class="num">4</td><td class="num">220</td><td>geklebt statt gebohrt. <b>Wichtig bei Flexmodulen:</b> nicht vollflächig verkleben, sondern in Raupen mit Luftspalt — sonst staut sich Wärme und die Leistung fällt</td></tr>
 </table></div>
 
 <h4>B · Schutz und Verteilung — WCS o. glw.</h4>
@@ -1176,8 +1219,8 @@ damit sie sich 1:1 aus jedem Katalog belegen lassen. <b>Sag mir, wofür WCS bei 
 <div class="tw"><table>
 <tr><th>Artikel / Spezifikation</th><th class="num">Anz.</th><th class="num">≈ €</th></tr>
 <tr><td>Schuko-Einbaudose (Küche, Küchenfront, Arbeitsplatz 2×, Garage, Bettfußseite, Service)</td><td class="num">7</td><td class="num">120</td></tr>
-<tr><td>USB-C-PD-Einbaudose <b>100 W</b>, echte PD-Aushandlung mit 9/12/15/20-V-Profil</td><td class="num">3</td><td class="num">210</td></tr>
-<tr><td>USB-C-PD-Doppelmodul <b>65 W</b> gesamt, geringer Ruhestrom, Einsatz tauschbar</td><td class="num">5</td><td class="num">250</td></tr>
+<tr><td>USB-C-PD-Einbaudose <b>100 W</b>, echte PD-Aushandlung 9/12/15/20 V, geringer Ruhestrom, Einsatz tauschbar — <b>K5a 4×, K1/K2 je 2×, K3 1×, Fahrerhaus 2×</b></td><td class="num">11</td><td class="num">770</td></tr>
+<tr><td><b>kein USB-A</b> — bewusste Festlegung, siehe §7</td><td class="num">0</td><td class="num">0</td></tr>
 <tr><td>Qi-Ladepad 15 W, bündig einlassbar</td><td class="num">2</td><td class="num">90</td></tr>
 <tr><td>Apple-Watch-Ladepuck (offene Mulde — funktioniert <b>nicht</b> durch Holz)</td><td class="num">2</td><td class="num">80</td></tr>
 <tr><td>12-V-Bordsteckdose (Fahrerhaus, Arbeitsplatz, Garage)</td><td class="num">3</td><td class="num">40</td></tr>
@@ -1208,16 +1251,33 @@ damit sie sich 1:1 aus jedem Katalog belegen lassen. <b>Sag mir, wofür WCS bei 
 <tr><td>12-V-Ventilator schwenkbar (Bett, Übergangszone)</td><td class="num">2</td><td class="num">90</td></tr>
 <tr><td>Technikfachlüfter 12 V + Thermostat</td><td class="num">2 + 1</td><td class="num">70</td></tr>
 <tr><td>Temperatursensoren (Batterie, Technikfach, Kühlschrankraum)</td><td class="num">3</td><td class="num">60</td></tr>
-<tr><td>Kugelbasis Ø 25 mm (5 Positionen) + 1 Doppelarm + 1 Tablet-Klemme</td><td class="num">1 Satz</td><td class="num">155</td></tr>
+<tr><td><b>IP1 iPad-Hauptbasis</b>: verriegelbarer 2-gliedriger Klapparm ~400 mm Auszug, Formschlussschale + MagSafe, Grundplatte 120 × 120 auf eingeharzter Verstärkungsplatte</td><td class="num">1</td><td class="num">140</td></tr>
+<tr><td>Kugelbasis Ø 25 mm (IP2–IP4) + 1 Doppelarm + 1 MagSafe-Schwenkplatte</td><td class="num">1 Satz</td><td class="num">130</td></tr>
 <tr><td>CO-Melder, Rauchmelder, Löschdecke, Feuerlöscher 2 kg</td><td class="num">1 Satz</td><td class="num">150</td></tr>
 <tr><td>Warnschilder/Aufkleber Technikfach („230 V auch ohne Landstrom")</td><td class="num">1 Satz</td><td class="num">15</td></tr>
-<tr><td><b>Klimaanlage Staukastengerät</b> (Unterbank/Stauraum) + isolierte Luftschläuche, Auslässe, Kondensatführung</td><td class="num">1</td><td class="num">1800–2600</td></tr>
+<tr><td><b>Mestic Sorin SPA-5100 Split-Unit</b> — Mitnahmegerät, kein Einbau, keine Kanäle; bauseits nur Dose A5</td><td class="num">1</td><td class="num">900–1100</td></tr>
 </table></div>
 
+<h4>Preis- und Gewichtsübersicht Elektronik (Rev F)</h4>
 <div class="tw"><table>
-<tr class="sum"><td>Summe A–F <b>ohne</b> Klimaanlage</td><td class="num">≈ 190 kg</td><td class="num">≈ 11 500 – 13 500 €</td></tr>
-<tr class="sum"><td>Summe A–F <b>mit</b> Staukastenklimaanlage</td><td class="num">≈ 215 kg</td><td class="num">≈ 13 500 – 16 000 €</td></tr>
+<tr><th>Gruppe</th><th>Inhalt</th><th class="num">Gewicht</th><th class="num">Material ≈ €</th></tr>
+<tr><td><b>A</b></td><td>Energie-Kernsystem Victron inkl. 600 Ah, MultiPlus-II 12/3000, 2 MPPT, Orion XS, Cerbo, <b>600 Wp ECTIVE Flex</b></td><td class="num">≈ 104 kg</td><td class="num">8 500 – 10 400</td></tr>
+<tr><td><b>B</b></td><td>Schutz und Verteilung (Sicherungen, Trennschalter, FI/LS, Hochlastschütze, CEE)</td><td class="num">≈ 9 kg</td><td class="num">1 100 – 1 300</td></tr>
+<tr><td><b>C</b></td><td>Kabel, Kabelschuhe, Leerrohre, Beschriftung (Kupfer ist der Gewichtstreiber)</td><td class="num">≈ 38 kg</td><td class="num">900 – 1 400</td></tr>
+<tr><td><b>D</b></td><td>Steckdosen, <b>11 × USB-C PD 100 W</b>, Qi, Watch, 12-V-Dosen</td><td class="num">≈ 4 kg</td><td class="num">1 050 – 1 250</td></tr>
+<tr><td><b>E</b></td><td>Licht und Bedienung (Spots, Bänder, Profile, Dimmer, Taster, Pumpenschalter, Tankanzeige)</td><td class="num">≈ 7 kg</td><td class="num">1 200 – 1 450</td></tr>
+<tr><td><b>F</b></td><td>Lüftung, Halterungen, Sensorik, Sicherheitstechnik (CO, Rauch, Löschdecke, Feuerlöscher)</td><td class="num">≈ 10 kg</td><td class="num">1 000 – 1 200</td></tr>
+<tr class="sum"><td colspan="2"><b>Summe Elektronik ohne Klimaanlage</b></td><td class="num"><b>≈ 172 kg</b></td><td class="num"><b>≈ 13 750 – 17 000 €</b></td></tr>
+<tr><td colspan="2">Mestic Sorin SPA-5100 (Mitnahmegerät, nur bei Bedarf an Bord)</td><td class="num">+ 21 kg</td><td class="num">+ 900 – 1 100</td></tr>
+<tr class="sum"><td colspan="2"><b>Summe mit mitgeführter Klimaanlage</b></td><td class="num"><b>≈ 193 kg</b></td><td class="num"><b>≈ 14 650 – 18 100 €</b></td></tr>
 </table></div>
+<div class="hin"><b>Wie diese Zahl zu lesen ist:</b> das ist <b>reiner Materialpreis</b> für die
+Elektronik, ohne Arbeitszeit, ohne Abnahme durch eine Elektrofachkraft (rechne dafür 400–800 €) und
+ohne Möbel, Wasser, Heizung. Die Spanne entsteht fast vollständig aus zwei Positionen: den beiden
+NG-Batterien (4 400–5 600 €) und der Kabelmenge, die erst nach dem realen Leitungsaufmaß feststeht.
+<b>Größter Einsparhebel:</b> eine Batterie weniger spart rund 2 500 € und 29 kg, kostet aber die Hälfte
+der Autarkie. <b>Kein Einsparhebel:</b> Sicherungen, Querschnitte und Abschaltvermögen — dort wird
+nicht gespart.</div>
 <p><small>Materialpreise ohne Arbeitszeit und ohne Abnahme durch eine Elektrofachkraft. Kabelmengen
 enthalten 15–20 % Reserve und sind nach der finalen Längenliste zu korrigieren.
 <b>Gewichtshinweis:</b> allein die zwei Batterien wiegen 58 kg — vor der Bestellung die reale
@@ -1228,10 +1288,10 @@ Restzuladung und die Hinterachslast prüfen.</small></p>
 <tr><th>Kriterium</th><th>A · Realistisch &amp; ausgewogen</th><th>B · Komfort &amp; Autarkie</th><th>C · High-Power mit Klima</th></tr>
 <tr><td>Systemspannung</td><td>12 V</td><td>12 V</td><td><b>24 V</b> + 24→12-Wandler 70 A</td></tr>
 <tr><td>Batterie</td><td>300–400 Ah / 3,8–5,1 kWh</td><td><b>600 Ah / 7,68 kWh</b></td><td>300 Ah @ 24 V / 7,7 kWh</td></tr>
-<tr><td>Solar</td><td>550–700 Wp</td><td>780 Wp</td><td>780 Wp (Klima im Staukasten)</td></tr>
+<tr><td>Solar</td><td>400 Wp (2 × MSP 200 Flex)</td><td><b>600 Wp (3 × MSP 200 Flex)</b></td><td>600 Wp + Dachträger-Zusatzmodul</td></tr>
 <tr><td>Wechselrichter</td><td>MultiPlus 12/2000/80<br><small>1600 W dauerhaft</small></td><td>MultiPlus-II 12/3000/120<br><small>2400 W dauerhaft</small></td><td>MultiPlus-II 24/5000<br><small>4000 W dauerhaft</small></td></tr>
 <tr><td>Ladebooster</td><td>1 × Orion XS 50 A</td><td>1 × Orion XS 70 A, Start 50 A</td><td>Zweite Lichtmaschine 24 V</td></tr>
-<tr><td>Klimaanlage</td><td>Staukasten auf AC-out-2</td><td><b>Staukasten auf AC-out-2</b></td><td>ja, auch zeitweise aus Batterie</td></tr>
+<tr><td>Klimaanlage</td><td>Mestic SPA-5100 auf AC-out-2</td><td><b>Mestic SPA-5100 auf AC-out-2</b></td><td>ja, auch zeitweise aus Batterie</td></tr>
 <tr><td>Induktion volle Stufe</td><td>nur bis ~Stufe 7</td><td>ja</td><td>ja, auch zwei Platten</td></tr>
 <tr><td>Airfryer</td><td>ja, wenn ≤ 1400 W</td><td>ja</td><td>ja</td></tr>
 <tr><td>E-Roller off-grid</td><td>nur an Sonnentagen</td><td>an Sonnentagen problemlos</td><td>problemlos</td></tr>
@@ -1247,15 +1307,15 @@ Restzuladung und die Hinterachslast prüfen.</small></p>
 <h2 id="s13"><span class="no">13</span>Konkrete Empfehlung</h2>
 <h4>Was ich bauen würde: Option B mit AC-out-2-Klimaanlage</h4>
 <p>600&nbsp;Ah LiFePO4 (2 × Victron NG 300 Ah) mit Lynx Smart BMS NG, MultiPlus-II 12/3000/120-32,
-780&nbsp;Wp auf zwei MPPT, Orion&nbsp;XS 12/12-70 (bei Inbetriebnahme auf 50&nbsp;A begrenzt), CEE 16&nbsp;A —
-und die <b>Klimaanlage als Staukastengerät auf AC-out-2</b>.</p>
+600&nbsp;Wp (3 × ECTIVE MSP 200 Flex) auf zwei MPPT, Orion&nbsp;XS 12/12-70 (bei Inbetriebnahme auf 50&nbsp;A begrenzt), CEE 16&nbsp;A —
+und die <b>Mestic Sorin SPA-5100 als Mitnahmegerät auf AC-out-2</b>.</p>
 <p>Das ist die Auslegung, die aus dem Abgleich der drei Dokumente hervorgeht. Sie kostet gegenüber
 meiner ersten 400-Ah-Fassung etwa 2.500&nbsp;€ und 45&nbsp;kg mehr, liefert dafür aber 4,4 Tage
 Grundautarkie statt 2,5 und macht die Klimaanlage möglich, ohne die Solarfläche zu opfern.</p>
 
 <h4>Was ich zwingend so machen würde</h4>
 <ol>
-<li><b>Klimaanlage ausschließlich auf AC-out-2</b> und als Staukastengerät. Damit ist off-grid-Betrieb technisch ausgeschlossen und das Dach bleibt frei. Die beste einzelne Idee im ganzen Konzept.</li>
+<li><b>Klimaanlage ausschließlich auf AC-out-2</b> und ausschließlich als Mitnahmegerät. Damit ist off-grid-Betrieb technisch ausgeschlossen, das Dach bleibt frei, und wenn die Anlage zu Hause bleibt, fährt man 21 kg leichter.</li>
 <li><b>Hochlastverriegelung mit zwei Schützen</b> statt eines Aufklebers. Induktion oder Airfryer/Kaffee — nie beides.</li>
 <li><b>Induktionskochfeld technisch auf 1800 W begrenzen.</b> Der Unterschied zur vollen Stufe merkt man beim Kochen kaum, an der Batterie sehr.</li>
 <li><b>USB-C&nbsp;PD überall, kein USB-A</b>, mit 100&nbsp;W am Arbeitsplatz und an beiden Bettseiten. Laptop und iPads laden damit ohne Wechselrichter.</li>
@@ -1271,7 +1331,7 @@ Grundautarkie statt 2,5 und macht die Klimaanlage möglich, ohne die Solarfläch
 <h4>Was ich bewusst weglassen oder anders lösen würde</h4>
 <div class="tw"><table>
 <tr><th>Statt…</th><th>…lieber</th><th>Warum</th></tr>
-<tr><td>Dachklimaanlage</td><td>Staukastengerät auf AC-out-2</td><td>Ein Dachgerät (~24 kg, ~790 × 580 mm) kollidiert unmittelbar mit einem 780-Wp-Layout und läuft off-grid ohnehin nicht sinnvoll</td></tr>
+<tr><td>Dachklimaanlage</td><td>Mestic Sorin SPA-5100 als Mitnahmegerät auf AC-out-2</td><td>Ein Dachgerät (~24 kg, ~790 × 580 mm) kollidiert unmittelbar mit dem Solarlayout, wiegt dauerhaft mit und läuft off-grid ohnehin nicht sinnvoll</td></tr>
 <tr><td>Klimaanlage auf dem Wechselrichterkreis</td><td>eigener FI auf AC-out-2</td><td>3–4 kWh je Nacht sind aus keiner 12-V-Batterie sinnvoll zu holen; die Trennung erzwingt das ohne Disziplin</td></tr>
 <tr><td>Induktion als Hauptkocher</td><td>Kartuschenkocher (im Küchenblock enthalten) für alles Lange</td><td>Spart 600–980 Wh am Tag — mehr als jede Optimierung an der Anlage</td></tr>
 <tr><td>Siebträgermaschine</td><td>Kapsel/Filter 1000–1400 W, oder Bialetti auf Gas</td><td>Aufheizen und Warmhalten sind der Verbrauch, nicht der Kaffee</td></tr>
@@ -1305,10 +1365,10 @@ Grundautarkie statt 2,5 und macht die Klimaanlage möglich, ohne die Solarfläch
 Geschmackssache — jede Zeile hat eine technische Begründung.</p>
 <div class="tw"><table>
 <tr><th>Thema</th><th>Mein erster Entwurf</th><th>Stromkonzept / Rev C</th><th>Jetzt gültig — und warum</th></tr>
-<tr><td><b>Klimaanlage</b></td><td>weglassen</td><td>Staukastengerät auf AC-out-2, nur Landstrom</td><td><b>Stromkonzept gewinnt.</b> AC-out-2 ist im Batteriebetrieb spannungsfrei — die Klima kann die Batterie nicht leeren, ist am Platz aber voll nutzbar. Als Unterbankgerät bleibt das Dach für 780 Wp frei. Meine Streichung war die schlechtere Lösung desselben Problems</td></tr>
+<tr><td><b>Klimaanlage</b></td><td>weglassen</td><td>Gerät auf AC-out-2, nur Landstrom</td><td><b>Beide überholt durch die Bauherren-Entscheidung Rev F:</b> Mestic Sorin SPA-5100 als <b>Mitnahmegerät</b>. AC-out-2 bleibt das richtige Prinzip, aber es entfallen Einbau, Kanäle, Auslässe, Kondensatweg und Klimafach vollständig</td></tr>
 <tr><td><b>Batterie</b></td><td>400 Ah / 5,1 kWh</td><td>600 Ah / 7,68 kWh</td><td><b>600 Ah.</b> Der Komforttag liegt bei 3,1 kWh; mit 400 Ah wären das 1,6 Tage. Preis: +45 kg und ~2.500 € — vor der Bestellung Restzuladung prüfen</td></tr>
 <tr><td><b>BMS</b></td><td>batterieintern + SmartShunt</td><td>Lynx Smart BMS NG 500 A</td><td><b>Lynx Smart BMS NG.</b> Zwei parallele NG-Batterien brauchen ein gemeinsames Abschaltorgan; die Strommessung ist enthalten, der SmartShunt entfällt</td></tr>
-<tr><td><b>Solar</b></td><td>780 Wp, 2 × MPPT 100/30</td><td>600 Wp, 1 × MPPT 100/50</td><td><b>780 Wp mit 2 × 100/30.</b> Weil die Klima nicht aufs Dach kommt, ist die Fläche da. Ein 100/50 nimmt im 12-V-System nur ~700 W an und wäre der Engpass; zwei Regler sind zusätzlich verschattungstolerant</td></tr>
+<tr><td><b>Solar</b></td><td>780 Wp, 2 × MPPT 100/30</td><td>600 Wp, 1 × MPPT 100/50</td><td><b>Festlegung Rev F: 600 Wp als 3 × ECTIVE MSP 200 Flex auf 100/30 (2 in Reihe) + 75/15 (1 Modul).</b> Die Kapazität des Stromkonzepts, aber auf zwei Regler verteilt — ein 100/50 nimmt im 12-V-System nur ~700 W an und wäre bei Teilverschattung der Engpass. Flexmodule sparen gegenüber Rahmenmodulen ~29 kg Dachlast</td></tr>
 <tr><td><b>Ladebooster</b></td><td>2 × Orion XS 50 A = 100 A</td><td>1 × Orion XS 70 A, auf 50–60 A begrenzt</td><td><b>Stromkonzept gewinnt.</b> Die zulässige Dauerentnahme am W907 ist VIN-abhängig. Erst messen, dann hochdrehen. Ein zweites Gerät nur bei bestätigter Freigabe</td></tr>
 <tr><td><b>Hochlast</b></td><td>Bedienregel „nur eines"</td><td>verriegelte Schütze + 3-Stufen-Wahlschalter</td><td><b>Stromkonzept gewinnt.</b> Erzwingen statt beschriften — 40 € gegen wiederholte Wechselrichter-Überlast</td></tr>
 <tr><td><b>Induktion</b></td><td>2000–2100 W</td><td>auf 1800 W begrenzt</td><td><b>1800 W.</b> Spart 15 % Spitzenstrom bei kaum spürbarem Komfortverlust</td></tr>
