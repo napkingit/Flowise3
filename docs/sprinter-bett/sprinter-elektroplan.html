@@ -113,7 +113,7 @@ svg text{font-family:var(--mono)}
   <a href="#s3">3 · Verbrauchs- und Lastanalyse</a>
   <a href="#s4">4 · Empfehlung Energiesystem</a>
   <a href="#s5">5 · Layout-Plan nach Zonen</a>
-  <a href="#s6">6 · Draufsicht als Einbauplanung</a>
+  <a href="#s6">6 · Einbauplanung: Wandabwicklungen, Paneele, Lichtplan</a>
   <a href="#s7">7 · Steckdosen- und Ladepunkteliste</a>
   <a href="#s8">8 · Lichtkonzept</a>
   <a href="#s9">9 · iPad- und Halterungskonzept</a>
@@ -455,7 +455,20 @@ niemand daran gewöhnen muss, auf welcher Seite was ist:</p>
 <tr><td>Dieselheizung</td><td>X 0–400, Y 200–600, Z 0–300, Abgas nach unten</td><td>Warmluftkanal 75 mm nach vorn im Bodenkanal der Fahrerseite → Auslass unter der Sitzbank; ein Auslass bleibt in der Garage</td></tr>
 </table></div>
 
-<h2 id="s6"><span class="no">6</span>Draufsicht als Einbauplanung</h2>
+<h2 id="s6"><span class="no">6</span>Einbauplanung — Wandabwicklungen, Paneele, Lichtplan</h2>
+<p>Vier Zeichnungen, die zusammen jede Dose, jeden Schalter und jede Leuchte eindeutig festlegen:
+zwei <b>Wandabwicklungen</b> (was sitzt wo an der Wand, mit Höhen- und Längenkette), die
+<b>Paneelbestückung</b> im Maßstab 1:5 (wie die Blende tatsächlich aussieht) und der
+<b>Lichtplan</b> (welcher Schalter schaltet welche Zone).</p>
+<div class="tw"><table>
+<tr><th>Kürzel</th><th>Bedeutung</th><th>Kürzel</th><th>Bedeutung</th></tr>
+<tr><td class="mono">K1 / K2</td><td>Bettkonsole links / rechts</td><td class="mono">L1…L10</td><td>Lichtzonen nach Kapitel 8</td></tr>
+<tr><td class="mono">K3</td><td>Küchenpaneel</td><td class="mono">A1…A6</td><td>230-V-Dosen</td></tr>
+<tr><td class="mono">K4</td><td>Eingangspaneel (Hauptbedienfeld)</td><td class="mono">U1…U10</td><td>USB-C-PD-Punkte</td></tr>
+<tr><td class="mono">K5a / K5b</td><td>Arbeitspaneel Tisch, USB-Teil / 230-V-Teil</td><td class="mono">D1…D3</td><td>12-V-Bordsteckdosen</td></tr>
+<tr><td class="mono">IP1…IP3</td><td>iPad-Basen</td><td class="mono">V1 / V2</td><td>Ventilatoren</td></tr>
+</table></div>
+
 <figure class="zbox"><div class="zk"><b>E-02 · Elektro-Grundriss</b><span>Heck links · Front rechts · Fahrerseite oben · Symbole siehe Legende</span><span>SPR-EL-01-E02</span></div>
 <svg viewBox="-520 -420 4700 3060" style="font-size:44px" role="img" aria-label="Elektro-Grundriss">
 <defs><marker id="p1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,1.5 L9,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
@@ -531,28 +544,337 @@ U9&nbsp;USB-C Fahrerhaus · V1&nbsp;Ventilator Bett · V2&nbsp;Ventilator Überg
 P1–P3&nbsp;iPad-Kugelbasen · L2&nbsp;Deckenspots Küche · L8&nbsp;Garagenlicht · L9/L10&nbsp;Außenlicht Schiebetür/Heck.
 Die vollständigen Positionen stehen in Kapitel 5 und 7.</figcaption>
 </figure>
+<figure class="zbox"><div class="zk"><b>EL-03 · Wandabwicklung Fahrerseite</b><span>Blick von der Fahrzeugmitte nach links · Heck links · alle Maße ab OK fertiger Boden (Z 0) und ab Hecktür (Y 0)</span><span>SPR-EL-01-E03</span></div>
+<svg viewBox="-320 -260 4100 2760" style="font-size:40px" role="img" aria-label="Wandabwicklung Fahrerseite">
+<defs><marker id="w1" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
 
-<h4>Textliche Einbauplanung, von hinten nach vorn</h4>
-<div class="tw"><table>
-<tr><th class="num">Y</th><th>Fahrerseite (X 0–860)</th><th>Mitte</th><th>Beifahrerseite (X 860–1720)</th></tr>
-<tr><td class="num">−60</td><td colspan="3">außen: Außenleuchte Heck über den Türen, X 860</td></tr>
-<tr><td class="num">0–700</td><td><b>TECHNIKBEREICH:</b> Batterie unten, Hauptschalter + Class-T bei X 520/Z 300, MultiPlus an der Trennwand, Busbars, 12-V-Box, 230-V-Box mit FI, Dieselheizung. CEE außen bei Y 500</td><td>Garagen-Stauraum</td><td>Stauraum. Garagenleuchte X 1450 / Y 60 mit Türkontakt</td></tr>
-<tr><td class="num">260–560</td><td><b>Bettkonsole L</b> an der Wand Z 1170–1340: 2 × USB-C, Leselicht, 3 Taster, Ablage mit Qi + Watch-Nische</td><td>Ventilator Bett, X 860 / Y 300, Z 1550</td><td><b>Bettkonsole R</b> identisch, unter dem Hängeschrank</td></tr>
-<tr><td class="num">350</td><td>Schuko E-Roller X 700 / Z 420 · 12-V-Dose X 800</td><td>—</td><td>—</td></tr>
-<tr><td class="num">200–1700</td><td>freie Wand (Bettkonsole, iPad-Basis)</td><td>Bett</td><td>3 Hängeschränke mit dimmbarer LED-Leiste (im Lieferumfang)</td></tr>
-<tr><td class="num">1450</td><td>iPad-Ballkopf Wand Z 1350 (Fußseite)</td><td>—</td><td>iPad-Ballkopf unter dem Hängeschrank</td></tr>
-<tr><td class="num">1620</td><td colspan="3">Bettvorderkante · darunter Sockel-/Nachtlicht-Streifen über die volle Breite</td></tr>
-<tr><td class="num">1640–2130</td><td><b>Kühlschrankschrank.</b> Ventilator Übergangszone X 80 / Y 1680 / Z 1500</td><td>Gang 690</td><td><b>Küchenpaneel</b> Y 1760–1960, Z 1040–1160: 2 × Schuko, USB-C, Schalter Licht + Pumpe, Tankanzeige · iPad-Basis Z 1300</td></tr>
-<tr><td class="num">2050 / 2450</td><td>—</td><td>—</td><td>2 Deckenspots über der Arbeitsplatte, X 1400</td></tr>
-<tr><td class="num">2130–2630</td><td><b>Sitzbank</b> (Trelino-Auszug). Schuko unter der Bank optional</td><td>Gang 620</td><td>Küchenblock, Spüle</td></tr>
-<tr><td class="num">2560</td><td>—</td><td>—</td><td>Schuko an der Möbelfront X 1280 / Z 760</td></tr>
-<tr><td class="num">2600–3000</td><td>—</td><td><b>MaxxAir</b> X 660–1060</td><td>—</td></tr>
-<tr><td class="num">2690–3250</td><td>—</td><td>—</td><td><b>Eingang.</b> Schalterpaneel X 1690 / Y 2750 / Z 1100 · Außenlicht außen Y 2900</td></tr>
-<tr><td class="num">2820–3020</td><td><b>Arbeitspaneel</b> Z 850–970: 2 × Schuko, USB-C PD 100 W, USB-C 45 W, 12 V, Dimmer</td><td>Tisch</td><td>—</td></tr>
-<tr><td class="num">2900</td><td>iPad-Ballkopf an der Tischschiene</td><td>—</td><td>—</td></tr>
-<tr><td class="num">3110</td><td>USB-C 2 × 45 W + 12-V-Dose an der Möbelstirnseite</td><td>—</td><td>—</td></tr>
-<tr><td class="num">ab 3270</td><td colspan="3">Drehsitze — keine Wohnraumelektrik</td></tr>
-</table></div>
+<!-- Hülle: screen y = 1979 - Z -->
+<line class="wand" x1="0" y1="1979" x2="3450" y2="1979"/>
+<line class="wand" x1="0" y1="1979" x2="0" y2="0"/>
+<line class="pt dash" x1="0" y1="0" x2="3450" y2="0"/>
+<text class="dt2" x="2850" y="-40">Dachinnenkante Z 1979</text>
+
+<!-- Podest Z0..120 : y 1859..1979 -->
+<rect class="soft" x="2130" y="1859" width="1250" height="120"/>
+<text class="dt2" x="2600" y="1945">PODEST P = 120</text>
+
+<!-- Möbel -->
+<rect class="soft" x="0" y="1042" width="700" height="937"/><text class="lbl" x="60" y="1500">TECHNIK</text>
+<rect class="soft" x="1640" y="1079" width="490" height="900"/><text class="lbl" x="1690" y="1500">KÜHL-</text><text class="lbl" x="1690" y="1560">SCHRANK</text>
+<rect class="soft" x="2130" y="1389" width="500" height="470"/><text class="lbl" x="2200" y="1650">BANK</text>
+<rect class="fill" x="2130" y="1349" width="500" height="40"/><text class="dt2" x="2200" y="1720">Polster · Sitz Z 630</text>
+<rect class="fill" x="2630" y="1059" width="480" height="20"/><text class="dt2" x="2150" y="1130">Tisch OK Z 900 (= Podest + 780)</text>
+<rect class="pt" x="3040" y="1079" width="40" height="780"/>
+<!-- Bett -->
+<rect class="fill" x="20" y="984" width="1600" height="58"/>
+<rect class="pt" x="20" y="864" width="1600" height="120"/>
+<text class="dt2" x="700" y="945">Matratze OK Z 1115</text>
+<rect class="pt dash" x="1620" y="864" width="400" height="178"/>
+<!-- Fenster -->
+<rect class="pt dash" x="1990" y="429" width="1210" height="530"/>
+<text class="dv" x="2280" y="700">FENSTER Fahrerseite [V]</text>
+<text class="dv" x="2280" y="760">UK ≈ 1020 · OK ≈ 1550</text>
+<!-- Hängeschränke -->
+<rect class="soft" x="200" y="159" width="1500" height="370"/>
+<g class="pt"><line x1="700" y1="159" x2="700" y2="529"/><line x1="1200" y1="159" x2="1200" y2="529"/></g>
+<text class="lbl" x="620" y="290">HS1–HS3 · UK Z 1450</text>
+<text class="dt2" x="620" y="350">LED-Leiste L4 (im Lieferumfang)</text>
+<rect class="soft" x="1750" y="-11" width="1500" height="370"/>
+<g class="pt"><line x1="2250" y1="-11" x2="2250" y2="359"/><line x1="2750" y1="-11" x2="2750" y2="359"/></g>
+<text class="lbl" x="2180" y="140">HS4–HS6 · UK Z 1620</text>
+<text class="dt2" x="2180" y="200">LED-Leiste L3</text>
+
+<!-- ===== Geräte ===== -->
+<!-- K1 Bettkonsole -->
+<rect class="symU" x="300" y="639" width="260" height="170" rx="10"/>
+<text class="tU" x="330" y="700">K1</text><text class="dt2" x="330" y="760">Bettkonsole</text>
+<circle class="symDC" cx="420" cy="600" r="34"/><text class="dt2" x="600" y="612">L7 Leselicht Z 1340</text>
+<!-- Ablage -->
+<rect class="pt" x="290" y="809" width="300" height="16"/><text class="dt2" x="600" y="825">Ablage Z 1160 mit Qi + Watch-Mulde</text>
+<!-- V2 -->
+<circle class="symDC" cx="1690" cy="479" r="38"/><text class="tDC" x="1150" y="612">V2 Ventilator Z 1500</text>
+<line class="pt" x1="1655" y1="598" x2="1688" y2="520"/>
+<!-- Garage -->
+<rect class="symAC" x="1300" y="1520" width="120" height="90" rx="8"/><text class="tAC" x="1220" y="1680">A4 · Z 420</text>
+<circle class="symDC" cx="1120" cy="1565" r="34"/><text class="tDC" x="1000" y="1680">D3 · Z 420</text>
+<text class="dt2" x="800" y="1780">E-Roller-Kreis, in der Garage</text>
+<!-- Arbeitspaneel A und B -->
+<rect class="symU" x="2790" y="969" width="300" height="80" rx="8"/>
+<text class="tU" x="2880" y="1025">K5a</text>
+<rect class="symAC" x="3110" y="969" width="200" height="80" rx="8"/>
+<text class="tAC" x="3160" y="1025">K5b</text>
+<text class="dt2" x="2150" y="1250">K5a (4 × USB-C PD 100 W) und K5b (2 × Schuko):</text>
+<text class="dt2" x="2150" y="1308">Z 930–1010 (über Tischplatte 900, unter Fenster-UK 1020)</text>
+<!-- Fahrerhaus -->
+<rect class="symU" x="3300" y="1219" width="140" height="80" rx="8"/><text class="tU" x="3140" y="1140">U10 · D1</text>
+<text class="dt2" x="3140" y="1198">Z 700 / 620</text>
+<!-- iPad Tisch -->
+<circle class="symDC" cx="2900" cy="1169" r="30"/><text class="dt2" x="2150" y="1190">IP2 an der Tischschiene</text>
+<line class="pt" x1="2680" y1="1180" x2="2868" y2="1172"/>
+
+<!-- ===== Bemaßung Y unten ===== -->
+<g class="dim">
+<line x1="300" y1="2130" x2="560" y2="2130" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="300" y1="2115" x2="300" y2="2145"/><line x1="560" y1="2115" x2="560" y2="2145"/>
+<line x1="0" y1="2260" x2="300" y2="2260" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="0" y1="2130" x2="0" y2="2275"/>
+<line x1="1500" y1="2130" x2="1620" y2="2130" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="0" y1="2390" x2="1690" y2="2390" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="1690" y1="1990" x2="1690" y2="2405"/>
+<line x1="2790" y1="2130" x2="3090" y2="2130" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="2790" y1="1060" x2="2790" y2="2145"/><line x1="3090" y1="1060" x2="3090" y2="2145"/>
+<line x1="3110" y1="2130" x2="3310" y2="2130" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="3310" y1="1060" x2="3310" y2="2145"/>
+<line x1="0" y1="2260" x2="2790" y2="2260" marker-start="url(#w1)" marker-end="url(#w1)"/>
+</g>
+<text class="dt" x="330" y="2100">260</text>
+<text class="dt" x="60" y="2100">300</text>
+<text class="dt" x="1160" y="2360">1690 → V2</text>
+<text class="dt" x="1150" y="2230">2790 → Arbeitspaneel K5a</text>
+<text class="dt" x="2810" y="2100">300</text>
+<text class="dt" x="3130" y="2100">200</text>
+
+<!-- ===== Bemaßung Z rechts ===== -->
+<g class="dim">
+<line x1="3560" y1="1979" x2="3560" y2="1859" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="3670" y1="1979" x2="3670" y2="1349" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="3780" y1="1979" x2="3780" y2="1059" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="3560" y1="1979" x2="3800" y2="1979"/>
+<line x1="3385" y1="1859" x2="3580" y2="1859"/><line x1="2640" y1="1349" x2="3690" y2="1349"/><line x1="3120" y1="1059" x2="3800" y2="1059"/>
+<line x1="3560" y1="969" x2="3560" y2="864" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="3325" y1="969" x2="3580" y2="969"/><line x1="1630" y1="864" x2="3580" y2="864"/>
+<line x1="3670" y1="529" x2="3670" y2="159" marker-start="url(#w1)" marker-end="url(#w1)"/>
+<line x1="1710" y1="529" x2="3690" y2="529"/><line x1="1710" y1="159" x2="3690" y2="159"/>
+</g>
+<text class="dt" x="3600" y="1930" transform="rotate(-90 3600 1930)">120</text>
+<text class="dt" x="3710" y="1720" transform="rotate(-90 3710 1720)">630 Sitz</text>
+<text class="dt" x="3820" y="1600" transform="rotate(-90 3820 1600)">900 Tisch</text>
+<text class="dt" x="3600" y="1010" transform="rotate(-90 3600 1010)">930–1115</text>
+<text class="dt" x="3710" y="440" transform="rotate(-90 3710 440)">1450–1820 HS</text>
+<text class="dt2" x="0" y="2470">Alle Wandpaneele liegen zwischen Möbeloberkante und Fensterunterkante — dort sind sie im Sitzen erreichbar und außerhalb des Spritz- und Stoßbereichs.</text>
+</svg>
+<figcaption>EL-03 — Die Fahrerseite trägt die komplette Möbel- und Schrankkette. Der Arbeitsplatz sitzt in
+dem 120-mm-Streifen zwischen Tischplatte (Z&nbsp;900) und Fensterunterkante (Z&nbsp;1020) — deshalb
+zwei flache Paneele nebeneinander statt eines hohen.</figcaption>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>EL-04 · Wandabwicklung Beifahrerseite</b><span>Blick von der Fahrzeugmitte nach rechts · Heck links · Bettwand bewusst frei</span><span>SPR-EL-01-E04</span></div>
+<svg viewBox="-320 -260 4100 2760" style="font-size:40px" role="img" aria-label="Wandabwicklung Beifahrerseite">
+<defs><marker id="w2" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<line class="wand" x1="0" y1="1979" x2="3450" y2="1979"/>
+<line class="wand" x1="0" y1="1979" x2="0" y2="0"/>
+<line class="pt dash" x1="0" y1="0" x2="3450" y2="0"/>
+
+<!-- Schiebetürausschnitt -->
+<rect class="pt dash" x="1990" y="161" width="1260" height="1818"/>
+<text class="dv" x="2650" y="580">SCHIEBETÜR 1260 × 1818</text>
+<text class="dv" x="2650" y="640">Lage in Y messen [V]</text>
+<!-- Küche -->
+<rect class="soft" x="1640" y="1079" width="1050" height="900"/>
+<text class="lbl" x="1900" y="1500">KÜCHENBLOCK · OK Z 900</text>
+<text class="dt2" x="1900" y="1560">Kartuschenkocher hinten, Spüle vorn</text>
+<!-- Bett -->
+<rect class="fill" x="20" y="984" width="1600" height="58"/>
+<rect class="pt" x="20" y="864" width="1600" height="120"/>
+<rect class="pt dash" x="1620" y="864" width="400" height="178"/>
+<text class="dt2" x="480" y="945">Matratze OK Z 1115</text>
+<!-- Freihaltezone -->
+<rect class="pt dash" x="150" y="150" width="1400" height="700"/>
+<text class="dv" x="230" y="240">FREIHALTEZONE — keine Schränke,</text>
+<text class="dv" x="230" y="300">keine Regale, keine vorstehenden Leuchten</text>
+
+<!-- ===== Geräte ===== -->
+<rect class="symU" x="300" y="639" width="260" height="170" rx="10"/>
+<text class="tU" x="330" y="700">K2</text><text class="dt2" x="330" y="760">Bettkonsole</text>
+<circle class="symDC" cx="420" cy="600" r="34"/><text class="dt2" x="600" y="612">L7 Leselicht</text>
+<rect class="pt" x="290" y="809" width="300" height="16"/>
+<!-- iPad-Hauptbasis -->
+<rect class="symDC" x="820" y="399" width="160" height="70" rx="8"/>
+<path class="dashf" d="M980,434 L1380,434"/><rect class="dashf" x="1380" y="329" width="30" height="240"/>
+<line class="pt" x1="1040" y1="682" x2="985" y2="478"/>
+<text class="tDC" x="1050" y="700">IP1 · iPad-Hauptbasis · Y 900 / Z 1550</text>
+<text class="da" x="1050" y="760">Arm ausziehbar ca. 400, verriegelbar,</text>
+<text class="da" x="1050" y="820">eingeklappt ≤ 35 vorstehend</text>
+<!-- LED-Profil Bett -->
+<rect class="fill" x="200" y="99" width="1400" height="24"/>
+<text class="dt2" x="230" y="90">L4 · LED-Profil in der Dachkante (ersetzt die fehlenden Schrank-Leisten)</text>
+<!-- Küchenpaneel -->
+<rect class="symAC" x="1760" y="819" width="200" height="120" rx="8"/>
+<text class="tAC" x="1750" y="740">K3 · Küchenpaneel Z 1040–1160</text>
+<line class="pt" x1="1860" y1="760" x2="1860" y2="812"/>
+<!-- Deckenspots Küche -->
+<circle class="symDC" cx="2050" cy="59" r="34"/><circle class="symDC" cx="2450" cy="59" r="34"/>
+<text class="tDC" x="2100" y="-20">L2 · Deckenspots über der Arbeitsplatte</text>
+<!-- Schuko Front -->
+<rect class="symAC" x="2500" y="1179" width="120" height="80" rx="8"/><text class="tAC" x="2430" y="1350">A2 · Z 760</text>
+<line class="pt" x1="2545" y1="1310" x2="2555" y2="1265"/>
+<!-- Eingangspaneel -->
+<rect class="symDC" x="2700" y="819" width="220" height="140" rx="8"/>
+<text class="tDC" x="2960" y="880">K4 · Hauptbedienfeld</text>
+<text class="dt2" x="2960" y="935">B-Säule, Z 1020–1160</text>
+<!-- Außenlicht -->
+<circle class="symDC" cx="3000" cy="79" r="34"/><text class="tDC" x="3050" y="92">L9 außen</text>
+<!-- Sockellicht -->
+<rect class="fill" x="1660" y="1919" width="1030" height="20"/><text class="dt2" x="1700" y="1910">L5/L6 Sockel- und Nachtlicht</text>
+
+<g class="dim">
+<line x1="820" y1="2130" x2="980" y2="2130" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="0" y1="2260" x2="900" y2="2260" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="900" y1="480" x2="900" y2="2275"/>
+<line x1="1760" y1="2130" x2="1960" y2="2130" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="1760" y1="950" x2="1760" y2="2145"/><line x1="1960" y1="950" x2="1960" y2="2145"/>
+<line x1="0" y1="2390" x2="1760" y2="2390" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="2700" y1="2130" x2="2920" y2="2130" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="2700" y1="970" x2="2700" y2="2145"/>
+<line x1="3560" y1="1979" x2="3560" y2="1079" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="2700" y1="1079" x2="3580" y2="1079"/><line x1="3450" y1="1979" x2="3580" y2="1979"/>
+<line x1="3670" y1="1979" x2="3670" y2="429" marker-start="url(#w2)" marker-end="url(#w2)"/>
+<line x1="1450" y1="429" x2="3690" y2="429"/>
+</g>
+<text class="dt" x="700" y="2230">Y 900 → IP1</text>
+<text class="dt" x="1780" y="2100">200</text>
+<text class="dt" x="700" y="2360">1760 → Küchenpaneel K3</text>
+<text class="dt" x="2740" y="2100">220</text>
+<text class="dt" x="3600" y="1600" transform="rotate(-90 3600 1600)">900 Küche</text>
+<text class="dt" x="3710" y="1350" transform="rotate(-90 3710 1350)">1550 IP1</text>
+<text class="dt2" x="0" y="2470">Die Bettwand bleibt außer der iPad-Basis komplett frei. Alles andere sitzt entweder an den 350 mm Wand vor der Schiebetür oder an der B-Säule.</text>
+</svg>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>EL-05 · Paneelbestückung</b><span>Ansicht von vorn, Maßstab 1:5 · so sieht die Blende später tatsächlich aus</span><span>SPR-EL-01-E05</span></div>
+<svg viewBox="-60 -150 3440 2520" style="font-size:52px" role="img" aria-label="Paneelbestueckung">
+<defs><marker id="p5" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+
+<!-- K1/K2 Bettkonsole: 260 x 170 -> 5:1 = 1300 x 850 -->
+<text class="lbl" x="0" y="-60">K1 / K2 · Bettkonsole — 260 × 170, gespiegelt</text>
+<g>
+<rect class="p" x="0" y="0" width="1300" height="850" rx="20"/>
+<rect class="symU" x="60" y="60" width="200" height="200" rx="14"/><text class="tU" x="80" y="180">USB-C</text><text class="tU" x="80" y="235">100 W</text>
+<rect class="symU" x="300" y="60" width="200" height="200" rx="14"/><text class="tU" x="320" y="180">USB-C</text><text class="tU" x="320" y="235">100 W</text>
+<circle class="symDC" cx="660" cy="160" r="90"/><text class="tDC" x="600" y="175">Lese</text>
+<circle class="symDC" cx="880" cy="160" r="90"/><text class="tDC" x="820" y="175">Nacht</text>
+<circle class="symAC" cx="1120" cy="160" r="90"/><text class="tAC" x="1040" y="175">MASTER</text>
+<rect class="pt" x="60" y="360" width="1180" height="420" rx="12"/>
+<circle class="pt" cx="330" cy="570" r="130"/><text class="dt2" x="230" y="585">Qi 15 W</text>
+<circle class="pt" cx="820" cy="540" r="100"/><text class="dt2" x="700" y="720">Watch-Mulde</text>
+<text class="dt2" x="0" y="930">Ablage 300 × 140, rutschhemmend, Rand 12</text>
+</g>
+
+<!-- K3 Küchenpaneel: 200 x 120 -> 1000 x 600 -->
+<g transform="translate(1700,0)">
+<text class="lbl" x="0" y="-60">K3 · Küchenpaneel — 200 × 120</text>
+<rect class="p" x="0" y="0" width="1000" height="600" rx="20"/>
+<rect class="symAC" x="50" y="50" width="190" height="190" rx="14"/><text class="tAC" x="80" y="160">230 V</text>
+<rect class="symAC" x="270" y="50" width="190" height="190" rx="14"/><text class="tAC" x="300" y="160">230 V</text>
+<rect class="symU" x="490" y="50" width="190" height="190" rx="14"/><text class="tU" x="510" y="140">USB-C</text><text class="tU" x="510" y="195">100 W</text>
+<circle class="symAC" cx="820" cy="145" r="100"/><text class="tAC" x="740" y="130">HOCH-</text><text class="tAC" x="740" y="185">LAST</text>
+<circle class="symDC" cx="130" cy="430" r="90"/><text class="tDC" x="95" y="580">L2</text>
+<circle class="symDC" cx="380" cy="430" r="90"/><text class="tDC" x="290" y="580">Pumpe ●</text>
+<rect class="pt" x="560" y="340" width="400" height="180" rx="10"/><text class="dt2" x="600" y="450">Tankanzeige</text>
+<text class="dt2" x="0" y="690">L2 = Deckenspots Küche · Pumpe mit Kontroll-LED</text>
+</g>
+
+<!-- K4 Eingangspaneel: 220 x 140 -> 1100 x 700 -->
+<g transform="translate(0,1150)">
+<text class="lbl" x="0" y="-60">K4 · Hauptbedienfeld B-Säule — 220 × 140</text>
+<rect class="p" x="0" y="0" width="1100" height="700" rx="20"/>
+<circle class="symDC" cx="130" cy="130" r="90"/><text class="tDC" x="90" y="270">L1</text><text class="tDC" x="55" y="325">Decke</text>
+<circle class="symDC" cx="400" cy="130" r="90"/><text class="tDC" x="360" y="270">L5</text><text class="tDC" x="290" y="325">Ambiente</text>
+<circle class="symDC" cx="670" cy="130" r="90"/><text class="tDC" x="630" y="270">L6</text><text class="tDC" x="590" y="325">Nacht</text>
+<circle class="symDC" cx="940" cy="130" r="90"/><text class="tDC" x="900" y="270">L9</text><text class="tDC" x="855" y="325">außen ●</text>
+<circle class="symAC" cx="130" cy="470" r="90"/><text class="tAC" x="40" y="640">WR on/off</text>
+<rect class="symAC" x="300" y="380" width="350" height="180" rx="12"/><text class="tAC" x="320" y="460">Landstrom</text><text class="tAC" x="320" y="515">6/10/16 A</text>
+<rect class="pt" x="660" y="380" width="430" height="180" rx="10"/><text class="dt2" x="685" y="460">GX Touch 50</text><text class="dt2" x="685" y="515">SOC, Tank, °C</text>
+</g>
+
+<!-- K5a/b Arbeitspaneel -->
+<g transform="translate(1700,1150)">
+<text class="lbl" x="0" y="-60">K5a / K5b · Arbeitspaneel Tisch — 300 × 80 / 200 × 80</text>
+<rect class="p" x="0" y="0" width="1500" height="400" rx="16"/>
+<rect class="symU" x="40" y="60" width="300" height="280" rx="14"/><text class="tU" x="70" y="180">USB-C</text><text class="tU" x="70" y="245">100 W</text>
+<rect class="symU" x="380" y="60" width="300" height="280" rx="14"/><text class="tU" x="410" y="180">USB-C</text><text class="tU" x="410" y="245">100 W</text>
+<rect class="symU" x="720" y="60" width="300" height="280" rx="14"/><text class="tU" x="750" y="180">USB-C</text><text class="tU" x="750" y="245">100 W</text>
+<rect class="symU" x="1060" y="60" width="300" height="280" rx="14"/><text class="tU" x="1090" y="180">USB-C</text><text class="tU" x="1090" y="245">100 W</text>
+<text class="dt2" x="0" y="470">K5a — vier echte 100-W-PD-Ports,</text>
+<text class="dt2" x="0" y="525">eigener 40-A-Kreis DC-14, 6 mm²</text>
+<rect class="p" x="0" y="600" width="1000" height="400" rx="16"/>
+<rect class="symAC" x="40" y="660" width="280" height="280" rx="14"/><text class="tAC" x="80" y="820">230 V</text>
+<rect class="symAC" x="360" y="660" width="280" height="280" rx="14"/><text class="tAC" x="400" y="820">230 V</text>
+<circle class="symDC" cx="820" cy="800" r="120"/><text class="tDC" x="740" y="815">12 V</text>
+<text class="dt2" x="0" y="1070">K5b — zwei Schuko und eine 12-V-Dose;</text>
+<text class="dt2" x="0" y="1125">Dimmer L3 sitzt 200 weiter vorn separat</text>
+</g>
+<text class="dt2" x="0" y="2230">Legende: <tspan class="tU">grün</tspan> = USB-C PD 100 W · <tspan class="tAC">rot</tspan> = 230 V oder Hochlast ·</text>
+<text class="dt2" x="0" y="2290"><tspan class="tDC">blau</tspan> = 12 V, Licht, Steuerung · ● = mit Kontroll-LED · kein USB-A im gesamten Ausbau</text>
+</svg>
+<figcaption>EL-05 — Diese vier Blenden sind das, was man im Alltag anfasst. Deshalb sind sie hier so
+gezeichnet, wie sie aussehen: gleiche Reihenfolge auf beiden Bettseiten, Kontroll-LED an allem, was
+man vergessen kann (Pumpe, Außenlicht), und der Hochlast-Wahlschalter direkt neben den beiden
+230-V-Dosen, die er freigibt.</figcaption>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>EL-06 · Lichtplan und Schaltzuordnung</b><span>Draufsicht · Leuchten mit Zonennummer, Linien zeigen die zugehörige Bedienstelle</span><span>SPR-EL-01-E06</span></div>
+<svg viewBox="-420 -420 4700 2860" style="font-size:44px" role="img" aria-label="Lichtplan">
+<defs><marker id="l1" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<line class="wand" x1="0" y1="0" x2="0" y2="1720"/>
+<line class="wand" x1="0" y1="0" x2="3270" y2="0"/>
+<line class="wand" x1="0" y1="1720" x2="1990" y2="1720"/>
+<line class="pt dash" x1="1990" y1="1720" x2="3250" y2="1720"/>
+<line class="wand" x1="3250" y1="1720" x2="3270" y2="1720"/>
+<rect class="soft" x="20" y="15" width="1600" height="1690"/><text class="lbl" x="700" y="1000">BETT</text>
+<rect class="soft" x="1640" y="1270" width="1050" height="450"/><text class="lbl" x="2000" y="1520">KÜCHE</text>
+<rect class="soft" x="1640" y="0" width="490" height="580"/><text class="lbl" x="1780" y="320">KS</text>
+<rect class="soft" x="2130" y="0" width="500" height="650"/><text class="lbl" x="2280" y="330">BANK</text>
+<rect class="pt dash" x="2130" y="0" width="1250" height="1350"/><text class="dt2" x="2900" y="1180">PODEST</text>
+<rect class="pt dash" x="2630" y="0" width="480" height="900"/><text class="lbl" x="2760" y="800">TISCH</text>
+
+<!-- Leuchten -->
+<g><circle class="symDC" cx="500" cy="500" r="46"/><circle class="symDC" cx="500" cy="1220" r="46"/>
+<circle class="symDC" cx="1200" cy="500" r="46"/><circle class="symDC" cx="1200" cy="1220" r="46"/></g>
+<text class="tDC" x="560" y="515">L1</text><text class="tDC" x="1260" y="515">L1</text>
+<text class="tDC" x="560" y="1235">L1</text><text class="tDC" x="1260" y="1235">L1</text>
+<circle class="symDC" cx="2050" cy="1400" r="46"/><circle class="symDC" cx="2450" cy="1400" r="46"/>
+<text class="tDC" x="2180" y="1240">L2 Küche</text>
+<rect class="fill" x="200" y="0" width="1500" height="30"/><text class="tDC" x="700" y="-40">L4 Schrankleisten HS1–3</text>
+<rect class="fill" x="200" y="1690" width="1400" height="30"/><text class="tDC" x="620" y="1790">L4 Dachkantenprofil Beifahrerseite</text>
+<rect class="fill" x="1750" y="0" width="1500" height="30"/><text class="tDC" x="2700" y="-40">L3 Schrankleisten HS4–6</text>
+<rect class="fill" x="1660" y="1740" width="1030" height="26"/>
+<rect class="fill" x="20" y="1625" width="1600" height="26"/>
+<text class="tDC" x="1700" y="1830">L5 / L6 Sockel + Nacht</text>
+<circle class="symDC" cx="720" cy="120" r="40"/><circle class="symDC" cx="720" cy="1600" r="40"/>
+<text class="tDC" x="770" y="135">L7</text><text class="tDC" x="770" y="1615">L7</text>
+<circle class="symDC" cx="60" cy="250" r="40"/><circle class="symDC" cx="60" cy="1450" r="40"/>
+<text class="tDC" x="110" y="265">L8</text><text class="tDC" x="110" y="1465">L8</text>
+<circle class="symDC" cx="2900" cy="1800" r="46"/><text class="tDC" x="2960" y="1815">L9 außen</text>
+<circle class="symDC" cx="-80" cy="860" r="46"/><text class="tDC" x="-330" y="960">L10 außen</text>
+
+<!-- Bedienstellen -->
+<rect class="symAC" x="300" y="30" width="240" height="90" rx="10"/><text class="tAC" x="330" y="95">K1</text>
+<rect class="symAC" x="300" y="1600" width="240" height="90" rx="10"/><text class="tAC" x="330" y="1665">K2</text>
+<rect class="symAC" x="1760" y="1620" width="200" height="90" rx="10"/><text class="tAC" x="1790" y="1685">K3</text>
+<rect class="symAC" x="2700" y="1620" width="220" height="90" rx="10"/><text class="tAC" x="2740" y="1685">K4</text>
+<rect class="symAC" x="3080" y="150" width="290" height="90" rx="10"/><text class="tAC" x="3105" y="215">L3-Dimmer</text>
+
+<!-- Zuordnungslinien -->
+<g class="wireS" style="stroke-dasharray:12 10">
+<path d="M2810,1620 L2810,1400 L1400,1240 L1200,546" marker-end="url(#l1)"/>
+<path d="M2810,1620 L2400,1790 L1700,1790" marker-end="url(#l1)"/>
+<path d="M2900,1620 L2900,1754" marker-end="url(#l1)"/>
+<path d="M1860,1620 L2050,1446" marker-end="url(#l1)"/>
+<path d="M720,120 L720,80"/><path d="M720,1600 L720,1640"/>
+<path d="M3200,150 L3000,40" marker-end="url(#l1)"/>
+</g>
+<text class="dt2" x="1950" y="960">gestrichelt = Bedienstelle → Lichtzone</text>
+
+<!-- Tabelle als Text -->
+<g transform="translate(0,2000)">
+<text class="lbl" x="0" y="0">K1/K2 Bett: L7 eigenes Leselicht · L6 Nachtlicht · MASTER (bistabiles Relais schaltet L1–L5 aus)</text>
+<text class="lbl" x="0" y="70">K3 Küche: L2 Arbeitslicht · Wasserpumpe · Hochlastfreigabe</text>
+<text class="lbl" x="0" y="140">K4 Eingang: L1 Decke (Dimmer) · L5 Ambiente · L6 Nacht · L9 Außenlicht mit Kontroll-LED · MASTER</text>
+<text class="lbl" x="0" y="210">Tisch: L3 Dimmer für die Schrankleisten HS4–6 · Heck: L8 Garagenlicht mit Türkontakt · L10 Außenlicht Heck</text>
+</g>
+</svg>
+</figure>
 
 <h2 id="s7"><span class="no">7</span>Steckdosen- und Ladepunkteliste</h2>
 <div class="tw"><table>
