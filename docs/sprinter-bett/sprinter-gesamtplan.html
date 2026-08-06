@@ -102,6 +102,16 @@ svg text{font-family:var(--mono)}
   <a href="#s10">10 · Offene Punkte</a>
 </nav>
 
+<div class="hin" style="border-left-color:var(--assum)"><b>Rev B dieses Blattes — Änderung Hängeschränke.</b>
+Alle <b>sechs</b> Hängeschränke liegen jetzt auf der <b>Fahrerseite</b>; die Beifahrerwand über dem Bett
+bleibt frei. Grund: auf der Beifahrerseite sind Schränke wegen des Schiebetürausschnitts ohnehin nur
+hinter Y&nbsp;1990 möglich, und die freie Wand ist der beste Platz für die iPad-Halterung. Weil das
+Fahrerseitenfenster (OK ≈&nbsp;Z&nbsp;1550) im Weg ist, wird die Schrankkette <b>in zwei Höhen
+gestaffelt</b>: HS1–3 über dem Bett mit UK&nbsp;1450, HS4–6 über dem Fenster mit UK&nbsp;1620. Die Stufe
+sitzt bei Y&nbsp;1750, also genau an der Bettvorderkante.
+<b>Folge fürs Licht:</b> das indirekte Bettlicht auf der Beifahrerseite kommt nicht mehr aus
+Schrank-LED-Leisten, sondern aus einem eigenen LED-Profil in der Dachkante (SPR-EL-01, Zone L4).</div>
+
 <h2 id="s1"><span class="no">1</span>Layoutkonzept und Modulliste</h2>
 <p>Das Layout folgt deiner Skizze: eine durchgehende Möbelzeile auf der <b>Fahrerseite</b>
 (Kühlschrankschrank → Sitzbank → Tisch → Drehsitze), der <b>Küchenblock auf der Beifahrerseite</b>
@@ -133,8 +143,9 @@ von 1690&nbsp;mm auf 800&nbsp;mm (Details in Kap.&nbsp;8).</div>
 <tr><td class="mono">KS</td><td>Kühlschrankschrank Eigenbau (Dometic NRX 60C)</td><td>Fahrer</td><td class="num">0 … 580</td><td class="num">1640 … 2130</td><td class="num">0 … 900</td><td>[A] Entwurf</td></tr>
 <tr><td class="mono">SB</td><td>Sitzbank Eigenbau mit Trelino-Auszug</td><td>Fahrer</td><td class="num">0 … 650</td><td class="num">2130 … 2630</td><td class="num">0 … 470 (+40 Polster)</td><td>[A] Entwurf</td></tr>
 <tr><td class="mono">TI</td><td>Tisch CAMPANY, Steckfuß</td><td>Fahrer/Mitte</td><td class="num">0 … 900</td><td class="num">2630 … 3110</td><td class="num">OK 770 (verstellbar)</td><td>[A] Lage</td></tr>
-<tr><td class="mono">HS-F</td><td>Hängeschränke 3× Fahrerseite</td><td>Fahrer</td><td class="num">0 … 340</td><td class="num">1700 … 3200</td><td class="num">1450 … 1820</td><td>[A] Entwurf</td></tr>
-<tr><td class="mono">HS-B</td><td>Hängeschränke 3× Beifahrerseite (über dem Bett)</td><td>Beifahrer</td><td class="num">1380 … 1720</td><td class="num">200 … 1700</td><td class="num">1450 … 1820</td><td>[A] Entwurf</td></tr>
+<tr><td class="mono">HS1–3</td><td>Hängeschränke, hintere Kette (über dem Bett)</td><td>Fahrer</td><td class="num">0 … 340</td><td class="num">200 … 1700</td><td class="num">1450 … 1820</td><td>[A] Rev B</td></tr>
+<tr><td class="mono">HS4–6</td><td>Hängeschränke, vordere Kette (über dem Fenster)</td><td>Fahrer</td><td class="num">0 … 340</td><td class="num">1750 … 3250</td><td class="num"><b>1620 … 1990</b></td><td>[A] Rev B</td></tr>
+<tr><td class="mono">—</td><td><b>Beifahrerwand über dem Bett: bewusst frei</b></td><td>Beifahrer</td><td class="num">—</td><td class="num">200 … 1600</td><td class="num">1200 … 1800</td><td>iPad-Wand, Offenheit</td></tr>
 <tr><td class="mono">DS</td><td>Drehsitze Fahrer/Beifahrer</td><td>beide</td><td class="num">110…610 / 1090…1590</td><td class="num">ab ~3270</td><td class="num">Sitz ~500</td><td>[V] messen</td></tr>
 <tr><td class="mono">GS1–4</td><td>Auflageleisten für den Bettauszug (Eigenbau)</td><td>beide</td><td class="num">30…90 · 490…550 · 1290…1350 · 1650…1710</td><td class="num">1640 … 2165</td><td class="num">900 … 934</td><td>neu, Kap. 8</td></tr>
 </table></div>
@@ -179,8 +190,7 @@ von 1690&nbsp;mm auf 800&nbsp;mm (Details in Kap.&nbsp;8).</div>
 <text class="dt2" x="300" y="770">Kammlattenrost · Aufbau siehe SPR-BETT-01</text>
 <text class="dt2" x="120" y="420">Kopfende</text>
 <text class="dt2" x="70" y="1180">QT1</text><text class="dt2" x="560" y="1180">QT2</text><text class="dt2" x="1060" y="1180">QT3</text><text class="dt2" x="1550" y="1180">QT4</text>
-<text class="dt2" x="230" y="1470">HS-B · 3× Hängeschrank über dem Bett, Z 1450–1820</text>
-<rect class="pt dash" x="200" y="1380" width="1500" height="340"/>
+<text class="dt2" x="230" y="1470">Beifahrerwand bewusst frei — iPad-Halter statt Hängeschrank</text>
 
 <!-- AUSZUG -->
 <rect class="dashf" x="1620" y="15" width="400" height="1690"/>
@@ -211,9 +221,11 @@ von 1690&nbsp;mm auf 800&nbsp;mm (Details in Kap.&nbsp;8).</div>
 <!-- TISCH -->
 <rect class="dashf" x="2630" y="0" width="480" height="900"/>
 <circle class="pt" cx="3050" cy="840" r="45"/>
-<text class="dt2" x="2660" y="215">HS-F · 3× Hängeschrank</text>
-<text class="dt2" x="2660" y="280">Z 1450–1820</text>
-<rect class="pt dash" x="1700" y="0" width="1500" height="340"/>
+<text class="dt2" x="2660" y="215">HS4–6 · UK Z 1620</text>
+<text class="dt2" x="2660" y="280">(über dem Fenster)</text>
+<rect class="pt dash" x="200" y="0" width="1500" height="340"/>
+<rect class="pt dash" x="1750" y="0" width="1500" height="340"/>
+<text class="dt2" x="240" y="300">HS1–3 · UK Z 1450</text>
 <text class="da" x="2660" y="530">TI · Tisch CAMPANY</text>
 <text class="da" x="2660" y="600">480 × 900, Steckfuß</text>
 <text class="da" x="2660" y="670">OK 770 [A]</text>
@@ -299,9 +311,10 @@ von 1690&nbsp;mm auf 800&nbsp;mm (Details in Kap.&nbsp;8).</div>
 <text class="dt" x="1855" y="1000" transform="rotate(-90 1855 1000)">Gang 690</text>
 <text class="dt" x="2570" y="1040" transform="rotate(-90 2570 1040)">Gang 620</text>
 </svg>
-<figcaption>GA-01 — Alle Möbel stehen auf dem fertigen Boden (Z&nbsp;0). Die Hängeschränke sind gestrichelt als
-Projektion eingetragen (Z&nbsp;1450–1820). Auf der Beifahrerseite sind Hängeschränke nur <b>hinter</b> dem
-Schiebetürausschnitt möglich — über der Türöffnung bleiben nur ca.&nbsp;190&nbsp;mm bis zum Dach.</figcaption>
+<figcaption>GA-01 — Alle Möbel stehen auf dem fertigen Boden (Z 0). Hängeschränke gestrichelt als Projektion:
+<b>HS1–3 über dem Bett mit UK Z 1450</b>, <b>HS4–6 über dem Fenster mit UK Z 1620</b>, Stufe bei Y 1750.
+Die Beifahrerwand bleibt bewusst frei — dort sitzt die iPad-Halterung. Über dem Schiebetürausschnitt
+bleiben ohnehin nur ca. 190 mm bis zum Dach, dort wäre kein Schrank möglich.</figcaption>
 </figure>
 <h2 id="s3"><span class="no">3</span>Seitenansicht Fahrerseite</h2>
 <figure class="zbox"><div class="zk"><b>GA-02 · Ansicht Fahrerseite</b><span>Blick von der Fahrzeugmitte nach links · Heck links · Bettauszug blau gestrichelt</span><span>SPR-GA-02</span></div>
@@ -319,7 +332,7 @@ Schiebetürausschnitt möglich — über der Türöffnung bleiben nur ca.&nbsp;1
 <!-- Hängeschränke -->
 <rect class="soft" x="1700" y="159" width="1500" height="370"/>
 <g class="pt"><line x1="2200" y1="159" x2="2200" y2="529"/><line x1="2700" y1="159" x2="2700" y2="529"/></g>
-<text class="lbl" x="1980" y="370">3 × Hängeschrank 500 × 370 × 340 [B]</text>
+<text class="lbl" x="1830" y="370">HS4–6 · 500 × 370 × 340 [B] · UK 1620</text>
 <!-- Bett -->
 <rect class="fill" x="20" y="984" width="1600" height="58"/>
 <rect class="pt" x="20" y="864" width="1600" height="120"/>
@@ -395,7 +408,7 @@ Schiebetürausschnitt möglich — über der Türöffnung bleiben nur ca.&nbsp;1
 <!-- Hängeschränke über dem Bett -->
 <rect class="soft" x="200" y="159" width="1500" height="370"/>
 <g class="pt"><line x1="700" y1="159" x2="700" y2="529"/><line x1="1200" y1="159" x2="1200" y2="529"/></g>
-<text class="lbl" x="400" y="370">3 × Hängeschrank über dem Bett</text>
+<text class="lbl" x="330" y="370">Beifahrerwand frei (kein Hängeschrank)</text>
 <!-- Bett -->
 <rect class="fill" x="20" y="984" width="1600" height="58"/>
 <rect class="pt" x="20" y="864" width="1600" height="120"/>
@@ -586,7 +599,8 @@ baut 430 hoch und braucht den Platz). Damit der Abstand Sitz→Tisch stimmt, den
 <tr><td>Toilettenauszug ↔ Bettauszug</td><td>Toilette Y 2230–2560; Bugkante max. Y 2020</td><td>✔ 210 mm</td></tr>
 <tr><td>Toilettenauszug ↔ Küchenblock</td><td>Toilette ragt bis X 1040; Küche ab X 1270</td><td>✔ 230 mm</td></tr>
 <tr><td>Kühlschranktür ↔ Küchenblock</td><td>Türblatt 448 schwenkt aus X 580 in den Gang 690</td><td>✔ knapp — Tür max. 90° oder Anschlag rechts wählen</td></tr>
-<tr><td>Hängeschränke Beifahrerseite ↔ Schiebetür</td><td>über der Türöffnung nur 1979 − 1818 = 161 mm frei</td><td>✘ Hängeschränke dort unmöglich → alle 3 hinter Y 1990, d. h. über dem Bett</td></tr>
+<tr><td>Hängeschränke ↔ Schiebetür</td><td>über der Türöffnung nur 1979 − 1818 = 161 mm frei</td><td>✘ Auf der Beifahrerseite nur hinter Y 1990 möglich → <b>alle 6 auf die Fahrerseite</b></td></tr>
+<tr><td>Hängeschränke ↔ Fahrerseitenfenster</td><td>Fensteroberkante ≈ Z 1550; UK Schrank 1450</td><td>⚠ Höhenstufe nötig: HS1–3 UK 1450, HS4–6 UK <b>1620</b>. Stufe bei Y 1750 = Bettvorderkante</td></tr>
 <tr><td>Sitzhöhe im Bett</td><td>1979 − 1115</td><td>✔ 864 mm — aufrecht sitzen möglich</td></tr>
 <tr><td>Garage</td><td>1620 × 1720 × 937, Radkästen Y 750–1580 je 200 tief</td><td>✔ 1320 mm durchgehende Breite zwischen den Radkästen</td></tr>
 <tr><td>Beinfreiheit Sitzgruppe</td><td>Bankvorderkante Y 2630 → Drehsitz-Vorderkante ≈ Y 3270</td><td>⚠ 640 mm, knapp aber üblich — <b>nach dem Drehen der Sitze nachmessen</b></td></tr>

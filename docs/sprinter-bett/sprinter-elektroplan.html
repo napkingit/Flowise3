@@ -121,18 +121,21 @@ svg text{font-family:var(--mono)}
   <a href="#s11">11 · Stückliste / BOM</a>
   <a href="#s12">12 · Variantenvergleich</a>
   <a href="#s13">13 · Konkrete Empfehlung</a>
+  <a href="#s14">14 · Abgleich Stromkonzept &amp; Rev C</a>
 </nav>
 
 <h2 id="s1"><span class="no">1</span>Kurzfazit</h2>
 
 <h4>Die drei Erkenntnisse, die alles andere bestimmen</h4>
-<div class="hin no"><b>1. Dachklimaanlage und ernstzunehmende Solaranlage schließen sich auf einem L2H2 gegenseitig aus.</b>
-Das Dach gibt netto etwa 3,0&nbsp;×&nbsp;1,35&nbsp;m her. Mit MaxxAir bleiben ~3,6&nbsp;m² → <b>700–800&nbsp;Wp</b>.
-Kommt eine Dachklima (~1000&nbsp;×&nbsp;700&nbsp;mm plus Abstand) dazu, zerfällt die Restfläche in Streifen und
-es bleiben realistisch <b>300–350&nbsp;Wp</b>. Gleichzeitig zieht die Klima 3–4&nbsp;kWh pro Nacht — also
-mehr als die gesamte übrige Anlage am Tag. Du würdest den Verbrauch verdreifachen und die Erzeugung
-halbieren. <b>Meine klare Empfehlung: keine Dachklima.</b> Stattdessen MaxxAir + Thermomatten +
-die zwei 12-V-Ventilatoren, und für echte Hitzewellen den Campingplatz mit Landstrom einplanen.</div>
+<div class="hin ok"><b>1. Die Klimaanlage gehört auf AC-out-2 — dann ist der Zielkonflikt gelöst.</b>
+Eine <b>Dach</b>klimaanlage und eine ernstzunehmende Solaranlage schließen sich auf einem L2H2
+gegenseitig aus: das Dach gibt netto ~3,6&nbsp;m² her (mit MaxxAir), also 700–780&nbsp;Wp — ein
+Dachgerät (~790&nbsp;×&nbsp;580&nbsp;mm, ~24&nbsp;kg) zerlegt die Restfläche auf ~350&nbsp;Wp.
+Gleichzeitig zieht Klimatisierung 3–4&nbsp;kWh pro Nacht, also mehr als die gesamte übrige Anlage am Tag.
+<b>Die Lösung ist nicht Verzicht, sondern Trennung:</b> ein <b>Staukastengerät</b> unter der hinteren
+Bettseite, angeschlossen an <b>AC-out-2</b> des MultiPlus. Dieser Ausgang ist im Wechselrichterbetrieb
+physisch spannungsfrei — die Klimaanlage kann die Batterie also gar nicht leeren, ist am Landstrom
+aber voll nutzbar. Das Dach bleibt frei für 780&nbsp;Wp.</div>
 
 <div class="hin"><b>2. Der Wechselrichter, nicht die Batterie, ist der Flaschenhals beim Kochen.</b>
 Ein Victron MultiPlus 12/2000 liefert dauerhaft nur 1600&nbsp;W bei 25&nbsp;°C und 1300&nbsp;W bei 40&nbsp;°C —
@@ -150,7 +153,7 @@ spart mehr Batterie als jede Optimierung an der Anlage: ein Kochvorgang auf Gas 
 <h4>Größte Engpässe, ehrlich benannt</h4>
 <div class="tw"><table>
 <tr><th>Wunsch</th><th>Off-Grid-Realität</th><th>Pragmatische Lösung</th></tr>
-<tr><td>Klimaanlage</td><td><b>Nicht autark machbar.</b> 3–4 kWh je Nacht = mehr als eine 400-Ah-Batterie hergibt, bei gleichzeitig halbierter Solarfläche</td><td>Weglassen. MaxxAir + Verdunkelung + 2 Ventilatoren; Hitze über Standortwahl und Landstrom lösen</td></tr>
+<tr><td>Klimaanlage</td><td><b>Off-grid nicht machbar.</b> 3–4 kWh je Nacht = mehr als die halbe Batterie, bei einem Dachgerät zusätzlich halbierte Solarfläche</td><td><b>Staukastengerät auf AC-out-2</b> — am Landstrom voll nutzbar, off-grid technisch abgeschaltet. Dach bleibt frei. Zusätzlich MaxxAir + Verdunkelung + 2 Ventilatoren</td></tr>
 <tr><td>E-Roller laden</td><td>0,7–1,0 kWh je Ladung = ein Drittel eines guten Solartags</td><td>Grundsätzlich <b>während der Fahrt</b> (Ladebooster liefert 1,3 kW) oder am Landstrom. Off-Grid nur an Sonnentagen</td></tr>
 <tr><td>Induktion als Hauptkocher</td><td>600–900 Wh/Tag; braucht 3000-VA-Klasse</td><td>Induktion für Wasser/Schnelles, Kartuschenkocher für alles Lange (Nudeln, Schmoren)</td></tr>
 <tr><td>Airfryer</td><td>400–700 Wh je Nutzung, 1600 W Dauerlast</td><td>Machbar, aber Gerät bewusst mit ≤ 1500 W kaufen. Nicht parallel zu Induktion</td></tr>
@@ -228,8 +231,8 @@ arbeitet hart) und <b>Übergangszeit</b> (Heizung läuft, Kühlschrank entspannt
 <tr><td>Wechselrichter-Standby</td><td><span class="pill pAC">230 V</span></td><td class="num">12 (Eco)</td><td>10 h</td><td class="num">120</td><td class="num">120</td><td>ohne Eco-Modus 24 h → <b>480 Wh</b></td></tr>
 <tr class="sum"><td colspan="4">Summe Basistag (ohne Klima, ohne E-Roller)</td><td class="num">2355</td><td class="num">2355</td><td>≈ 2,4 kWh</td></tr>
 <tr><td>E-Roller, 1 Ladung</td><td><span class="pill pAC">230 V</span></td><td class="num">150</td><td>5 h</td><td class="num">+750</td><td class="num">+750</td><td>bei 1000-Wh-Akku bis 1150 Wh</td></tr>
-<tr><td>Dachklimaanlage 12 V</td><td><span class="pill pDC">12 V</span></td><td class="num">Ø 550</td><td>8 h Nacht</td><td class="num">+3500</td><td class="num">—</td><td>Anlaufspitze ~1200 W</td></tr>
-<tr class="sum"><td colspan="4">„Alles-Tag“ mit E-Roller und Klimanacht</td><td class="num">6605</td><td class="num">—</td><td>≈ 6,6 kWh</td></tr>
+<tr><td>Klimaanlage (Staukasten, <b>AC-out-2</b>)</td><td><span class="pill pAC">230 V</span></td><td class="num">600–1200</td><td>variabel</td><td class="num"><b>0</b></td><td class="num"><b>0</b></td><td>läuft nur am Landstrom — belastet die Batterie nie</td></tr>
+<tr class="sum"><td colspan="4">Komforttag mit E-Roller (Klima läuft am Netz mit)</td><td class="num">3105</td><td class="num">3105</td><td>≈ 3,1 kWh aus der Batterie</td></tr>
 </table></div>
 
 <h4>Spitzenlasten und kritische Kombinationen</h4>
@@ -260,127 +263,101 @@ wird. In der Übergangszeit fehlen täglich rund 1&nbsp;kWh, die aus Fahrstrom k
 der Ladebooster kein Nice-to-have, sondern gleichwertige Hauptquelle.</div>
 
 <h2 id="s4"><span class="no">4</span>Empfehlung für das Energiesystem</h2>
-
+<div class="hin ok"><b>Diese Auslegung führt drei Quellen zusammen:</b> meine Lastanalyse, dein
+Stromkonzept (Option B) und die Baudokumentation Rev C. Wo sich die Dokumente widersprachen, steht
+die Begründung in Kapitel&nbsp;14.</div>
 <div class="tw"><table>
 <tr><th>Komponente</th><th>Empfehlung</th><th>Begründung</th></tr>
-<tr><td><b>Batteriechemie</b></td><td>LiFePO4 (LFP), mit <b>integrierter Zellheizung</b></td><td>Bei 2,4 kWh Tagesumsatz ist Blei/AGM disqualifiziert (halbe nutzbare Kapazität, dreifaches Gewicht, kein Schnellladen). Heizung, weil LFP unter 0 °C nicht geladen werden darf und der Technikbereich in der Garage nachts auskühlt.</td></tr>
-<tr><td><b>Kapazität</b></td><td><b>400 Ah / 12 V = 5,1 kWh</b> (Option A: 300 Ah)</td><td>2 Standtage ohne Sonne bei vollem Komfort. 300 Ah reicht für 1,3 Tage — spürbar knapper und limitiert zusätzlich den Entladestrom. Wichtig: Dauerentladestrom <b>≥ 250 A</b> spezifizieren, nicht nur die Kapazität.</td></tr>
-<tr><td><b>Solar</b></td><td><b>700–800 Wp</b>, 2 Strings, 2 × MPPT</td><td>Maximum, das mit MaxxAir aufs L2H2-Dach passt. Zwei getrennte MPPT statt einem großen: bei Teilverschattung durch Lüfter/Dachträger bricht dann nur ein String ein. Starre Module, nicht flexibel (Lebensdauer).</td></tr>
-<tr><td><b>Wechselrichter</b></td><td><b>Victron MultiPlus-II 12/3000/120</b></td><td>2400 W Dauerleistung deckt Induktion und Airfryer. Enthält gleichzeitig 120-A-Landstromladegerät, Umschaltautomatik und PowerAssist — spart ein separates Ladegerät und ca. 6 kg. Eco-Modus zwingend nutzen.</td></tr>
-<tr><td><b>Ladebooster</b></td><td><b>2 × Victron Orion XS 12/12-50 = 100 A</b></td><td>1,3 kW während der Fahrt. Bei einem Reiseprofil mit regelmäßigen Etappen die verlässlichste Quelle und im Winter die einzige. Der W907-Smart-Alternator braucht zwingend DC-DC, ein Trennrelais lädt nicht voll.</td></tr>
-<tr><td><b>Landstrom</b></td><td>CEE-Einspeisung 16 A + FI/LS, Ladung über MultiPlus</td><td>Eingangsstrom im Panel einstellbar (6/10/16 A) — damit funktioniert auch die schwache Campingplatzsäule. PowerAssist ergänzt fehlende Leistung aus der Batterie.</td></tr>
-<tr><td><b>Systemspannung</b></td><td><b>12 V</b></td><td>Kühlschrank, Heizung, Pumpe, Licht, Lüfter sind alle 12 V. 24 V würde die Ströme halbieren, erzwingt aber einen 24→12-Wandler für alles und einen aufwendigeren Weg von der 12-V-Lichtmaschine. 24 V lohnt erst ab ~4 kW Wechselrichterleistung (Option C).</td></tr>
-<tr><td><b>Klimaanlage</b></td><td><b>Bewusst weglassen</b></td><td>Siehe Kurzfazit. Wenn sie später doch kommen soll: Leerrohr 50 mm zum Dach und ein 50-mm²-Reservekreis am Busbar vorsehen — dann kostet die Nachrüstung nur Solarfläche, keine Demontage.</td></tr>
+<tr><td><b>Batteriechemie</b></td><td>LiFePO4 (LFP), <b>Victron Lithium&nbsp;NG</b></td><td>Bei 2,4–3,1 kWh Tagesumsatz und 200 A+ Entladestrom ist Blei/AGM disqualifiziert. Die NG-Serie ist auf hohe Dauerströme ausgelegt (300 A je Batterie) und arbeitet mit dem Lynx Smart BMS NG als System.</td></tr>
+<tr><td><b>Kapazität</b></td><td><b>2 × 12,8 V / 300 Ah = 600 Ah / 7,68 kWh</b></td><td>Nutzbar bei 80 % DoD ≈ 6,1 kWh. Das ergibt 4,4 Tage Grundbetrieb, 2,5 Tage mit Induktion und Kaffee, 2,0 Tage im vollen Komforttag. 600 Ah ist für ein 12-V-System die sinnvolle Obergrenze — mehr Leistung würde einen Wechsel auf 24 V bedeuten.</td></tr>
+<tr><td><b>BMS</b></td><td><b>Victron Lynx Smart BMS NG 500 A</b></td><td>500-A-Dauerkontaktor, integrierte Strommessung (ein separater SmartShunt entfällt), Vorladefunktion, gemeinsames Abschalten beider Batterien, direkte Anbindung an Cerbo GX. Bei zwei parallelen NG-Batterien ist ein Systembatteriemanagement Pflicht, keine Kür.</td></tr>
+<tr><td><b>Wechselrichter</b></td><td><b>Victron MultiPlus-II 12/3000/120-32</b></td><td>2400 W dauerhaft bei 25 °C, 2200 W bei 40 °C, 5500 W Spitze, 120-A-Ladegerät, PowerControl/PowerAssist. Leerlauf 13 W, Search-Mode 3 W. <b>Entscheidend: der zweite Ausgang AC-out-2</b> — siehe Klimaanlage.</td></tr>
+<tr><td><b>Solar</b></td><td><b>700–780 Wp</b>, 2 Strings, 2 × SmartSolar MPPT 100/30</td><td>Weil die Klimaanlage nicht aufs Dach kommt, bleibt die volle Fläche für Solar. Zwei getrennte Regler statt eines 100/50: bei Teilverschattung durch MaxxAir oder Dachträger bricht dann nur ein String ein. Je Regler max. 440 Wp im 12-V-System — passt für 2 × ~390 Wp.</td></tr>
+<tr><td><b>Ladebooster</b></td><td><b>Victron Orion XS 12/12-70</b>, bei Inbetriebnahme auf <b>50 A begrenzt</b></td><td>Hardware für 70 A / 1000 W kaufen, aber vorsichtig in Betrieb nehmen: die konkrete W907-Lichtmaschine und die zulässige Dauerentnahme sind VIN-abhängig. Nach Messung von Spannungsfall und Lichtmaschinentemperatur bei warmem Motor auf 60–70 A erhöhen. Ein zweites Gerät erst, wenn die Fahrzeugfreigabe das hergibt.</td></tr>
+<tr><td><b>Landstrom</b></td><td>CEE 16 A, zweipolige Trennung, Ladung über den MultiPlus</td><td>Eingangsstrom am Panel auf 6/10/16 A einstellbar; PowerControl senkt zuerst den Ladestrom, PowerAssist ergänzt aus der Batterie. Damit funktioniert auch die schwache Campingplatzsäule.</td></tr>
+<tr><td><b>Klimaanlage</b></td><td><b>Staukastengerät auf AC-out-2</b> — nur bei Landstrom aktiv</td><td>Das ist die elegante Lösung des Konflikts: AC-out-2 ist im Wechselrichterbetrieb <b>physisch abgeschaltet</b>. Die Klimaanlage kann die Batterie also gar nicht leeren, ist am Campingplatz aber voll nutzbar. Als Unterbank-/Staukastengerät bleibt zusätzlich das Dach frei für 780 Wp Solar.</td></tr>
+<tr><td><b>Systemspannung</b></td><td><b>12 V</b></td><td>Kühlschrank, Heizung, Pumpe, Licht, Lüfter und alle USB-C-Module sind 12 V. 24 V würde die Ströme halbieren, erzwingt aber Wandler für alles und einen aufwendigeren Weg von der 12-V-Lichtmaschine. Lohnt erst ab ~4 kW Wechselrichterleistung.</td></tr>
+<tr><td><b>Hochlastverriegelung</b></td><td>Dreistufiger Wahlschalter + 2 verriegelte Schütze</td><td>Induktion, Airfryer und Kaffeemaschine ergeben zusammen 4,7 kW — technisch ausgeschlossen. Statt das nur zu beschriften, wird es <b>erzwungen</b>: Stufe 0 = aus, 1 = Induktion, 2 = Hochlaststeckdose. Beide Zweige können nie gleichzeitig Spannung führen.</td></tr>
 </table></div>
 
-<figure class="zbox"><div class="zk"><b>E-01 · Systemschema (Einlinie)</b><span>Empfehlung Option B · blau = 12 V DC, rot = 230 V AC, grau = Signal/Daten</span><span>SPR-EL-01-E01</span></div>
-<svg viewBox="-60 -80 2620 1560" style="font-size:34px" role="img" aria-label="Systemschema">
+<figure class="zbox"><div class="zk"><b>E-01 · Systemschema (Einlinie)</b><span>blau = 12 V DC, rot = 230 V AC, grau = Signal/Daten</span><span>SPR-EL-01-E01</span></div>
+<svg viewBox="-60 -80 2620 1620" style="font-size:34px" role="img" aria-label="Systemschema">
 <defs><marker id="e1" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto"><path d="M0,1.5 L9,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
-
-<!-- Spalte 1: Quellen -->
 <rect class="blk" x="0" y="40" width="360" height="140" rx="8"/>
-<text class="lbl" x="22" y="95">Solar 700–800 Wp</text><text class="dt2" x="22" y="150">2 × ~390 Wp</text>
+<text class="lbl" x="22" y="95">Solar 700–780 Wp</text><text class="dt2" x="22" y="150">2 × ~390 Wp</text>
 <rect class="blk" x="0" y="250" width="360" height="140" rx="8"/>
 <text class="lbl" x="22" y="305">Lichtmaschine</text><text class="dt2" x="22" y="360">W907 Smart-Alt.</text>
-<rect class="blkAC" x="0" y="640" width="360" height="140" rx="8"/>
-<text class="lbl" x="22" y="695">Landstrom CEE</text><text class="dt2" x="22" y="750">16 A, Fahrerseite</text>
-
-<!-- Spalte 2: Wandler -->
+<rect class="blkAC" x="0" y="700" width="360" height="140" rx="8"/>
+<text class="lbl" x="22" y="755">Landstrom CEE</text><text class="dt2" x="22" y="810">16 A, Fahrerseite</text>
 <rect class="blk" x="500" y="20" width="360" height="90" rx="8"/><text class="lbl" x="522" y="78">MPPT 100/30</text>
 <rect class="blk" x="500" y="130" width="360" height="90" rx="8"/><text class="lbl" x="522" y="188">MPPT 100/30</text>
 <rect class="blk" x="500" y="250" width="360" height="140" rx="8"/>
-<text class="lbl" x="522" y="305">2 × Orion XS</text><text class="dt2" x="522" y="360">12/12-50 → 100 A</text>
-<rect class="blkAC" x="500" y="640" width="360" height="140" rx="8"/>
-<text class="lbl" x="522" y="695">FI 30 mA Typ A</text><text class="dt2" x="522" y="750">+ LS B16</text>
-
-<g class="wireDC">
-<path d="M360,110 L500,65" marker-end="url(#e1)"/><path d="M360,110 L500,175" marker-end="url(#e1)"/>
-<path d="M360,320 L500,320" marker-end="url(#e1)"/>
-</g>
-<g class="wireAC"><path d="M360,710 L500,710" marker-end="url(#e1)"/></g>
-
-<!-- Busbar -->
+<text class="lbl" x="522" y="305">Orion XS 12/12-70</text><text class="dt2" x="522" y="360">Start: 50 A begrenzt</text>
+<rect class="blkAC" x="500" y="700" width="360" height="140" rx="8"/>
+<text class="lbl" x="522" y="755">2-pol. Trennung</text><text class="dt2" x="522" y="810">+ LS B16 Eingang</text>
+<g class="wireDC"><path d="M360,110 L500,65" marker-end="url(#e1)"/><path d="M360,110 L500,175" marker-end="url(#e1)"/><path d="M360,320 L500,320" marker-end="url(#e1)"/></g>
+<g class="wireAC"><path d="M360,770 L500,770" marker-end="url(#e1)"/></g>
 <rect class="blk" x="1020" y="20" width="150" height="560" rx="8" style="fill:var(--grid)"/>
-<text class="lbl" x="1095" y="300" transform="rotate(-90 1095 300)">DC-Hauptverteiler</text>
-<g class="wireDC">
-<path d="M860,65 L1020,90" marker-end="url(#e1)"/><path d="M860,175 L1020,180" marker-end="url(#e1)"/>
-<path d="M860,320 L1020,300" marker-end="url(#e1)"/>
-</g>
-<text class="dt2" x="878" y="45">40 A</text>
-<text class="dt2" x="878" y="272">2 × 80 A</text>
-
-<!-- Spalte 4 -->
+<text class="lbl" x="1095" y="300" transform="rotate(-90 1095 300)">DC-Hauptbus (Lynx)</text>
+<g class="wireDC"><path d="M860,65 L1020,90" marker-end="url(#e1)"/><path d="M860,175 L1020,180" marker-end="url(#e1)"/><path d="M860,320 L1020,300" marker-end="url(#e1)"/></g>
+<text class="dt2" x="878" y="45">40 A</text><text class="dt2" x="878" y="272">100 A</text>
 <rect class="blk" x="1330" y="20" width="470" height="250" rx="8"/>
 <text class="lbl" x="1352" y="75">12-V-Unterverteilung</text>
-<text class="dt2" x="1352" y="130">16 Sicherungen, 2 frei</text>
+<text class="dt2" x="1352" y="130">20 Kreise DC-01…DC-20</text>
 <text class="dt2" x="1352" y="180">Kühlschrank, Heizung,</text>
-<text class="dt2" x="1352" y="230">Pumpe, Licht, Lüfter</text>
+<text class="dt2" x="1352" y="230">Pumpe, Licht, USB-C</text>
 <rect class="blk" x="1330" y="340" width="470" height="200" rx="8"/>
 <text class="lbl" x="1352" y="395">MultiPlus-II 12/3000</text>
-<text class="dt2" x="1352" y="450">2400 W dauerhaft, Eco</text>
-<text class="dt2" x="1352" y="505">Ladegerät 120 A</text>
-<g class="wireDC">
-<path d="M1170,120 L1330,120" marker-end="url(#e1)"/>
-<path d="M1170,430 L1330,430" marker-end="url(#e1)"/>
-</g>
-<text class="dt2" x="1182" y="98">16 mm²</text>
-<text class="dt2" x="1182" y="408">95 mm²</text>
-
-<!-- Batterie -->
-<rect class="blk" x="1020" y="900" width="490" height="200" rx="8"/>
-<text class="lbl" x="1042" y="955">LiFePO4 400 Ah / 12 V</text>
-<text class="dt2" x="1042" y="1010">5,1 kWh, beheizt</text>
-<text class="dt2" x="1042" y="1060">Class-T 400 A am Pol</text>
-<g class="wireDC"><path d="M1095,580 L1095,900" marker-end="url(#e1)"/></g>
-<text class="dt2" x="1115" y="760">95 mm²</text>
-<rect class="blk" x="1580" y="920" width="330" height="120" rx="8"/>
-<text class="lbl" x="1602" y="975">SmartShunt</text><text class="dt2" x="1602" y="1020">500 A, im Minus</text>
-<g class="wireDC"><path d="M1510,980 L1580,980"/></g>
-<rect class="blk" x="1020" y="1180" width="380" height="140" rx="8"/>
-<text class="lbl" x="1042" y="1235">Minus-Busbar</text><text class="dt2" x="1042" y="1285">Sternpunkt · Chassis 35</text>
-<g class="wireDC"><path d="M1095,1100 L1095,1180"/></g>
-<rect class="blk" x="1470" y="1180" width="440" height="140" rx="8"/>
-<text class="lbl" x="1492" y="1235">Cerbo GX + Touch</text><text class="dt2" x="1492" y="1285">Panel am Eingang</text>
-<g class="wireS" style="stroke-dasharray:10 8">
-<path d="M1745,1040 L1745,1180"/>
-<path d="M680,220 L680,1250 L1470,1250"/>
-</g>
-
-<!-- 230 V Weg -->
-<g class="wireAC"><path d="M860,710 L1565,710 L1565,540" marker-end="url(#e1)"/></g>
-<text class="dt2" x="880" y="688">3 × 2,5 mm²</text>
-
-<!-- Spalte 5 -->
+<text class="dt2" x="1352" y="450">2400 W dauerhaft</text>
+<text class="dt2" x="1352" y="505">Lader 120 A, Search 3 W</text>
+<g class="wireDC"><path d="M1170,120 L1330,120" marker-end="url(#e1)"/><path d="M1170,430 L1330,430" marker-end="url(#e1)"/></g>
+<text class="dt2" x="1182" y="98">35 mm²</text><text class="dt2" x="1182" y="408">95 mm²</text>
+<rect class="blk" x="1020" y="960" width="490" height="200" rx="8"/>
+<text class="lbl" x="1042" y="1015">2 × LiFePO4 300 Ah</text>
+<text class="dt2" x="1042" y="1070">7,68 kWh, je 300 A</text>
+<text class="dt2" x="1042" y="1120">Laden erst ab +5 °C</text>
+<rect class="blk" x="1020" y="700" width="490" height="180" rx="8"/>
+<text class="lbl" x="1042" y="755">Lynx Smart BMS NG</text>
+<text class="dt2" x="1042" y="810">500 A, Strommessung</text>
+<text class="dt2" x="1042" y="855">integriert (kein Shunt)</text>
+<g class="wireDC"><path d="M1095,960 L1095,880" marker-end="url(#e1)"/><path d="M1095,700 L1095,580" marker-end="url(#e1)"/></g>
+<text class="dt2" x="1130" y="650">95 mm²</text>
+<text class="dt2" x="1530" y="1015">je 300-A-Einzel-</text><text class="dt2" x="1530" y="1065">sicherung</text>
+<g class="wireAC"><path d="M860,770 L1565,770 L1565,540" marker-end="url(#e1)"/></g>
 <rect class="blk" x="1960" y="20" width="470" height="250" rx="8" style="stroke-dasharray:14 10"/>
 <text class="lbl" x="1982" y="75">12-V-Verbraucher</text>
 <text class="dt2" x="1982" y="130">USB-C PD 65/100 W</text>
 <text class="dt2" x="1982" y="180">ohne Wechselrichter</text>
-<text class="dt2" x="1982" y="230">5 Lichtzonen, 2 Lüfter</text>
-<rect class="blkAC" x="1960" y="340" width="470" height="250" rx="8"/>
-<text class="lbl" x="1982" y="395">230-V-Verteilung</text>
-<text class="dt2" x="1982" y="450">LS B16 Induktion</text>
-<text class="dt2" x="1982" y="500">LS B10 Steckdosen</text>
-<text class="dt2" x="1982" y="550">LS B10 E-Roller</text>
-<rect class="blk" x="1960" y="670" width="470" height="150" rx="8" style="stroke-dasharray:14 10"/>
-<text class="lbl" x="1982" y="725">RESERVE 150 A</text>
-<text class="dt2" x="1982" y="780">für spätere Klimaanlage</text>
+<text class="dt2" x="1982" y="230">Licht, Lüfter, Pumpe</text>
+<rect class="blkAC" x="1960" y="340" width="470" height="210" rx="8"/>
+<text class="lbl" x="1982" y="395">AC-out-1 · FI + LS</text>
+<text class="dt2" x="1982" y="450">Induktion (verriegelt)</text>
+<text class="dt2" x="1982" y="500">Hochlastdose, Steckdosen</text>
+<rect class="blkAC" x="1960" y="620" width="470" height="210" rx="8"/>
+<text class="lbl" x="1982" y="675">AC-out-2 · eigener FI</text>
+<text class="dt2" x="1982" y="730"><tspan font-weight="700">nur bei Landstrom aktiv</tspan></text>
+<text class="dt2" x="1982" y="780">KLIMAANLAGE</text>
 <g class="wireDC"><path d="M1800,145 L1960,145" marker-end="url(#e1)"/></g>
-<g class="wireAC"><path d="M1800,440 L1960,440" marker-end="url(#e1)"/></g>
-<g class="wireDC" style="stroke-dasharray:14 10"><path d="M1170,540 L1880,620 L1880,745 L1960,745" marker-end="url(#e1)"/></g>
-
-<text class="dt2" x="0" y="1400">Regel: alles was dauerhaft läuft, hängt am 12-V-Zweig. Der MultiPlus wird nur für Induktion, Airfryer, Kaffee und E-Roller eingeschaltet.</text>
-<text class="dt2" x="0" y="1450">Alle Sicherungen sitzen so nah wie möglich an der Quelle. Class-T am Batteriepluspol, weil LiFePO4 im Kurzschluss mehrere tausend Ampere liefert.</text>
+<g class="wireAC"><path d="M1800,420 L1960,420" marker-end="url(#e1)"/><path d="M1800,480 L1880,480 L1880,700 L1960,700" marker-end="url(#e1)"/></g>
+<rect class="blk" x="1620" y="960" width="480" height="150" rx="8"/>
+<text class="lbl" x="1642" y="1015">Cerbo GX + Touch 50</text><text class="dt2" x="1642" y="1065">nur Monitoring</text>
+<g class="wireS" style="stroke-dasharray:10 8"><path d="M1510,790 L1620,1000"/><path d="M680,220 L680,1040 L1620,1040"/></g>
+<text class="dt2" x="0" y="1300">Der Trick mit AC-out-2: die Klimaanlage hängt an einem Ausgang, den der MultiPlus im Batteriebetrieb komplett abschaltet. Sie kann die Batterie also nicht leeren.</text>
+<text class="dt2" x="0" y="1360">Alles was dauerhaft läuft, hängt am 12-V-Zweig. Der Wechselrichter wird nur für Induktion, Airfryer, Kaffee und E-Roller eingeschaltet.</text>
+<text class="dt2" x="0" y="1420">Sicherungen so nah wie möglich an der Quelle: je Batterie 300 A, MultiPlus-Abgang ca. 400 A, hohes Abschaltvermögen wegen LiFePO4-Kurzschlussstrom.</text>
 </svg>
 </figure>
 
-<h4>Warum diese Architektur — kurz begründet</h4>
+<h4>Warum diese Architektur</h4>
 <ul>
-<li><b>MultiPlus statt Wechselrichter + separates Ladegerät:</b> ein Gerät, ein Kabelsatz, automatische Netzvorrangschaltung, PowerAssist am schwachen Landstrom. Kostet ähnlich viel wie zwei Einzelgeräte, spart aber Platz, Gewicht und eine Fehlerquelle.</li>
-<li><b>Zwei MPPT statt einem:</b> auf einem Van-Dach ist Teilverschattung der Normalfall (Lüfter, Dachluke, Bäume). Zwei getrennte Regler halbieren den Einbruch und geben Redundanz.</li>
-<li><b>USB-C PD direkt aus 12 V:</b> Laptop, iPads, Kameras und Drohne laden ohne den Wechselrichter. Das ist der größte einzelne Effizienzhebel im ganzen Konzept.</li>
-<li><b>Class-T statt MEGA am Batteriepol:</b> LiFePO4 hat einen extrem hohen Kurzschlussstrom; nur Class-T hat das nötige Ausschaltvermögen.</li>
-<li><b>Reservekreis von Anfang an:</b> Busbar, Hauptsicherung und Batteriefach werden für die Endausbaustufe dimensioniert. Nachträglich LiFePO4 parallel zu bereits gealterten Zellen zu schalten ist die häufigste teure Fehlentscheidung — <b>lieber jetzt einmal groß kaufen</b>.</li>
+<li><b>AC-out-2 statt Verzicht auf Klima.</b> Mein ursprünglicher Vorschlag war, die Klimaanlage ganz zu streichen. Dein Stromkonzept hat die bessere Lösung: der zweite Wechselrichterausgang ist im Batteriebetrieb spannungsfrei. Damit ist die Klima am Landstrom voll nutzbar und off-grid technisch ausgeschlossen — ohne Disziplin, ohne Diskussion.</li>
+<li><b>Staukastengerät statt Dachklima.</b> Damit bleibt das Dach für 780 Wp frei. Preis dafür: Außenluftführung, Kondensatablauf und Schalldämmung müssen früh in den Möbelbau — das ist mechanisch anspruchsvoller als ein Dachgerät.</li>
+<li><b>Lynx Smart BMS NG statt Einzel-BMS + Shunt.</b> Zwei parallele 300-Ah-Batterien brauchen ein gemeinsames Abschaltorgan; die Strommessung ist gleich mit drin.</li>
+<li><b>Zwei MPPT statt einem 100/50.</b> Bei 780 Wp läge ein 100/50 an der Grenze (max. 700 W im 12-V-System), und Teilverschattung ist auf einem Van-Dach der Normalfall.</li>
+<li><b>Orion XS 70 A, zunächst gedrosselt.</b> Ehrlicher als eine feste Zahl: die Fahrzeugfreigabe ist VIN-abhängig und muss gemessen werden.</li>
+<li><b>USB-C PD direkt aus 12 V.</b> Laptop, iPads, Kameras laden ohne Wechselrichter — der größte Effizienzhebel im ganzen Konzept.</li>
 </ul>
+
 <h2 id="s5"><span class="no">5</span>Layout-Plan nach Zonen</h2>
 <p>Alle Positionen als X/Y/Z in mm im Koordinatensystem von SPR-GA-01.
 <span class="pill pDC">12 V</span> <span class="pill pAC">230 V</span> <span class="pill pU">USB-C</span> ·
@@ -605,8 +582,10 @@ abends im Dunkeln. ② Die 230-V-Dosen am Arbeitsplatz und in der Küche liegen 
 LS-Kreisen</b>: löst der Induktionskreis aus, arbeitet der Laptop weiter.</div>
 <h2 id="s8"><span class="no">8</span>Lichtkonzept</h2>
 <div class="hin ok"><b>Guter Ausgangspunkt:</b> Die sechs CAMPANY-Hängeschränke bringen laut Rechnung
-je eine <b>dimmbare LED-Leiste</b> mit. Das ist bereits das komplette indirekte Grundlicht — du musst
-nur noch zuordnen, wo die Schränke hängen, und die Zonen sinnvoll zusammenschalten.</div>
+je eine <b>dimmbare LED-Leiste</b> mit — das ist bereits ein großer Teil des indirekten Lichts.
+<b>Wichtig seit Rev B des Grundrisses:</b> alle sechs Schränke hängen auf der <b>Fahrerseite</b>.
+Die Beifahrerseite über dem Bett bekommt deshalb ein <b>eigenes LED-Profil in der Dachkante</b>
+(Y 200–1600), damit beide Bettseiten gleichwertiges indirektes Licht haben.</div>
 <div class="hin"><b>Zielkonflikt, den du vor der Lichtplanung entscheiden musst:</b> Hängeschränke
 (UK 1450) und Seitenfenster (OK typischerweise ~1550) konkurrieren um dieselbe Wandhöhe.
 Meine Empfehlung: <b>2 + 2 Hängeschränke über dem Bett</b> (je Seite Y 250–1250) und die restlichen
@@ -621,7 +600,7 @@ Wunsches „jede Bettseite eine eigene Komfortzone“.</div>
 <tr><td class="num">L1</td><td>Grundlicht Wohnraum</td><td>4 Einbauspots Ø 65</td><td>Decke, X 500 und 1200, Y 2200 und 2800</td><td>2700 K</td><td class="num">4 × 3</td><td>gedimmt, 10–100 %</td></tr>
 <tr><td class="num">L2</td><td>Arbeitslicht Küche</td><td>2 Einbauspots + LED-Profil Dachkante</td><td>X 1400, Y 2050 / 2450 · Profil Y 2000–2650</td><td><b>4000 K</b></td><td class="num">2 × 4 + 5</td><td>ein/aus reicht</td></tr>
 <tr><td class="num">L3</td><td>Sitzgruppe</td><td>LED-Leisten der 2 Hängeschränke Fahrerseite</td><td>UK 1620, Y 2200–3200</td><td>2700 K</td><td class="num">2 × 4</td><td>gedimmt</td></tr>
-<tr><td class="num">L4</td><td>Bett / indirekt</td><td>LED-Leisten der 4 Hängeschränke über dem Bett</td><td>UK 1450, Y 250–1250 je Seite</td><td>2700 K</td><td class="num">4 × 4</td><td>gedimmt, je Seite getrennt</td></tr>
+<tr><td class="num">L4</td><td>Bett / indirekt</td><td><b>Fahrerseite:</b> LED-Leisten der Hängeschränke HS1–3 · <b>Beifahrerseite:</b> eigenes LED-Profil in der Dachkante</td><td>Fahrer UK 1450, Y 200–1700 · Beifahrer Dachkante Y 200–1600</td><td>2700 K</td><td class="num">3 × 4 + 5</td><td>gedimmt, je Seite getrennt</td></tr>
 <tr><td class="num">L5</td><td>Ambiente / Sockel</td><td>LED-Band im Sockel Küche + Bank, und unter der Bettvorderkante</td><td>Z 60 · Bettkante Y 1620</td><td>2700 K</td><td class="num">≈ 8</td><td>gedimmt</td></tr>
 <tr><td class="num">L6</td><td><b>Nachtlicht</b></td><td>LED-Band amber, sehr niedrig</td><td>gleiche Profile wie L5, zweiter Kanal</td><td><b>1800–2200 K</b></td><td class="num">≈ 2</td><td>fest niedrig</td></tr>
 <tr><td class="num">L7</td><td>Leselicht Bett</td><td>2 Schwanenhalsleuchten</td><td>je Bettkonsole, Z 1340</td><td>2700 K</td><td class="num">2 × 2</td><td>am Gerät dimmbar</td></tr>
@@ -682,177 +661,347 @@ billiger und man hat nie eine leere Halterung im Blickfeld hängen.</p>
 
 <h2 id="s10"><span class="no">10</span>Technische Umsetzung</h2>
 
-<h4>12-V-Stromkreise</h4>
+<h4>Hochstrom-DC</h4>
 <div class="tw"><table>
-<tr><th>Kreis</th><th>Verbraucher</th><th class="num">Absicherung</th><th class="num">Querschnitt</th><th>Bemerkung</th></tr>
-<tr><td class="mono">HV</td><td>Batterie → Class-T → Hauptschalter → Busbar</td><td class="num">400 A Class-T</td><td class="num">95 mm²</td><td>Sicherung ≤ 300 mm vom Pluspol</td></tr>
-<tr><td class="mono">F0</td><td>MultiPlus-II 12/3000</td><td class="num">400 A Class-T</td><td class="num">95 mm²</td><td>Leitung ≤ 1,5 m halten</td></tr>
-<tr><td class="mono">F1</td><td>MPPT 1 (String Dach vorn)</td><td class="num">40 A MIDI</td><td class="num">10 mm²</td><td>PV-Seite 6 mm², getrennter Steckverbinder</td></tr>
-<tr><td class="mono">F2</td><td>MPPT 2 (String Dach hinten)</td><td class="num">40 A MIDI</td><td class="num">10 mm²</td><td>—</td></tr>
-<tr><td class="mono">F3/F4</td><td>Ladebooster 2 × 50 A</td><td class="num">je 80 A MIDI</td><td class="num">je 25 mm²</td><td><b>an beiden Enden absichern</b> (Starter- und Aufbauseite), Weg ca. 5 m</td></tr>
-<tr><td class="mono">F5</td><td>12-V-Unterverteilung</td><td class="num">60 A MIDI</td><td class="num">16 mm²</td><td>speist die Sicherungsbox</td></tr>
-<tr><td class="mono">1</td><td>Kühlschrank</td><td class="num">15 A</td><td class="num">4 mm²</td><td>eigener Kreis, nie mit Licht kombinieren</td></tr>
-<tr><td class="mono">2</td><td>Dieselheizung</td><td class="num">20 A</td><td class="num">4 mm²</td><td>Glühkerzenstrom beachten</td></tr>
-<tr><td class="mono">3</td><td>Wasserpumpe</td><td class="num">10 A</td><td class="num">2,5 mm²</td><td>mit Kontroll-LED am Schalter</td></tr>
-<tr><td class="mono">4</td><td>Licht Wohnraum L1/L2/L3</td><td class="num">10 A</td><td class="num">1,5 mm²</td><td>über bistabiles Relais</td></tr>
-<tr><td class="mono">5</td><td>Licht Bett L4/L6/L7</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">6</td><td>Sockel/Ambiente L5</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">7</td><td>Außen- und Garagenlicht L8/L9/L10</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>Türkontakt in der Zuleitung</td></tr>
-<tr><td class="mono">8</td><td>USB-C Bett links</td><td class="num">15 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">9</td><td>USB-C Bett rechts</td><td class="num">15 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">10</td><td>USB-C + 12 V Sitzgruppe/Fahrerhaus</td><td class="num">20 A</td><td class="num">4 mm²</td><td>100-W-PD zieht bis 9 A</td></tr>
-<tr><td class="mono">11</td><td>USB-C Küche</td><td class="num">10 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">12</td><td>Ventilatoren</td><td class="num">5 A</td><td class="num">1,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">13</td><td>MaxxAir</td><td class="num">10 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">14</td><td>12-V-Dose Garage</td><td class="num">15 A</td><td class="num">2,5 mm²</td><td>—</td></tr>
-<tr><td class="mono">15/16</td><td><b>Reserve</b></td><td class="num">15 A</td><td class="num">2,5 mm² vorverlegt</td><td>ein Reservepaar bis zur Küche und eins nach vorn</td></tr>
-<tr><td class="mono">R</td><td><b>Großreserve am Busbar</b> (z. B. spätere Klima)</td><td class="num">150 A</td><td class="num">50 mm² Anschluss vorbereitet</td><td>nur Anschlusspunkt, kein Kabel</td></tr>
+<tr><th>Verbindung</th><th class="num">Querschnitt</th><th class="num">Schutz</th><th>Bemerkung</th></tr>
+<tr><td>Batterie 1 → Sammelpunkt</td><td class="num">70 mm²</td><td class="num">300 A</td><td>Plus und Minus <b>gleich lang</b> wie Batterie 2</td></tr>
+<tr><td>Batterie 2 → Sammelpunkt</td><td class="num">70 mm²</td><td class="num">300 A</td><td>identische Länge, identischer Querschnitt</td></tr>
+<tr><td>Sammelpunkt → Lynx Smart BMS NG</td><td class="num">95 mm²</td><td class="num">—</td><td>—</td></tr>
+<tr><td>BMS → DC-Hauptbus</td><td class="num">95 mm²</td><td class="num">—</td><td>500-A-Kontaktor im BMS</td></tr>
+<tr><td>Hauptbus → MultiPlus-II</td><td class="num">95 mm²</td><td class="num">≈ 400 A</td><td>Leitung ≤ 1,5 m; Kennlinie so wählen, dass die 5500-W-Spitze nicht auslöst</td></tr>
+<tr><td>Haupttrennschalter</td><td class="num">—</td><td class="num">≥ 500 A DC</td><td>von der Hecktür ohne Werkzeug erreichbar</td></tr>
+<tr><td>Hauptbus → DC-Unterverteilung</td><td class="num">35 mm²</td><td class="num">125 A</td><td>—</td></tr>
+<tr><td>MPPT 1/2 → Bus</td><td class="num">je 10 mm²</td><td class="num">je 40 A</td><td>PV-seitig 6 mm²; <b>PV-Trennschalter vor dem MPPT</b></td></tr>
+<tr><td>Orion XS → Bus</td><td class="num">25–35 mm²</td><td class="num">100 A</td><td>—</td></tr>
+<tr><td>Lichtmaschine → Orion XS</td><td class="num">25–35 mm²</td><td class="num">100 A <b>an beiden Enden</b></td><td>Plus <i>und</i> Minus als Leitung führen, nicht über das Chassis. Anbindung nur an der vorgesehenen Schnittstelle nach Mercedes-Aufbaurichtlinie</td></tr>
+<tr><td>Chassis-Potentialausgleich</td><td class="num">35–50 mm²</td><td class="num">—</td><td>ein definierter Massepunkt, entlackt und konserviert</td></tr>
+</table></div>
+
+<h4>12-V-Stromkreise DC-01 … DC-20</h4>
+<div class="tw"><table>
+<tr><th>Kreis</th><th>Verbraucher</th><th class="num">Leitung</th><th class="num">Sicherung</th><th>Bemerkung</th></tr>
+<tr><td class="mono">DC-01</td><td>Kühlschrank NRX 60C</td><td class="num">2 × 6 mm²</td><td class="num">15 A</td><td>eigener Kreis, <b>nie</b> über den Komfort-Hauptschalter</td></tr>
+<tr><td class="mono">DC-02</td><td>Dieselheizung</td><td class="num">2 × 4 mm²</td><td class="num">20 A</td><td>Glühkerzenstrom ~110 W; ebenfalls nicht über Komfort-Aus</td></tr>
+<tr><td class="mono">DC-03</td><td>Wasserpumpe</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>Schalter mit Kontroll-LED</td></tr>
+<tr><td class="mono">DC-04</td><td>MaxxAir</td><td class="num">2 × 2,5 mm²</td><td class="num">5 A</td><td>Hersteller nennt 2-A-Kreis</td></tr>
+<tr><td class="mono">DC-05</td><td>Ventilator Bett</td><td class="num">2 × 1,5 mm²</td><td class="num">3 A</td><td>lokale Stufenregelung</td></tr>
+<tr><td class="mono">DC-06</td><td>Ventilator Übergangszone</td><td class="num">2 × 1,5 mm²</td><td class="num">3 A</td><td>schwenkbar</td></tr>
+<tr><td class="mono">DC-07</td><td>Deckenlicht vorn (L1)</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>dimmbar</td></tr>
+<tr><td class="mono">DC-08</td><td>Deckenlicht hinten / Bett (L4)</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>dimmbar, je Seite getrennt</td></tr>
+<tr><td class="mono">DC-09</td><td>Küchen-Arbeitslicht (L2)</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>4000 K</td></tr>
+<tr><td class="mono">DC-10</td><td>Ambiente + Nachtlicht (L5/L6)</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>zwei Kanäle</td></tr>
+<tr><td class="mono">DC-11</td><td>Außenlicht Markise + Heck (L9/L10)</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>getrennt schaltbar, Kontroll-LED innen</td></tr>
+<tr><td class="mono">DC-12</td><td>Bett links: USB-C + Qi + Leselicht</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>eigenes Modul</td></tr>
+<tr><td class="mono">DC-13</td><td>Bett rechts: USB-C + Qi + Leselicht</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>spiegelbildlich</td></tr>
+<tr><td class="mono">DC-14</td><td>Arbeitsplatz USB-C (100 W + 45 W)</td><td class="num">2 × 6 mm²</td><td class="num">25 A</td><td>100-W-PD zieht bis 9 A</td></tr>
+<tr><td class="mono">DC-15</td><td>Fahrerhaus USB-C + 12-V-Dose</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>—</td></tr>
+<tr><td class="mono">DC-16</td><td>Cerbo GX, Sensorik, Tankgeber</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>Dauerbetrieb</td></tr>
+<tr><td class="mono">DC-17</td><td>Technikfachlüfter (thermostatisch)</td><td class="num">2 × 2,5 mm²</td><td class="num">10 A</td><td>ab ca. 35 °C</td></tr>
+<tr><td class="mono">DC-18</td><td>Küche USB-C + 12-V Garage</td><td class="num">2 × 4 mm²</td><td class="num">15 A</td><td>—</td></tr>
+<tr><td class="mono">DC-19</td><td><b>Reserve</b> hoch, bis vorn vorverlegt</td><td class="num">2 × 4 mm²</td><td class="num">20 A</td><td>z. B. LTE-Router</td></tr>
+<tr><td class="mono">DC-20</td><td><b>Reserve</b> Licht/Sensor, Dach/Heck</td><td class="num">2 × 1,5 mm²</td><td class="num">5 A</td><td>—</td></tr>
 </table></div>
 <p><b>Dimensionierungsregel:</b> Spannungsfall ≤ 3&nbsp;% bei 12&nbsp;V, gerechnet über die
-<i>doppelte</i> Leitungslänge (Hin- und Rückleitung). Beispiel Ladebooster: 100&nbsp;A über 2 × 5&nbsp;m
-mit 25&nbsp;mm² je Strang ergibt ca. 0,35&nbsp;V — vertretbar; mit 16&nbsp;mm² wären es 0,55&nbsp;V
-und der Booster regelt herunter.</p>
+<i>doppelte</i> Leitungslänge. Die Sicherung schützt die <b>Leitung</b>, nicht das Gerät — deshalb
+richtet sie sich nach dem Querschnitt und der realen Länge, nicht nach der Geräteleistung.</p>
 
 <h4>230-V-Stromkreise</h4>
+<p><b>AC-out-1 — wechselrichtergestützt</b> (läuft auch ohne Landstrom):</p>
 <div class="tw"><table>
-<tr><th>Kreis</th><th>Umfang</th><th class="num">Schutz</th><th class="num">Querschnitt</th></tr>
-<tr><td>Einspeisung</td><td>CEE 16 A → LS B16 → MultiPlus AC-in</td><td class="num">LS B16</td><td class="num">3 × 2,5 mm² H07RN-F</td></tr>
-<tr><td>Verteilung</td><td>MultiPlus AC-out → FI 30 mA Typ A, 2-polig</td><td class="num">FI 25 A / 30 mA</td><td class="num">3 × 2,5 mm²</td></tr>
-<tr><td>AC1</td><td>Küche A1 (Induktion, Airfryer)</td><td class="num">LS B16</td><td class="num">3 × 2,5 mm²</td></tr>
-<tr><td>AC2</td><td>Steckdosen A2, A3, A5 (Küchenfront, Arbeitsplatz, Bank)</td><td class="num">LS B10</td><td class="num">3 × 1,5 mm²</td></tr>
-<tr><td>AC3</td><td>Garage A4 (E-Roller)</td><td class="num">LS B10</td><td class="num">3 × 1,5 mm²</td></tr>
+<tr><th>Kreis</th><th>Verbraucher</th><th class="num">Leitung</th><th class="num">Schutz</th></tr>
+<tr><td class="mono">AC-01</td><td>Induktionskochfeld (auf 1800 W begrenzt), <b>über Schütz K1</b></td><td class="num">3 × 2,5 mm²</td><td class="num">LS B10</td></tr>
+<tr><td class="mono">AC-02</td><td>Hochlaststeckdose Küche (Airfryer <i>oder</i> Kaffee), <b>über Schütz K2</b></td><td class="num">3 × 2,5 mm²</td><td class="num">LS B10</td></tr>
+<tr><td class="mono">AC-03</td><td>Standard-Steckdosen Küche</td><td class="num">3 × 2,5 mm²</td><td class="num">LS B13</td></tr>
+<tr><td class="mono">AC-04</td><td>Sitzgruppe / Arbeitsplatz / Bettfußseite</td><td class="num">3 × 2,5 mm²</td><td class="num">LS B13</td></tr>
+<tr><td class="mono">AC-05</td><td>Heckgarage (E-Roller, Werkzeug) + Service Technikfach</td><td class="num">3 × 2,5 mm²</td><td class="num">LS B10</td></tr>
+<tr><td class="mono">AC-06</td><td><b>Reserve</b></td><td class="num">Leerrohr</td><td class="num">nicht bestückt</td></tr>
+</table></div>
+<p><b>AC-out-2 — nur bei anliegendem Landstrom:</b></p>
+<div class="tw"><table>
+<tr><th>Kreis</th><th>Verbraucher</th><th class="num">Leitung</th><th class="num">Schutz</th></tr>
+<tr><td class="mono">AC-07</td><td><b>Klimaanlage</b> (Staukastengerät)</td><td class="num">3 × 2,5 mm²</td><td class="num">eigener FI 30 mA Typ A + LS nach Gerät</td></tr>
+<tr><td class="mono">AC-08</td><td><b>Reserve</b> für spätere reine Landstromlast</td><td class="num">Leerrohr</td><td class="num">nicht bestückt</td></tr>
 </table></div>
 <ul>
 <li><b>Immer feindrähtige Leitung</b> (H05VV-F / H07RN-F), niemals starres NYM — starre Adern brechen im Fahrzeug durch Vibration.</li>
-<li>Der MultiPlus verbindet im Wechselrichterbetrieb intern N und PE (Erdungsrelais). <b>Das ist Voraussetzung, damit der FI überhaupt auslösen kann</b> — Funktion nach dem Einbau prüfen.</li>
-<li>PE-Schiene mit <b>6 mm² auf das Chassis</b>, an einer blanken, entlackten und anschließend konservierten Stelle.</li>
-<li>Der 230-V-Teil sollte am Ende von einer Elektrofachkraft geprüft und dokumentiert werden (Isolations-, FI- und Durchgangsprüfung). Für Versicherung und Wiederverkauf ist das viel wert und kostet wenig.</li>
+<li>Eingang: CEE 16 A, kurze Leitung, <b>zweipolige Trennung</b>, Überstromschutz, dann MultiPlus AC-in. Keine von außen erreichbare Schuko-Einspeisung.</li>
+<li>AC-out-1 und AC-out-2 erhalten <b>je einen eigenen FI 30 mA Typ A</b>. Alle aktiven Leiter zweipolig trennbar.</li>
+<li>Der MultiPlus schaltet den Neutralleiter intern und verbindet im Wechselrichterbetrieb N mit PE (Erdungsrelais). <b>Keine eigenmächtige zweite N-PE-Brücke</b> setzen — sonst funktioniert der FI nicht wie gedacht.</li>
+<li>PE-Schiene mit 6 mm² dauerhaft ans Chassis; kein 230-V-Verteiler unter oder neben den Wassertanks.</li>
+<li>Die 230-V-Anlage nach DIN VDE 0100-721 durch eine Elektrofachkraft prüfen und dokumentieren lassen.</li>
 </ul>
 
+<h4>Hochlastverriegelung — technisch erzwungen</h4>
+<div class="hin ok"><b>Dreistufiger Wahlschalter an der Küchenstirnseite:</b>
+<b>0</b> = Hochlast aus · <b>1</b> = Induktion frei · <b>2</b> = Hochlaststeckdose frei (Airfryer oder
+Kaffeemaschine). Dahinter zwei zweipolige Schütze, gegeneinander verriegelt, mit Kontrollleuchte für
+den freigegebenen Zweig. Die Standard-Steckdosen bleiben in jeder Stellung versorgt, die Klimaanlage
+hängt ohnehin unabhängig auf AC-out-2.
+<br><b>Warum nicht einfach ein Aufkleber:</b> Induktion + Kaffee sind 3,2 kW, Induktion + Airfryer
+3,3 kW — beides über der Dauerleistung des Wechselrichters. Ein Schütz kostet 40 €, ein
+Wechselrichter, der bei jedem Frühstück in die Überlast fährt, kostet Nerven und Lebensdauer.
+<br><b>Bewusst nicht:</b> keine automatische Lastabwurfsteuerung, die die Kaffeemaschine mitten im
+Brühvorgang abschaltet. Bewusste Vorwahl ist besser als eine Automatik, die im falschen Moment eingreift.</div>
+
+<h4>Kabeltrassen</h4>
+<div class="tw"><table>
+<tr><th>Trasse</th><th>Verlauf</th><th>Inhalt</th></tr>
+<tr><td><b>Haupttrasse Fahrerseite</b></td><td>Technikfach → D-Säule hoch → über dem Kühlschrankschrank → oberhalb des Fahrerfensters bzw. im Hängeschrank → B-Säule → Fahrerhaus</td><td>12-V-Hauptstränge, USB-C-Versorgung, Beleuchtung, Datenkabel, Steuerleitungen. PV-Leitungen nur im hinteren Abschnitt</td></tr>
+<tr><td><b>Nebentrasse Beifahrerseite</b></td><td>Technikfach → geschützt hinter/über dem Bett → oberhalb der Küchenrückwand → B-Säule</td><td>Küchen-12-V, Küchen-230-V <b>in separatem Rohr</b>, Pumpenleitung, Ambientelicht, rechte Bettkomfortzone</td></tr>
+<tr><td><b>Unterflur / Schweller</b></td><td>Starterbatterie-Schnittstelle → Orion XS</td><td>zweiadrig Plus und Minus, mechanisch geschützt, Sicherung nahe Quelle <i>und</i> nahe Booster</td></tr>
+</table></div>
+<p>230 V und 12 V laufen in <b>getrennten Rohren</b>. Lange parallele Bündelung vermeiden, Kreuzungen
+möglichst rechtwinklig. Der Kabelkanal 80&nbsp;×&nbsp;80&nbsp;mm hinter den Möbeln der Fahrerseite wird
+<b>vor</b> dem Verkleiden gebaut — das ist die eine Entscheidung, die man später nicht mehr korrigieren kann.</p>
+
 <h4>Massekonzept</h4>
-<p>Ein <b>Sternpunkt</b>: die Minus-Sammelschiene im Technikbereich. Batterie-Minus geht über den
-Shunt auf diese Schiene, alle Verbraucher-Minusleitungen kommen einzeln dorthin zurück. <b>Keine
-Rückleitung über das Chassis</b> für Wohnraumverbraucher — das erzeugt Störungen und Korrosion an
-schlecht definierten Übergängen. Nur zwei Chassisverbindungen: 35&nbsp;mm² Potentialausgleich
-Minus-Schiene → Karosserie, und die dedizierte Minus-Rückleitung des Ladeboosters nach vorn
-(25&nbsp;mm², nicht über das Chassis).</p>
+<p><b>12 V:</b> jeder Verbraucher mit eigener Plus- <i>und</i> Minusleitung; die Karosserie ist
+<b>kein</b> regulärer Rückleiter. Zentraler Minus-Bus im Technikfach als Sternpunkt, davon eine
+definierte Verbindung zum Fahrzeugchassis. Kein Sicherungselement im normalen Minusleiter.
+<b>230 V:</b> alle Schutzleiter auf den PE-Bus, PE dauerhaft ans Chassis, Umschaltung und
+Erdungsrelais ausschließlich wie im MultiPlus-Handbuch beschrieben.</p>
+
+<h4>Wärmeführung im Technikfach</h4>
+<ul>
+<li>Zuluft unten aus dem Innenraum, Abluft oben — Kaminwirkung. Kein Luftaustausch mit dem feuchten Wassertankraum.</li>
+<li>Temperaturgeregelter 12-V-Lüfter, Stufe ab ca. 35 °C, Warnung bei 45–50 °C Fachtemperatur.</li>
+<li>Der MultiPlus verliert bei 40 °C bereits 200 W Dauerleistung — die Belüftung ist also direkt <b>nutzbare Leistung</b>, nicht Komfort.</li>
+<li>Wechselrichter nie in einer luftdichten Box; keine Textilien vor den Ansaugöffnungen.</li>
+</ul>
 
 <h4>Wartungszugang, Brandschutz, Sicherheit</h4>
 <ul>
-<li><b>Hauptschalter</b> 300 A von der geöffneten Hecktür ohne Werkzeug erreichbar. Zusätzlich einen zweiten, kleinen Trennschalter für den 230-V-Zweig.</li>
-<li>Alle Sicherungen und Klemmen <b>ohne Ausbau von Möbeln</b> erreichbar. Die Technikfront wird eine abnehmbare Platte mit Vierteldrehverschlüssen, keine verschraubte Verkleidung.</li>
-<li><b>Beschriften</b>: jede Ader an beiden Enden, Sicherungsbox mit lasergedrucktem Belegungsplan, ein laminiertes Schema im Technikfach.</li>
-<li><b>CO-Melder ist Pflicht</b> (Dieselheizung + Kartuschenkocher), Position: Wohnraum in Kopfhöhe, ca. X 800 / Y 2400. Dazu ein Rauchmelder vorn und eine Löschdecke griffbereit an der Küchenfront.</li>
-<li><b>Gaswarner</b> optional, sinnvoll wenn regelmäßig mit Kartuschen gekocht wird — Montage bodennah (Butan/Propan ist schwerer als Luft).</li>
-<li>Keine Sicherungen und keine Schraubverbindungen in geschlossenen Batteriekästen. Alle Krimpverbindungen mit hydraulischer Presse, danach Schrumpfschlauch mit Kleber.</li>
-<li>Leitungen durch Blech <b>immer</b> mit Kabeltülle und Kantenschutz; Kabelbinder alle 300 mm.</li>
-<li>Ein Temperaturfühler an der Batterie, Ladefreigabe unter 0 °C nur mit aktiver Heizung.</li>
+<li><b>Hauptschalter</b> ≥ 500 A von der geöffneten Hecktür ohne Werkzeug erreichbar; zweiter kleiner Trenner für den 230-V-Zweig; <b>PV-Trennschalter</b> vor dem MPPT.</li>
+<li>Lynx und Hochstromsicherungen hinter einer transparenten, werkzeuglos lösbaren Abdeckung; ≥ 150 mm freier Arbeitsraum vor den Sicherungsleisten.</li>
+<li>230-V-Verteilung in einem geschlossenen, berührungssicheren Gehäuse, <b>räumlich getrennt</b> von der 12-V-Ebene.</li>
+<li>Jede Ader an beiden Enden beschriftet, Schrumpfschlauch mit Stromkreisnummer, Drehmomentmarkierungen an allen Hochstrombolzen, gedruckter Stromlaufplan in der Serviceklappe, Ersatzsicherungen im Fach.</li>
+<li>Krimpverbindungen nur mit hydraulischer Presse, danach Kleber-Schrumpfschlauch. Zugentlastung an jedem Gerät. Service-Schlaufen 100–150 mm.</li>
+<li><b>Aufkleber am Technikfach: „Achtung — auch ohne Landstrom liegen 230 V an (Wechselrichter)."</b> Dazu ein Warnschild „mehrere Energiequellen".</li>
+<li><b>CO-Melder</b> in Schlafhöhe (Dieselheizung + Kartuschenkocher), Rauchmelder im Wohnraum, Löschdecke an der Küchenaußenseite, Feuerlöscher nahe der Schiebetür — <b>nicht</b> tief im Heck.</li>
+<li>Batterien mechanisch für Unfalllasten sichern; Temperaturfühler im Fach; Ladefreigabe unter <b>+5 °C</b> sperren (Victron-NG-Vorgabe).</li>
 </ul>
 
-<h4>Reserven für später — jetzt kostenlos, nachträglich teuer</h4>
+<h4>Reserven — jetzt kostenlos, später teuer</h4>
 <ol>
-<li><b>Leerrohre</b>: 2 × 25 mm nach vorn, 1 × 25 mm Küche, 1 × 25 mm je Bettseite, 1 × 32 mm Dach (Solar), <b>1 × 50 mm Dach</b> (spätere Klima oder zweites Solarfeld).</li>
-<li><b>Busbar und Hauptsicherung</b> auf die Endausbaustufe dimensionieren, nicht auf den heutigen Bedarf.</li>
-<li><b>Batteriefach</b> von Anfang an für die volle Zielkapazität bauen — LiFePO4 später parallel zu gealterten Zellen zu schalten ist die häufigste teure Fehlentscheidung im Vanausbau.</li>
-<li>Zwei freie 12-V-Sicherungsplätze <b>mit bereits verlegtem Kabel</b> (Küche und vorn).</li>
-<li>Ein freier LS-Platz in der 230-V-Verteilung.</li>
-<li>Am Dach zwei zusätzliche MC4-Enden unter einer Serviceklappe herausführen — dann ist ein drittes Modul eine Sache von 20 Minuten.</li>
+<li>Mindestens <b>vier freie 12-V-Sicherungsplätze</b> (DC-19/20 bereits mit Kabel vorverlegt).</li>
+<li>Leerrohre: 2 × 25 mm zur Sitzgruppe, 1 × 25 mm ins Fahrerhaus, 1 × 25 mm Küche, 1 × 25 mm je Bettseite, 1 × 32 mm Dach (Solar), <b>1 × 50 mm Dach als Großreserve</b>.</li>
+<li>Eine freie Lynx-Abgangsposition und ein freier LS-Platz in der AC-Verteilung.</li>
+<li>Vorbereiteter Anschluss für LTE-/5G-Router; Tankgeberleitungen Frisch- und Abwasser; Temperaturfühler an Batterie, Technikfach und Kühlschrankraum.</li>
+<li>Reserveplatz für einen dritten MPPT, falls das Dach später anders belegt wird.</li>
+<li><b>Keine</b> Reserve für einen zweiten 3-kVA-Wechselrichter im 12-V-System — dafür wäre ein Systemwechsel auf 24 V der richtige Weg.</li>
 </ol>
 
-<h2 id="s11"><span class="no">11</span>Stückliste (BOM) — Empfehlung Option B</h2>
+<h2 id="s11"><span class="no">11</span>Stückliste (BOM)</h2>
+<div class="hin"><b>Zur Markenwahl:</b> Das Energie-Kernsystem ist konsequent <b>Victron</b> — nicht aus
+Markentreue, sondern weil MultiPlus, Lynx&nbsp;BMS, MPPT, Orion&nbsp;XS und Cerbo ein durchgängig
+kommunizierendes System bilden. Ein gemischter Aufbau kostet genau diese Durchgängigkeit.
+Beim <b>Installationsmaterial</b> (Verteilung, Steckdosen, Licht, Schalter, Kabel) ist Victron dagegen
+schwach bis nicht vorhanden — dort ist die zweite Quelle (<b>WCS o.&nbsp;glw.</b>) klar besser.
+Ich habe diese Positionen <b>funktional und mit vollständiger technischer Spezifikation</b> beschrieben,
+damit sie sich 1:1 aus jedem Katalog belegen lassen. <b>Sag mir, wofür WCS bei dir genau steht</b>
+(Hersteller oder Händler), dann trage ich die konkreten Artikelnummern nach.</div>
+
+<h4>A · Energie-Kernsystem — Victron</h4>
 <div class="tw"><table>
-<tr><th>Gruppe</th><th>Artikel</th><th class="num">Anz.</th><th class="num">≈ kg</th><th class="num">≈ €</th><th>Bemerkung</th></tr>
-<tr><td>Speicher</td><td>LiFePO4 12 V 200 Ah, beheizt, ≥ 200 A Dauer (z. B. Victron Smart / Fraron / Liontron)</td><td class="num">2</td><td class="num">48</td><td class="num">2600–3600</td><td>parallel = 400 Ah, 250 A+; gleiche Charge kaufen</td></tr>
-<tr><td>Wandler</td><td>Victron MultiPlus-II 12/3000/120-50</td><td class="num">1</td><td class="num">19</td><td class="num">1100</td><td>Wechselrichter + Ladegerät + Umschalter</td></tr>
-<tr><td>Solar</td><td>Modul ca. 390 Wp starr, 1720 × 1130</td><td class="num">2</td><td class="num">44</td><td class="num">400</td><td>780 Wp gesamt; Vorabmaß am Dach nehmen</td></tr>
-<tr><td>Solar</td><td>Victron SmartSolar MPPT 100/30</td><td class="num">2</td><td class="num">3</td><td class="num">380</td><td>zwei Strings gegen Teilverschattung</td></tr>
-<tr><td>Solar</td><td>Alu-Spoiler/Klebehalter + Sika 252 + Kabeldurchführung</td><td class="num">1 Satz</td><td class="num">6</td><td class="num">250</td><td>geklebt, nicht gebohrt</td></tr>
-<tr><td>Laden</td><td>Victron Orion XS 12/12-50</td><td class="num">2</td><td class="num">3</td><td class="num">600</td><td>100 A gesamt</td></tr>
-<tr><td>Schutz</td><td>Class-T 400 A + Halter, MIDI-Satz, Hauptschalter 300 A</td><td class="num">1 Satz</td><td class="num">3</td><td class="num">220</td><td>Class-T zwingend bei LiFePO4</td></tr>
-<tr><td>Verteilung</td><td>Victron Lynx Distributor + Minus-Busbar + SmartShunt 500 A</td><td class="num">1</td><td class="num">4</td><td class="num">380</td><td>—</td></tr>
-<tr><td>Verteilung</td><td>12-V-Sicherungsbox 16-fach mit Sammelminus</td><td class="num">1</td><td class="num">1</td><td class="num">60</td><td>—</td></tr>
-<tr><td>230 V</td><td>CEE-Einbaudose 16 A, FI 30 mA Typ A, 3 × LS, Kleinverteiler</td><td class="num">1 Satz</td><td class="num">3</td><td class="num">200</td><td>—</td></tr>
-<tr><td>Kabel</td><td>95 mm² rot/schwarz (je 3 m), 25 mm² (2 × 6 m), 16/10/6/4/2,5/1,5 mm² Meterware</td><td class="num">1 Satz</td><td class="num">22</td><td class="num">600</td><td>Kabelschuhe + Presszange nicht vergessen</td></tr>
-<tr><td>Kabel</td><td>H07RN-F 3G2,5 und 3G1,5, Leerrohre 25/32/50 mm</td><td class="num">1 Satz</td><td class="num">6</td><td class="num">160</td><td>—</td></tr>
-<tr><td>Steckdosen</td><td>Schuko-Einbaudosen</td><td class="num">7</td><td class="num">1</td><td class="num">120</td><td>—</td></tr>
-<tr><td>Laden</td><td>USB-C-PD-Einbaudose 100 W</td><td class="num">1</td><td class="num">—</td><td class="num">70</td><td>Arbeitsplatz</td></tr>
-<tr><td>Laden</td><td>USB-C-PD-Einbaudose 45 W (doppelt)</td><td class="num">5</td><td class="num">—</td><td class="num">200</td><td>Bett 2×, Tisch, Küche, vorn</td></tr>
-<tr><td>Laden</td><td>Qi-Ladepad 15 W bündig + Apple-Watch-Puck</td><td class="num">2 + 2</td><td class="num">—</td><td class="num">160</td><td>Watch braucht offene Mulde</td></tr>
-<tr><td>Laden</td><td>12-V-Bordsteckdosen</td><td class="num">3</td><td class="num">—</td><td class="num">40</td><td>—</td></tr>
-<tr><td>Licht</td><td>LED-Einbauspots 12 V dimmbar (2700 K / 4000 K)</td><td class="num">6</td><td class="num">1</td><td class="num">140</td><td>L1 und L2</td></tr>
-<tr><td>Licht</td><td>LED-Band 12 V warmweiß + amber, Alu-Profil mit Opalabdeckung, ca. 8 m</td><td class="num">1 Satz</td><td class="num">2</td><td class="num">180</td><td>L5, L6, Küchendachkante</td></tr>
-<tr><td>Licht</td><td>Leselampe Schwanenhals dimmbar</td><td class="num">2</td><td class="num">1</td><td class="num">90</td><td>—</td></tr>
-<tr><td>Licht</td><td>Außenleuchten 12 V</td><td class="num">2</td><td class="num">1</td><td class="num">70</td><td>Schiebetür + Heck</td></tr>
-<tr><td>Licht</td><td>PWM-Dimmer ≥ 1 kHz, bistabiles Relais 30 A, Türkontaktschalter</td><td class="num">3 / 1 / 2</td><td class="num">1</td><td class="num">130</td><td>—</td></tr>
-<tr><td>Schalter</td><td>Kippschalter/Taster mit Kontroll-LED, Paneelblenden</td><td class="num">14</td><td class="num">1</td><td class="num">180</td><td>—</td></tr>
-<tr><td>Klima/Luft</td><td>12-V-Ventilator schwenkbar</td><td class="num">2</td><td class="num">1</td><td class="num">90</td><td>Bett + Übergangszone</td></tr>
-<tr><td>Halterungen</td><td>Kugelbasis Ø 25 mm</td><td class="num">5</td><td class="num">1</td><td class="num">75</td><td>—</td></tr>
-<tr><td>Halterungen</td><td>Doppelarm + Tablet-Klemme</td><td class="num">1</td><td class="num">1</td><td class="num">80</td><td>wird umgesteckt</td></tr>
-<tr><td>Monitoring</td><td>Victron Cerbo GX + GX Touch 50</td><td class="num">1</td><td class="num">1</td><td class="num">500</td><td><b>optional</b> — SmartShunt + App tut es auch</td></tr>
-<tr><td>Sicherheit</td><td>CO-Melder, Rauchmelder, Löschdecke, Feuerlöscher 2 kg</td><td class="num">1 Satz</td><td class="num">4</td><td class="num">150</td><td>nicht verhandelbar</td></tr>
-<tr class="sum"><td colspan="3">Summe Option B (ohne Kleinteile, ohne Arbeitszeit)</td><td class="num">≈ 175 kg</td><td class="num">≈ 9 200–10 500 €</td><td>—</td></tr>
+<tr><th>Pos.</th><th>Artikel</th><th class="num">Anz.</th><th class="num">kg</th><th class="num">≈ €</th><th>Bemerkung</th></tr>
+<tr><td class="mono">E01</td><td>Victron Lithium Battery Smart NG 12,8 V / 300 Ah</td><td class="num">2</td><td class="num">58</td><td class="num">4400–5600</td><td>3,84 kWh je Stück, 300 A Dauerentladung, Laden erst ab +5 °C</td></tr>
+<tr><td class="mono">E02</td><td>Victron Lynx Smart BMS NG 500 A</td><td class="num">1</td><td class="num">1,9</td><td class="num">650–800</td><td>Systemabschaltung + Strommessung; <b>ersetzt den SmartShunt</b></td></tr>
+<tr><td class="mono">E03</td><td>Victron Lynx Distributor</td><td class="num">1–2</td><td class="num">4</td><td class="num">200–400</td><td>Hochstromverteiler mit Sicherungsüberwachung</td></tr>
+<tr><td class="mono">E04</td><td>Victron MultiPlus-II 12/3000/120-32</td><td class="num">1</td><td class="num">20</td><td class="num">1100–1300</td><td>Wechselrichter + 120-A-Lader + Umschalter + <b>AC-out-2</b></td></tr>
+<tr><td class="mono">E05</td><td>Victron SmartSolar MPPT 100/30</td><td class="num">2</td><td class="num">3</td><td class="num">380</td><td>zwei Strings gegen Teilverschattung</td></tr>
+<tr><td class="mono">E06</td><td>Victron Orion XS 12/12-70A</td><td class="num">1</td><td class="num">1,5</td><td class="num">380</td><td>bei Inbetriebnahme auf 50 A begrenzen</td></tr>
+<tr><td class="mono">E07</td><td>Victron Cerbo GX MK2 + GX Touch 50</td><td class="num">1</td><td class="num">1</td><td class="num">500</td><td>Monitoring; Licht bleibt bewusst unabhängig davon</td></tr>
+<tr><td class="mono">E08</td><td>Victron Digital Multi Control (oder Landstromgrenze über GX)</td><td class="num">1</td><td class="num">0,2</td><td class="num">120</td><td>6/10/16 A sichtbar am Bedienfeld</td></tr>
+<tr><td class="mono">E09</td><td>Solarmodul starr ca. 390 Wp, ~1720 × 1130</td><td class="num">2</td><td class="num">44</td><td class="num">400</td><td>Endmaß erst nach Dach-Aufmaß bestellen</td></tr>
+<tr><td class="mono">E10</td><td>Alu-Klebespoiler, Sika 252, Dachdurchführung</td><td class="num">1 Satz</td><td class="num">6</td><td class="num">250</td><td>geklebt statt gebohrt</td></tr>
 </table></div>
+
+<h4>B · Schutz und Verteilung — WCS o. glw.</h4>
+<div class="tw"><table>
+<tr><th>Pos.</th><th>Artikel / Spezifikation</th><th class="num">Anz.</th><th class="num">≈ €</th></tr>
+<tr><td class="mono">S01</td><td>Batterie-Einzelsicherung 300 A, hohes Abschaltvermögen (Class T o. glw.) + Halter</td><td class="num">2</td><td class="num">140</td></tr>
+<tr><td class="mono">S02</td><td>MultiPlus-Abgangssicherung ca. 400 A + Halter</td><td class="num">1</td><td class="num">90</td></tr>
+<tr><td class="mono">S03</td><td>MIDI/MEGA-Sicherungen 40 A (MPPT), 100 A (Orion), 125 A (DC-Unterverteilung) + Halter</td><td class="num">1 Satz</td><td class="num">90</td></tr>
+<tr><td class="mono">S04</td><td>Haupttrennschalter DC ≥ 500 A, von der Hecktür erreichbar</td><td class="num">1</td><td class="num">80</td></tr>
+<tr><td class="mono">S05</td><td>PV-Trennschalter, DC-tauglich nach Stringspannung</td><td class="num">1</td><td class="num">50</td></tr>
+<tr><td class="mono">S06</td><td>12-V-Flachsicherungsverteiler 20–24 Kreise mit Sammelminus, frontseitig lesbar</td><td class="num">1</td><td class="num">90</td></tr>
+<tr><td class="mono">S07</td><td>Minus-Hauptbus + Plus-Nebenbus, mit Abdeckungen</td><td class="num">1 Satz</td><td class="num">80</td></tr>
+<tr><td class="mono">S08</td><td>AC-Kleinverteiler, berührungssicher, geschlossen</td><td class="num">1</td><td class="num">70</td></tr>
+<tr><td class="mono">S09</td><td>FI 30 mA Typ A, 2-polig (je einer für AC-out-1 und AC-out-2)</td><td class="num">2</td><td class="num">120</td></tr>
+<tr><td class="mono">S10</td><td>LS B10 / B13 / B16 nach Kreisliste + 2-poliger Eingangstrenner</td><td class="num">7–8</td><td class="num">120</td></tr>
+<tr><td class="mono">S11</td><td><b>Hochlast-Schütze 2-polig, gegeneinander verriegelt</b> + 3-Stufen-Wahlschalter + Kontrollleuchten</td><td class="num">2 + 1</td><td class="num">180</td></tr>
+<tr><td class="mono">S12</td><td>CEE-Einbaustecker 16 A (IEC 60309), campingtauglich, mit Klappdeckel</td><td class="num">1</td><td class="num">45</td></tr>
+</table></div>
+
+<h4>C · Kabel und Verbindungsmaterial — WCS o. glw.</h4>
+<div class="tw"><table>
+<tr><th>Material</th><th class="num">Menge</th><th>Verwendung</th></tr>
+<tr><td>95 mm² rot/schwarz</td><td class="num">3–5 m</td><td>BMS → Bus → MultiPlus</td></tr>
+<tr><td>70 mm² rot/schwarz</td><td class="num">4–6 m</td><td>Batterien → Sammelpunkt, gleiche Längen</td></tr>
+<tr><td>35 mm² rot/schwarz</td><td class="num">12–18 m</td><td>DC-Unterverteilung, Orion, Chassisanbindung</td></tr>
+<tr><td>25 mm² rot/schwarz</td><td class="num">12 m</td><td>Lichtmaschine → Orion XS (Plus und Minus)</td></tr>
+<tr><td>16 / 10 / 6 mm²</td><td class="num">je 5–25 m</td><td>MPPT, Kühlschrank, USB-C-Kreise</td></tr>
+<tr><td>4 mm² / 2,5 mm² / 1,5 mm² zweiadrig</td><td class="num">30 / 50 / 80 m</td><td>DC-01…DC-20</td></tr>
+<tr><td>H07RN-F 3G2,5</td><td class="num">35–50 m</td><td>alle 230-V-Kreise</td></tr>
+<tr><td>Solarkabel 6 mm² + MC4</td><td class="num">20 m</td><td>zwei Strings, getrennt geführt</td></tr>
+<tr><td>Steuer-/Signalleitung, VE.Direct-/VE.Bus-Kabel</td><td class="num">30–50 m</td><td>Taster, Sensoren, Monitoring</td></tr>
+<tr><td>Leerrohr 25 / 32 / 50 mm</td><td class="num">nach Möbelplan</td><td>Reserven nach Kapitel 10</td></tr>
+<tr><td>Rohrkabelschuhe, Aderendhülsen, Kleber-Schrumpfschlauch, Beschriftung</td><td class="num">Satz + Reserve</td><td>—</td></tr>
+<tr><td>Gummitüllen, Kantenschutz, Zugentlastungen, Kabelbinder</td><td class="num">Satz</td><td>alle Blechdurchführungen</td></tr>
+</table></div>
+
+<h4>D · Steckdosen, USB-C und Ladepunkte — WCS o. glw.</h4>
+<div class="tw"><table>
+<tr><th>Artikel / Spezifikation</th><th class="num">Anz.</th><th class="num">≈ €</th></tr>
+<tr><td>Schuko-Einbaudose (Küche, Küchenfront, Arbeitsplatz 2×, Garage, Bettfußseite, Service)</td><td class="num">7</td><td class="num">120</td></tr>
+<tr><td>USB-C-PD-Einbaudose <b>100 W</b>, echte PD-Aushandlung mit 9/12/15/20-V-Profil</td><td class="num">3</td><td class="num">210</td></tr>
+<tr><td>USB-C-PD-Doppelmodul <b>65 W</b> gesamt, geringer Ruhestrom, Einsatz tauschbar</td><td class="num">5</td><td class="num">250</td></tr>
+<tr><td>Qi-Ladepad 15 W, bündig einlassbar</td><td class="num">2</td><td class="num">90</td></tr>
+<tr><td>Apple-Watch-Ladepuck (offene Mulde — funktioniert <b>nicht</b> durch Holz)</td><td class="num">2</td><td class="num">80</td></tr>
+<tr><td>12-V-Bordsteckdose (Fahrerhaus, Arbeitsplatz, Garage)</td><td class="num">3</td><td class="num">40</td></tr>
+<tr><td>Spritzwassergeschützte Abdeckungen Küche / Garage</td><td class="num">2</td><td class="num">30</td></tr>
+</table></div>
+
+<h4>E · Licht und Bedienung — WCS o. glw.</h4>
+<div class="tw"><table>
+<tr><th>Artikel / Spezifikation</th><th class="num">Anz.</th><th class="num">≈ €</th></tr>
+<tr><td>LED-Einbauspot 12 V dimmbar 2700 K (L1 Grundlicht)</td><td class="num">4</td><td class="num">100</td></tr>
+<tr><td>LED-Einbauspot 12 V <b>4000 K, CRI &gt; 90</b> (L2 Küche)</td><td class="num">2</td><td class="num">60</td></tr>
+<tr><td>LED-Band 12 V warmweiß 2700 K + <b>amber 1800–2200 K</b>, ca. 10 m</td><td class="num">1 Satz</td><td class="num">120</td></tr>
+<tr><td>Alu-Profil mit <b>opaler</b> Abdeckung, ca. 10 m (Küche, Sockel, Bettdachkante Beifahrerseite)</td><td class="num">1 Satz</td><td class="num">140</td></tr>
+<tr><td>Leselampe Schwanenhals, enger Abstrahlwinkel, lokal dimmbar</td><td class="num">2</td><td class="num">90</td></tr>
+<tr><td>Außenleuchte 12 V (Markise Schiebetür, Heck-Arbeitsleuchte)</td><td class="num">2</td><td class="num">80</td></tr>
+<tr><td>Einstiegsleuchte B-Säule mit Türkontakt und Zeitabschaltung</td><td class="num">1</td><td class="num">30</td></tr>
+<tr><td><b>PWM-Dimmer ≥ 1 kHz</b> mit Tastereingängen, ca. 6–8 Kanäle, Speicherung des letzten Werts</td><td class="num">1 Satz</td><td class="num">220</td></tr>
+<tr><td>Bistabiles Relais 12 V / 30 A für „Wohnbereich aus"</td><td class="num">1</td><td class="num">30</td></tr>
+<tr><td>Momenttaster mit Kontroll-LED, Paneelblenden (Bett 2×, Tisch, Küche, Eingang, Heck)</td><td class="num">18</td><td class="num">220</td></tr>
+<tr><td>Türkontaktmodule (Hecktüren, Einstieg)</td><td class="num">3</td><td class="num">45</td></tr>
+<tr><td>Wasserpumpenschalter mit Kontrollleuchte + Tankanzeige + 2 Tankgeber</td><td class="num">1 Satz</td><td class="num">150</td></tr>
+</table></div>
+
+<h4>F · Lüftung, Halterungen, Sicherheit</h4>
+<div class="tw"><table>
+<tr><th>Artikel</th><th class="num">Anz.</th><th class="num">≈ €</th></tr>
+<tr><td>MaxxAir / Airmaxx Dachlüfter (Ausschnitt 400 × 400)</td><td class="num">1</td><td class="num">400</td></tr>
+<tr><td>12-V-Ventilator schwenkbar (Bett, Übergangszone)</td><td class="num">2</td><td class="num">90</td></tr>
+<tr><td>Technikfachlüfter 12 V + Thermostat</td><td class="num">2 + 1</td><td class="num">70</td></tr>
+<tr><td>Temperatursensoren (Batterie, Technikfach, Kühlschrankraum)</td><td class="num">3</td><td class="num">60</td></tr>
+<tr><td>Kugelbasis Ø 25 mm (5 Positionen) + 1 Doppelarm + 1 Tablet-Klemme</td><td class="num">1 Satz</td><td class="num">155</td></tr>
+<tr><td>CO-Melder, Rauchmelder, Löschdecke, Feuerlöscher 2 kg</td><td class="num">1 Satz</td><td class="num">150</td></tr>
+<tr><td>Warnschilder/Aufkleber Technikfach („230 V auch ohne Landstrom")</td><td class="num">1 Satz</td><td class="num">15</td></tr>
+<tr><td><b>Klimaanlage Staukastengerät</b> (Unterbank/Stauraum) + isolierte Luftschläuche, Auslässe, Kondensatführung</td><td class="num">1</td><td class="num">1800–2600</td></tr>
+</table></div>
+
+<div class="tw"><table>
+<tr class="sum"><td>Summe A–F <b>ohne</b> Klimaanlage</td><td class="num">≈ 190 kg</td><td class="num">≈ 11 500 – 13 500 €</td></tr>
+<tr class="sum"><td>Summe A–F <b>mit</b> Staukastenklimaanlage</td><td class="num">≈ 215 kg</td><td class="num">≈ 13 500 – 16 000 €</td></tr>
+</table></div>
+<p><small>Materialpreise ohne Arbeitszeit und ohne Abnahme durch eine Elektrofachkraft. Kabelmengen
+enthalten 15–20 % Reserve und sind nach der finalen Längenliste zu korrigieren.
+<b>Gewichtshinweis:</b> allein die zwei Batterien wiegen 58 kg — vor der Bestellung die reale
+Restzuladung und die Hinterachslast prüfen.</small></p>
 
 <h2 id="s12"><span class="no">12</span>Variantenvergleich</h2>
 <div class="tw"><table>
 <tr><th>Kriterium</th><th>A · Realistisch &amp; ausgewogen</th><th>B · Komfort &amp; Autarkie</th><th>C · High-Power mit Klima</th></tr>
 <tr><td>Systemspannung</td><td>12 V</td><td>12 V</td><td><b>24 V</b> + 24→12-Wandler 70 A</td></tr>
-<tr><td>Batterie</td><td>300 Ah / 3,8 kWh</td><td><b>400 Ah / 5,1 kWh</b></td><td>300 Ah @ 24 V / 7,7 kWh</td></tr>
-<tr><td>Solar</td><td>700 Wp</td><td>780 Wp</td><td>350 Wp (Rest neben der Klima)</td></tr>
+<tr><td>Batterie</td><td>300–400 Ah / 3,8–5,1 kWh</td><td><b>600 Ah / 7,68 kWh</b></td><td>300 Ah @ 24 V / 7,7 kWh</td></tr>
+<tr><td>Solar</td><td>550–700 Wp</td><td>780 Wp</td><td>780 Wp (Klima im Staukasten)</td></tr>
 <tr><td>Wechselrichter</td><td>MultiPlus 12/2000/80<br><small>1600 W dauerhaft</small></td><td>MultiPlus-II 12/3000/120<br><small>2400 W dauerhaft</small></td><td>MultiPlus-II 24/5000<br><small>4000 W dauerhaft</small></td></tr>
-<tr><td>Ladebooster</td><td>1 × 50 A</td><td>2 × 50 A = 100 A</td><td>Zweite Lichtmaschine 24 V oder 3 × Orion 12/24</td></tr>
-<tr><td>Klimaanlage</td><td>nein</td><td>nein (Leerrohr vorbereitet)</td><td>ja, Dach 12/24 V</td></tr>
+<tr><td>Ladebooster</td><td>1 × Orion XS 50 A</td><td>1 × Orion XS 70 A, Start 50 A</td><td>Zweite Lichtmaschine 24 V</td></tr>
+<tr><td>Klimaanlage</td><td>Staukasten auf AC-out-2</td><td><b>Staukasten auf AC-out-2</b></td><td>ja, auch zeitweise aus Batterie</td></tr>
 <tr><td>Induktion volle Stufe</td><td>nur bis ~Stufe 7</td><td>ja</td><td>ja, auch zwei Platten</td></tr>
 <tr><td>Airfryer</td><td>ja, wenn ≤ 1400 W</td><td>ja</td><td>ja</td></tr>
 <tr><td>E-Roller off-grid</td><td>nur an Sonnentagen</td><td>an Sonnentagen problemlos</td><td>problemlos</td></tr>
-<tr><td>Autarkie Sommer ohne Fahren</td><td><b>2 Tage</b> (mit Gas kochen: 3)</td><td><b>2,5–3 Tage</b></td><td>1 Nacht mit Klima, sonst 3 Tage</td></tr>
+<tr><td>Autarkie ohne Fahren</td><td><b>1,5–2 Tage</b> Komforttag</td><td><b>2,0 Tage</b> Komforttag · 4,4 Tage Grundbetrieb</td><td>3+ Tage</td></tr>
 <tr><td>Autarkie Winter ohne Fahren</td><td>1,5 Tage</td><td>2 Tage</td><td>3 Tage</td></tr>
-<tr><td>Gewicht Elektrik</td><td class="num">≈ 130 kg</td><td class="num">≈ 175 kg</td><td class="num">≈ 240 kg</td></tr>
-<tr><td>Kostenklasse Material</td><td class="num">6 500–7 500 €</td><td class="num">9 200–10 500 €</td><td class="num">17 000–21 000 €</td></tr>
+<tr><td>Gewicht Elektrik</td><td class="num">≈ 130 kg</td><td class="num">≈ 190 kg (215 mit Klima)</td><td class="num">≈ 250 kg</td></tr>
+<tr><td>Kostenklasse Material</td><td class="num">7 500–9 000 €</td><td class="num">11 500–13 500 € (+ Klima 2 000–2 600)</td><td class="num">20 000–26 000 €</td></tr>
 <tr><td>Vorteile</td><td>leicht, günstig, alles gut beherrschbar; passt sicher in die Zuladung</td><td>keine Denkarbeit im Alltag; Reserven für Gäste, Hitze, schlechtes Wetter; alles noch 12 V</td><td>Klima nutzbar; Kochen ohne jede Rücksicht</td></tr>
 <tr><td>Nachteile</td><td>Kochen und Airfryer erfordern Geräteauswahl nach Watt; bei 4+ Standtagen wird es eng</td><td>Gewicht und Kosten; 95-mm²-Verkabelung ist handwerklich anspruchsvoll</td><td>Solar praktisch wirkungslos, dadurch <b>fahr- oder landstromabhängig</b>; sehr teuer; Zuladung wird kritisch; zweite Lichtmaschine ist ein Eingriff ins Fahrzeug</td></tr>
 <tr><td>Eignung für dein Profil</td><td>gut — wenn ihr überwiegend alle 1–2 Tage fahrt</td><td><b>sehr gut</b></td><td>nur sinnvoll bei regelmäßigen Reisen in heiße Regionen</td></tr>
 </table></div>
 
 <h2 id="s13"><span class="no">13</span>Konkrete Empfehlung</h2>
-<h4>Was ich bauen würde: Option B</h4>
-<p>400&nbsp;Ah LiFePO4 beheizt, 780&nbsp;Wp auf zwei MPPT, MultiPlus-II 12/3000/120,
-2 × Orion&nbsp;XS 50&nbsp;A, CEE-Landstrom — und <b>keine Klimaanlage</b>. Der Aufpreis von A nach B
-sind rund 2.500–3.000&nbsp;€ und 45&nbsp;kg; dafür bekommst du den Unterschied zwischen „Anlage im Kopf
-mitrechnen“ und „einfach benutzen“. Bei einem Ausbau dieser Qualität ist das die richtige Stelle für
-das Geld — ein 2000-VA-System, das beim Kochen ans Limit geht, ärgert dich zehn Jahre lang.</p>
+<h4>Was ich bauen würde: Option B mit AC-out-2-Klimaanlage</h4>
+<p>600&nbsp;Ah LiFePO4 (2 × Victron NG 300 Ah) mit Lynx Smart BMS NG, MultiPlus-II 12/3000/120-32,
+780&nbsp;Wp auf zwei MPPT, Orion&nbsp;XS 12/12-70 (bei Inbetriebnahme auf 50&nbsp;A begrenzt), CEE 16&nbsp;A —
+und die <b>Klimaanlage als Staukastengerät auf AC-out-2</b>.</p>
+<p>Das ist die Auslegung, die aus dem Abgleich der drei Dokumente hervorgeht. Sie kostet gegenüber
+meiner ersten 400-Ah-Fassung etwa 2.500&nbsp;€ und 45&nbsp;kg mehr, liefert dafür aber 4,4 Tage
+Grundautarkie statt 2,5 und macht die Klimaanlage möglich, ohne die Solarfläche zu opfern.</p>
 
 <h4>Was ich zwingend so machen würde</h4>
 <ol>
-<li><b>USB-C&nbsp;PD überall statt USB-A</b>, mit 100&nbsp;W am Arbeitsplatz. Der Laptop lädt damit ohne Wechselrichter. Größter Effizienzhebel im ganzen Konzept.</li>
-<li><b>Wechselrichter im Eco-Modus</b> und bewusst geschaltet, nicht dauerhaft an. Spart 250–400&nbsp;Wh am Tag.</li>
-<li><b>Zwei getrennte MPPT.</b> Auf einem Van-Dach ist Teilverschattung Normalzustand.</li>
-<li><b>Class-T-Sicherung</b> am Batteriepluspol und <b>Hauptschalter von der Hecktür aus erreichbar</b>.</li>
-<li><b>Bistabiles Relais mit Master-Tastern</b> an Eingang und beiden Bettseiten.</li>
-<li><b>Kabelkanal 80 × 80 mm</b> entlang der Fahrerseite hinter den Möbeln, plus die sechs Leerrohre. Vor dem Verkleiden. Das ist die eine Entscheidung, die man später nie mehr korrigieren kann.</li>
-<li><b>Batterie mit Heizung</b> und Temperaturfühler — auch wenn ihr „eigentlich keine Winterreisen“ plant. Ein Frostmorgen im April reicht, um nicht laden zu können.</li>
-<li><b>CO-Melder</b> im Wohnraum. Dieselheizung plus Kartuschenkocher lassen keine andere Wahl.</li>
+<li><b>Klimaanlage ausschließlich auf AC-out-2</b> und als Staukastengerät. Damit ist off-grid-Betrieb technisch ausgeschlossen und das Dach bleibt frei. Die beste einzelne Idee im ganzen Konzept.</li>
+<li><b>Hochlastverriegelung mit zwei Schützen</b> statt eines Aufklebers. Induktion oder Airfryer/Kaffee — nie beides.</li>
+<li><b>Induktionskochfeld technisch auf 1800 W begrenzen.</b> Der Unterschied zur vollen Stufe merkt man beim Kochen kaum, an der Batterie sehr.</li>
+<li><b>USB-C&nbsp;PD überall, kein USB-A</b>, mit 100&nbsp;W am Arbeitsplatz und an beiden Bettseiten. Laptop und iPads laden damit ohne Wechselrichter.</li>
+<li><b>Wechselrichter im Search-Mode</b> (3 W statt 13 W) und bewusst geschaltet.</li>
+<li><b>Orion XS erst nach Messung hochdrehen</b>: Spannungsfall und Lichtmaschinentemperatur bei warmem Motor prüfen, dann von 50 auf 60–70 A.</li>
+<li><b>Lokale, hart verdrahtete Lichtsteuerung.</b> Cerbo GX nur für Überwachung — Licht muss auch ohne funktionierende Software gehen.</li>
+<li><b>„Wohnbereich aus" schaltet Kühlschrank und Heizung nicht mit ab.</b> Diese beiden Kreise hängen bewusst nicht am Komfort-Hauptschalter.</li>
+<li><b>Kabelkanal 80 × 80 mm</b> auf der Fahrerseite plus alle Leerrohre — vor dem Verkleiden. Nicht nachrüstbar.</li>
+<li><b>Batterie beheizt bzw. Ladefreigabe unter +5 °C gesperrt</b>, mit Temperaturfühler im Fach.</li>
+<li><b>CO-Melder in Schlafhöhe.</b> Dieselheizung plus Kartuschenkocher lassen keine andere Wahl.</li>
 </ol>
 
 <h4>Was ich bewusst weglassen oder anders lösen würde</h4>
 <div class="tw"><table>
 <tr><th>Statt…</th><th>…lieber</th><th>Warum</th></tr>
-<tr><td>Dachklimaanlage</td><td>MaxxAir + Thermomatten für alle Fenster + die zwei Ventilatoren + Standortwahl</td><td>Halbiert die Solarfläche und verdreifacht den Verbrauch. Für ~800 € Isolierung und Verdunkelung bekommst du 80 % des Effekts</td></tr>
-<tr><td>Induktion als Hauptkocher</td><td>Kartuschenkocher (ist im Küchenblock schon vorgesehen) für alles Lange, Induktion für Schnelles</td><td>Spart 600 Wh am Tag — mehr als jede Optimierung an der Anlage</td></tr>
-<tr><td>Siebträgermaschine</td><td>Kapsel/Filter, oder Bialetti auf dem Kartuschenkocher</td><td>Aufheizen und Warmhalten sind der eigentliche Verbrauch, nicht der Kaffee</td></tr>
-<tr><td>E-Roller im Wohnraum laden</td><td>Garage, eigener LS-Kreis, bevorzugt während der Fahrt</td><td>Ladegeräte werden heiß; und 750 Wh gehören in die Fahrzeit, nicht in die Standzeit</td></tr>
-<tr><td>Smart-Home-Steuerung fürs Licht</td><td>Physische Schalter je Zone + ein bistabiles Relais</td><td>Licht muss auch funktionieren, wenn das Telefon leer ist oder ein Update hängt</td></tr>
-<tr><td>USB-A-Dosen „für die Gäste“</td><td>ausschließlich USB-C PD</td><td>Ein iPad Pro lädt an 12 W praktisch nicht. USB-A ist 2026 nur noch Ballast</td></tr>
-<tr><td>Wechselrichter 2000 VA sparen</td><td>3000 VA nehmen</td><td>Der Unterschied kostet ~400 €, ist aber täglich spürbar</td></tr>
-<tr><td>Später Batterie nachrüsten</td><td>jetzt 400 Ah in einer Charge kaufen</td><td>Gemischt alte und neue LiFePO4 parallel altert unschön und ist schwer zu diagnostizieren</td></tr>
+<tr><td>Dachklimaanlage</td><td>Staukastengerät auf AC-out-2</td><td>Ein Dachgerät (~24 kg, ~790 × 580 mm) kollidiert unmittelbar mit einem 780-Wp-Layout und läuft off-grid ohnehin nicht sinnvoll</td></tr>
+<tr><td>Klimaanlage auf dem Wechselrichterkreis</td><td>eigener FI auf AC-out-2</td><td>3–4 kWh je Nacht sind aus keiner 12-V-Batterie sinnvoll zu holen; die Trennung erzwingt das ohne Disziplin</td></tr>
+<tr><td>Induktion als Hauptkocher</td><td>Kartuschenkocher (im Küchenblock enthalten) für alles Lange</td><td>Spart 600–980 Wh am Tag — mehr als jede Optimierung an der Anlage</td></tr>
+<tr><td>Siebträgermaschine</td><td>Kapsel/Filter 1000–1400 W, oder Bialetti auf Gas</td><td>Aufheizen und Warmhalten sind der Verbrauch, nicht der Kaffee</td></tr>
+<tr><td>E-Roller im Wohnraum laden</td><td>Garage, eigener LS-Kreis, bevorzugt während der Fahrt</td><td>Ladegeräte werden heiß; 650–750 Wh gehören in die Fahrzeit</td></tr>
+<tr><td>5-kVA-Wechselrichter oder zwei parallele 3-kVA an 12 V</td><td>bei diesem Bedarf bleiben, sonst auf 24 V wechseln</td><td>Bei 12 V wären das über 400 A Dauerstrom — Kabel, Sicherungen und Verluste explodieren</td></tr>
+<tr><td>App-only-Lichtsteuerung, RGB als Hauptlicht</td><td>physische Taster je Zone + bistabiles Relais</td><td>Licht muss funktionieren, wenn das Telefon leer ist</td></tr>
+<tr><td>USB-A-Dosen</td><td>ausschließlich USB-C PD</td><td>Ein iPad Pro lädt an 12 W praktisch nicht</td></tr>
+<tr><td>Automatische Lastabwurfsteuerung</td><td>bewusste Vorwahl über den 3-Stufen-Schalter</td><td>Keine Automatik, die die Kaffeemaschine mitten im Brühvorgang abwirft</td></tr>
+<tr><td>Karosserie als 12-V-Rückleiter</td><td>jede Last mit eigener Minusleitung zum Sternpunkt</td><td>Störungen, Korrosion, unauffindbare Spannungsfälle</td></tr>
+<tr><td>Batterie später nachrüsten</td><td>jetzt beide Batterien in einer Charge kaufen</td><td>Gemischt alte und neue LiFePO4 parallel altert unschön und ist schwer zu diagnostizieren</td></tr>
 </table></div>
+
+<h4>Praktische Nutzungsregeln</h4>
+<ul>
+<li><b>Induktion, Airfryer, Kaffeemaschine: immer nur eines.</b> Der Wahlschalter erzwingt es ohnehin.</li>
+<li>Airfryer und E-Roller bevorzugt an Fahrtagen oder bei gutem Solarertrag.</li>
+<li>Am 6-A-Anschluss: Klimaanlage priorisieren, elektrische Küche stark begrenzen. Bei 16 A sind Klima plus <i>ein</i> Hochlastgerät meist möglich.</li>
+<li>Nachts den Wechselrichter aus oder im Search-Mode lassen.</li>
+<li>Vor Winterbetrieb prüfen, dass die Batterie beim Laden ≥ +5 °C erreicht.</li>
+</ul>
 
 <h4>Drei Details, die fast immer vergessen werden</h4>
 <ol>
-<li><b>Kontroll-LEDs</b> an Wasserpumpe und Außenlicht. Eine vergessene Pumpe pumpt den Tank in die Bilge, ein vergessenes Außenlicht kostet über Nacht mehr Strom als der Kühlschrank.</li>
-<li><b>PWM-Dimmer mit ≥ 1 kHz</b>. Billige Dimmer flackern sichtbar in jeder Videoaufnahme — bei einem Fahrzeug, in dem Kamera und Drohne mitreisen, ein echtes Ärgernis.</li>
-<li><b>Der Kühlschrank braucht Luft, nicht nur Strom.</b> Der NRX 60C sitzt in einem geschlossenen Eigenbau-Schrank; ohne Zuluft unten und Abluft oben steigt sein Verbrauch um 30–50 %. Das ist der billigste kWh-Gewinn im ganzen Fahrzeug — zwei Gitter für 30 €.</li>
+<li><b>Kontroll-LEDs</b> an Wasserpumpe und Außenlicht. Eine vergessene Pumpe entleert den Tank in die Bilge; ein vergessenes Außenlicht kostet über Nacht mehr als der Kühlschrank.</li>
+<li><b>PWM-Dimmer mit ≥ 1 kHz.</b> Billige Dimmer flackern sichtbar in jeder Videoaufnahme — bei einem Fahrzeug, in dem Kamera und Drohne mitreisen, ein echtes Ärgernis.</li>
+<li><b>Der Kühlschrank braucht Luft, nicht nur Strom.</b> Ohne Zuluft unten und Abluft oben (je ~200 cm²) steigt sein Verbrauch um 30–50 %. Zwei Gitter für 30 € sind die billigste kWh im ganzen Fahrzeug.</li>
 </ol>
+
+<h2 id="s14"><span class="no">14</span>Abgleich mit Stromkonzept und Baudokumentation Rev C</h2>
+<p>Wo sich die drei Quellen unterschieden, steht hier die Entscheidung und der Grund. Nichts davon ist
+Geschmackssache — jede Zeile hat eine technische Begründung.</p>
+<div class="tw"><table>
+<tr><th>Thema</th><th>Mein erster Entwurf</th><th>Stromkonzept / Rev C</th><th>Jetzt gültig — und warum</th></tr>
+<tr><td><b>Klimaanlage</b></td><td>weglassen</td><td>Staukastengerät auf AC-out-2, nur Landstrom</td><td><b>Stromkonzept gewinnt.</b> AC-out-2 ist im Batteriebetrieb spannungsfrei — die Klima kann die Batterie nicht leeren, ist am Platz aber voll nutzbar. Als Unterbankgerät bleibt das Dach für 780 Wp frei. Meine Streichung war die schlechtere Lösung desselben Problems</td></tr>
+<tr><td><b>Batterie</b></td><td>400 Ah / 5,1 kWh</td><td>600 Ah / 7,68 kWh</td><td><b>600 Ah.</b> Der Komforttag liegt bei 3,1 kWh; mit 400 Ah wären das 1,6 Tage. Preis: +45 kg und ~2.500 € — vor der Bestellung Restzuladung prüfen</td></tr>
+<tr><td><b>BMS</b></td><td>batterieintern + SmartShunt</td><td>Lynx Smart BMS NG 500 A</td><td><b>Lynx Smart BMS NG.</b> Zwei parallele NG-Batterien brauchen ein gemeinsames Abschaltorgan; die Strommessung ist enthalten, der SmartShunt entfällt</td></tr>
+<tr><td><b>Solar</b></td><td>780 Wp, 2 × MPPT 100/30</td><td>600 Wp, 1 × MPPT 100/50</td><td><b>780 Wp mit 2 × 100/30.</b> Weil die Klima nicht aufs Dach kommt, ist die Fläche da. Ein 100/50 nimmt im 12-V-System nur ~700 W an und wäre der Engpass; zwei Regler sind zusätzlich verschattungstolerant</td></tr>
+<tr><td><b>Ladebooster</b></td><td>2 × Orion XS 50 A = 100 A</td><td>1 × Orion XS 70 A, auf 50–60 A begrenzt</td><td><b>Stromkonzept gewinnt.</b> Die zulässige Dauerentnahme am W907 ist VIN-abhängig. Erst messen, dann hochdrehen. Ein zweites Gerät nur bei bestätigter Freigabe</td></tr>
+<tr><td><b>Hochlast</b></td><td>Bedienregel „nur eines"</td><td>verriegelte Schütze + 3-Stufen-Wahlschalter</td><td><b>Stromkonzept gewinnt.</b> Erzwingen statt beschriften — 40 € gegen wiederholte Wechselrichter-Überlast</td></tr>
+<tr><td><b>Induktion</b></td><td>2000–2100 W</td><td>auf 1800 W begrenzt</td><td><b>1800 W.</b> Spart 15 % Spitzenstrom bei kaum spürbarem Komfortverlust</td></tr>
+<tr><td><b>Ladefreigabe kalt</b></td><td>&gt; 0 °C</td><td>&gt; +5 °C (Victron NG)</td><td><b>+5 °C</b> — Herstellervorgabe der gewählten Batterie schlägt die allgemeine LFP-Regel</td></tr>
+<tr><td><b>„Alles aus"</b></td><td>gesamte Innenbeleuchtung</td><td>„Wohnbereich aus" ohne Kühlschrank/Heizung</td><td><b>Stromkonzept gewinnt.</b> Ein Master-Aus, der nachts den Kühlschrank mitnimmt, ist ein Konstruktionsfehler</td></tr>
+<tr><td><b>Hängeschränke</b></td><td>2+2 über dem Bett, 2 über der Sitzgruppe</td><td>alle 6 auf der Fahrerseite, Beifahrerwand frei</td><td><b>Rev C gewinnt — mit einer Korrektur.</b> Die durchgehende UK 1450 kollidiert mit dem Fahrerseitenfenster (OK ≈ 1550). Deshalb jetzt gestaffelt: HS1–3 UK 1450, HS4–6 UK 1620, Stufe bei Y 1750</td></tr>
+<tr><td><b>Bett-Höhenkette</b></td><td>Rev B: OK Latten 995</td><td>Rev C bestätigt Rev B</td><td><b>Unverändert</b> — OK Latten 995, OK Matratze 1115, UK Querträger 937, GS1–GS4 auf Z 934</td></tr>
+<tr><td><b>Solarertrag</b></td><td>eigene Bandbreite</td><td>Hinweis auf PVGIS-Simulation</td><td><b>Beides.</b> Die Bandbreiten in Kapitel 3 sind Planungswerte; für die konkrete Reiseroute lohnt eine PVGIS-Rechnung vor der finalen Modulwahl</td></tr>
+</table></div>
+<div class="hin"><b>Ein Punkt, an dem ich beim Stromkonzept widerspreche:</b> Dort ist der Kühlschrank mit
+360&nbsp;Wh/Tag angesetzt (8 h Kompressorlauf). Das ist ein guter Wert für 20–22 °C Innentemperatur.
+Im Hochsommer in einem geschlossenen Eigenbauschrank sind 500–700&nbsp;Wh realistisch. Ich rechne
+deshalb in Kapitel&nbsp;3 mit 450&nbsp;Wh und weise 700&nbsp;Wh als Hitzefall aus. Das verschiebt die
+Autarkie im Sommer um etwa einen halben Tag nach unten — und macht die Schrankbelüftung zur
+wichtigsten billigen Maßnahme.</div>
 
 <p style="margin-top:40px;border-top:1px solid var(--line);padding-top:14px"><small>
 SPR-EL-01 Rev A · Auslegung auf Basis von SPR-GA-01, der CAMPANY-Rechnung RE2601250 und den

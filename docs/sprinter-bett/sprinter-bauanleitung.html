@@ -1,0 +1,620 @@
+<title>Sprinter W907 L2H2 – Eigenbaumöbel, Gesamtmaterialliste und Bauanleitung</title>
+<style>
+:root{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --disp:"Bahnschrift","DIN Alternate","Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;}}
+:root[data-theme="dark"]{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;}
+:root[data-theme="light"]{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;}
+html{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.55;font-size:16px}
+body{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{font-family:var(--disp);text-wrap:balance;line-height:1.15}
+h1{font-size:2rem;margin:0 0 4px}
+h2{font-size:1.4rem;margin:56px 0 12px;padding-top:18px;border-top:2px solid var(--ink)}
+h2 .no{color:var(--ink2);font-family:var(--mono);font-size:1rem;margin-right:10px}
+h3{font-size:1.05rem;margin:26px 0 8px}
+h4{font-family:var(--disp);font-size:.95rem;margin:20px 0 6px;color:var(--ink2);letter-spacing:.03em;text-transform:uppercase}
+p{margin:10px 0;max-width:82ch}
+ul,ol{max-width:84ch} li{margin:4px 0}
+.kopf{border:2px solid var(--ink);padding:18px 20px;display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;margin-bottom:8px}
+.kopf .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink2);line-height:1.7}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.86rem;font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--grid);font-family:var(--disp);font-weight:600;font-size:.82rem}
+td.num,th.num{text-align:right;font-family:var(--mono);font-size:.82rem}
+td.mono{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+tr.sum td{font-weight:700;background:var(--grid)}
+td.gate{background:var(--grid);font-weight:600}
+.tw{overflow-x:auto;margin:14px 0}
+.tw table{min-width:740px;margin:0}
+.zbox{border:1.5px solid var(--ink);background:var(--panel);margin:22px 0;overflow-x:auto}
+.zbox .zk{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 20px;border-bottom:1.5px solid var(--ink);padding:8px 14px;font-family:var(--mono);font-size:.75rem;color:var(--ink2)}
+.zbox .zk b{color:var(--ink);font-family:var(--disp);font-size:.9rem;letter-spacing:.02em}
+.zbox svg{display:block;margin:10px auto;min-width:660px;max-width:100%}
+.zbox figcaption{padding:0 14px 12px;color:var(--ink2);font-size:.85rem}
+.hin{border-left:4px solid var(--var);background:var(--panel);padding:10px 14px;margin:16px 0;max-width:84ch}
+.ok{border-left-color:var(--conf)}
+.stop{border-left-color:#b23a48}
+.toc{font-family:var(--mono);font-size:.82rem;columns:2;gap:40px;margin:18px 0;padding:14px 18px;border:1px solid var(--line);background:var(--panel)}
+.toc a{color:var(--ink);text-decoration:none;display:block;padding:2px 0}
+.toc a:hover,.toc a:focus-visible{color:var(--var);outline:none;text-decoration:underline}
+@media (max-width:700px){.toc{columns:1}}
+svg text{font-family:var(--mono)}
+.p{stroke:var(--ink);fill:none;stroke-width:4}
+.pt{stroke:var(--ink);fill:none;stroke-width:2.2}
+.soft{fill:var(--grid);fill-opacity:.55;stroke:var(--ink);stroke-width:2.2}
+.dash{stroke-dasharray:16 12}
+.dashf{stroke:var(--assum);fill:none;stroke-width:3.5;stroke-dasharray:18 12}
+.dim{stroke:var(--ink2);stroke-width:2;fill:none}
+.hl{stroke:var(--hatch);stroke-width:2}
+.dt{fill:var(--ink);font-size:1em}
+.dt2{fill:var(--ink2);font-size:.8em}
+.dv{fill:var(--var);font-size:.95em;font-weight:700}
+.da{fill:var(--assum);font-size:.9em}
+.lbl{fill:var(--ink);font-size:.9em;font-family:var(--disp)}
+.axis{stroke:var(--ink);stroke-width:3;fill:none}
+.axt{fill:var(--ink);font-size:1.05em;font-weight:700}
+</style>
+
+<header class="kopf">
+  <div>
+    <h1>Eigenbaumöbel, Gesamtmaterialliste und Bauanleitung</h1>
+    <p style="margin:2px 0 0;color:var(--ink2)">Kühlschrankschrank · Sitzbank mit Trelino-Auszug · vollständige Materialliste · Step-by-step-Aufbau · Abnahme und Betrieb</p>
+  </div>
+  <div class="meta">
+    Zeichnungssatz&nbsp;SPR-BAU-01 · Rev&nbsp;A<br>
+    Ergänzt SPR-GA-01, SPR-BETT-01, SPR-EL-01<br>
+    Koordinaten wie SPR-GA-01, Maße in mm<br>
+    [B] bestätigt · [P] Produktmaß · [A] Annahme · [V] messen
+  </div>
+</header>
+
+<nav class="toc" aria-label="Inhalt">
+  <a href="#b1">1 · Kühlschrankschrank (Eigenbau)</a>
+  <a href="#b2">2 · Sitzbank mit Trelino-Auszug</a>
+  <a href="#b3">3 · Aufmaßblatt — vor jeder Bestellung</a>
+  <a href="#b4">4 · Gesamtmaterialliste</a>
+  <a href="#b5">5 · Werkzeuge und Vorbereitung</a>
+  <a href="#b6">6 · Bauablauf mit Freigabetoren</a>
+  <a href="#b7">7 · Phase 1 — Fahrzeug vorbereiten</a>
+  <a href="#b8">8 · Phase 2 — Möbel und Hängeschränke</a>
+  <a href="#b9">9 · Phase 3 — Elektrik und Wasser</a>
+  <a href="#b10">10 · Phase 4 — Bett bauen und einstellen</a>
+  <a href="#b11">11 · Abnahme, Lasttest, Probefahrt</a>
+  <a href="#b12">12 · Betrieb, Wartung, Revisionsprotokoll</a>
+</nav>
+
+<h2 id="b1"><span class="no">1</span>Kühlschrankschrank — Eigenbau</h2>
+<p>Der Schrank hat zwei Aufgaben gleichzeitig: er nimmt den Dometic&nbsp;NRX&nbsp;60C auf <b>und</b> er ist
+das linke Auflager des ausgezogenen Betts. Deshalb ist seine Oberkante ein Präzisionsmaß
+(Z&nbsp;900&nbsp;±&nbsp;2) und die Auflageleisten GS1/GS2 müssen direkt über den Korpuswänden sitzen.</p>
+
+<figure class="zbox"><div class="zk"><b>KS-01 · Kühlschrankschrank</b><span>links: Frontansicht zum Gang · rechts: Seitenschnitt mit Bettauflage</span><span>SPR-BAU-01-KS01</span></div>
+<svg viewBox="-280 -280 2360 1620" style="font-size:38px" role="img" aria-label="Kuehlschrankschrank">
+<defs><marker id="k1" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="kh" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+
+<!-- ============ A: Frontansicht (Y horizontal 0..490, Z 900..0) ============ -->
+<text class="lbl" x="0" y="-160">A · Frontansicht zum Gang — Blick in −X</text>
+<g transform="translate(0,0)">
+  <!-- Korpus außen 490 breit, 900 hoch -->
+  <rect class="p" x="0" y="0" width="490" height="900"/>
+  <!-- Wandstärken 12 -->
+  <rect class="pt" x="12" y="12" width="466" height="876"/>
+  <!-- Kühlschrank-Öffnung: 448 breit, 525 hoch, UK Z268 -> y = 900-793 = 107 .. 632 -->
+  <rect class="soft" x="21" y="107" width="448" height="525"/>
+  <text class="lbl" x="60" y="330">NRX 60C</text>
+  <text class="dt2" x="60" y="395">448 × 537 × H 525 [P]</text>
+  <text class="dt2" x="60" y="455">Tür zum Gang, max 90°</text>
+  <!-- Geräteboden -->
+  <rect class="pt" x="12" y="632" width="466" height="15"/>
+  <text class="dt2" x="505" y="648">Geräteboden 15, verstärkt</text>
+  <!-- Schubkasten Z30..268 -> y 632..870 -->
+  <rect class="soft" x="21" y="647" width="448" height="223"/>
+  <text class="lbl" x="60" y="740">Schubkasten</text>
+  <text class="dt2" x="60" y="800">Technik / Vorräte</text>
+  <!-- Lüftungsgitter oben (Abluft) Z 793..882 -> y 18..107 -->
+  <rect class="pt" x="60" y="26" width="370" height="70"/>
+  <g class="hl"><line x1="70" y1="40" x2="420" y2="40"/><line x1="70" y1="60" x2="420" y2="60"/><line x1="70" y1="80" x2="420" y2="80"/></g>
+  <text class="dt2" x="505" y="70">Abluft ≥ 200 cm²</text>
+  <!-- Zuluft unten -->
+  <rect class="pt" x="60" y="876" width="370" height="20"/>
+  <text class="dt2" x="505" y="895">Zuluft ≥ 200 cm²</text>
+  <!-- Maße -->
+  <g class="dim">
+    <line x1="0" y1="-60" x2="490" y2="-60" marker-start="url(#k1)" marker-end="url(#k1)"/>
+    <line x1="0" y1="-75" x2="0" y2="-10"/><line x1="490" y1="-75" x2="490" y2="-10"/>
+    <line x1="-90" y1="0" x2="-90" y2="900" marker-start="url(#k1)" marker-end="url(#k1)"/>
+    <line x1="-105" y1="0" x2="-10" y2="0"/><line x1="-105" y1="900" x2="-10" y2="900"/>
+    <line x1="-190" y1="107" x2="-190" y2="632" marker-start="url(#k1)" marker-end="url(#k1)"/>
+    <line x1="-205" y1="107" x2="-100" y2="107"/><line x1="-205" y1="632" x2="-100" y2="632"/>
+  </g>
+  <text class="dv" x="150" y="-90">490 [A/V]</text>
+  <text class="dv" x="-115" y="470" transform="rotate(-90 -115 470)">900 [P/V]</text>
+  <text class="dt" x="-215" y="400" transform="rotate(-90 -215 400)">525</text>
+</g>
+
+<!-- ============ B: Seitenschnitt (X horizontal 0..580, Z 900..0) ============ -->
+<g transform="translate(1180,0)">
+  <text class="lbl" x="0" y="-160">B · Seitenschnitt und Bettauflage — Blick in −Y</text>
+  <rect x="0" y="0" width="580" height="900" fill="url(#kh)" class="p"/>
+  <rect class="pt" x="12" y="12" width="556" height="876" fill="var(--panel)"/>
+  <!-- Kühlschrank 537 tief, hinten 25 Kanal -->
+  <rect class="soft" x="37" y="107" width="537" height="525"/>
+  <text class="lbl" x="150" y="330">NRX 60C</text>
+  <text class="dt2" x="150" y="390">537 tief</text>
+  <!-- Rückkanal 25 -->
+  <rect class="pt" x="12" y="20" width="25" height="860"/>
+  <text class="dt2" x="-250" y="500" transform="rotate(-90 -250 500)">Kaminkanal 25</text>
+  <line class="dim" x1="-30" y1="480" x2="20" y2="450"/>
+  <!-- Geräteboden -->
+  <rect class="pt" x="12" y="632" width="556" height="15"/>
+  <!-- Schubkasten -->
+  <rect class="soft" x="37" y="647" width="520" height="223"/>
+  <text class="lbl" x="150" y="770">Schubkasten</text>
+  <!-- Deckel 12 -->
+  <rect class="pt" x="0" y="0" width="580" height="12" fill="var(--grid)"/>
+  <!-- GS1 / GS2 Auflageleisten 30 hoch + 4 HPL -> über Deckel -->
+  <rect class="p" x="30" y="-34" width="60" height="34" fill="url(#kh)"/>
+  <rect class="p" x="490" y="-34" width="60" height="34" fill="url(#kh)"/>
+  <text class="dv" x="120" y="-52">GS1</text><text class="dv" x="580" y="-52">GS2</text>
+  <!-- Bugprofil darüber -->
+  <rect class="dashf" x="-60" y="-95" width="700" height="60"/>
+  <text class="da" x="-60" y="-245">Bugprofil P11, UK Z 935 · Gleitebene Z 934 = 900 + 30 + 4</text>
+  <!-- Maße -->
+  <g class="dim">
+    <line x1="0" y1="990" x2="580" y2="990" marker-start="url(#k1)" marker-end="url(#k1)"/>
+    <line x1="0" y1="905" x2="0" y2="1005"/><line x1="580" y1="905" x2="580" y2="1005"/>
+    <line x1="670" y1="0" x2="670" y2="900" marker-start="url(#k1)" marker-end="url(#k1)"/>
+    <line x1="585" y1="0" x2="685" y2="0"/><line x1="585" y1="900" x2="685" y2="900"/>
+  </g>
+  <text class="dv" x="200" y="1050">580 Tiefe [A/V]</text>
+  <text class="dt" x="700" y="470" transform="rotate(-90 700 470)">900</text>
+</g>
+<text class="dt2" x="0" y="1180">Lastpfad des ausgezogenen Betts: Bugprofil → GS1/GS2 → Deckel → Seiten- und Mittelwand → Boden.</text>
+<text class="dt2" x="0" y="1240">Die Leisten müssen deshalb genau über den Korpuswänden liegen, nicht dazwischen.</text>
+<text class="dt2" x="0" y="1300">Einbaumaße, Türschwenk und Lüftungsquerschnitte aus der Anleitung des gelieferten NRX-60C übernehmen.</text>
+</svg>
+</figure>
+
+<h4>Zuschnitt Kühlschrankschrank</h4>
+<div class="tw"><table>
+<tr><th>Teil</th><th class="num">Stk</th><th class="num">Fertigungsmaß</th><th>Material</th><th>Hinweis</th></tr>
+<tr><td>Seitenwände</td><td class="num">2</td><td class="num">900 × 580 × 12</td><td>Möbelplatte 12, Dekor</td><td>tragen GS1/GS2 — Kanten sauber und rechtwinklig</td></tr>
+<tr><td>Deckel und Boden</td><td class="num">2</td><td class="num">466 × 580 × 12</td><td>Möbelplatte 12</td><td>Deckel ist Auflagerfläche → eben, kein Durchhang</td></tr>
+<tr><td>Geräteboden</td><td class="num">1</td><td class="num">466 × 560 × 15</td><td>Multiplex 15</td><td>vorne mit 30×40-Leiste verstärkt, trägt 30 kg Gerät</td></tr>
+<tr><td>Rückriegel</td><td class="num">2</td><td class="num">466 × 80 × 12</td><td>Möbelplatte 12</td><td>oben und unten; dazwischen bleibt der Kaminkanal offen</td></tr>
+<tr><td>Schubkastenfront</td><td class="num">1</td><td class="num">466 × ca. 220 × 12</td><td>Möbelplatte 12</td><td>Höhe nach realer Gerätelage</td></tr>
+<tr><td>Lüftungsgitter</td><td class="num">2</td><td class="num">freie Fläche je ≥ 200 cm²</td><td>Alu-/Kunststoffgitter</td><td>unten Zuluft, oben Abluft, beide zum Gang</td></tr>
+<tr><td>GS1 / GS2 Auflageleisten</td><td class="num">2</td><td class="num">490 × 60 × 30 + HPL 4</td><td>Buche oder Esche</td><td>über den Wänden; Einfahrfase 20 nach hinten</td></tr>
+<tr><td>Bodenanker</td><td class="num">4</td><td class="num">M8</td><td>nur geprüfte Punkte</td><td>Position nach Aufmaß BP</td></tr>
+</table></div>
+<div class="hin"><b>Der teuerste Fehler an diesem Schrank wäre eine schlechte Belüftung.</b> Ohne
+funktionierenden Kamin (Zuluft unten, 25&nbsp;mm Kanal hinter dem Gerät, Abluft oben) steigt der
+Kühlschrankverbrauch um 30–50&nbsp;% — das sind 150–250&nbsp;Wh am Tag, jeden Tag. Zwei Gitter und ein
+25-mm-Abstandsklotz kosten 30&nbsp;€.</div>
+
+<h2 id="b2"><span class="no">2</span>Sitzbank mit Trelino-Auszug</h2>
+<p>Reine Wohnbank, <b>kein Fahrgastsitz</b>. Die Höhe ist durch die Trockentrenntoilette bestimmt:
+430&nbsp;mm Gerät + Auszug + Deckel ergeben 470&nbsp;mm Korpus, mit Polster 510&nbsp;mm Sitzhöhe.
+Deshalb steht der Tisch auf 770–790 statt der üblichen 730.</p>
+
+<figure class="zbox"><div class="zk"><b>SB-01 · Sitzbank</b><span>links: Frontansicht zum Gang · rechts: Draufsicht mit Toilettenauszug</span><span>SPR-BAU-01-SB01</span></div>
+<svg viewBox="-280 -280 2900 1480" style="font-size:38px" role="img" aria-label="Sitzbank">
+<defs><marker id="s1" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="sh" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+
+<!-- A Frontansicht: Y horizontal 0..500, Z 510..0 -->
+<text class="lbl" x="0" y="-160">A · Frontansicht zum Gang (Blick in −X)</text>
+<g>
+  <rect class="p" x="0" y="40" width="500" height="470"/>
+  <rect class="soft" x="0" y="0" width="500" height="40"/>
+  <text class="dt2" x="525" y="28">Polster 40</text>
+  <rect class="pt" x="12" y="52" width="476" height="446"/>
+  <!-- Trelino innen: 330 breit (Y), 430 hoch -->
+  <rect class="soft" x="85" y="68" width="330" height="430"/>
+  <text class="lbl" x="120" y="270">Trelino Evo L</text>
+  <text class="dt2" x="120" y="330">330 × 390 × H 430 [P]</text>
+  <!-- Auszugstablett -->
+  <rect class="pt" x="85" y="485" width="330" height="13"/>
+  <text class="dt2" x="525" y="500">Vollauszug 13</text>
+  <g class="dim">
+    <line x1="0" y1="-60" x2="500" y2="-60" marker-start="url(#s1)" marker-end="url(#s1)"/>
+    <line x1="0" y1="-75" x2="0" y2="30"/><line x1="500" y1="-75" x2="500" y2="30"/>
+    <line x1="-90" y1="40" x2="-90" y2="510" marker-start="url(#s1)" marker-end="url(#s1)"/>
+    <line x1="-105" y1="40" x2="-10" y2="40"/><line x1="-105" y1="510" x2="-10" y2="510"/>
+    <line x1="-190" y1="0" x2="-190" y2="510" marker-start="url(#s1)" marker-end="url(#s1)"/>
+  </g>
+  <text class="dv" x="140" y="-90">500 entlang Y [A/V]</text>
+  <text class="dv" x="-115" y="300" transform="rotate(-90 -115 300)">470 Korpus</text>
+  <text class="dt" x="-215" y="330" transform="rotate(-90 -215 330)">510 OK Polster</text>
+</g>
+
+<!-- B Draufsicht: X horizontal 0..650 (+Auszug bis 1060), Y vertikal 0..500 -->
+<g transform="translate(1250,0)">
+  <text class="lbl" x="0" y="-160">B · Draufsicht mit Toilettenauszug (Blick in −Z)</text>
+  <rect class="p" x="0" y="0" width="650" height="500"/>
+  <rect class="pt" x="12" y="12" width="626" height="476"/>
+  <!-- Stauraum hinten X 0..240 -->
+  <line class="pt dash" x1="240" y1="12" x2="240" y2="488"/>
+  <text class="dt2" x="30" y="270">Stauraum</text>
+  <text class="dt2" x="30" y="330">240 × 476</text>
+  <!-- Trelino gespeichert: X 240..630, Y 85..415 -->
+  <rect class="soft" x="240" y="85" width="390" height="330"/>
+  <text class="dt2" x="270" y="240">Trelino</text>
+  <text class="dt2" x="270" y="300">gespeichert</text>
+  <!-- ausgezogen: X 650..1040 -->
+  <rect class="dashf" x="650" y="85" width="390" height="330"/>
+  <text class="da" x="700" y="240">ausgezogen</text>
+  <text class="da" x="700" y="300">nutzbar</text>
+  <!-- Auszugsschienen -->
+  <line class="pt" x1="240" y1="70" x2="1040" y2="70"/>
+  <line class="pt" x1="240" y1="430" x2="1040" y2="430"/>
+  <g class="dim">
+    <line x1="650" y1="560" x2="1040" y2="560" marker-start="url(#s1)" marker-end="url(#s1)"/>
+    <line x1="650" y1="505" x2="650" y2="575"/><line x1="1040" y1="440" x2="1040" y2="575"/>
+    <line x1="0" y1="-60" x2="650" y2="-60" marker-start="url(#s1)" marker-end="url(#s1)"/>
+    <line x1="0" y1="-75" x2="0" y2="-10"/><line x1="650" y1="-75" x2="650" y2="-10"/>
+    <line x1="-90" y1="0" x2="-90" y2="500" marker-start="url(#s1)" marker-end="url(#s1)"/>
+  </g>
+  <text class="da" x="700" y="620">Auszug ca. 410 in den Gang</text>
+  <text class="dv" x="200" y="-90">650 Tiefe X [A/V]</text>
+  <text class="dv" x="-115" y="300" transform="rotate(-90 -115 300)">500</text>
+  <text class="dt2" x="1075" y="180">Gang 620 —</text>
+  <text class="dt2" x="1075" y="235">nach dem Ausziehen</text>
+  <text class="dt2" x="1075" y="290">bleiben 210</text>
+</g>
+<text class="dt2" x="0" y="1000">Der Auszug fährt genau gegenüber der Schiebetür aus: volle Stehhöhe, beste Lüftung, kein Möbelkonflikt.</text>
+<text class="dt2" x="0" y="1060">Bettbug steht bei Y 2020, Toilette ab Y 2230 → 210 mm Luft.</text>
+<text class="dt2" x="0" y="1120">Im Fahrbetrieb ist der Auszug positiv verriegelt. Die Bank ist kein Sitzplatz während der Fahrt.</text>
+</svg>
+</figure>
+
+<h4>Zuschnitt Sitzbank</h4>
+<div class="tw"><table>
+<tr><th>Teil</th><th class="num">Stk</th><th class="num">Fertigungsmaß</th><th>Material</th><th>Hinweis</th></tr>
+<tr><td>Seitenwangen</td><td class="num">2</td><td class="num">470 × 650 × 12</td><td>Möbelplatte 12</td><td>Y-Enden; hintere Wange an die Wandkontur anpassen</td></tr>
+<tr><td>Rückwand / Riegel</td><td class="num">1 + 2</td><td class="num">476 × 120 × 12</td><td>Möbelplatte 12</td><td>oben und unten, dazwischen offen für Service und Luft</td></tr>
+<tr><td>Deckelrahmen</td><td class="num">1</td><td class="num">476 × 650 × 15</td><td>Multiplex 15</td><td>Öffnung für Trelino und Stauraum, Kanten gerundet</td></tr>
+<tr><td>Auszugstablett</td><td class="num">1</td><td class="num">380 × 430 × 15</td><td>Multiplex 15</td><td>rutschfeste Wanne mit Anschlagleiste</td></tr>
+<tr><td>Vollauszüge</td><td class="num">1 Paar</td><td class="num">500–550, ≥ 45 kg</td><td>Stahl, verriegelnd</td><td>muss geschlossen <b>und</b> offen verriegeln</td></tr>
+<tr><td>Polster</td><td class="num">1</td><td class="num">500 × 650 × 40</td><td>Kaltschaum + Bezug</td><td>abnehmbar, rutschgesichert</td></tr>
+<tr><td>Bodenanker</td><td class="num">4</td><td class="num">M8</td><td>nach Aufmaß BP</td><td>nur geprüfte Punkte</td></tr>
+</table></div>
+<div class="tw"><table>
+<tr><th>Prüfpunkt</th><th>Sollwert</th></tr>
+<tr><td>Korpus-Oberkante</td><td class="mono">470 ± 2 · mit Polster ≈ 510</td></tr>
+<tr><td>Innenhöhe für die Toilette</td><td class="mono">H 430 + mind. 10 mm Luft</td></tr>
+<tr><td>Auszugshub</td><td class="mono">≈ 410 bis zur nutzbaren Position [V]</td></tr>
+<tr><td>Gang neben der Bank</td><td class="mono">mind. 430 verbleibend [A/V]</td></tr>
+<tr><td>Kollision mit dem Bett</td><td class="mono">Bug Y 2020, Toilette ab Y 2230 → 210 Luft</td></tr>
+<tr><td>Fahrverriegelung</td><td class="mono">Auszug positiv verriegelt, kein Spiel</td></tr>
+<tr><td>Belastung</td><td class="mono">2 Personen statisch, kein Knacken oder Verzug</td></tr>
+</table></div>
+<div class="hin stop"><b>Zulassung:</b> Diese Bank ist eine reine Wohn- und Aufenthaltsbank. Ein
+zugelassener Sitzplatz während der Fahrt bräuchte einen geprüften Gurtbock mit Karosserieanbindung
+und eine Einzelabnahme — das ist ausdrücklich <b>nicht</b> Bestandteil dieses Plans.</div>
+<h2 id="b3"><span class="no">3</span>Aufmaßblatt — vor jeder Bestellung ausfüllen</h2>
+<p>Kein Zuschnitt, keine Karosseriebohrung und keine Materialbestellung, bevor diese Tabelle
+vollständig ist. Ausdrucken, im Fahrzeug ausfüllen, datieren.</p>
+<div class="tw"><table>
+<tr><th>Var.</th><th>Was</th><th>Messpunkte</th><th class="num">Tol.</th><th class="num">Annahme</th><th class="num">gemessen</th><th>Wirkt auf</th></tr>
+<tr><td class="mono">B1</td><td>lichte Innenbreite über der Verkleidung</td><td>Verkleidung links → rechts bei Y 100 / 800 / 1550, Z ≈ 950 — <b>kleinster Wert zählt</b></td><td class="num">±3</td><td class="num">1720</td><td class="num">______</td><td>Länge QT und Latten, Gangbreite</td></tr>
+<tr><td class="mono">B2</td><td>Innenbreite auf Höhe der Wandauflagen</td><td>wie B1, bei Z ≈ 937</td><td class="num">±3</td><td class="num">1715</td><td class="num">______</td><td>QT-Länge = B2 − 35</td></tr>
+<tr><td class="mono">AS</td><td><b>Lage des Schiebetürausschnitts</b></td><td>Innenkante Hecktür → hintere Blechkante der Türöffnung</td><td class="num">±10</td><td class="num">1990</td><td class="num">______</td><td><b>kritisch:</b> ragt der Bettauszug in die Tür?</td></tr>
+<tr><td class="mono">BA</td><td>Bodenaufbau</td><td>Fahrzeugblech → OK fertiger Boden</td><td class="num">±2</td><td class="num">30</td><td class="num">______</td><td>gesamtes Z-Schema</td></tr>
+<tr><td class="mono">LR</td><td>Laderaumlänge bis Sitzrückwand</td><td>Hecktür → Rückwand Fahrersitz in Fahrstellung</td><td class="num">±10</td><td class="num">3270</td><td class="num">______</td><td>Beinfreiheit Sitzgruppe</td></tr>
+<tr><td class="mono">DK</td><td>Drehkreis-Freiraum der Sitze</td><td>Sitze drehen, benötigten Bereich anzeichnen</td><td class="num">±10</td><td class="num">Ø 720</td><td class="num">______</td><td>Position Tisch und Bank</td></tr>
+<tr><td class="mono">RK</td><td>Radkästen je Seite</td><td>Y-Anfang/-Ende, Höhe, Einragtiefe</td><td class="num">±5</td><td class="num">Y 750–1580, h 250, t 200</td><td class="num">______</td><td>Beine des Bett-Längsträgers</td></tr>
+<tr><td class="mono">FE</td><td>Fenster, Holme, Säulen</td><td>UK und OK Fensterausschnitt Fahrerseite; Mitte C-/D-Säule; Zwischenholme</td><td class="num">±5</td><td class="num">OK Fenster ≈ 1550</td><td class="num">______</td><td><b>Höhe der Hängeschränke HS4–6</b>, Schraubpunkte</td></tr>
+<tr><td class="mono">BP</td><td>Befestigungspunkte Boden</td><td>Zurrösen, Airlineschienen, vorhandene Gewinde fotografieren und einmessen</td><td class="num">±2</td><td class="num">—</td><td class="num">______</td><td>Anbindung aller Möbel</td></tr>
+<tr><td class="mono">H-KUE</td><td>reale OK des Küchenblocks nach Montage</td><td>fertiger Boden → OK Arbeitsplatte, an 4 Punkten</td><td class="num">±2</td><td class="num">900</td><td class="num">______</td><td><b>legt die gesamte Bett-Z-Kette fest</b></td></tr>
+<tr><td class="mono">H-KS</td><td>reale OK des Kühlschrankschranks</td><td>fertiger Boden → OK Deckel</td><td class="num">±2</td><td class="num">900</td><td class="num">______</td><td>muss H-KUE entsprechen</td></tr>
+<tr><td class="mono">KM</td><td>X/Y-Lage der Korpuswände im Küchenblock</td><td>am gelieferten Modul: Außenwände und Mittelwand</td><td class="num">±5</td><td class="num">Mitte bei Y 2165</td><td class="num">______</td><td>Länge und Lage von GS3/GS4</td></tr>
+<tr><td class="mono">KSM</td><td>Wandlagen im Kühlschrankschrank</td><td>eigene Fertigung dokumentieren</td><td class="num">±3</td><td class="num">Y 1640 / 2130</td><td class="num">______</td><td>Lage GS1/GS2</td></tr>
+<tr><td class="mono">TH</td><td>Tisch: welche Kante trägt den Steckfuß</td><td>am gelieferten CAMPANY-Modul prüfen</td><td class="num">—</td><td class="num">480 in Y, 900 in X</td><td class="num">______</td><td>Position Bank und Beinfreiheit</td></tr>
+<tr><td class="mono">DACH</td><td>freie Dachfläche zwischen den Sicken</td><td>Länge und Breite, Lage MaxxAir-Ausschnitt</td><td class="num">±10</td><td class="num">≈ 3000 × 1350</td><td class="num">______</td><td>Modulwahl und Solarleistung</td></tr>
+</table></div>
+<div class="hin stop"><b>Stop-Kriterien.</b> Arbeit sofort unterbrechen und Ursache klären, wenn:
+ein Bohrpunkt nicht zweifelsfrei strukturell ist · eine Leitung im Bohrbereich nicht identifiziert wurde ·
+der Korrosionsschutz unvollständig ist · der Boden weich oder lose ist · die reale Möbel-OK mehr als
+5&nbsp;mm von 900 abweicht. <b>Ein verdeckter Lastpunkt darf nie auf einer Vermutung beruhen.</b></div>
+
+<h2 id="b4"><span class="no">4</span>Gesamtmaterialliste</h2>
+
+<h4>A · Kaufmodule und Geräte</h4>
+<div class="tw"><table>
+<tr><th>Pos.</th><th>Bauteil</th><th class="num">Stk</th><th>Maß / Spezifikation</th><th>Status</th></tr>
+<tr><td class="mono">114501</td><td>CAMPANY Küchenblock</td><td class="num">1</td><td>1050 × 900 × 450; Spüle 400 × 340; Kartuschenkocher-Schubkasten; Klapptisch</td><td>[P] <b>beschafft</b>, ohne Kanister und Pumpe</td></tr>
+<tr><td class="mono">114507N</td><td>CAMPANY Hängeschrank mit Klappe</td><td class="num">6</td><td>500 × 370 × 340, LED-Leiste dimmbar</td><td>[P] <b>beschafft</b>, alle Fahrerseite</td></tr>
+<tr><td class="mono">114509</td><td>CAMPANY Tisch, demontierbar</td><td class="num">1</td><td>480 × 900, Steckfuß, inkl. Erweiterung</td><td>[P] <b>beschafft</b></td></tr>
+<tr><td class="mono">000101</td><td>CAMPANY Verkleidungs-Set L2H2</td><td class="num">1</td><td>5 mm Pappelsperrholz roh</td><td>[P] <b>beschafft</b></td></tr>
+<tr><td class="mono">—</td><td>Dometic NRX 60C Kompressorkühlschrank</td><td class="num">1</td><td>448 × 537 × H 525, 55 l</td><td>[P] zu beschaffen</td></tr>
+<tr><td class="mono">—</td><td>Trelino Evo L Trenntoilette</td><td class="num">1</td><td>330 × 390 × H 430</td><td>[P] zu beschaffen</td></tr>
+<tr><td class="mono">—</td><td>Matratze zweiteilig</td><td class="num">1</td><td>1690 × (1600 + 400) × 120, Hauptteil + angezippte Klappe</td><td>[A/V] nach realem B1</td></tr>
+<tr><td class="mono">—</td><td>Dieselheizung 2 kW mit Montagesatz</td><td class="num">1</td><td>12 V, Abgas nach unten, Warmluftkanal 75 mm</td><td>[A] zu beschaffen</td></tr>
+<tr><td class="mono">—</td><td>MaxxAir / Airmaxx Dachlüfter</td><td class="num">1</td><td>Ausschnitt 400 × 400</td><td>[P] zu beschaffen</td></tr>
+<tr><td class="mono">—</td><td>Klimaanlage Staukastengerät</td><td class="num">1</td><td>Unterbank-/Stauraumgerät, 230 V, auf AC-out-2</td><td>[A] optional, siehe SPR-EL-01</td></tr>
+<tr><td class="mono">—</td><td>Frisch- und Abwassertank/-kanister + Tauchpumpe + Schlauchset</td><td class="num">1 Satz</td><td>je ca. 12–25 l, lebensmittelecht, entleerbar</td><td>[V] <b>nicht im Küchenmodul enthalten</b></td></tr>
+<tr><td class="mono">—</td><td>Induktionsplatte einflammig</td><td class="num">1</td><td><b>max. 1800 W</b>, freistehend</td><td>[A] bewusst nach Leistung wählen</td></tr>
+<tr><td class="mono">—</td><td>Airfryer</td><td class="num">1</td><td><b>1200–1500 W</b>, kompakt</td><td>[A] bewusst nach Leistung wählen</td></tr>
+<tr><td class="mono">—</td><td>Kaffeemaschine</td><td class="num">1</td><td><b>1000–1400 W</b>, Thermoblock/Kapsel</td><td>[A] kein Siebträger mit Boiler</td></tr>
+</table></div>
+
+<h4>B · Rohmaterial Eigenbau</h4>
+<div class="tw"><table>
+<tr><th>Material</th><th class="num">Bedarf</th><th>Verwendung</th></tr>
+<tr><td>Queenply / Pappelsperrholz 18 mm, 2500 × 1250</td><td class="num">1 Platte</td><td>Bettlatten P08/P09, Reserve</td></tr>
+<tr><td>Pappelsperrholz 15 mm, 2500 × 1250</td><td class="num">1 Platte</td><td>Bett-Längsträger P03, Beine P04/P05</td></tr>
+<tr><td>Birke-Multiplex 18 mm, Zuschnitt 1700 × 650</td><td class="num">1</td><td>Wandauflagen P01/P02, Bodenplatten P06</td></tr>
+<tr><td>Möbelplatte 12 mm, 2500 × 1250, Dekor passend</td><td class="num">ca. 2 Platten [A/V]</td><td>Kühlschrankschrank + Sitzbank</td></tr>
+<tr><td>Multiplex 15 mm</td><td class="num">ca. 1000 × 600</td><td>Geräteboden, Auszugstablett, Deckelrahmen</td></tr>
+<tr><td>Esche 18 × 85</td><td class="num">2 × 1600</td><td>Führungslatten P10 mit Nut 6 × 5</td></tr>
+<tr><td>Kiefer/Fichte 18 × 60</td><td class="num">1 × 1800</td><td>Verbindungsleiste P12</td></tr>
+<tr><td>Buche oder Esche 30 × 60</td><td class="num">ca. 2,2 m + Reserve</td><td><b>GS1–GS4 Auflageleisten</b></td></tr>
+<tr><td>Alu-Vierkantrohr 40 × 40 × 2, EN AW-6060</td><td class="num">2 × 6000</td><td>Querträger QT1–QT4</td></tr>
+<tr><td>Alu-Rechteckrohr 60 × 40 × 3</td><td class="num">1 × 2000</td><td>Bugprofil P11</td></tr>
+<tr><td>POM 16 mm</td><td class="num">100 × 150</td><td>Führungsklötze P15</td></tr>
+<tr><td>HPL 4 mm</td><td class="num">4 Streifen 60 × ca. 550</td><td>Gleitbelag auf GS1–GS4</td></tr>
+<tr><td>Polsterschaum RG35 + Bezug</td><td class="num">500 × 650 × 40</td><td>Sitzbankpolster</td></tr>
+<tr><td>Dämmung (Armaflex o. glw.) + Alu-Klebeband</td><td class="num">nach Fläche [V]</td><td>Wände, Dach, Radkästen — vor der Verkleidung</td></tr>
+</table></div>
+
+<h4>C · Beschläge, Befestigung, Verbrauchsmaterial</h4>
+<div class="tw"><table>
+<tr><th>Gruppe</th><th>Bedarf / Spezifikation</th></tr>
+<tr><td>Karosserieanker</td><td>M5/M6/M8-Blindnietmuttern, Setzwerkzeug, Karosseriescheiben — Positionen <b>nur</b> nach FE/BP-Aufmaß</td></tr>
+<tr><td>Möbelanker</td><td>Winkel und Montageschienen für Küche, Kühlschrankschrank, Bank und die HS-Lastschiene</td></tr>
+<tr><td>Bett-Beschläge</td><td>2 × Federriegel P17 Ø8 + Messingbuchsen, 8 × Winkel P18, 16 × Winkel P19, Rampa-Muffen M6</td></tr>
+<tr><td>Bett-Schrauben</td><td>64 × 4,2 × 32 Senkkopf, 16 × Spax 4 × 30, M8 × 30 A2 mit Scheiben, M5/M6-Schrauben</td></tr>
+<tr><td>Trelino-Auszug</td><td>1 Paar Vollauszüge 500–550, ≥ 45 kg, <b>in beiden Endlagen verriegelnd</b></td></tr>
+<tr><td>Kühlschrank</td><td>12-V-Leitung 6 mm², Sicherung 15 A, Kabelschuhe, 2 Lüftungsgitter</td></tr>
+<tr><td>Wasser</td><td>lebensmittelechter Schlauch, Schellen, Entleerungsventil, Siphon, Tankgeber</td></tr>
+<tr><td>iPad-Zone</td><td>5 Kugelbasen Ø 25, 1 Doppelarm, 1 Tablet-Klemme, Rückplatte 12 mm, Leerrohr, Kabelclips</td></tr>
+<tr><td>Kleber und Dichtstoff</td><td>D3-Weißleim, PU-Leim, Sika 252 (nach Untergrundfreigabe), 2K-Epoxi</td></tr>
+<tr><td>Korrosionsschutz</td><td>Entgrater, Primer/Zinkspray, Lackstift, Hohlraumwachs</td></tr>
+<tr><td>Entkopplung / Knarzschutz</td><td>PE-UHMW-Gleitband 19 × 0,5 ca. 7 m, Filzband 25 × 2 ca. 2 m, Filzgleiter</td></tr>
+<tr><td>Kleinteile</td><td>Unterlegscheiben, Schraubensicherung, Aderendhülsen, Kantenschutz, Kabelbinder</td></tr>
+</table></div>
+
+<h4>D · Elektrik</h4>
+<p>Vollständig in <b>SPR-EL-01, Kapitel 11</b> — Energie-Kernsystem von Victron
+(2 × Lithium&nbsp;NG 300&nbsp;Ah, Lynx&nbsp;Smart&nbsp;BMS&nbsp;NG, MultiPlus-II&nbsp;12/3000/120-32,
+2 × MPPT&nbsp;100/30, Orion&nbsp;XS&nbsp;12/12-70, Cerbo&nbsp;GX), Installationsmaterial, Steckdosen,
+Licht und Schutztechnik von der zweiten Quelle. Summe ohne Klimaanlage ≈&nbsp;190&nbsp;kg und
+≈&nbsp;11.500–13.500&nbsp;€.</p>
+
+<h4>Gewichtsbilanz — Zuladung im Blick behalten</h4>
+<div class="tw"><table>
+<tr><th>Baugruppe</th><th class="num">≈ kg</th></tr>
+<tr><td>Bett komplett (SPR-BETT-01, Rev B)</td><td class="num">42</td></tr>
+<tr><td>Kühlschrankschrank inkl. Gerät</td><td class="num">45</td></tr>
+<tr><td>Sitzbank inkl. Polster und Auszug</td><td class="num">28</td></tr>
+<tr><td>CAMPANY-Module (Küche, 6 Hängeschränke, Tisch, Verkleidung)</td><td class="num">115</td></tr>
+<tr><td>Dämmung, Boden, Verkleidungsunterbau</td><td class="num">70</td></tr>
+<tr><td>Elektrik komplett (ohne Klimaanlage)</td><td class="num">190</td></tr>
+<tr><td>Wasser gefüllt (2 × 25 l), Heizung, Leitungen</td><td class="num">70</td></tr>
+<tr><td>Matratze und Polster</td><td class="num">18</td></tr>
+<tr class="sum"><td>Ausbau gesamt, betriebsbereit ohne Gepäck</td><td class="num">≈ 578 kg</td></tr>
+<tr><td>optional Staukastenklimaanlage</td><td class="num">+ 25</td></tr>
+</table></div>
+<div class="hin"><b>Rechne das gegen die reale Restzuladung.</b> Ein L2H2-Kastenwagen bei 3,5&nbsp;t
+hat je nach Ausstattung 1000–1150&nbsp;kg Zuladung. Nach diesem Ausbau bleiben also grob
+420–570&nbsp;kg für zwei Personen, Gepäck, E-Roller, Fahrräder und Wasser. Das ist ausreichend, aber
+nicht großzügig — <b>vor der Batteriebestellung wiegen</b>, nicht danach. Die 58&nbsp;kg der beiden
+300-Ah-Batterien sind der größte einzelne Hebel, wenn es eng wird.</div>
+
+<h2 id="b5"><span class="no">5</span>Werkzeuge und Vorbereitung</h2>
+<div class="tw"><table>
+<tr><th>Bereich</th><th>Werkzeuge und Prüfmittel</th></tr>
+<tr><td>Aufmaß</td><td>Kreuzlinienlaser, 3-m-Bandmaß, Stahllineal 1 m, Anschlagwinkel, Schmiege, Messschieber, Fühlerlehre</td></tr>
+<tr><td>Holz</td><td>Tauch-/Tischsäge mit Führungsschiene, Stichsäge, Oberfräse mit 6-mm-Nutfräser, Schleifer, Zwingen, <b>selbstgebaute Abstandslehre 105/20</b></td></tr>
+<tr><td>Alu</td><td>Metallsäge (Alu-Blatt), Feile, Entgrater, Körner, Bohrständer, Spiralbohrer HSS</td></tr>
+<tr><td>Blech</td><td>Nietmutternzange M5/M6/M8, Stufenbohrer, Endoskop und Magnet zur Holmsuche, Korrosionsschutz</td></tr>
+<tr><td>Montage</td><td>Akkuschrauber, <b>Drehmomentschlüssel 5–25 Nm</b>, Schraubensicherung, Kartuschenpresse</td></tr>
+<tr><td>Elektrik</td><td>Multimeter, hydraulische Presszange für Rohrkabelschuhe, Crimpzange Aderendhülsen, Abisolierer, Beschriftungsgerät</td></tr>
+<tr><td>Prüfung</td><td>Federwaage bis 200 N, Sandsäcke oder Gewichte ≥ 200 kg, Richtlatte, Messuhr oder Stahllineal</td></tr>
+<tr><td>Schutz</td><td>Schutzbrille, Gehörschutz, Handschuhe, Atemschutz P2, Kantenschutz, Feuerlöscher griffbereit</td></tr>
+</table></div>
+<div class="hin"><b>Arbeitsplatz:</b> Fahrzeug eben abstellen, <b>Batterie getrennt</b>, Gas- und
+Wasserbehälter entfernt. Beim Bohren durch Blech immer eine zweite Person außen zur Kontrolle. Späne
+sofort absaugen, blankes Blech noch am selben Tag konservieren.</div>
+
+<h2 id="b6"><span class="no">6</span>Bauablauf mit Freigabetoren</h2>
+<p>Die Reihenfolge ist nicht beliebig. <b>Das Bett richtet sich nach den real eingebauten
+Möbelhöhen</b> — deshalb kommen Küche und Kühlschrankschrank zuerst und werden nivelliert. Die
+Hängeschränke gehören vor das Bett, weil man dann noch an Holme und Kabelwege kommt.</p>
+<div class="tw"><table>
+<tr><th class="num">Phase</th><th>Arbeit</th><th>Freigabetor vor der nächsten Phase</th></tr>
+<tr><td class="num">0</td><td>Aufmaß, Fotodokumentation, Koordinatenblatt</td><td class="gate">alle Pflichtwerte aus Kapitel 3 eingetragen und datiert</td></tr>
+<tr><td class="num">1</td><td>Dämmung, Boden, Leitungswege, Verkleidung, Befestigungspunkte</td><td class="gate">Z0 definiert und beschriftet; Leitungen elektrisch und auf Dichtheit geprüft; blankes Metall geschützt</td></tr>
+<tr><td class="num">2</td><td>Küche, Kühlschrankschrank, Sitzbank, Tisch</td><td class="gate">Korpusse lotrecht und verwindungsfrei; H-KUE und H-KS gemessen und gleich; Bodenanker fest</td></tr>
+<tr><td class="num">3</td><td>Sechs Hängeschränke auf der Fahrerseite, iPad-Wand</td><td class="gate">Lastschiene an Struktur (nicht an der 5-mm-Verkleidung); Klappen verriegelt; Beifahrerwand frei</td></tr>
+<tr><td class="num">4</td><td>Elektrik-Grundinstallation, Wasser, Heizung</td><td class="gate">Sicherungen beschriftet; FI-Test bestanden; Wasserkreis dicht; CO-Melder montiert</td></tr>
+<tr><td class="num">5</td><td>Bett-Unterbau und Querträger</td><td class="gate">OK QT überall Z 937 ± 2; Diagonalen ± 3</td></tr>
+<tr><td class="num">6</td><td>Fester und beweglicher Kamm, Führung, Verriegelung</td><td class="gate">Hub 400 ± 2; X-Spiel ≤ 3, Z-Spiel ≤ 1,5; beide Riegel rasten</td></tr>
+<tr><td class="num">7</td><td>GS1–GS4, Matratze, Innenausbau-Feinarbeiten</td><td class="gate">GS-Oberkante Z 934 ± 1; Gleitluft 1 mm; keine Kollision im Auszugsweg</td></tr>
+<tr><td class="num">8</td><td>Lasttest, Probefahrt, Nachzug, Abnahme 230 V</td><td class="gate">Kapitel 11 vollständig bestanden</td></tr>
+</table></div>
+<div class="hin ok"><b>Zwei Gewohnheiten, die sich auszahlen:</b> ① Jedes verdeckte Befestigungsbild
+<b>fotografieren</b>, bevor es zugebaut wird — mit Maßband im Bild. ② Jede angezogene Schraube mit
+einem Lackstift markieren; beim Nachzug sieht man dann sofort, welche sich gelöst hat.</div>
+
+<h2 id="b7"><span class="no">7</span>Phase 1 — Fahrzeug vorbereiten</h2>
+<div class="tw"><table>
+<tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
+<tr><td class="num">1.1</td><td><b>Fahrzeug nullen.</b> Leer und waagerecht abstellen. OK fertiger Boden als Z0 festlegen, Hecktür-Innenkante als Y0, Verkleidung Fahrerseite als X0 markieren.</td><td>drei Referenzen dauerhaft angezeichnet</td></tr>
+<tr><td class="num">1.2</td><td><b>Bestand aufnehmen.</b> Zurrpunkte, Gewinde, Holme, Säulen, Fenster, Radkästen und vorhandene Leitungen fotografieren und nach Kapitel 3 vermessen.</td><td>Aufmaßblatt vollständig, datiert</td></tr>
+<tr><td class="num">1.3</td><td><b>Layout abkleben.</b> Bett Y 20–2020, Küche Y 1640–2690, KS Y 1640–2130, Bank Y 2130–2630, HS-Kette Y 200–3250 mit Klebeband am Fahrzeug markieren.</td><td>Gangbreiten 690 / 620 nachgemessen</td></tr>
+<tr><td class="num">1.4</td><td><b>Kollision simulieren.</b> Pappschablonen für Küche, Bank, HS-Unterkante und iPad-Zone anbringen. Sitze drehen, Schiebetür schließen, Bett-Auszugshülle prüfen.</td><td>alle Bewegungen kollisionsfrei</td></tr>
+<tr><td class="num">1.5</td><td><b>Dämmen.</b> Wände, Dach, Radkästen und Hohlräume dämmen. Keine Dämmung in Bereiche, die später Lastpunkte werden.</td><td>keine Kältebrücken an Möbelanbindungen</td></tr>
+<tr><td class="num">1.6</td><td><b>Boden fertigstellen.</b> Bodenaufbau spannungsfrei, trocken und fest montieren. BA messen, Z0 neu beschriften.</td><td>keine Möbel auf lose Deckschicht schrauben</td></tr>
+<tr><td class="num">1.7</td><td><b>Kabelkanal 80 × 80 bauen</b> — Haupttrasse Fahrerseite, Nebentrasse Beifahrerseite, Unterflurtrasse zum Orion. Leerrohre nach SPR-EL-01 einziehen.</td><td>alle sechs Leerrohre mit Zugdraht belegt</td></tr>
+<tr><td class="num">1.8</td><td><b>Holme freigeben.</b> Vor jeder Bohrung Verkleidung lokal abnehmen oder Endoskop/Magnet verwenden. Kabel, Außenblech und Hohlraumsicken ausschließen.</td><td>jeder Bohrpunkt zweifelsfrei strukturell</td></tr>
+<tr><td class="num">1.9</td><td><b>Bohrungen setzen.</b> Angekörnte Punkte bohren, entgraten, spänefrei reinigen, Korrosionsschutz aufbauen und trocknen lassen.</td><td>kein blankes Blech über Nacht</td></tr>
+<tr><td class="num">1.10</td><td><b>Nietmuttern setzen.</b> M5/M6/M8 nur mit korrekt eingestelltem Werkzeug. Jede Mutter mit einer Probeschraube auf festen Sitz und rechtwinklige Lage prüfen.</td><td>keine mitdrehende Mutter</td></tr>
+<tr><td class="num">1.11</td><td><b>Lastschienen vorbereiten.</b> Schienen und Montagebretter für Bettauflagen und die sechs Hängeschränke nach realem Holmraster bohren. Kontakt zur Verkleidung mit Filz entkoppeln.</td><td>Schiene sitzt an Struktur, nicht an 5-mm-Pappel</td></tr>
+<tr><td class="num">1.12</td><td><b>Verkleidung montieren.</b> 5-mm-Pappel als Oberfläche behandeln, an späteren Lastpunkten Rückverstärkungen oder Zugang zur Struktur vorsehen.</td><td>Zugang zu allen Ankern dokumentiert</td></tr>
+</table></div>
+
+<h2 id="b8"><span class="no">8</span>Phase 2 und 3 — Möbel, Hängeschränke, iPad-Zone</h2>
+<div class="tw"><table>
+<tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
+<tr><td class="num">2.1</td><td><b>Küche trocken einpassen</b> bei Y 1640–2690, X 1270–1720. Schiebetür, Spüle, Klapptische und Bett-Auszugshülle prüfen. <b>Modul so drehen, dass Spüle und Klappverlängerung vorn liegen</b> (Y &gt; 2165).</td><td>Spüle bei ausgezogenem Bett erreichbar</td></tr>
+<tr><td class="num">2.2</td><td><b>Küche verankern</b> an geprüften Boden- und Wandpunkten. Korpus lotrecht und verwindungsfrei.</td><td><b>OK Arbeitsplatte ringsum Z 900 ± 2</b> — H-KUE eintragen</td></tr>
+<tr><td class="num">2.3</td><td><b>KS-Korpus fertigen</b> nach Kapitel 1. Geräteboden verstärken, Rückkanal 25 mm und Servicezugang offen halten.</td><td>Korpus rechtwinklig, Deckel eben</td></tr>
+<tr><td class="num">2.4</td><td><b>Kühlschrank einsetzen.</b> Gerätespezifische Einbau- und Lüftungsangaben anwenden. Tür zum Gang, Öffnung auf 90° begrenzen, Zuluft unten und Abluft oben frei.</td><td>Gerät nach vorn ausbaubar</td></tr>
+<tr><td class="num">2.5</td><td><b>KS-Schrank verankern</b> bei Y 1640–2130, X 0–580.</td><td><b>OK Deckel Z 900 ± 2 und parallel zur Küche</b> — H-KS eintragen</td></tr>
+<tr><td class="num">2.6</td><td><b>Sitzbank bauen</b> nach Kapitel 2. Trelino-Tablett und verriegelnde Vollauszüge zuerst auf einem Probebrett einpassen.</td><td>Auszug leichtgängig, beide Endlagen rasten</td></tr>
+<tr><td class="num">2.7</td><td><b>Sitzbank montieren</b> bei Y 2130–2630. Auszug ca. 410 in den Gang testen.</td><td>keine Kollision zu Küche, Bett, Schiebetür</td></tr>
+<tr><td class="num">2.8</td><td><b>Tischposition festlegen.</b> Steckfuß so setzen, dass beide Sitze drehen können. Tisch vor dem Drehen entnehmbar. Höhe auf <b>770–790</b> einstellen (wegen Sitzhöhe 510).</td><td>Beinfreiheit ≥ 640 zur Sitzvorderkante</td></tr>
+<tr><td class="num">3.1</td><td><b>HS-Lastschiene montieren</b>, Fahrerseite Y 200–3250. <b>Zwei Höhen:</b> HS1–3 UK Z 1450, HS4–6 UK Z 1620 über dem Fenster. Nur an freigegebenen Holmen und Säulen.</td><td>Stufe bei Y 1750; Fensterfreigang geprüft</td></tr>
+<tr><td class="num">3.2</td><td><b>Sechs HS vormontieren.</b> Module am Boden ausrichten, Fugen 2–3 mm. Klappen, LED-Kabel und Verbinder prüfen, scharfe Kanten entschärfen.</td><td>LED-Leisten funktionsgeprüft</td></tr>
+<tr><td class="num">3.3</td><td><b>HS aufhängen</b>, zu zweit von hinten nach vorn. Kette nivellieren, jedes Modul gegen Abheben und Y-Verschub sichern, Klappen positiv verriegeln.</td><td>Kette fluchtet, kein Modul lose</td></tr>
+<tr><td class="num">3.4</td><td><b>Beifahrerwand freihalten.</b> Zone Y 200–1600 / Z 1200–1800 markieren und frei lassen. Vorhang und Leuchte außerhalb der Bett- und iPad-Hülle.</td><td>keine Einbauten in der Zone</td></tr>
+<tr><td class="num">3.5</td><td><b>iPad-Kugelbasen setzen</b> (5 Positionen nach SPR-EL-01 Kapitel 9). Rückplatte 12 mm oder Strukturpunkt, Kabel im Leerrohr mit Zugentlastung.</td><td>Halter flach, verriegelbar, max. 35 mm Vorsprung</td></tr>
+<tr><td class="num">3.6</td><td><b>Vollständiger Funktionstest.</b> Kühlschranktür, Schublade, Trelino, Küchenklappen, Spüle, Klapptische, Schiebetür, Drehsitze, Tisch und alle sechs HS-Klappen im Tag- und simulierten Nachtbetrieb betätigen.</td><td>Layoutfehler jetzt noch ohne Demontage korrigierbar</td></tr>
+</table></div>
+
+<h2 id="b9"><span class="no">9</span>Phase 4 — Elektrik und Wasser</h2>
+<div class="tw"><table>
+<tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
+<tr><td class="num">4.1</td><td>Technikfach bauen: Batterieauflage, Trennwand, Serviceklappe mit Vierteldrehverschlüssen, Lüftungsgitter oben und unten.</td><td>Batterie ohne Bettdemontage tauschbar</td></tr>
+<tr><td class="num">4.2</td><td>Batterien setzen und <b>mechanisch für Unfalllasten sichern</b>. Beide Zuleitungen gleich lang, 70 mm², je 300-A-Sicherung direkt an der Batterie.</td><td>Sicherung ≤ 300 mm vom Pol</td></tr>
+<tr><td class="num">4.3</td><td>Lynx Smart BMS NG, Lynx Distributor, Minus-Bus, Haupttrennschalter montieren. Hauptschalter von der Hecktür erreichbar.</td><td>alle Plus-Schienen abgedeckt</td></tr>
+<tr><td class="num">4.4</td><td>MultiPlus-II senkrecht an der belüfteten Trennwand, Anschlüsse nach unten, 60 mm Luft oben und unten. 95 mm² mit ca. 400-A-Sicherung.</td><td>Lüfterweg frei, keine Textilien davor</td></tr>
+<tr><td class="num">4.5</td><td>MPPT ×2 und Orion XS oben montieren, getrennt vom Wärmestau des Wechselrichters. Orion auf <b>50 A</b> parametrieren.</td><td>Bluetooth aus der Kabine erreichbar</td></tr>
+<tr><td class="num">4.6</td><td>Solarmodule kleben (Sika 252 nach Untergrundfreigabe), zwei Strings getrennt führen, <b>PV-Trennschalter vor dem MPPT</b>, Dachdurchführung abdichten.</td><td>MaxxAir-Haube öffnet frei, kein Modul im Abluftweg</td></tr>
+<tr><td class="num">4.7</td><td>12-V-Unterverteilung setzen, DC-01…DC-20 ziehen und <b>an beiden Enden beschriften</b>. Jede Last mit eigener Plus- und Minusleitung zum Sternpunkt.</td><td>Karosserie nirgends als Rückleiter</td></tr>
+<tr><td class="num">4.8</td><td>230-V-Teil: CEE-Einspeisung, 2-polige Trennung, AC-out-1 und AC-out-2 mit je eigenem FI 30 mA Typ A, LS nach Kreisliste, <b>Hochlastschütze mit 3-Stufen-Wahlschalter</b>.</td><td>FI-Testtaste in beiden Betriebsarten geprüft</td></tr>
+<tr><td class="num">4.9</td><td>Wasser: Tanks unter der Küche, Pumpe, Schläuche mit Tropfschleifen, Entleerung, Tankgeber. <b>Keine 230-V-Abzweigdose unter oder neben den Tanks.</b></td><td>Kreis 30 min unter Druck dicht</td></tr>
+<tr><td class="num">4.10</td><td>Dieselheizung im Technikfach, Abgas nach unten, Warmluftkanal 75 mm nach vorn zur Sitzbank, ein Auslass bleibt in der Garage.</td><td>Abgasweg frei, Durchführungen dicht</td></tr>
+<tr><td class="num">4.11</td><td>Licht montieren: L1–L10 nach SPR-EL-01, PWM-Dimmer, bistabiles Relais für „Wohnbereich aus". <b>Kühlschrank und Heizung hängen bewusst nicht daran.</b></td><td>jede Zone einzeln und zentral schaltbar</td></tr>
+<tr><td class="num">4.12</td><td>CO-Melder in Schlafhöhe, Rauchmelder, Löschdecke an der Küche, Feuerlöscher an der Schiebetür. Warnaufkleber „230 V auch ohne Landstrom" am Technikfach.</td><td>alles montiert, nicht nur beschafft</td></tr>
+<tr><td class="num">4.13</td><td>Stromlaufplan ausdrucken und in die Serviceklappe kleben, Ersatzsicherungen deponieren.</td><td>Plan entspricht dem gebauten Stand</td></tr>
+</table></div>
+
+<h2 id="b10"><span class="no">10</span>Phase 5 bis 7 — Bett bauen und einstellen</h2>
+<div class="tw"><table>
+<tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
+<tr><td class="num">5.1</td><td><b>B1/B2 sowie H-KUE, H-KS, KM und KSM erneut messen.</b> Querträger P07 und Bugprofil P11 erst jetzt final ablängen.</td><td>Messblatt datiert; kleinster B-Wert verwendet</td></tr>
+<tr><td class="num">5.2</td><td>Wandauflagen P01/P02 nach realem Holmraster bohren und mit M8 × 30 (15 Nm) montieren. Oberkante beidseits exakt nivellieren.</td><td><b>Z 937</b>, Höhendifferenz links/rechts ≤ 2</td></tr>
+<tr><td class="num">5.3</td><td>Längsträger P03 mit Beinen P04/P05 verleimen, Bodenplatten P06 montieren, mittig ausrichten und am Boden verankern.</td><td>OK Mitte Z 937 ± 2, Beine senkrecht</td></tr>
+<tr><td class="num">5.4</td><td>Querträger P07 entgraten, Bohrungen für P18/P15/Rampa setzen, PE-Gleitband aufkleben, auflegen.</td><td>Länge B2 − 35, keine scharfe Kante</td></tr>
+<tr><td class="num">5.5</td><td>QT über Winkel P18 an P01/P02 und über Rampa an P03 fixieren. Y-Mitten 100 / 590 / 1090 / 1580 einrichten.</td><td>Abstände 490/500/490, Diagonale ≤ 3</td></tr>
+<tr><td class="num">6.1</td><td>Feste Latten P08 mit der Lehre 105/20 auflegen, vorbohren und senken, je zwei 4,2 × 32 pro Kreuzung.</td><td>Teilungssumme ≤ 2, Schrauben bündig</td></tr>
+<tr><td class="num">6.2</td><td>Esche-Latten P10 auf 1560 ablängen, Nut 6 × 5 beidseitig fräsen. P09/P10 mit Winkeln P19 auf ebener Werkbank an P11 vormontieren — <b>gleiche Lehre verwenden</b>.</td><td>Bugprofil gerade, Kamm rechtwinklig</td></tr>
+<tr><td class="num">6.3</td><td>Beweglichen Kamm von vorn einschieben, POM-Klötze P15 in die Nuten einfädeln und an QT4 montieren.</td><td>X-Spiel ≤ 3, Z-Spiel ≤ 1,5</td></tr>
+<tr><td class="num">6.4</td><td>Verbindungsleiste P12 hinten aufschrauben, Filzgleiter über den festen Latten platzieren.</td><td>kein Scheuern, Kamm bleibt rechtwinklig</td></tr>
+<tr><td class="num">6.5</td><td>Hub langsam bis 400 einstellen — Nutende und P15 bilden den Endanschlag. Auszug mehrfach leer betätigen.</td><td>Hub 400 ± 2, ruckfrei</td></tr>
+<tr><td class="num">6.6</td><td>Federriegel P17 an P11 montieren, Kamm einschieben, Buchsenposition durch die Riegelöse ankörnen, Ø 8,2 bohren, Messingbuchsen mit 2K einkleben.</td><td>beide Riegel rasten hörbar und spielfrei</td></tr>
+<tr><td class="num">7.1</td><td><b>GS1–GS4 positionieren</b> — genau über den realen Korpuswänden von Küche und Kühlschrankschrank. HPL aufleimen, Einfahrfase 20 nach hinten, nur gegen Verrutschen verschrauben.</td><td>X-Lagen dokumentiert, Lastpfad durch die Korpuswand</td></tr>
+<tr><td class="num">7.2</td><td>GS mit flächigen Shims auf <b>OK Z 934 ± 1</b> nivellieren. Bugprofil unbelastet 1 mm Luft, belastet satt aufliegend.</td><td>Fühlerlehre, kein Kippeln</td></tr>
+<tr><td class="num">7.3</td><td>Matratze 1600 + 400 einsetzen. Kollisionen zu iPad-Wand, Schiebetür, Küche und Hängeschränken prüfen.</td><td>voll ausziehbar, ≥ 30 mm Luft am Wandhalter</td></tr>
+<tr><td class="num">7.4</td><td><b>Knarzschutz komplettieren:</b> jede Holz-Alu-Kontaktfläche mit PE oder Filz, Senkungen wachsen, P12-Gleiter und QT-Band lückenlos.</td><td>keine Gleitfläche mit Sika oder Lack verschmutzt</td></tr>
+</table></div>
+<div class="hin"><b>Der häufigste Fehler in dieser Phase</b> ist, die Lattenteilung nach Augenmaß zu
+setzen. Zwei Millimeter Summenfehler über 16 Latten blockieren den Auszug. Die Abstandslehre 105/20
+wird einmal gebaut und dann für <b>jede</b> Latte verwendet — auch für die letzte.</div>
+
+<h2 id="b11"><span class="no">11</span>Abnahme, Lasttest, Probefahrt</h2>
+<h4>Mechanik</h4>
+<div class="tw"><table>
+<tr><th>✓</th><th>Prüfpunkt</th><th>Sollwert</th></tr>
+<tr><td>☐</td><td>Alle M8-Wandschrauben mit Drehmoment angezogen und markiert</td><td class="mono">15 Nm</td></tr>
+<tr><td>☐</td><td>Bodenanker aller Möbel fest, Sika ausgehärtet</td><td class="mono">≥ 48 h</td></tr>
+<tr><td>☐</td><td>OK Querträger links = rechts = Mitte</td><td class="mono">Δ ≤ 2 mm</td></tr>
+<tr><td>☐</td><td>QT-Abstände und Plattform-Diagonalen</td><td class="mono">490/500/490 · Δ Diagonale ≤ 3</td></tr>
+<tr><td>☐</td><td>Hub des Auszugs bis Anschlag</td><td class="mono">400 ± 2 mm</td></tr>
+<tr><td>☐</td><td>Zugkraft am Auszug mit Matratze</td><td class="mono">≤ 100 N, ruckfrei</td></tr>
+<tr><td>☐</td><td>Beide Federriegel rasten selbsttätig und spielfrei</td><td class="mono">hörbares Klick, kein Wackeln am Bug</td></tr>
+<tr><td>☐</td><td>GS1–GS4: Bug belastet satt auf, unbelastet 1 mm Luft</td><td class="mono">Fühlerlehre</td></tr>
+<tr><td>☐</td><td>Trelino-Auszug in beiden Endlagen verriegelt</td><td class="mono">kein Selbstöffnen bei Rütteln</td></tr>
+<tr><td>☐</td><td>Alle sechs Hängeschrankklappen verriegeln positiv</td><td class="mono">Rütteltest bestanden</td></tr>
+<tr><td>☐</td><td><b>Lasttest 1:</b> 2 Personen mittig auf dem Bett, 5 min, eingeschoben</td><td class="mono">δ Latten &lt; 5 mm, keine bleibende Verformung</td></tr>
+<tr><td>☐</td><td><b>Lasttest 2:</b> 120 kg auf Bugmitte, ausgezogen</td><td class="mono">δ ≤ 5 mm, Küche und KS ohne Knacken</td></tr>
+<tr><td>☐</td><td><b>Lasttest 3:</b> 2 Personen auf der Sitzbank</td><td class="mono">kein Knacken, kein Verzug</td></tr>
+<tr><td>☐</td><td>Rütteltest eingeschoben, kräftig am Bug</td><td class="mono">kein Klappern, kein Knarzen</td></tr>
+</table></div>
+<h4>Elektrik und Wasser</h4>
+<div class="tw"><table>
+<tr><th>✓</th><th>Prüfpunkt</th><th>Sollwert</th></tr>
+<tr><td>☐</td><td>Alle Sicherungen beschriftet, Stromlaufplan in der Serviceklappe</td><td class="mono">entspricht dem gebauten Stand</td></tr>
+<tr><td>☐</td><td>Hochstrombolzen mit Drehmoment, Markierung gesetzt</td><td class="mono">nach Herstellerangabe</td></tr>
+<tr><td>☐</td><td>Isolations- und Durchgangsprüfung 230 V durch Elektrofachkraft</td><td class="mono">nach DIN VDE 0100-721, dokumentiert</td></tr>
+<tr><td>☐</td><td>FI-Test <b>am Landstrom und im Wechselrichterbetrieb</b></td><td class="mono">beide FI lösen aus</td></tr>
+<tr><td>☐</td><td>AC-out-2 im Batteriebetrieb spannungsfrei</td><td class="mono">Klimaanlage bleibt aus</td></tr>
+<tr><td>☐</td><td>Hochlastverriegelung: in jeder Stellung nur ein Zweig aktiv</td><td class="mono">Kontrollleuchte stimmt</td></tr>
+<tr><td>☐</td><td>Orion XS: Spannungsfall und Lichtmaschinentemperatur bei warmem Motor</td><td class="mono">Wert notiert, erst dann auf 60–70 A</td></tr>
+<tr><td>☐</td><td>Solar: beide Strings liefern, MPPT-Werte plausibel</td><td class="mono">im Datenblattbereich</td></tr>
+<tr><td>☐</td><td>Kühlschrank-Belüftung: Temperatur im Schrank nach 4 h Betrieb</td><td class="mono">≤ 10 K über Raumtemperatur</td></tr>
+<tr><td>☐</td><td>Wasserkreis unter Druck, Pumpe schaltet ab, Kontroll-LED brennt</td><td class="mono">30 min dicht</td></tr>
+<tr><td>☐</td><td>CO-Melder, Rauchmelder, Feuerlöscher montiert und geprüft</td><td class="mono">Prüftaste ausgelöst</td></tr>
+<tr><td>☐</td><td>Technikfachtemperatur unter Volllast Wechselrichter</td><td class="mono">&lt; 45 °C, Lüfter läuft ab 35 °C</td></tr>
+</table></div>
+<h4>Fahrbetrieb</h4>
+<div class="tw"><table>
+<tr><th>✓</th><th>Prüfpunkt</th><th>Sollwert</th></tr>
+<tr><td>☐</td><td>Probefahrt 20 km über Kopfsteinpflaster und Landstraße</td><td class="mono">kein Klappern, nichts löst sich</td></tr>
+<tr><td>☐</td><td>Nachzug aller Verbindungen nach der Probefahrt</td><td class="mono">Lackmarkierungen unverändert</td></tr>
+<tr><td>☐</td><td>Achslasten und Gesamtgewicht auf einer Waage</td><td class="mono">innerhalb der zulässigen Werte</td></tr>
+<tr><td>☐</td><td>Nachzug erneut nach 500 km</td><td class="mono">Termin notiert</td></tr>
+</table></div>
+<div class="hin stop"><b>Erst nach vollständig bestandener Prüfliste zum ersten Mal darin schlafen.</b>
+Ein Bett, das 180 kg trägt, ist kein Möbelstück, das man „mal ausprobiert".</div>
+
+<h2 id="b12"><span class="no">12</span>Betrieb, Wartung, Revisionsprotokoll</h2>
+<h4>Tag- und Nachtumbau</h4>
+<div class="tw"><table>
+<tr><th>Von Tag auf Nacht</th><th>Von Nacht auf Tag</th></tr>
+<tr><td>1. Gang freiräumen (nichts zwischen Bett und Möbeln)<br>2. Beide Federriegel lösen<br>3. Bett gleichmäßig 400 mm ausziehen bis Anschlag<br>4. Matratzenklappe aufklappen<br>5. Kontrolle: Bug liegt auf allen vier Leisten auf</td><td>1. Matratzenklappe hochklappen<br>2. Bett einschieben bis Anschlag<br>3. <b>Beide Riegel auf Einrasten prüfen</b><br>4. Trelino-Auszug verriegelt?<br>5. Vor jeder Fahrt: Rütteltest am Bug</td></tr>
+</table></div>
+<div class="hin"><b>Die eine Regel, die im Fahrbetrieb zählt:</b> Bett eingeschoben und <b>beide</b> Riegel
+eingerastet. Der bewegliche Kamm wiegt rund 35 kg — bei einer Vollbremsung ist das ein Geschoss.
+Die POM-Klötze halten ihn zwar formschlüssig gegen Abheben, sind aber nicht als Crash-Sicherung ausgelegt.</div>
+
+<h4>Wartungsplan</h4>
+<div class="tw"><table>
+<tr><th>Intervall</th><th>Arbeit</th></tr>
+<tr><td>vor jeder Fahrt</td><td>Bett eingeschoben und verriegelt · Trelino-Auszug verriegelt · HS-Klappen zu · Tisch entnommen oder gesichert · Landstromkabel getrennt</td></tr>
+<tr><td>monatlich</td><td>Federriegel und Gleitflächen sichtprüfen · Wasserkreis auf Leckagen · Kühlschrank-Lüftungsgitter frei · Batteriestand und Ladehistorie im Cerbo prüfen</td></tr>
+<tr><td>halbjährlich</td><td>Alle Möbelanker und QT-Verbindungen nachziehen (Lackmarkierung) · PE-Gleitband und Filz auf Verschleiß · Solarmodule reinigen · Dachdurchführungen und Klebefugen prüfen</td></tr>
+<tr><td>jährlich</td><td>FI-Test beider Kreise · Drehmomentkontrolle aller Hochstrombolzen · CO- und Rauchmelder testen und Batterie tauschen · Feuerlöscher prüfen lassen · Zellspannungen im BMS ansehen</td></tr>
+<tr><td>vor dem Winter</td><td>Wasserkreis vollständig entleeren · Batterieheizung bzw. Ladefreigabe ≥ +5 °C prüfen · Dieselheizung Probelauf · Dichtungen fetten</td></tr>
+</table></div>
+
+<h4>Revisionsprotokoll — reale Endmaße eintragen</h4>
+<div class="tw"><table>
+<tr><th>Maß</th><th class="num">Planwert</th><th class="num">real gemessen</th><th class="num">Datum</th></tr>
+<tr><td>B1 lichte Innenbreite</td><td class="num">1720</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>B2 auf Auflagerhöhe</td><td class="num">1715</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>H-KUE OK Küche</td><td class="num">900</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>H-KS OK Kühlschrankschrank</td><td class="num">900</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>OK Querträger</td><td class="num">937</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>OK GS1–GS4 (Gleitebene)</td><td class="num">934</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>OK Latten</td><td class="num">995</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>OK Matratze</td><td class="num">1115</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>Hub des Auszugs</td><td class="num">400</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>AS Schiebetürausschnitt</td><td class="num">1990</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>UK Hängeschränke HS1–3 / HS4–6</td><td class="num">1450 / 1620</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>Leergewicht nach Ausbau (Waage)</td><td class="num">—</td><td class="num">__________</td><td class="num">________</td></tr>
+<tr><td>Hinterachslast</td><td class="num">—</td><td class="num">__________</td><td class="num">________</td></tr>
+</table></div>
+
+<p style="margin-top:40px;border-top:1px solid var(--line);padding-top:14px"><small>
+SPR-BAU-01 Rev A · Zusammenführung der Konstruktionsstände SPR-GA-01 (Rev B), SPR-BETT-01 (Rev B),
+SPR-EL-01 (Rev A) und der Baudokumentation Rev C. Die Zuschnittlisten für Kühlschrankschrank und
+Sitzbank sind Konstruktionsvorschläge und keine Herstellerfreigaben — Einbaumaße, Türschwenk,
+Befestigung und Lüftungsquerschnitte sind aus der Anleitung des jeweils gelieferten Geräts zu
+übernehmen. Die 230-V-Installation ist vor Inbetriebnahme durch eine Elektrofachkraft zu prüfen und
+zu dokumentieren.</small></p>
