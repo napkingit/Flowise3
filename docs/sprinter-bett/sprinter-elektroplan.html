@@ -98,7 +98,7 @@ svg text{font-family:var(--mono)}
     </div>
   </div>
   <div class="meta">
-    Zeichnungssatz&nbsp;SPR-EL-01 · <b>Rev&nbsp;F</b><br>
+    Zeichnungssatz&nbsp;SPR-EL-01 · Stand&nbsp;06.08.2026<br>
     Koordinaten wie SPR-GA-01:<br>
     X&nbsp;=&nbsp;Breite (0&nbsp;=&nbsp;Verkleidung Fahrerseite)<br>
     Y&nbsp;=&nbsp;Fahrtrichtung (0&nbsp;=&nbsp;Hecktüren)<br>
@@ -121,21 +121,7 @@ svg text{font-family:var(--mono)}
   <a href="#s11">11 · Stückliste / BOM</a>
   <a href="#s12">12 · Variantenvergleich</a>
   <a href="#s13">13 · Konkrete Empfehlung</a>
-  <a href="#s14">14 · Abgleich Stromkonzept &amp; Rev C</a>
 </nav>
-
-<div class="hin ok"><b>Rev F — was sich gegenüber Rev E geändert hat</b> (Vorgaben des Bauherrn vom 06.08.2026):
-<b>①</b> Klimaanlage = <b>Mestic Sorin SPA-5100 Split-Unit als Mitnahmegerät</b> auf AC-out-2;
-<b>alle festen Klimakanäle, die drei Luftauslässe, der Kondensatkanal und das feste Klimafach sind
-gestrichen</b> — es bleibt eine einzige 230-V-Dose (A5).
-<b>②</b> Solar = <b>600 Wp aus 3 × ECTIVE MSP 200 Flex</b> auf MPPT 100/30 + 75/15.
-<b>③</b> Alle Lade­punkte <b>USB-C PD 100 W, kein USB-A</b>; am Tisch <b>vier</b> 100-W-Ports auf einem
-eigenen 40-A-Kreis.
-<b>④</b> Neue Kapitel-6-Zeichnungen EL-03…EL-06 (Wandabwicklungen, Paneelbestückung 1:5, Lichtplan).
-<b>⑤</b> iPad-Hauptbasis IP1 an der Beifahrerwand, verriegelbar und ausziehbar.
-<b>⑥</b> Hochlastverriegelung jetzt <b>elektrisch <i>und</i> mechanisch</b>, Induktion auf 1 800 W begrenzt.
-<b>⑦</b> Alle sechs Hängeschränke auf der Fahrerseite, Beifahrer-Bettwand bleibt frei.
-<b>⑧</b> Preis- und Gewichtsübersicht der Elektronik am Ende von Kapitel 11.</div>
 
 <h2 id="s1"><span class="no">1</span>Kurzfazit</h2>
 
@@ -143,7 +129,7 @@ eigenen 40-A-Kreis.
 <div class="hin ok"><b>1. Die Klimaanlage ist ein Mitnahmegerät auf AC-out-2 — damit ist der
 Zielkonflikt vollständig aufgelöst.</b> Eine <b>Dach</b>klimaanlage und eine ernstzunehmende
 Solaranlage schließen sich auf einem L2H2 gegenseitig aus, und Klimatisierung zieht 3–4&nbsp;kWh pro
-Nacht — mehr als die gesamte übrige Anlage am Tag. <b>Entscheidung Rev F:</b> statt eines fest
+Nacht — mehr als die gesamte übrige Anlage am Tag. <b>Entscheidung:</b> statt eines fest
 eingebauten Geräts kommt eine <b>Mestic Sorin SPA-5100 Split-Unit</b> ins Fahrzeug, und zwar
 <b>nur dann, wenn wirklich eine heiße Region angefahren wird</b>. Das Gerät wird plug&amp;play in eine
 Fensteröffnung gestellt und braucht <b>ausschließlich einen 230-V-Anschluss</b>: keine Luftkanäle,
@@ -278,9 +264,9 @@ wird. In der Übergangszeit fehlen täglich rund 1&nbsp;kWh, die aus Fahrstrom k
 der Ladebooster kein Nice-to-have, sondern gleichwertige Hauptquelle.</div>
 
 <h2 id="s4"><span class="no">4</span>Empfehlung für das Energiesystem</h2>
-<div class="hin ok"><b>Diese Auslegung führt drei Quellen zusammen:</b> meine Lastanalyse, dein
-Stromkonzept (Option B) und die Baudokumentation Rev C. Wo sich die Dokumente widersprachen, steht
-die Begründung in Kapitel&nbsp;14.</div>
+<div class="hin ok"><b>Grundlage dieser Auslegung</b> sind die Lastanalyse aus Kapitel&nbsp;3, die
+Datenblattwerte der tatsächlich gewählten Geräte und die Randbedingungen des Fahrzeugs (Dachfläche,
+Lichtmaschine, Zuladung). Jede Zeile der Tabelle nennt den Grund für die Wahl, nicht nur das Produkt.</div>
 <div class="tw"><table>
 <tr><th>Komponente</th><th>Empfehlung</th><th>Begründung</th></tr>
 <tr><td><b>Batteriechemie</b></td><td>LiFePO4 (LFP), <b>Victron Lithium&nbsp;NG</b></td><td>Bei 2,4–3,1 kWh Tagesumsatz und 200 A+ Entladestrom ist Blei/AGM disqualifiziert. Die NG-Serie ist auf hohe Dauerströme ausgelegt (300 A je Batterie) und arbeitet mit dem Lynx Smart BMS NG als System.</td></tr>
@@ -366,7 +352,7 @@ die Begründung in Kapitel&nbsp;14.</div>
 
 <h4>Warum diese Architektur</h4>
 <ul>
-<li><b>AC-out-2 statt Verzicht auf Klima.</b> Mein ursprünglicher Vorschlag war, die Klimaanlage ganz zu streichen. Dein Stromkonzept hat die bessere Lösung: der zweite Wechselrichterausgang ist im Batteriebetrieb spannungsfrei. Damit ist die Klima am Landstrom voll nutzbar und off-grid technisch ausgeschlossen — ohne Disziplin, ohne Diskussion.</li>
+<li><b>AC-out-2 statt Verzicht auf Klima.</b> Der zweite Wechselrichterausgang ist im Batteriebetrieb spannungsfrei. Damit ist die Klimaanlage am Landstrom voll nutzbar und off-grid technisch ausgeschlossen — ohne Disziplin, ohne Diskussion und ohne die Batterie zu gefährden.</li>
 <li><b>Mitnahme-Split statt Einbaugerät.</b> Die Mestic Sorin SPA-5100 wird nur mitgenommen, wenn es wirklich heiß wird. Damit entfallen Luftkanäle, Auslässe, Kondensatführung und das feste Klimafach vollständig aus dem Möbelbau — es bleibt eine einzige 230-V-Dose. Das ist die mit Abstand einfachste und leichteste Lösung, und das Dach bleibt frei.</li>
 <li><b>Lynx Smart BMS NG statt Einzel-BMS + Shunt.</b> Zwei parallele 300-Ah-Batterien brauchen ein gemeinsames Abschaltorgan; die Strommessung ist gleich mit drin.</li>
 <li><b>Zwei MPPT statt einem.</b> 600 Wp auf zwei Strings (2 + 1 Modul): Teilverschattung nimmt nur einen Regler mit. Ein einzelner 100/50 wäre im 12-V-System bei ~700 W gedeckelt und hätte keine Reserve.</li>
@@ -893,7 +879,7 @@ man vergessen kann (Pumpe, Außenlicht), und der Hochlast-Wahlschalter direkt ne
 </figure>
 
 <h2 id="s7"><span class="no">7</span>Steckdosen- und Ladepunkteliste</h2>
-<div class="hin ok"><b>Grundregel Rev F:</b> jeder Ladepunkt an Arbeitsplatz, Bett und Tablet ist
+<div class="hin ok"><b>Grundregel:</b> jeder Ladepunkt an Arbeitsplatz, Bett und Tablet ist
 <b>USB-C&nbsp;PD 100 W</b>. <b>Kein USB-A</b> im ganzen Fahrzeug. Am Tisch sitzen <b>vier</b> echte
 100-W-Ports auf einem eigenen Kreis — nicht vier Buchsen an einem 60-W-Netzteil.</div>
 <div class="tw"><table>
@@ -926,10 +912,10 @@ LS-Kreisen</b>: löst der Induktionskreis aus, arbeitet der Laptop weiter.</div>
 <h2 id="s8"><span class="no">8</span>Lichtkonzept</h2>
 <div class="hin ok"><b>Guter Ausgangspunkt:</b> Die sechs CAMPANY-Hängeschränke bringen laut Rechnung
 je eine <b>dimmbare LED-Leiste</b> mit — das ist bereits ein großer Teil des indirekten Lichts.
-<b>Wichtig seit Rev B des Grundrisses:</b> alle sechs Schränke hängen auf der <b>Fahrerseite</b>.
+Alle sechs Schränke hängen auf der <b>Fahrerseite</b>.
 Die Beifahrerseite über dem Bett bekommt deshalb ein <b>eigenes LED-Profil in der Dachkante</b>
 (Y 200–1600), damit beide Bettseiten gleichwertiges indirektes Licht haben.</div>
-<div class="hin"><b>Festlegung Rev F (ersetzt den früheren 2+2-Vorschlag):</b> <b>alle sechs</b>
+<div class="hin"><b>Festlegung:</b> <b>alle sechs</b>
 Hängeschränke hängen auf der <b>Fahrerseite</b> und werden an den vorhandenen Airline-Schienen nach
 Herstellerangabe befestigt. HS1–HS3 sitzen über dem Bett mit UK&nbsp;1450, HS4–HS6 über der Sitzgruppe
 mit UK&nbsp;1620 über dem Fensteroberrand. Die <b>komplette Beifahrerwand im Bettbereich bleibt frei</b>
@@ -981,7 +967,7 @@ Arbeits-, Nacht- und Außenlicht sind Ein/Aus-Funktionen. PWM-Dimmer immer mit �
 sonst flackern sie in Videoaufnahmen — ein Punkt, der bei Kamera-Nutzern regelmäßig übersehen wird.</p>
 
 <h2 id="s9"><span class="no">9</span>iPad- und Gerätehalterungskonzept</h2>
-<div class="hin ok"><b>Neu in Rev F:</b> eine <b>feste, flache, formschlüssig verriegelbare
+<div class="hin ok">Die Beifahrerwand über dem Bett bleibt frei — mit <b>einer</b> Ausnahme: einer <b>festen, flachen, formschlüssig verriegelbaren
 iPad-Hauptbasis IP1</b> an der Beifahrerwand — im oberen Drittel der Fahrzeugwand, so dass man
 <b>aufrecht im Bett sitzend fast waagerecht</b> auf das Display schaut. Sie ist die einzige Ausnahme
 von der Freihaltezone auf der Beifahrerseite und darf deshalb eingeklappt <b>≤ 35 mm</b> vorstehen.</div>
@@ -1094,7 +1080,7 @@ richtet sie sich nach dem Querschnitt und der realen Länge, nicht nach der Ger�
 <div class="hin ok"><b>Dreistufiger Wahlschalter an der Küchenstirnseite:</b>
 <b>0</b> = Hochlast aus · <b>1</b> = Induktion frei · <b>2</b> = Hochlaststeckdose frei (Airfryer oder
 Kaffeemaschine). Dahinter zwei zweipolige Schütze, gegeneinander verriegelt, mit Kontrollleuchte für
-den freigegebenen Zweig. <b>Doppelte Verriegelung nach Vorgabe Rev F:</b> ① <b>elektrisch</b> — die
+den freigegebenen Zweig. <b>Doppelte Verriegelung, elektrisch und mechanisch:</b> ① <b>elektrisch</b> — die
 Spulen der beiden Schütze liegen über je einen Öffnerkontakt des jeweils anderen Schützes, es kann also
 physikalisch nur einer anziehen; ② <b>mechanisch</b> — die beiden Schütze werden mit dem
 Original-Verriegelungsbügel des Herstellers (mechanische Wendeverriegelung) gekoppelt, und der
@@ -1258,7 +1244,7 @@ damit sie sich 1:1 aus jedem Katalog belegen lassen. <b>Sag mir, wofür WCS bei 
 <tr><td><b>Mestic Sorin SPA-5100 Split-Unit</b> — Mitnahmegerät, kein Einbau, keine Kanäle; bauseits nur Dose A5</td><td class="num">1</td><td class="num">900–1100</td></tr>
 </table></div>
 
-<h4>Preis- und Gewichtsübersicht Elektronik (Rev F)</h4>
+<h4>Preis- und Gewichtsübersicht Elektronik</h4>
 <div class="tw"><table>
 <tr><th>Gruppe</th><th>Inhalt</th><th class="num">Gewicht</th><th class="num">Material ≈ €</th></tr>
 <tr><td><b>A</b></td><td>Energie-Kernsystem Victron inkl. 600 Ah, MultiPlus-II 12/3000, 2 MPPT, Orion XS, Cerbo, <b>600 Wp ECTIVE Flex</b></td><td class="num">≈ 104 kg</td><td class="num">8 500 – 10 400</td></tr>
@@ -1360,33 +1346,8 @@ Grundautarkie statt 2,5 und macht die Klimaanlage möglich, ohne die Solarfläch
 <li><b>Der Kühlschrank braucht Luft, nicht nur Strom.</b> Ohne Zuluft unten und Abluft oben (je ~200 cm²) steigt sein Verbrauch um 30–50 %. Zwei Gitter für 30 € sind die billigste kWh im ganzen Fahrzeug.</li>
 </ol>
 
-<h2 id="s14"><span class="no">14</span>Abgleich mit Stromkonzept und Baudokumentation Rev C</h2>
-<p>Wo sich die drei Quellen unterschieden, steht hier die Entscheidung und der Grund. Nichts davon ist
-Geschmackssache — jede Zeile hat eine technische Begründung.</p>
-<div class="tw"><table>
-<tr><th>Thema</th><th>Mein erster Entwurf</th><th>Stromkonzept / Rev C</th><th>Jetzt gültig — und warum</th></tr>
-<tr><td><b>Klimaanlage</b></td><td>weglassen</td><td>Gerät auf AC-out-2, nur Landstrom</td><td><b>Beide überholt durch die Bauherren-Entscheidung Rev F:</b> Mestic Sorin SPA-5100 als <b>Mitnahmegerät</b>. AC-out-2 bleibt das richtige Prinzip, aber es entfallen Einbau, Kanäle, Auslässe, Kondensatweg und Klimafach vollständig</td></tr>
-<tr><td><b>Batterie</b></td><td>400 Ah / 5,1 kWh</td><td>600 Ah / 7,68 kWh</td><td><b>600 Ah.</b> Der Komforttag liegt bei 3,1 kWh; mit 400 Ah wären das 1,6 Tage. Preis: +45 kg und ~2.500 € — vor der Bestellung Restzuladung prüfen</td></tr>
-<tr><td><b>BMS</b></td><td>batterieintern + SmartShunt</td><td>Lynx Smart BMS NG 500 A</td><td><b>Lynx Smart BMS NG.</b> Zwei parallele NG-Batterien brauchen ein gemeinsames Abschaltorgan; die Strommessung ist enthalten, der SmartShunt entfällt</td></tr>
-<tr><td><b>Solar</b></td><td>780 Wp, 2 × MPPT 100/30</td><td>600 Wp, 1 × MPPT 100/50</td><td><b>Festlegung Rev F: 600 Wp als 3 × ECTIVE MSP 200 Flex auf 100/30 (2 in Reihe) + 75/15 (1 Modul).</b> Die Kapazität des Stromkonzepts, aber auf zwei Regler verteilt — ein 100/50 nimmt im 12-V-System nur ~700 W an und wäre bei Teilverschattung der Engpass. Flexmodule sparen gegenüber Rahmenmodulen ~29 kg Dachlast</td></tr>
-<tr><td><b>Ladebooster</b></td><td>2 × Orion XS 50 A = 100 A</td><td>1 × Orion XS 70 A, auf 50–60 A begrenzt</td><td><b>Stromkonzept gewinnt.</b> Die zulässige Dauerentnahme am W907 ist VIN-abhängig. Erst messen, dann hochdrehen. Ein zweites Gerät nur bei bestätigter Freigabe</td></tr>
-<tr><td><b>Hochlast</b></td><td>Bedienregel „nur eines"</td><td>verriegelte Schütze + 3-Stufen-Wahlschalter</td><td><b>Stromkonzept gewinnt.</b> Erzwingen statt beschriften — 40 € gegen wiederholte Wechselrichter-Überlast</td></tr>
-<tr><td><b>Induktion</b></td><td>2000–2100 W</td><td>auf 1800 W begrenzt</td><td><b>1800 W.</b> Spart 15 % Spitzenstrom bei kaum spürbarem Komfortverlust</td></tr>
-<tr><td><b>Ladefreigabe kalt</b></td><td>&gt; 0 °C</td><td>&gt; +5 °C (Victron NG)</td><td><b>+5 °C</b> — Herstellervorgabe der gewählten Batterie schlägt die allgemeine LFP-Regel</td></tr>
-<tr><td><b>„Alles aus"</b></td><td>gesamte Innenbeleuchtung</td><td>„Wohnbereich aus" ohne Kühlschrank/Heizung</td><td><b>Stromkonzept gewinnt.</b> Ein Master-Aus, der nachts den Kühlschrank mitnimmt, ist ein Konstruktionsfehler</td></tr>
-<tr><td><b>Hängeschränke</b></td><td>2+2 über dem Bett, 2 über der Sitzgruppe</td><td>alle 6 auf der Fahrerseite, Beifahrerwand frei</td><td><b>Rev C gewinnt — mit einer Korrektur.</b> Die durchgehende UK 1450 kollidiert mit dem Fahrerseitenfenster (OK ≈ 1550). Deshalb jetzt gestaffelt: HS1–3 UK 1450, HS4–6 UK 1620, Stufe bei Y 1750</td></tr>
-<tr><td><b>Bett-Höhenkette</b></td><td>Rev B: OK Latten 995</td><td>Rev C bestätigt Rev B</td><td><b>Unverändert</b> — OK Latten 995, OK Matratze 1115, UK Querträger 937, GS1–GS4 auf Z 934</td></tr>
-<tr><td><b>Solarertrag</b></td><td>eigene Bandbreite</td><td>Hinweis auf PVGIS-Simulation</td><td><b>Beides.</b> Die Bandbreiten in Kapitel 3 sind Planungswerte; für die konkrete Reiseroute lohnt eine PVGIS-Rechnung vor der finalen Modulwahl</td></tr>
-</table></div>
-<div class="hin"><b>Ein Punkt, an dem ich beim Stromkonzept widerspreche:</b> Dort ist der Kühlschrank mit
-360&nbsp;Wh/Tag angesetzt (8 h Kompressorlauf). Das ist ein guter Wert für 20–22 °C Innentemperatur.
-Im Hochsommer in einem geschlossenen Eigenbauschrank sind 500–700&nbsp;Wh realistisch. Ich rechne
-deshalb in Kapitel&nbsp;3 mit 450&nbsp;Wh und weise 700&nbsp;Wh als Hitzefall aus. Das verschiebt die
-Autarkie im Sommer um etwa einen halben Tag nach unten — und macht die Schrankbelüftung zur
-wichtigsten billigen Maßnahme.</div>
-
 <p style="margin-top:40px;border-top:1px solid var(--line);padding-top:14px"><small>
-SPR-EL-01 Rev A · Auslegung auf Basis von SPR-GA-01, der CAMPANY-Rechnung RE2601250 und den
+SPR-EL-01 · Stand 06.08.2026 · Auslegung auf Basis von SPR-GA-01, der CAMPANY-Rechnung RE2601250 und den
 angegebenen Geräten. Verbrauchswerte sind Erfahrungswerte mit ±&nbsp;20&nbsp;% Streuung; Solarerträge
 sind Mitteleuropa-Annahmen. Die 230-V-Installation ist vor Inbetriebnahme durch eine Elektrofachkraft
 zu prüfen. Kein Ersatz für eine Prüfung nach DIN VDE 0100-721 bzw. EN 1648-2.</small></p>
