@@ -72,7 +72,7 @@ svg text{font-family:var(--mono)}
     <p style="margin:2px 0 0;color:var(--ink2)">Kühlschrankschrank · Sitzbank mit Trelino-Auszug · vollständige Materialliste · Step-by-step-Aufbau · Abnahme und Betrieb</p>
   </div>
   <div class="meta">
-    Zeichnungssatz&nbsp;SPR-BAU-01 · Rev&nbsp;A<br>
+    Zeichnungssatz&nbsp;SPR-BAU-01 · <b>Rev&nbsp;F</b><br>
     Ergänzt SPR-GA-01, SPR-BETT-01, SPR-EL-01<br>
     Koordinaten wie SPR-GA-01, Maße in mm<br>
     [B] bestätigt · [P] Produktmaß · [A] Annahme · [V] messen
@@ -82,16 +82,21 @@ svg text{font-family:var(--mono)}
 <nav class="toc" aria-label="Inhalt">
   <a href="#b1">1 · Kühlschrankschrank (Eigenbau)</a>
   <a href="#b2">2 · Sitzbank mit Trelino-Auszug</a>
-  <a href="#b3">3 · Aufmaßblatt — vor jeder Bestellung</a>
-  <a href="#b4">4 · Gesamtmaterialliste</a>
-  <a href="#b5">5 · Werkzeuge und Vorbereitung</a>
-  <a href="#b6">6 · Bauablauf mit Freigabetoren</a>
-  <a href="#b7">7 · Phase 1 — Fahrzeug vorbereiten</a>
-  <a href="#b8">8 · Phase 2 — Möbel und Hängeschränke</a>
-  <a href="#b9">9 · Phase 3 — Elektrik und Wasser</a>
-  <a href="#b10">10 · Phase 4 — Bett bauen und einstellen</a>
-  <a href="#b11">11 · Abnahme, Lasttest, Probefahrt</a>
-  <a href="#b12">12 · Betrieb, Wartung, Revisionsprotokoll</a>
+  <a href="#b3">3 · Dinette-Podest P und HF1</a>
+  <a href="#b4">4 · Warmluftführung OEM-Standheizung</a>
+  <a href="#b5">5 · Wertfächer HF1–HF3 und Safe</a>
+  <a href="#b6">6 · Küche, Wasser und Kochstelle</a>
+  <a href="#b7">7 · Aufmaßblatt — vor jeder Bestellung</a>
+  <a href="#b8">8 · Gesamtmaterialliste</a>
+  <a href="#b9">9 · Gewicht und Achslasten</a>
+  <a href="#b10">10 · Werkzeuge und Vorbereitung</a>
+  <a href="#b11">11 · Bauablauf mit Freigabetoren</a>
+  <a href="#b12">12 · Phase 1 — Fahrzeug vorbereiten</a>
+  <a href="#b13">13 · Phase 2 und 3 — Möbel und Hängeschränke</a>
+  <a href="#b14">14 · Phase 4 — Elektrik und Wasser</a>
+  <a href="#b15">15 · Phase 5 bis 7 — Bett bauen</a>
+  <a href="#b16">16 · Abnahme, Lasttest, Probefahrt</a>
+  <a href="#b17">17 · Betrieb, Wartung, Revisionsprotokoll</a>
 </nav>
 
 <h2 id="b1"><span class="no">1</span>Kühlschrankschrank — Eigenbau</h2>
@@ -304,7 +309,314 @@ Deshalb steht der Tisch auf 770–790 statt der üblichen 730.</p>
 <div class="hin stop"><b>Zulassung:</b> Diese Bank ist eine reine Wohn- und Aufenthaltsbank. Ein
 zugelassener Sitzplatz während der Fahrt bräuchte einen geprüften Gurtbock mit Karosserieanbindung
 und eine Einzelabnahme — das ist ausdrücklich <b>nicht</b> Bestandteil dieses Plans.</div>
-<h2 id="b3"><span class="no">3</span>Aufmaßblatt — vor jeder Bestellung ausfüllen</h2>
+<h2 id="b3"><span class="no">3</span>Dinette-Podest P — Aufbau, Auszug und Geheimfach HF1</h2>
+<p>Das Podest hebt <b>Sitzbank und Tisch gemeinsam</b> an, damit die gedrehten Fahrerhaussitze,
+die Bank und die Tischhöhe eine gemeinsame Ergonomie bekommen. Es ist gleichzeitig der Kanal für die
+Warmluft der OEM-Heizung und der Ort des flachen Wertfachs&nbsp;HF1. <b>P&nbsp;=&nbsp;120&nbsp;mm ist
+der konstruktive Startwert</b> — die endgültige Höhe wird erst nach dem Probesitzen freigegeben.</p>
+
+<div class="hin ok"><b>Warum das Podest die Ergonomie rettet:</b> die gedrehten Serienstühle sitzen
+konstruktiv hoch. Ohne Podest hängen die Füße, mit Podest stehen sie vollflächig. Aus dem Podest
+folgen zwangsläufig alle anderen Höhen: <b>Polster-OK = P + 510</b>, <b>Tisch-OK = P + 780</b>
+(zulässig 770–790). Bei P&nbsp;=&nbsp;120 sind das <b>Sitz 630</b> und <b>Tisch 900</b> — und
+Tisch&nbsp;900 ist exakt die Möbelhöhe von Küche und Kühlschrankschrank. Die Tischplatte liegt damit
+bündig in der Gleitebene des Bettauszugs, was den ganzen Plan konsistent macht.</div>
+
+<h4>3.1 Höhe P ermitteln — Messformel und Probesitzen</h4>
+<div class="tw"><table>
+<tr><th>Var.</th><th>Messung</th><th>Ergebnis</th><th>Bedeutung</th></tr>
+<tr><td class="mono">SF</td><td>Fahrersitz gedreht, <b>belastete</b> Sitzvorderkante bis Z 0</td><td class="num">____ mm [V]</td><td>Sitzhöhe, die das Podest angleichen muss</td></tr>
+<tr><td class="mono">SB</td><td>Beifahrersitz gedreht, belastete Sitzvorderkante bis Z 0</td><td class="num">____ mm [V]</td><td>zweiter Referenzwert</td></tr>
+<tr><td class="mono">KF / KB</td><td>Kniekehlenhöhe Fahrer / Beifahrer <b>mit Schuhen</b></td><td class="num">____ / ____ mm [V]</td><td>bestimmt, ab wann die Füße hängen</td></tr>
+<tr><td class="mono">P-A</td><td>Sitzangleichung = Mittelwert(SF, SB) − 510</td><td class="num">____ mm</td><td>Podesthöhe, bei der Bank und Drehsitz gleich hoch sind</td></tr>
+<tr><td class="mono">P-E</td><td>Fußkontakt = kleinerer Wert aus (SF − KF) und (SB − KB)</td><td class="num">____ mm</td><td>Podesthöhe, ab der beide Personen Bodenkontakt haben</td></tr>
+<tr class="sum"><td class="mono">P</td><td><b>gewählte Höhe nach Probesitzen</b>, nominal 120</td><td class="num">____ mm</td><td>die <b>kleinste komfortable</b> Höhe gewinnt</td></tr>
+</table></div>
+<div class="hin"><b>1:1-Mock-up vor dem Zuschnitt — fünf Schritte:</b> ① beide Sitze in die spätere
+Tischstellung drehen und verriegeln, Fußhüllen auf dem Boden anzeichnen. ② stabile Testflächen
+<b>H 100, H 120 und H 140</b> unterlegen. ③ je Nutzer <b>20 Minuten sitzen</b> — Füße, Kniekehle,
+Tischabstand, Aufstehen, Sitzwechsel. ④ Bank- und Tischschablone um P anheben, <b>Trelino-Auszug und
+Schiebetür betätigen</b>. ⑤ kleinste komfortable Höhe schriftlich als P festhalten.
+<b>Ändert sich P, ändern sich ausschließlich die Rippenhöhen</b> — Kontur, Deckel, Anker und HF1
+bleiben unverändert. Das ist der Grund, warum diese eine Zahl gefahrlos offen bleiben darf.</div>
+
+<h4>3.2 Kontur — was angehoben wird und was bewusst unten bleibt</h4>
+<div class="tw"><table>
+<tr><th>Feld</th><th class="num">X von…bis</th><th class="num">Y von…bis</th><th>Funktion</th><th>Status</th></tr>
+<tr><td><b>Feld A</b></td><td class="num">0 … 800</td><td class="num">2130 … 2630</td><td>Standfläche unter der Sitzbank, Auszugsraum des Trelino darüber</td><td>[A/V]</td></tr>
+<tr><td><b>Feld B</b></td><td class="num">0 … 1050</td><td class="num">2630 … 3380</td><td>Tischfuß, Fußraum <b>beider</b> gedrehter Sitze, <b>HF1</b>, Heizluftauslass</td><td>[A/V]</td></tr>
+<tr><td><b>Feld C</b></td><td class="num">1050 … 1350</td><td class="num">2690 … 3380</td><td><b>Podesterweiterung zum Beifahrersitz — wird gebaut</b> (Vorgabe Rev F)</td><td>[A/V] Endkontur nach realer Fußhülle</td></tr>
+<tr><td><b>frei bei Z 0</b></td><td class="num">1350 … 1780</td><td class="num">2130 … 3380</td><td><b>abgesenkter Einstieg an der Schiebetür</b> — bleibt Fahrzeugboden</td><td>gesetzt</td></tr>
+<tr><td><b>frei bei Z 0</b></td><td class="num">800 … 1270</td><td class="num">1640 … 2630</td><td><b>Stehzone vor der Küche</b> — bleibt Fahrzeugboden</td><td>gesetzt</td></tr>
+</table></div>
+<div class="hin"><b>Die wichtigste Kontur-Entscheidung, und warum sie so fällt:</b> die Stehzone vor
+dem Küchenblock bleibt <b>bewusst</b> auf Z 0. Würde das Podest dort durchlaufen, sänke die
+Arbeitshöhe der Küche effektiv von 900 auf <b>780&nbsp;mm</b> — das ist zu niedrig zum Schnippeln und
+Spülen und lässt sich nachträglich nicht mehr korrigieren. Ebenso bleibt der Einstieg an der
+Schiebetür abgesenkt: dort ist jeder Zentimeter Stufe ein Risiko, und die volle Türhöhe geht sonst
+verloren. Zwischen Feld A und der Stehzone entsteht dadurch eine <b>Stufe von 120&nbsp;mm bei
+X&nbsp;800</b> — sie bekommt eine <b>kontrastfarbene Kante und ein flächenbündiges Alu-Kantenprofil</b>
+und wird von L5 (Sockellicht) beleuchtet.</div>
+
+<figure class="zbox"><div class="zk"><b>POD-01 · Dinette-Podest</b><span>oben: Grundriss (Heck links) · unten: Querschnitt mit Höhenkette</span><span>SPR-BAU-01-POD01</span></div>
+<svg viewBox="-820 -420 3400 3900" style="font-size:44px" role="img" aria-label="Dinette-Podest">
+<defs><marker id="pd" markerWidth="11" markerHeight="11" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+
+<text class="lbl" x="-780" y="-300">A · Grundriss — X nach unten (0 = Fahrerseite), Y nach rechts (2000 … 3450)</text>
+<!-- Fahrzeugwaende -->
+<line class="p" x1="-450" y1="0" x2="1450" y2="0"/>
+<line class="p" x1="-450" y1="1780" x2="1450" y2="1780"/>
+<text class="dt2" x="-780" y="-40">X 0 · Fahrerseite</text>
+<text class="dt2" x="-780" y="1840">X 1780 · Beifahrerseite</text>
+
+<!-- Kueche -->
+<rect class="pt dash" x="-450" y="1270" width="1140" height="450"/>
+<text class="dt2" x="-420" y="1520">KÜCHENBLOCK (Y 1640–2690)</text>
+<!-- Stehzone -->
+<rect class="pt dash" x="-450" y="800" width="1080" height="470"/>
+<text class="dv" x="-420" y="1080">STEHZONE bleibt Z 0</text>
+<text class="dt2" x="-420" y="1140">Küche behält 900 mm Arbeitshöhe</text>
+
+<!-- Podestfelder -->
+<rect class="soft" x="130" y="0" width="500" height="800"/>
+<text class="lbl" x="170" y="300">FELD A</text><text class="dt2" x="170" y="360">Bank</text>
+<rect class="soft" x="630" y="0" width="750" height="1050"/>
+<text class="lbl" x="1130" y="300">FELD B</text><text class="dt2" x="1130" y="360">Tisch + Fußraum</text>
+<rect class="soft" x="690" y="1050" width="690" height="300" style="stroke-dasharray:14 10"/>
+<text class="dt2" x="720" y="1300">FELD C · Erweiterung Beifahrersitz</text>
+<!-- Einstieg -->
+<rect class="pt dash" x="690" y="1350" width="690" height="430"/>
+<text class="dv" x="720" y="1600">EINSTIEG bleibt Z 0</text>
+
+<!-- Bank / Tisch -->
+<rect class="pt" x="130" y="0" width="500" height="650"/><text class="dt2" x="170" y="600">Bank 650 × 500</text>
+<rect class="pt" x="630" y="0" width="480" height="900"/><text class="dt2" x="660" y="860">Tisch 900 × 480</text>
+
+<!-- HF1 -->
+<rect class="pt" x="880" y="500" width="220" height="300" rx="8"/>
+<text class="dv" x="1130" y="620">HF1 · innen 300 × 220 × H 70</text>
+<text class="dt2" x="1130" y="680">bündige Klappe unter dem Belag,</text>
+<text class="dt2" x="1130" y="740">eigenes kaltes Feld</text>
+
+<!-- Heizluftweg -->
+<path class="dashf" d="M60,980 L60,120 L560,120"/>
+<circle class="pt" cx="60" cy="980" r="44"/>
+<text class="da" x="-780" y="960">HOUT · 90-mm-Auslass</text>
+<text class="dt2" x="-780" y="1020">zum Mittelgang/Heck, stets offen</text>
+<text class="da" x="670" y="90">90-mm-Heizluftweg</text>
+<text class="da" x="670" y="150">im Podest</text>
+<circle class="pt" cx="1300" cy="960" r="44"/>
+<text class="da" x="1430" y="950">HIN · Umluft</text>
+<text class="dt2" x="1430" y="1010">getrenntes Plenum</text>
+
+<!-- Bemassung -->
+<g class="dim">
+<line x1="130" y1="-160" x2="630" y2="-160" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="630" y1="-160" x2="1380" y2="-160" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="130" y1="-175" x2="130" y2="-20"/><line x1="630" y1="-175" x2="630" y2="-20"/><line x1="1380" y1="-175" x2="1380" y2="-20"/>
+<line x1="-180" y1="0" x2="-180" y2="800" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="-320" y1="0" x2="-320" y2="1050" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="-330" y1="0" x2="120" y2="0"/><line x1="-190" y1="800" x2="120" y2="800"/><line x1="-330" y1="1050" x2="620" y2="1050"/>
+</g>
+<text class="dt" x="230" y="-200">Y 2130–2630</text>
+<text class="dt" x="820" y="-200">Y 2630–3380</text>
+<text class="dt" x="-205" y="500" transform="rotate(-90 -205 500)">X 800</text>
+<text class="dt" x="-345" y="700" transform="rotate(-90 -345 700)">X 1050</text>
+
+<!-- ===== Querschnitt ===== -->
+<g transform="translate(0,3200)">
+<text class="lbl" x="-780" y="-1150">B · Querschnitt bei Y 2400 — Höhenkette</text>
+<line class="p" x1="-450" y1="0" x2="1780" y2="0"/>
+<text class="dt2" x="-780" y="70">Z 0 · OK fertiger Fahrzeugboden</text>
+<rect class="soft" x="0" y="-120" width="800" height="120"/>
+<text class="dt2" x="30" y="-40">Rippen 18 · Raster ≤ 250</text>
+<rect class="pt" x="0" y="-138" width="800" height="18"/>
+<text class="dt2" x="840" y="-150">Deckel Birke-MPX 15 + Belag 2–3</text>
+<rect class="p" x="0" y="-608" width="650" height="470"/>
+<text class="lbl" x="40" y="-380">BANK · Korpus 470</text>
+<rect class="pt" x="0" y="-648" width="650" height="40"/>
+<text class="dt2" x="40" y="-680">Polster 40 → Sitz-OK Z 630</text>
+<text class="dv" x="840" y="-60">Stehzone Z 0 · Stufe 120 bei X 800</text>
+<g class="dim">
+<line x1="2020" y1="0" x2="2020" y2="-120" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="2170" y1="0" x2="2170" y2="-648" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="2320" y1="0" x2="2320" y2="-900" marker-start="url(#pd)" marker-end="url(#pd)"/>
+<line x1="810" y1="-120" x2="2040" y2="-120"/><line x1="660" y1="-648" x2="2190" y2="-648"/>
+<line x1="0" y1="-900" x2="2340" y2="-900" style="stroke-dasharray:12 10"/>
+<line x1="1900" y1="0" x2="2340" y2="0"/>
+</g>
+<text class="dt" x="2050" y="-30" transform="rotate(-90 2050 -30)">P = 120</text>
+<text class="dt" x="2200" y="-260" transform="rotate(-90 2200 -260)">630 Sitz-OK</text>
+<text class="dt" x="2350" y="-380" transform="rotate(-90 2350 -380)">900 Tisch-OK</text>
+<text class="dt2" x="-780" y="-1010">Tisch-OK = P + 780 (zulässig 770–790)</text>
+<text class="dt2" x="-780" y="-950">Polster-OK = P + 510</text>
+</g>
+</svg>
+<figcaption>POD-01 — Das Podest hebt nur Bank, Tisch und Fußraum an. Stehzone vor der Küche und
+Einstieg an der Schiebetür bleiben auf Z 0; die 120-mm-Stufe bei X 800 bekommt Kontrastkante,
+Alu-Kantenprofil und Sockellicht.</figcaption>
+</figure>
+
+<h4>3.3 Zuschnitt Podest (P = 120 nominal — Endmaß erst nach Aufmaß)</h4>
+<div class="tw"><table>
+<tr><th>Pos.</th><th>Teil</th><th class="num">Stk</th><th>Fertigungsmaß [A/V]</th><th>Material / Funktion</th></tr>
+<tr><td class="mono">P01</td><td>Deckel Feld A</td><td class="num">1</td><td class="mono">800 × 500 × 15</td><td>Birke-MPX; Serviceöffnungen erst nach Trockenaufbau schneiden</td></tr>
+<tr><td class="mono">P02</td><td>Deckel Feld B</td><td class="num">1</td><td class="mono">1050 × 750 × 15</td><td>Birke-MPX; enthält HF1-Klappe und Heizluftauslass</td></tr>
+<tr><td class="mono">P03</td><td>Deckel Feld C</td><td class="num">1</td><td class="mono">300 × 690 × 15</td><td>Birke-MPX; Endkontur nach realer Fußhülle des Beifahrersitzes</td></tr>
+<tr><td class="mono">P04</td><td>Umfangsrippen</td><td class="num">ca. 6</td><td class="mono">18 × 102 × nach Kontur</td><td>Birke-MPX; Randlastpfad, umlaufend geschlossen</td></tr>
+<tr><td class="mono">P05</td><td>Querrippen</td><td class="num">8</td><td class="mono">18 × 102 × 764 / 1014</td><td>Raster ≤ 250 mm; Durchbrüche für Heizschlauch und Kabel <b>gefast und gefüttert</b></td></tr>
+<tr><td class="mono">P06</td><td>Ankerplatten</td><td class="num">6</td><td class="mono">120 × 120 × 18</td><td>Birke-MPX mit Stahlgegenplatte; <b>nur über geprüften Karosseriepunkten</b></td></tr>
+<tr><td class="mono">P07</td><td>Serviceklappen</td><td class="num">3</td><td>nach HF1 / HIN / HOUT [V]</td><td>bündig, verschraubt oder verriegelt, fahrtfest</td></tr>
+<tr><td class="mono">P08</td><td>Belag</td><td class="num">≈ 1,6 m²</td><td class="mono">2–3 mm, rutschhemmend</td><td>Kontrastkante an der Stufe X 800 und am Einstieg</td></tr>
+<tr><td class="mono">P09</td><td>Kantenprofil</td><td class="num">≈ 3,2 m</td><td>Alu, flächenbündig</td><td>keine Stolper- und keine Schnittkante</td></tr>
+<tr><td class="mono">P10</td><td>HF1-Kassette</td><td class="num">1</td><td class="mono">innen ca. 300 × 220 × H 70</td><td>Stahlblechkassette, eigener Anker (siehe Kapitel 5)</td></tr>
+</table></div>
+<div class="hin"><b>Lastpfad — die Regel, die man nicht abkürzen darf:</b> Bank, Tisch, Safe und Podest
+werden <b>nicht in den Deckel geschraubt</b>. Jeder relevante Anker läuft durch eine Rippe oder eine
+Ankerplatte bis zu einem dokumentierten Boden- oder Strukturpunkt. Ein Deckel aus 15 mm MPX trägt
+Flächenlast, aber keinen Crash-Lastfall.</div>
+
+<h4>3.4 Bauschritte Podest</h4>
+<ol>
+<li><b>Kontur auf Z 0 auslegen</b> (Pappe/Hartfaser). Bank, Tisch, Trelino-Hub, beide Fußhüllen und den Schiebetürschwenk anzeichnen. Erst wenn alles kollisionsfrei ist, wird gesägt.</li>
+<li><b>HIN und HOUT der OEM-Heizung einmessen</b> (X/Y/Ø) sowie alle geprüften Strukturpunkte. Kabel- und Wasserwege unter dem Podest markieren — was hier verschwindet, ist später nur mit Demontage erreichbar.</li>
+<li><b>Rippen trocken aufbauen.</b> Der Heizkanal wird als <b>eigenes Servicefeld</b> abgeteilt, HF1 als <b>separates kaltes Feld</b>. Beide bekommen eine durchgehende Rippe als Trennung.</li>
+<li><b>Ankerplatten setzen</b> und die Podestbasis an den geprüften Punkten verschrauben; blankes Metall entgraten, primern, konservieren.</li>
+<li><b>Heizluftweg einlegen</b> (Kapitel 4), Kontakt- und Hitzeschutz montieren, <b>nicht brennbare Trennwand</b> zwischen Heizkanal und HF1 setzen.</li>
+<li><b>HF1-Kassette</b> mit unabhängigem Stahlanker montieren, Zugang verdeckt und verriegelbar ausführen.</li>
+<li><b>Deckel auflegen</b>, Serviceklappen einpassen, Belag und Kantenprofil aufbringen.</li>
+<li><b>Bank aufsetzen</b> und <b>durch das Podest hindurch</b> in die Struktur verankern; Trelino-Schienen danach neu nivellieren.</li>
+<li><b>Tischfuß</b> auf Rippe/Ankerplatte setzen. <b>Tisch-OK relativ Podest 770–790 einstellen und protokollieren.</b></li>
+<li><b>Lasttest abgestuft:</b> 100 kg statisch je Feld, dann 2 Personen springend am Einstieg. Bestanden, wenn das Podest plan bleibt, kein Knarzen auftritt und die Bankanker ruhig bleiben.</li>
+</ol>
+
+<h2 id="b4"><span class="no">4</span>Warmluftführung der OEM-Standheizung</h2>
+<div class="hin ok"><b>Grundsatz Rev F: die vorhandene Mercedes/Eberspächer Airtronic M2 D4L bleibt
+unverändert.</b> OEM-Versorgung, OEM-Sicherung, OEM-Steuerung, Kraftstoffsystem, Abgasführung, Pumpe
+und Halter werden <b>nicht angefasst</b>. Der Möbelbau ergänzt ausschließlich die abnehmbare
+<b>90-mm-Warmluftführung ab dem bestehenden HOUT</b> und ein getrenntes Ansaugplenum ab dem
+bestehenden HIN. Es wird <b>keine zweite Heizung</b> beschafft und <b>kein zweiter Heizluftast</b>
+gebaut.</div>
+
+<div class="tw"><table>
+<tr><th>Merkmal</th><th>Wert</th><th>Konsequenz für den Bau</th></tr>
+<tr><td>Gerät</td><td>Airtronic M2 D4L OEM, A 907 830 99 00 [B]</td><td>unter dem Fahrzeug; Typenschild und VIN-Stromlaufplan vor Baubeginn fotografieren</td></tr>
+<tr><td>Heizleistung</td><td>0,9 – 4,0 kW</td><td>für L2H2 reichlich — die Auslegung ist ein Luftführungs-, kein Leistungsproblem</td></tr>
+<tr><td>Luftdurchsatz</td><td>max. 180 kg/h ohne Gegendruck, Haube <b>90 mm</b></td><td><b>Hauptweg in 90 mm.</b> Keine Reduktion auf 75 mm ohne Berechnung — 75 mm erlaubt nur Leitkennzahl 3</td></tr>
+<tr><td>Leitkennzahl</td><td>im 90-mm-System <b>max. 10</b></td><td>Schlauchmeter, Bögen, Adapter und Auslass vor der Bestellung addieren und dokumentieren</td></tr>
+<tr><td>Ansaugtemperatur</td><td>max. + 40 °C</td><td>HIN muss kühle Umluft bekommen — kein Warmluft-Kurzschluss</td></tr>
+<tr><td>Störfall</td><td>lokal bis 150 °C möglich</td><td>Kontakt- und Hitzeschutz; <b>keine Wertfächer am heißen Kanal</b></td></tr>
+<tr><td>Elektrik</td><td>max. 42 W Betrieb, ≤ 100 W Start</td><td>bleibt Fahrzeugkreis. DC-02 im Wohnraum bleibt <b>spannungslose Reserve</b> — kein Anschluss ohne schriftliche Mercedes-/Eberspächer-Freigabe</td></tr>
+</table></div>
+
+<h4>4.1 Zwei strikt getrennte Luftsysteme</h4>
+<ul>
+<li><b>Unterflur / Verbrennung:</b> Verbrennungsluft → Brennkammer → Abgas ins Freie. Vollständig OEM, keine Berührung durch den Möbelbau.</li>
+<li><b>Innenraum-Umluft:</b> <b>HIN</b> saugt saubere, kühle Kabinenluft über ein Schutzgitter an einer <b>getrennten Podestfläche</b> an (Feld B, beifahrerseitig). <b>HOUT</b> führt über einen kurzen, weichbogenarmen 90-mm-Originalschlauch zu <b>einem einzigen, stets offenen Auslass</b> an der Podestkante Richtung <b>Mittelgang/Heck</b>.</li>
+<li><b>Zwischen beiden gibt es keine Verbindung</b> — weder Sicht noch Strömung. Der Auslass darf nicht direkt zur Ansaugung zurückblasen.</li>
+<li>Der Auslass ist <b>nicht absperrbar</b>. Ein verschließbarer einziger Auslass würde die Heizung gegen einen geschlossenen Weg arbeiten lassen.</li>
+</ul>
+
+<h4>4.2 Materialliste Heizluft</h4>
+<div class="tw"><table>
+<tr><th>Pos.</th><th>Teil</th><th>Menge / Freigabe</th></tr>
+<tr><td class="mono">HZ01</td><td>OEM-Anschlussadapter an HOUT</td><td>1 — Ist-Durchmesser und Mercedes-Teilenummer am Fahrzeug prüfen [V]</td></tr>
+<tr><td class="mono">HZ02</td><td>Eberspächer Heizluftschlauch 90 mm</td><td>0,8 – 1,5 m [V] — <b>so kurz wie möglich</b></td></tr>
+<tr><td class="mono">HZ03</td><td>90-mm-Rohrstutzen / 30°-Auslass</td><td>1 — drehbar, <b>nicht absperrbar</b></td></tr>
+<tr><td class="mono">HZ04</td><td>Schellen 90 mm</td><td>3–4, Originalsystem</td></tr>
+<tr><td class="mono">HZ05</td><td>Ansaugplenum + Schutzgitter</td><td>1 — freie Fläche mindestens wie Bestand [V]</td></tr>
+<tr><td class="mono">HZ06</td><td>Kontakt- und Hitzeschutz</td><td>Alu-/Stahlabdeckung, servicefähig</td></tr>
+<tr><td class="mono">HZ07</td><td><b>Nicht brennbare Trennwand</b> zwischen Heizkanal und HF1</td><td>1 — Stahlblech ≥ 0,8 mm oder Kalziumsilikat, vollflächig, ohne Holzbrücke</td></tr>
+<tr><td class="mono">HZ08</td><td>Temperaturmesspunkte</td><td>3 Klebefühler: Schlauch, Podestdeckel, Auslassumfeld</td></tr>
+</table></div>
+
+<h4>4.3 Abnahmeprotokoll Heizluft</h4>
+<div class="tw"><table>
+<tr><th class="num">OK</th><th>Prüfung</th><th>Soll / Eintrag</th></tr>
+<tr><td>☐</td><td>HIN / HOUT gemessen</td><td class="mono">X / Y / Ø: ____________________</td></tr>
+<tr><td>☐</td><td>Kennzahlsumme HZ01–HZ04</td><td class="mono">Σ = ______ ≤ 10</td></tr>
+<tr><td>☐</td><td>Luftweg</td><td>keine Quetschung, keine scharfe Biegung, keine Klappe, keine Blockade durch Ladung</td></tr>
+<tr><td>☐</td><td>Heizprobe 30 min</td><td>stabiler Luftstrom, keine Abschaltung, keine Fehlermeldung, kein Geruch</td></tr>
+<tr><td>☐</td><td>Temperaturen</td><td class="mono">Schlauch ____ °C · Podest ____ °C · Auslass ____ °C</td></tr>
+<tr><td>☐</td><td>Kurzschlusstest (Rauchfaden / Papierstreifen)</td><td>kein direkter Rückstrom HOUT → HIN</td></tr>
+<tr><td>☐</td><td>Nachlauf</td><td>Heizung normal abschalten; <b>Strom nie vor Gebläsestopp trennen</b></td></tr>
+<tr><td>☐</td><td>Service</td><td>alle Schellen und Öffnungen ohne Möbeldemontage erreichbar</td></tr>
+</table></div>
+
+<h2 id="b5"><span class="no">5</span>Wertfächer HF1–HF3 und Safe</h2>
+<div class="hin"><b>Ehrliche Einordnung vorweg:</b> Verbergen ersetzt keine Zertifizierung.
+HF1–HF3 schützen gegen <b>Gelegenheitszugriff</b>, nicht gegen einen gezielten Aufbruch. Für
+versicherungsrelevante Werte wäre ein zertifizierter Safe nach EN 14450 (S1/S2) nötig — der wiegt ab
+etwa 44 kg und ist hier bewusst <b>nicht</b> vorgesehen. Der Safe in diesem Plan ist ausdrücklich
+<b>ein einfacher, leichter, nicht zertifizierter Safe</b> — er muss aber <b>fest verankert</b> sein,
+sonst ist er im Crashfall ein Geschoss und beim Einbruch ein Mitnahmeartikel.</div>
+
+<div class="tw"><table>
+<tr><th>ID</th><th>Ort und Zugriff</th><th>Nutzmaß [A/V]</th><th>Zweck</th></tr>
+<tr><td class="mono"><b>HF1</b></td><td><b>Podest Feld B unter dem Tisch</b>; bündige, verriegelte Deckelklappe unter einer herausnehmbaren Belagseinlage</td><td>innen ca. <b>300 × 220 × H 70</b></td><td>verdecktes Bargeld- und Dokumentenfach. Leicht, flach, <b>konstruktiv vom Heizkanal getrennt</b></td></tr>
+<tr><td class="mono"><b>HF2</b></td><td><b>fester Bankraum X 0–240</b> hinter dem Trelino; Zugriff erst nach vollständigem Herausnehmen des Toilettenauszugs</td><td>außen max. ca. <b>200 × 350 × H 300</b> [V]</td><td>kleine Kassette für Dokumentkopien. <b>Nicht auf der Schiene</b>, nicht im feuchten Toilettenbereich</td></tr>
+<tr><td class="mono"><b>HF3</b></td><td><b>unteres Fach des Kühlschrankschranks hinter einer falschen Schubkastenfront</b></td><td>Safe außen max. <b>450 × 210 × 500</b>; Laptopöffnung min. 335 × 35 [V]</td><td><b>14-Zoll-Laptop-Safe.</b> Einfacher Möbelsafe (Beispiel: außen 445 × 200 × 380, innen 441 × 196 × 318, ca. 14 kg) — Front öffnet separat, Safe bleibt fest</td></tr>
+</table></div>
+
+<h4>5.1 Konstruktionsregeln — jede einzelne hat einen Grund</h4>
+<div class="tw"><table>
+<tr><th>Regel</th><th>Ausführung</th><th>Warum</th></tr>
+<tr><td><b>Anker</b></td><td>mindestens nach Produktvorgabe, durch Möbel bzw. Podest an geprüfte Struktur oder an einen eigenen Stahlwinkel, immer mit <b>Gegenplatte</b></td><td>Der Fahrzeugboden ist kein freigegebener Massivboden. 14 kg bei 20 g sind 2,8 kN — das reißt jede reine Möbelverschraubung heraus</td></tr>
+<tr><td><b>Bewegung</b></td><td>kein Safe und keine Kassette auf einem Auszug; falsche Front und Safe <b>mechanisch getrennt</b></td><td>Eine bewegte Schiene ist keine Sicherung, und eine mitgerissene Front reißt sonst den Safe auf</td></tr>
+<tr><td><b>Wärme</b></td><td>HF1 und HF3 bekommen ein <b>eigenes kaltes Feld</b>: kein Kontakt zum 90-mm-Heizkanal, zum Kühlschrank-Kaminschacht oder zur warmen Elektronik (MultiPlus, MPPT)</td><td>Vorgabe Rev F. Papier, Elektronik und Akkus vertragen die 60–150 °C am Heizweg nicht, und ein Wertfach am Kamin blockiert dessen Kühlluft</td></tr>
+<tr><td><b>Trennung</b></td><td>zwischen Heizkanal und HF1 eine <b>durchgehende, nicht brennbare Trennwand</b> (HZ07), keine Holzbrücke, keine gemeinsame Rippe</td><td>trennt Wärme <i>und</i> Brandlast, nicht nur Luft</td></tr>
+<tr><td><b>Masse</b></td><td>Safegewicht in die Gewichts- und Achslastbilanz aufnehmen; möglichst tief und <b>nicht ganz im Heck</b></td><td>HF3 im Kühlschrankschrank (Y 1640–2130) liegt nahe der Hinterachse und tief — die richtige Stelle</td></tr>
+<tr><td><b>Zugriff</b></td><td>Notöffnung und Ersatzschlüssel erreichbar planen; <b>Code und Schlüssel nie im selben Fach</b></td><td>ein blockierter Safe im Van ist ohne Werkstatt kaum zu öffnen</td></tr>
+<tr><td><b>Dokumentation</b></td><td>Gerät, Seriennummer, Ankerfoto und Montageanleitung ins private As-built-Dossier — <b>nicht am Fahrzeug beschriften</b></td><td>ein „Safe an Bord“-Hinweis ist eine Einladung</td></tr>
+</table></div>
+
+<h4>5.2 Empfohlene Kombination</h4>
+<p><b>HF1</b> als unauffälliges Alltags- und Bargeldfach im Podest, <b>HF3</b> als fester,
+einfacher Laptop-Safe hinter der Kühlschrankschrank-Front, <b>HF2</b> optional für Dokumentkopien.
+Alle drei werden gebaut (Vorgabe Rev F). Zusammen wiegen sie rund <b>18 kg</b> — das ist der Preis
+dafür, Laptop, Papiere und Bargeld nicht bei jedem Strandtag mitschleppen zu müssen.</p>
+
+<h2 id="b6"><span class="no">6</span>Küche, Wasser und Kochstelle</h2>
+<h4>6.1 Einbaulage des Küchenblocks — die Orientierung ist nicht beliebig</h4>
+<div class="hin ok"><b>Festlegung Rev F: Spüle und Arbeitsplattenverlängerung liegen <i>vorn</i>
+(Y &gt; 2165), der Kartuschenkocher-Schubkasten liegt <i>hinten</i></b> (Y 1640–2165).
+Der Grund ist der Bettauszug: er überdeckt im Nachtbetrieb genau den hinteren Abschnitt der Küche bis
+Y&nbsp;2020, mit Auflagerlänge bis Y&nbsp;2165. Läge die Spüle dort, wäre sie im ausgezogenen Zustand
+blockiert — und man zieht das Bett nicht wieder ein, nur um ein Glas auszuspülen. Der
+Kartuschenkocher wird dagegen ohnehin nicht benutzt, während das Bett ausgezogen ist.
+<b>Zweiter Vorteil:</b> die Klappverlängerung liegt damit vorn beim Tisch, wo sie die Sitzgruppe
+erweitert statt den Gang zu blockieren.</div>
+
+<h4>6.2 Wasseranlage — zwei herausnehmbare Kanister</h4>
+<div class="tw"><table>
+<tr><th>Komponente</th><th>Ausführung</th><th>Begründung</th></tr>
+<tr><td>Frischwasser</td><td><b>1 × ca. 12 l Kanister, herausnehmbar</b>, lebensmittelecht, mit weiter Einfüllöffnung</td><td>12 l trägt man voll (12 kg) noch bequem zum Wasserhahn. Ein Festtank braucht Einfüllstutzen, Entlüftung, Sensorik und ist im Winter nicht entleerbar</td></tr>
+<tr><td>Abwasser</td><td><b>1 × ca. 12 l Kanister, herausnehmbar</b>, gleiches Format, <b>eindeutig gekennzeichnet</b></td><td>gleiches Format = tauschbare Stellplätze; Kennzeichnung, weil eine Verwechslung ekelhaft und hygienisch relevant ist</td></tr>
+<tr><td>Pumpe</td><td><b>12-V-Tauchpumpe</b> im Frischwasserkanister, Steckkupplung</td><td>leichter, leiser und billiger als eine Druckwasseranlage; kein Druckschalter, kein Ausgleichsbehälter, keine stehende Wassersäule</td></tr>
+<tr><td>Schlauch</td><td><b>lebensmittelechter</b> Trinkwasserschlauch, glattwandig, mit Schnellkupplung</td><td>glattwandig lässt sich spülen; gewellte Schläuche sind Keimfallen</td></tr>
+<tr><td>Entleerung</td><td><b>zugänglicher Entleerungspunkt</b> am tiefsten Punkt, ohne Möbeldemontage erreichbar</td><td>Winterfestigkeit entsteht nicht durch Frostschutz, sondern durch <b>vollständig leer</b></td></tr>
+<tr><td>Schalter</td><td>Pumpenschalter im Küchenpaneel K3 <b>mit gut sichtbarer Kontrollleuchte</b></td><td>Vorgabe Rev F. Eine vergessene Pumpe läuft trocken oder pumpt den Kanister in die Bilge — die Leuchte kostet 3 € und verhindert genau das</td></tr>
+<tr><td>Siphon</td><td>flacher Geruchsverschluss zwischen Spüle und Abwasserkanister</td><td>ohne Siphon riecht der Abwasserkanister nach zwei Tagen durch die Spüle in den Wohnraum</td></tr>
+</table></div>
+<div class="hin"><b>Realistische Erwartung:</b> 12 l Frischwasser sind für zwei Personen etwa
+<b>ein Tag</b> Spülen, Zähneputzen und Kaffee — Duschen findet außerhalb statt. Wer autarker sein
+will, nimmt einen zweiten 12-l-Kanister als Reserve mit, statt einen Festtank einzubauen: 12 kg mehr
+nur dann, wenn man sie braucht.</div>
+
+<h4>6.3 Kochstelle — bewusste Zweigleisigkeit</h4>
+<div class="tw"><table>
+<tr><th>Gerät</th><th>Wofür</th><th>Warum so</th></tr>
+<tr><td><b>Kartuschenkocher</b> im Schubkasten (im CAMPANY-Modul enthalten)</td><td><b>alle langen Kochvorgänge</b>: Nudeln, Reis, Schmoren, Suppe, Frühstücksei</td><td>0 Wh aus der Batterie. Eine Kartusche kostet ~3 € und ersetzt an einem Kochtag rund 600–900 Wh — das sind 12–18 % der nutzbaren Kapazität</td></tr>
+<tr><td><b>Induktion, max. 1800 W</b></td><td><b>nur kurz und schnell</b>: Wasser aufsetzen, anbraten, aufwärmen</td><td>Braucht den Wechselrichter und ist mit den Hochlastschützen gegen Airfryer und Kaffeemaschine verriegelt. Am Landstrom und bei voller Sonne ohne Nachdenken nutzbar</td></tr>
+<tr><td><b>Airfryer 1200–1500 W</b>, <b>Kaffeemaschine 1000–1400 W</b></td><td>Landstrom, Sonnentage, nach der Fahrt</td><td>bewusst nach Leistungsaufnahme kaufen — 1500 statt 2000 W kostet zwei Minuten Zeit und spart den halben Ärger</td></tr>
+</table></div>
+<div class="hin"><b>Beim Kochen mit Gas immer lüften:</b> Kartuschenkocher verbrauchen Sauerstoff und
+erzeugen CO. MaxxAir auf Abluft, Schiebetür oder Fenster einen Spalt auf, <b>CO-Melder in Schlafhöhe
+ist Pflicht</b> — nicht optional. Die Löschdecke hängt an der Küchenaußenseite, <b>nicht direkt über
+der Kochstelle</b>: sonst greift man beim Fettbrand in die Flamme.</div>
+
+
+<h2 id="b7"><span class="no">7</span>Aufmaßblatt — vor jeder Bestellung ausfüllen</h2>
 <p>Kein Zuschnitt, keine Karosseriebohrung und keine Materialbestellung, bevor diese Tabelle
 vollständig ist. Ausdrucken, im Fahrzeug ausfüllen, datieren.</p>
 <div class="tw"><table>
@@ -330,7 +642,7 @@ ein Bohrpunkt nicht zweifelsfrei strukturell ist · eine Leitung im Bohrbereich 
 der Korrosionsschutz unvollständig ist · der Boden weich oder lose ist · die reale Möbel-OK mehr als
 5&nbsp;mm von 900 abweicht. <b>Ein verdeckter Lastpunkt darf nie auf einer Vermutung beruhen.</b></div>
 
-<h2 id="b4"><span class="no">4</span>Gesamtmaterialliste</h2>
+<h2 id="b8"><span class="no">8</span>Gesamtmaterialliste</h2>
 
 <h4>A · Kaufmodule und Geräte</h4>
 <div class="tw"><table>
@@ -341,11 +653,14 @@ der Korrosionsschutz unvollständig ist · der Boden weich oder lose ist · die 
 <tr><td class="mono">000101</td><td>CAMPANY Verkleidungs-Set L2H2</td><td class="num">1</td><td>5 mm Pappelsperrholz roh</td><td>[P] <b>beschafft</b></td></tr>
 <tr><td class="mono">—</td><td>Dometic NRX 60C Kompressorkühlschrank</td><td class="num">1</td><td>448 × 537 × H 525, 55 l</td><td>[P] zu beschaffen</td></tr>
 <tr><td class="mono">—</td><td>Trelino Evo L Trenntoilette</td><td class="num">1</td><td>330 × 390 × H 430</td><td>[P] zu beschaffen</td></tr>
+<tr><td class="mono">—</td><td><b>Einfacher Möbel-/Laptop-Safe für HF3</b> (nicht zertifiziert, leicht, verankerbar)</td><td class="num">1</td><td>außen ca. 445 × 200 × 380, innen 441 × 196 × 318, ca. 14 kg; Laptopöffnung real prüfen [V]</td><td>[A] Vorgabe Rev F</td></tr>
+<tr><td class="mono">—</td><td>Stahlkassetten für HF1 und HF2</td><td class="num">2</td><td>HF1 innen ca. 300 × 220 × H 70 · HF2 außen max. 200 × 350 × H 300</td><td>[A/V]</td></tr>
+<tr><td class="mono">—</td><td>3 × ECTIVE MSP 200 Flex Solarmodul</td><td class="num">3</td><td>200 Wp, 1595 × 710 × 3, 3,65 kg, Umpp 20,5 V / Impp 9,76 A</td><td>[P] siehe SPR-EL-01 §11</td></tr>
 <tr><td class="mono">—</td><td>Matratze zweiteilig</td><td class="num">1</td><td>1690 × (1600 + 400) × 120, Hauptteil + angezippte Klappe</td><td>[A/V] nach realem B1</td></tr>
-<tr><td class="mono">—</td><td>Dieselheizung 2 kW mit Montagesatz</td><td class="num">1</td><td>12 V, Abgas nach unten, Warmluftkanal 75 mm</td><td>[A] zu beschaffen</td></tr>
+<tr><td class="mono">—</td><td><b>Standheizung — bereits im Fahrzeug</b>: Mercedes/Eberspächer Airtronic M2 D4L, A 907 830 99 00</td><td class="num">—</td><td>0,9–4,0 kW, 90-mm-Warmluftweg, OEM-Versorgung und OEM-Steuerung</td><td>[B] <b>vorhanden — nicht verändern.</b> Nur Luftführung HZ01–HZ08, Kapitel 4</td></tr>
 <tr><td class="mono">—</td><td>MaxxAir / Airmaxx Dachlüfter</td><td class="num">1</td><td>Ausschnitt 400 × 400</td><td>[P] zu beschaffen</td></tr>
-<tr><td class="mono">—</td><td>Klimaanlage Staukastengerät</td><td class="num">1</td><td>Unterbank-/Stauraumgerät, 230 V, auf AC-out-2</td><td>[A] optional, siehe SPR-EL-01</td></tr>
-<tr><td class="mono">—</td><td>Frisch- und Abwassertank/-kanister + Tauchpumpe + Schlauchset</td><td class="num">1 Satz</td><td>je ca. 12–25 l, lebensmittelecht, entleerbar</td><td>[V] <b>nicht im Küchenmodul enthalten</b></td></tr>
+<tr><td class="mono">—</td><td><b>Mestic Sorin SPA-5100 Split-Unit</b></td><td class="num">1</td><td>1471 W Kühlleistung / 563 W Aufnahme; Innenteil 432 × 198 × 320, Außenteil 445 × 209 × 374; ca. 21 kg</td><td>[P] <b>Mitnahmegerät — kein Einbau.</b> Bauseits nur Dose A5 auf AC-out-2. Keine Kanäle, keine Auslässe, kein Kondensatweg, kein Klimafach</td></tr>
+<tr><td class="mono">—</td><td><b>2 herausnehmbare Kanister je ca. 12 l</b> (Frisch/Abwasser) + <b>12-V-Tauchpumpe</b> + lebensmittelechtes Schlauchset + Entleerungspunkt + Siphon</td><td class="num">1 Satz</td><td>gleiches Format, eindeutig gekennzeichnet; Pumpenschalter mit Kontrollleuchte</td><td>[V] <b>nicht im Küchenmodul enthalten</b>, siehe Kapitel 6</td></tr>
 <tr><td class="mono">—</td><td>Induktionsplatte einflammig</td><td class="num">1</td><td><b>max. 1800 W</b>, freistehend</td><td>[A] bewusst nach Leistung wählen</td></tr>
 <tr><td class="mono">—</td><td>Airfryer</td><td class="num">1</td><td><b>1200–1500 W</b>, kompakt</td><td>[A] bewusst nach Leistung wählen</td></tr>
 <tr><td class="mono">—</td><td>Kaffeemaschine</td><td class="num">1</td><td><b>1000–1400 W</b>, Thermoblock/Kapsel</td><td>[A] kein Siebträger mit Boiler</td></tr>
@@ -367,6 +682,11 @@ der Korrosionsschutz unvollständig ist · der Boden weich oder lose ist · die 
 <tr><td>POM 16 mm</td><td class="num">100 × 150</td><td>Führungsklötze P15</td></tr>
 <tr><td>HPL 4 mm</td><td class="num">4 Streifen 60 × ca. 550</td><td>Gleitbelag auf GS1–GS4</td></tr>
 <tr><td>Polsterschaum RG35 + Bezug</td><td class="num">500 × 650 × 40</td><td>Sitzbankpolster</td></tr>
+<tr><td>Birke-Multiplex 15 mm, ca. 2500 × 1250</td><td class="num">1 Platte</td><td><b>Podestdeckel P01–P03</b></td></tr>
+<tr><td>Birke-Multiplex 18 mm, Streifenzuschnitt</td><td class="num">ca. 12 lfm</td><td><b>Podestrippen P04/P05, Ankerplatten P06</b></td></tr>
+<tr><td>Bodenbelag rutschhemmend 2–3 mm + Alu-Kantenprofil</td><td class="num">1,6 m² + 3,2 m</td><td><b>Podestbelag P07/P08</b>, Kontrastkante an Stufe und Einstieg</td></tr>
+<tr><td>Stahlblech ≥ 0,8 mm oder Kalziumsilikatplatte</td><td class="num">ca. 0,4 m²</td><td><b>nicht brennbare Trennwand HZ07</b> zwischen Heizkanal und HF1</td></tr>
+<tr><td>Heizluftschlauch 90 mm + Adapter, Stutzen, Schellen</td><td class="num">0,8–1,5 m</td><td><b>HZ01–HZ04</b>, Originalsystem Eberspächer</td></tr>
 <tr><td>Dämmung (Armaflex o. glw.) + Alu-Klebeband</td><td class="num">nach Fläche [V]</td><td>Wände, Dach, Radkästen — vor der Verkleidung</td></tr>
 </table></div>
 
@@ -390,31 +710,81 @@ der Korrosionsschutz unvollständig ist · der Boden weich oder lose ist · die 
 <h4>D · Elektrik</h4>
 <p>Vollständig in <b>SPR-EL-01, Kapitel 11</b> — Energie-Kernsystem von Victron
 (2 × Lithium&nbsp;NG 300&nbsp;Ah, Lynx&nbsp;Smart&nbsp;BMS&nbsp;NG, MultiPlus-II&nbsp;12/3000/120-32,
-2 × MPPT&nbsp;100/30, Orion&nbsp;XS&nbsp;12/12-70, Cerbo&nbsp;GX), Installationsmaterial, Steckdosen,
-Licht und Schutztechnik von der zweiten Quelle. Summe ohne Klimaanlage ≈&nbsp;190&nbsp;kg und
-≈&nbsp;11.500–13.500&nbsp;€.</p>
+MPPT&nbsp;100/30 + 75/15, Orion&nbsp;XS&nbsp;12/12-70, Cerbo&nbsp;GX, 600&nbsp;Wp ECTIVE MSP 200 Flex),
+Installationsmaterial, Steckdosen, Licht und Schutztechnik von der zweiten Quelle.
+Summe ohne Klimaanlage ≈&nbsp;172&nbsp;kg und ≈&nbsp;13.750–17.000&nbsp;€.</p>
 
-<h4>Gewichtsbilanz — Zuladung im Blick behalten</h4>
+<p><b>Gewicht und Achslasten:</b> vollständig in Kapitel 9 dieses Blattes.</p>
+
+<h2 id="b9"><span class="no">9</span>Gewichts- und Achslastbilanz</h2>
+<div class="hin"><b>Was diese Rechnung ist und was nicht.</b> Sie ist eine <b>Planungsbilanz</b> aus
+Produktdatenblättern, Materialdichten und geschätzten Schwerpunktlagen — gut genug, um jetzt
+Entscheidungen zu treffen, und ausdrücklich <b>kein Ersatz für das Wiegen</b>. Alle Werte sind [A],
+die Achsabstände [A/V]. <b>Vor der Batteriebestellung auf eine öffentliche Waage fahren</b>,
+achsweise leer wiegen und diese Tabelle mit den realen Zahlen überschreiben.</div>
+
+<h4>9.1 Rechenmodell</h4>
 <div class="tw"><table>
-<tr><th>Baugruppe</th><th class="num">≈ kg</th></tr>
-<tr><td>Bett komplett (SPR-BETT-01, Rev B)</td><td class="num">42</td></tr>
-<tr><td>Kühlschrankschrank inkl. Gerät</td><td class="num">45</td></tr>
-<tr><td>Sitzbank inkl. Polster und Auszug</td><td class="num">28</td></tr>
-<tr><td>CAMPANY-Module (Küche, 6 Hängeschränke, Tisch, Verkleidung)</td><td class="num">115</td></tr>
-<tr><td>Dämmung, Boden, Verkleidungsunterbau</td><td class="num">70</td></tr>
-<tr><td>Elektrik komplett (ohne Klimaanlage)</td><td class="num">190</td></tr>
-<tr><td>Wasser gefüllt (2 × 25 l), Heizung, Leitungen</td><td class="num">70</td></tr>
-<tr><td>Matratze und Polster</td><td class="num">18</td></tr>
-<tr class="sum"><td>Ausbau gesamt, betriebsbereit ohne Gepäck</td><td class="num">≈ 578 kg</td></tr>
-<tr><td>optional Staukastenklimaanlage</td><td class="num">+ 25</td></tr>
+<tr><th>Größe</th><th class="num">Wert</th><th>Status</th></tr>
+<tr><td>Radstand</td><td class="num">3665 mm</td><td>[B] Fahrzeugdaten</td></tr>
+<tr><td>Hinterachse in Plankoordinaten</td><td class="num">Y ≈ 1050</td><td>[A/V] — am Fahrzeug einmessen, geht direkt in jede Achslast ein</td></tr>
+<tr><td>Vorderachse</td><td class="num">Y ≈ 4715</td><td>[A/V] = 1050 + 3665</td></tr>
+<tr><td>Leergewicht L2H2 fahrfertig</td><td class="num">≈ 2150 kg</td><td>[A] typischer Bereich 2050–2250, VIN-abhängig</td></tr>
+<tr><td>Leerverteilung</td><td class="num">≈ 1290 vorn / 860 hinten</td><td>[A] leere Kastenwagen sind <b>frontlastig</b></td></tr>
+<tr><td>zulässige Achslasten</td><td class="num">1850 vorn / 2000 hinten</td><td>[A/V] <b>aus dem Fahrzeugschein übernehmen</b>, nicht aus Prospekten</td></tr>
 </table></div>
-<div class="hin"><b>Rechne das gegen die reale Restzuladung.</b> Ein L2H2-Kastenwagen bei 3,5&nbsp;t
-hat je nach Ausstattung 1000–1150&nbsp;kg Zuladung. Nach diesem Ausbau bleiben also grob
-420–570&nbsp;kg für zwei Personen, Gepäck, E-Roller, Fahrräder und Wasser. Das ist ausreichend, aber
-nicht großzügig — <b>vor der Batteriebestellung wiegen</b>, nicht danach. Die 58&nbsp;kg der beiden
-300-Ah-Batterien sind der größte einzelne Hebel, wenn es eng wird.</div>
+<p><b>Rechenweg je Baugruppe:</b> Anteil Vorderachse = Masse × (Y<sub>Schwerpunkt</sub> − 1050) / 3665,
+Rest auf die Hinterachse. Für alles <b>hinter</b> der Hinterachse (Y &lt; 1050) wird der Vorderachsanteil
+negativ — diese Massen <b>entlasten die Vorderachse</b>. Das ist kein Rechenfehler, sondern genau der
+Effekt, der bei heckbetonten Ausbauten die Lenkung leicht macht.</p>
 
-<h2 id="b5"><span class="no">5</span>Werkzeuge und Vorbereitung</h2>
+<h4>9.2 Bilanz nach Baugruppen</h4>
+<div class="tw"><table>
+<tr><th>Baugruppe</th><th class="num">≈ kg</th><th class="num">Y Schwerp.</th><th class="num">→ VA</th><th class="num">→ HA</th><th>Bemerkung</th></tr>
+<tr><td>Bett komplett (SPR-BETT-01)</td><td class="num">42</td><td class="num">820</td><td class="num">−2,6</td><td class="num">44,6</td><td>liegt fast vollständig hinter der Hinterachse</td></tr>
+<tr><td><b>Technikfach</b> (2 Batterien, MultiPlus, BMS, Verteilung)</td><td class="num">120</td><td class="num">350</td><td class="num">−22,9</td><td class="num">142,9</td><td><b>die kritischste Position der ganzen Bilanz</b></td></tr>
+<tr><td>übrige Elektrik (Kabel, Licht, Dosen, Solar, Sensorik)</td><td class="num">52</td><td class="num">2200</td><td class="num">16,3</td><td class="num">35,7</td><td>Solar 11 kg davon auf dem Dach</td></tr>
+<tr><td>Kühlschrankschrank inkl. Gerät und <b>HF3-Safe</b></td><td class="num">59</td><td class="num">1885</td><td class="num">13,4</td><td class="num">45,6</td><td>tief und nah an der Hinterachse — richtige Stelle für den Safe</td></tr>
+<tr><td>Sitzbank inkl. Polster, Auszug, Trelino, HF2</td><td class="num">32</td><td class="num">2380</td><td class="num">11,6</td><td class="num">20,4</td><td>—</td></tr>
+<tr><td><b>Dinette-Podest</b> inkl. Belag, Anker, HF1</td><td class="num">32</td><td class="num">2750</td><td class="num">14,8</td><td class="num">17,2</td><td>neu in Rev F</td></tr>
+<tr><td>CAMPANY-Module (Küche, 6 Hängeschränke, Tisch, Verkleidung)</td><td class="num">115</td><td class="num">1900</td><td class="num">30,0</td><td class="num">85,0</td><td>Hängeschränke liegen hoch — schlecht für die Schwerpunkthöhe, unvermeidbar</td></tr>
+<tr><td>Dämmung, Bodenaufbau, Verkleidungsunterbau</td><td class="num">70</td><td class="num">1750</td><td class="num">13,4</td><td class="num">56,6</td><td>gleichmäßig verteilt</td></tr>
+<tr><td>Wasser <b>gefüllt</b> (2 × 12 l), Pumpe, Heizluftführung</td><td class="num">31</td><td class="num">2200</td><td class="num">9,7</td><td class="num">21,3</td><td>Kanister sind herausnehmbar — 24 kg davon sind abwählbar</td></tr>
+<tr><td>Matratze und Polster</td><td class="num">18</td><td class="num">820</td><td class="num">−1,1</td><td class="num">19,1</td><td>—</td></tr>
+<tr class="sum"><td><b>Ausbau gesamt, betriebsbereit ohne Gepäck</b></td><td class="num"><b>571</b></td><td class="num">—</td><td class="num"><b>≈ 83</b></td><td class="num"><b>≈ 488</b></td><td><b>85 % der Ausbaumasse geht auf die Hinterachse</b></td></tr>
+<tr><td>optional: Mestic Sorin SPA-5100, nur bei Bedarf an Bord</td><td class="num">+ 21</td><td class="num">2600</td><td class="num">8,9</td><td class="num">12,1</td><td>im Stauraum, nicht fest verbaut</td></tr>
+</table></div>
+
+<h4>9.3 Achslasten im realen Reisezustand</h4>
+<div class="tw"><table>
+<tr><th>Zustand</th><th class="num">Gesamt kg</th><th class="num">Vorderachse</th><th class="num">Hinterachse</th><th>Beurteilung</th></tr>
+<tr><td>Leerfahrzeug [A]</td><td class="num">2150</td><td class="num">1290</td><td class="num">860</td><td>Ausgangspunkt</td></tr>
+<tr><td>+ Ausbau betriebsbereit</td><td class="num">2721</td><td class="num">1373</td><td class="num">1348</td><td>Achslasten praktisch ausgeglichen</td></tr>
+<tr><td>+ 2 Personen (160 kg, Y ≈ 4700)</td><td class="num">2881</td><td class="num">1532</td><td class="num">1349</td><td>Personen sitzen fast über der Vorderachse</td></tr>
+<tr><td>+ Gepäck und Vorräte (80 kg, Garage/Heck)</td><td class="num">2961</td><td class="num">1542</td><td class="num">1419</td><td>—</td></tr>
+<tr><td>+ E-Roller (20 kg, Heckgarage)</td><td class="num">2981</td><td class="num">1538</td><td class="num">1443</td><td>entlastet die Vorderachse leicht</td></tr>
+<tr class="sum"><td><b>Reisezustand gesamt</b></td><td class="num"><b>≈ 2981</b></td><td class="num"><b>≈ 1538</b> von 1850</td><td class="num"><b>≈ 1443</b> von 2000</td><td><b>beide Achsen im grünen Bereich</b></td></tr>
+<tr><td><b>Restzuladung bis 3,5 t</b></td><td class="num"><b>≈ 519</b></td><td class="num">312 frei</td><td class="num">557 frei</td><td>für Fahrräder, Werkzeug, Zusatzwasser, Sportgerät</td></tr>
+</table></div>
+
+<div class="hin ok"><b>Das Ergebnis in einem Satz:</b> der Ausbau passt mit rund <b>500 kg Reserve</b>
+ins 3,5-t-Limit, und keine Achse ist kritisch — <b>aber 85 % der Ausbaumasse hängt hinten</b>, und die
+beiden 300-Ah-Batterien sitzen mit 58 kg <b>hinter</b> der Hinterachse und heben die Vorderachse um
+rund 11 kg an. Das ist bei diesen Zahlen unproblematisch; es wird erst dann zum Thema, wenn später
+Fahrradträger, Ersatzrad oder Heckbox dazukommen — die wirken am längsten Hebel und ausschließlich
+nach hinten.</div>
+
+<h4>9.4 Konkrete Konsequenzen für die Bauentscheidungen</h4>
+<ul>
+<li><b>Technikfach so weit nach vorn wie möglich.</b> Jeder Meter, den die Batterien vor die Hinterachse rücken, nimmt Last von hinten und gibt sie vorn zurück. Wenn der Grundriss es zulässt, ist ein Batterieplatz bei Y 700 statt Y 350 die bessere Wahl.</li>
+<li><b>Wasser bleibt in Kanistern.</b> 24 kg, die man beim Wochenendtrip einfach nicht mitnimmt, sind mehr wert als ein Festtank mit Sensorik.</li>
+<li><b>Kein zertifizierter S2-Safe.</b> Er bringt ab 44 kg mit und müsste im Heck stehen — das wäre die schlechteste Stelle des Fahrzeugs. Die Entscheidung für einen einfachen, leichten, aber fest verankerten Safe ist auch eine Gewichtsentscheidung.</li>
+<li><b>Flexible Solarmodule statt Rahmenmodulen</b> sparen 29 kg — und zwar ganz oben auf dem Dach, wo Masse doppelt stört (Schwerpunkthöhe und Seitenwindempfindlichkeit).</li>
+<li><b>Vor der Bestellung wiegen.</b> Wenn das reale Leergewicht 2250 statt 2150 kg beträgt, schrumpft die Reserve auf 419 kg — immer noch ausreichend, aber dann ist die zweite Batterie eine echte Abwägung.</li>
+</ul>
+
+
+<h2 id="b10"><span class="no">10</span>Werkzeuge und Vorbereitung</h2>
 <div class="tw"><table>
 <tr><th>Bereich</th><th>Werkzeuge und Prüfmittel</th></tr>
 <tr><td>Aufmaß</td><td>Kreuzlinienlaser, 3-m-Bandmaß, Stahllineal 1 m, Anschlagwinkel, Schmiege, Messschieber, Fühlerlehre</td></tr>
@@ -430,7 +800,7 @@ nicht großzügig — <b>vor der Batteriebestellung wiegen</b>, nicht danach. Di
 Wasserbehälter entfernt. Beim Bohren durch Blech immer eine zweite Person außen zur Kontrolle. Späne
 sofort absaugen, blankes Blech noch am selben Tag konservieren.</div>
 
-<h2 id="b6"><span class="no">6</span>Bauablauf mit Freigabetoren</h2>
+<h2 id="b11"><span class="no">11</span>Bauablauf mit Freigabetoren</h2>
 <p>Die Reihenfolge ist nicht beliebig. <b>Das Bett richtet sich nach den real eingebauten
 Möbelhöhen</b> — deshalb kommen Küche und Kühlschrankschrank zuerst und werden nivelliert. Die
 Hängeschränke gehören vor das Bett, weil man dann noch an Holme und Kabelwege kommt.</p>
@@ -450,7 +820,7 @@ Hängeschränke gehören vor das Bett, weil man dann noch an Holme und Kabelwege
 <b>fotografieren</b>, bevor es zugebaut wird — mit Maßband im Bild. ② Jede angezogene Schraube mit
 einem Lackstift markieren; beim Nachzug sieht man dann sofort, welche sich gelöst hat.</div>
 
-<h2 id="b7"><span class="no">7</span>Phase 1 — Fahrzeug vorbereiten</h2>
+<h2 id="b12"><span class="no">12</span>Phase 1 — Fahrzeug vorbereiten</h2>
 <div class="tw"><table>
 <tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
 <tr><td class="num">1.1</td><td><b>Fahrzeug nullen.</b> Leer und waagerecht abstellen. OK fertiger Boden als Z0 festlegen, Hecktür-Innenkante als Y0, Verkleidung Fahrerseite als X0 markieren.</td><td>drei Referenzen dauerhaft angezeichnet</td></tr>
@@ -467,7 +837,7 @@ einem Lackstift markieren; beim Nachzug sieht man dann sofort, welche sich gelö
 <tr><td class="num">1.12</td><td><b>Verkleidung montieren.</b> 5-mm-Pappel als Oberfläche behandeln, an späteren Lastpunkten Rückverstärkungen oder Zugang zur Struktur vorsehen.</td><td>Zugang zu allen Ankern dokumentiert</td></tr>
 </table></div>
 
-<h2 id="b8"><span class="no">8</span>Phase 2 und 3 — Möbel, Hängeschränke, iPad-Zone</h2>
+<h2 id="b13"><span class="no">13</span>Phase 2 und 3 — Möbel, Hängeschränke, iPad-Zone</h2>
 <div class="tw"><table>
 <tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
 <tr><td class="num">2.1</td><td><b>Küche trocken einpassen</b> bei Y 1640–2690, X 1270–1720. Schiebetür, Spüle, Klapptische und Bett-Auszugshülle prüfen. <b>Modul so drehen, dass Spüle und Klappverlängerung vorn liegen</b> (Y &gt; 2165).</td><td>Spüle bei ausgezogenem Bett erreichbar</td></tr>
@@ -486,7 +856,7 @@ einem Lackstift markieren; beim Nachzug sieht man dann sofort, welche sich gelö
 <tr><td class="num">3.6</td><td><b>Vollständiger Funktionstest.</b> Kühlschranktür, Schublade, Trelino, Küchenklappen, Spüle, Klapptische, Schiebetür, Drehsitze, Tisch und alle sechs HS-Klappen im Tag- und simulierten Nachtbetrieb betätigen.</td><td>Layoutfehler jetzt noch ohne Demontage korrigierbar</td></tr>
 </table></div>
 
-<h2 id="b9"><span class="no">9</span>Phase 4 — Elektrik und Wasser</h2>
+<h2 id="b14"><span class="no">14</span>Phase 4 — Elektrik und Wasser</h2>
 <div class="tw"><table>
 <tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
 <tr><td class="num">4.1</td><td>Technikfach bauen: Batterieauflage, Trennwand, Serviceklappe mit Vierteldrehverschlüssen, Lüftungsgitter oben und unten.</td><td>Batterie ohne Bettdemontage tauschbar</td></tr>
@@ -504,7 +874,7 @@ einem Lackstift markieren; beim Nachzug sieht man dann sofort, welche sich gelö
 <tr><td class="num">4.13</td><td>Stromlaufplan ausdrucken und in die Serviceklappe kleben, Ersatzsicherungen deponieren.</td><td>Plan entspricht dem gebauten Stand</td></tr>
 </table></div>
 
-<h2 id="b10"><span class="no">10</span>Phase 5 bis 7 — Bett bauen und einstellen</h2>
+<h2 id="b15"><span class="no">15</span>Phase 5 bis 7 — Bett bauen und einstellen</h2>
 <div class="tw"><table>
 <tr><th class="num">Nr.</th><th>Arbeitsschritt</th><th>Qualitätsmerkmal</th></tr>
 <tr><td class="num">5.1</td><td><b>B1/B2 sowie H-KUE, H-KS, KM und KSM erneut messen.</b> Querträger P07 und Bugprofil P11 erst jetzt final ablängen.</td><td>Messblatt datiert; kleinster B-Wert verwendet</td></tr>
@@ -527,7 +897,7 @@ einem Lackstift markieren; beim Nachzug sieht man dann sofort, welche sich gelö
 setzen. Zwei Millimeter Summenfehler über 16 Latten blockieren den Auszug. Die Abstandslehre 105/20
 wird einmal gebaut und dann für <b>jede</b> Latte verwendet — auch für die letzte.</div>
 
-<h2 id="b11"><span class="no">11</span>Abnahme, Lasttest, Probefahrt</h2>
+<h2 id="b16"><span class="no">16</span>Abnahme, Lasttest, Probefahrt</h2>
 <h4>Mechanik</h4>
 <div class="tw"><table>
 <tr><th>✓</th><th>Prüfpunkt</th><th>Sollwert</th></tr>
@@ -573,7 +943,7 @@ wird einmal gebaut und dann für <b>jede</b> Latte verwendet — auch für die l
 <div class="hin stop"><b>Erst nach vollständig bestandener Prüfliste zum ersten Mal darin schlafen.</b>
 Ein Bett, das 180 kg trägt, ist kein Möbelstück, das man „mal ausprobiert".</div>
 
-<h2 id="b12"><span class="no">12</span>Betrieb, Wartung, Revisionsprotokoll</h2>
+<h2 id="b17"><span class="no">17</span>Betrieb, Wartung, Revisionsprotokoll</h2>
 <h4>Tag- und Nachtumbau</h4>
 <div class="tw"><table>
 <tr><th>Von Tag auf Nacht</th><th>Von Nacht auf Tag</th></tr>
