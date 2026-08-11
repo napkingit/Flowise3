@@ -1,0 +1,783 @@
+<title>Sprinter W907 L2H2 – Gesamtplan / Grundriss Ausbau</title>
+<style>
+:root{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --disp:"Bahnschrift","DIN Alternate","Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;}}
+:root[data-theme="dark"]{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;}
+:root[data-theme="light"]{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;}
+html{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.55;font-size:16px}
+body{max-width:1180px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{font-family:var(--disp);text-wrap:balance;line-height:1.15}
+h1{font-size:2rem;margin:0 0 4px}
+h2{font-size:1.4rem;margin:56px 0 12px;padding-top:18px;border-top:2px solid var(--ink)}
+h2 .no{color:var(--ink2);font-family:var(--mono);font-size:1rem;margin-right:10px}
+h3{font-size:1.05rem;margin:26px 0 8px}
+p{margin:10px 0;max-width:80ch}
+ul,ol{max-width:82ch} li{margin:4px 0}
+.kopf{border:2px solid var(--ink);padding:18px 20px;display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;margin-bottom:8px}
+.kopf .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink2);line-height:1.7}
+.legende{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:.78rem;margin:14px 0 4px}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:2px;display:inline-block}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.86rem;font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--grid);font-family:var(--disp);font-weight:600;font-size:.82rem}
+td.num,th.num{text-align:right;font-family:var(--mono);font-size:.82rem}
+td.mono{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+.tw{overflow-x:auto;margin:14px 0}
+.tw table{margin:0;min-width:760px}
+.zbox{border:1.5px solid var(--ink);background:var(--panel);margin:22px 0;overflow-x:auto}
+.zbox .zk{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 20px;border-bottom:1.5px solid var(--ink);padding:8px 14px;font-family:var(--mono);font-size:.75rem;color:var(--ink2)}
+.zbox .zk b{color:var(--ink);font-family:var(--disp);font-size:.9rem;letter-spacing:.02em}
+.zbox svg{display:block;margin:10px auto;min-width:680px;max-width:100%}
+.zbox figcaption{padding:0 14px 12px;color:var(--ink2);font-size:.85rem}
+.hin{border-left:4px solid var(--var);background:var(--panel);padding:10px 14px;margin:16px 0;max-width:82ch}
+.ok{border-left-color:var(--conf)}
+.toc{font-family:var(--mono);font-size:.82rem;columns:2;gap:40px;margin:18px 0;padding:14px 18px;border:1px solid var(--line);background:var(--panel)}
+.toc a{color:var(--ink);text-decoration:none;display:block;padding:2px 0}
+.toc a:hover,.toc a:focus-visible{color:var(--var);outline:none;text-decoration:underline}
+@media (max-width:700px){.toc{columns:1}}
+svg text{font-family:var(--mono)}
+.p{stroke:var(--ink);fill:none;stroke-width:4;stroke-linejoin:miter}
+.pt{stroke:var(--ink);fill:none;stroke-width:2.2}
+.fill{fill:var(--grid);stroke:var(--ink);stroke-width:4}
+.soft{fill:var(--grid);fill-opacity:.5;stroke:var(--ink);stroke-width:2.2}
+.wand{stroke:var(--ink);stroke-width:8;fill:none}
+.hl{stroke:var(--hatch);stroke-width:2}
+.dash{stroke-dasharray:16 12}
+.dashf{stroke:var(--assum);fill:none;stroke-width:3.5;stroke-dasharray:18 12}
+.mitte{stroke:var(--hatch);stroke-width:1.8;stroke-dasharray:40 10 8 10}
+.dim{stroke:var(--ink2);stroke-width:2;fill:none}
+.dt{fill:var(--ink);font-size:1em}
+.dt2{fill:var(--ink2);font-size:.82em}
+.dv{fill:var(--var);font-size:1em;font-weight:700}
+.da{fill:var(--assum);font-size:1em}
+.db{fill:var(--conf);font-size:1em}
+.lbl{fill:var(--ink);font-size:.92em;font-family:var(--disp)}
+.axis{stroke:var(--ink);stroke-width:3;fill:none}
+.axt{fill:var(--ink);font-size:1.1em;font-weight:700}
+</style>
+
+<header class="kopf">
+  <div>
+    <h1>Gesamtplan Ausbau — Mercedes Sprinter W907 L2H2</h1>
+    <p style="margin:2px 0 0;color:var(--ink2)">Grundriss, Ansichten und Höhenschema · CAMPANY-Module + Eigenbau · Querbett 1600/2000 mm mit 400-mm-Auszug</p>
+    <div class="legende">
+      <span><span class="dot" style="background:var(--conf)"></span>[B] bestätigt — Fahrzeug-Datenblatt oder Rechnung RE2601250</span>
+      <span><span class="dot" style="background:var(--assum)"></span>[A] geschätzt — plausibel, Bauentscheidung</span>
+      <span><span class="dot" style="background:var(--var)"></span>[V] variabel — <b>am Fahrzeug messen</b></span>
+    </div>
+  </div>
+  <div class="meta">
+    Zeichnungssatz&nbsp;SPR-GA-01 · Stand&nbsp;06.08.2026<br>
+    Ergänzt&nbsp;SPR-BETT-01 (Bettkonstruktion)<br>
+    Einheiten&nbsp;mm · nicht maßstäblich —<br>es gelten die eingetragenen Maße<br>
+    X&nbsp;=&nbsp;Breite (0&nbsp;=&nbsp;Verkleidung Fahrerseite)<br>
+    Y&nbsp;=&nbsp;Fahrtrichtung (0&nbsp;=&nbsp;Innenkante Hecktüren)<br>
+    Z&nbsp;=&nbsp;Höhe (0&nbsp;=&nbsp;OK fertiger Boden)
+  </div>
+</header>
+
+<nav class="toc" aria-label="Inhalt">
+  <a href="#s1">1 · Layoutkonzept &amp; Modulliste</a>
+  <a href="#s2">2 · Grundriss (Draufsicht)</a>
+  <a href="#s3">3 · Seitenansicht Fahrerseite</a>
+  <a href="#s4">4 · Seitenansicht Beifahrerseite</a>
+  <a href="#s5">5 · Querschnitte A–A und B–B</a>
+  <a href="#s6">6 · Höhenschema Z</a>
+  <a href="#s7">7 · Freigang- und Kollisionsprüfung</a>
+  <a href="#s8">8 · Abstützung des ausgezogenen Betts</a>
+  <a href="#s9">9 · Noch zu messen</a>
+  <a href="#s10">10 · Offene Punkte</a>
+</nav>
+
+<div class="hin ok"><b>Die Entscheidungen, aus denen sich der ganze Grundriss ergibt:</b>
+<b>①</b> <b>Alle sechs Hängeschränke auf der Fahrerseite in <i>einer</i> Kette</b>, alle mit
+<b>UK&nbsp;Z&nbsp;1530</b>, aufgehängt an der oberen Airline-Schiene (Mitte Z&nbsp;1540).
+<b>②</b> Die <b>Beifahrerwand über dem Bett bleibt komplett frei</b> — sie ist die Anlehnwand zum
+Sitzen. Die iPad-Halterung sitzt gegenüber <b>unter dem Hängeschrank</b> der Fahrerseite.
+<b>③</b> <b>Dinette-Podest P&nbsp;=&nbsp;120</b> nur als Fußpodest, <b>so breit wie die Sitzbank</b>
+(X&nbsp;0–650) und nach vorn <b>schräg auslaufend</b>, damit der Durchgang zum Fahrerhaus zwischen den
+Sitzen auf Z&nbsp;0 frei bleibt.
+<b>④</b> Küche und Kühlschrankschrank stehen auf <b>derselben Höhe 900&nbsp;mm</b> — dadurch liegt der
+Bettauszug beidseitig auf, ein Klappbein entfällt und die Stützweite des Bugprofils sinkt von
+1690 auf 800&nbsp;mm.
+<b>⑤</b> Der Küchenblock wird <b>normal eingebaut: Spüle zum Heck</b>. Dass die Spüle bei ausgezogenem
+Bett nicht erreichbar ist, ist bewusst akzeptiert.
+<b>⑥</b> Der voll ausgezogene Bettbug hält <b>mindestens 80&nbsp;mm Abstand zum Schiebetürausschnitt</b>
+(Kapitel&nbsp;7).</div>
+
+<h2 id="s1"><span class="no">1</span>Layoutkonzept und Modulliste</h2>
+<p>Das Layout folgt deiner Skizze: eine durchgehende Möbelzeile auf der <b>Fahrerseite</b>
+(Kühlschrankschrank → Sitzbank → Tisch → Drehsitze), der <b>Küchenblock auf der Beifahrerseite</b>
+teilweise vor der Schiebetür, und das <b>Querbett über die volle Breite im Heck</b>, das zum Schlafen
+400 mm nach vorn über beide Möbelzeilen ausgezogen wird.</p>
+
+<div class="hin ok"><b>Der wichtigste Fund aus deinen Angaben:</b> Der selbstgebaute Kühlschrankschrank
+steht dem Küchenblock genau gegenüber und wird auf <b>dieselbe Höhe 900 mm</b> gebaut. Damit liegt der
+Bettauszug im ausgefahrenen Zustand auf <b>beiden</b> Seiten auf — das in SPR-BETT-01 vorgesehene
+Klappbein entfällt ersatzlos, die Bedienung wird einhändig, und die Stützweite des Bugprofils sinkt
+von 1690&nbsp;mm auf 800&nbsp;mm (Details in Kap.&nbsp;8).</div>
+
+<h3>Module aus Rechnung RE2601250 (CAMPANY, 08.01.2026) — bestätigt [B]</h3>
+<div class="tw"><table>
+<tr><th>Pos.</th><th>Modul</th><th class="num">Stk</th><th>Maße B×H×T</th><th>Ausstattung laut Rechnung</th></tr>
+<tr><td class="mono">000101</td><td>Verkleidungs-Set Laderaum</td><td class="num">1</td><td>—</td><td>5 mm Pappelsperrholz roh → bestimmt die lichte Innenbreite B1</td></tr>
+<tr><td class="mono">114501</td><td>Küchenblock</td><td class="num">1</td><td class="mono">1050 × 900 × 450</td><td>2× Fach mit je 2 Türen + Einlegeboden, 1× Schubkasten Kartuschenkocher, 1× Arbeitsplattenverlängerung (Klapptisch), 1× Mülleimer mit Klappe, 1× Außentisch klappbar; Spüle 400×340 mit versenkbarer Armatur; 12 mm Queenply beidseitig HPL. <b>Ohne Kanister, ohne Tauchpumpe</b></td></tr>
+<tr><td class="mono">114507N</td><td>Hängeschrank mit Klappe</td><td class="num">6</td><td class="mono">500 × 370 × 340</td><td>abgeschrägte Front, Wabenstruktur, LED-Leiste dimmbar, 12 mm Queenply</td></tr>
+<tr><td class="mono">114509</td><td>Tisch demontierbar</td><td class="num">1</td><td class="mono">480 × — × 900</td><td>Steckfuß, inkl. Erweiterung, 12 mm Queenply Eiche-Dekor</td></tr>
+</table></div>
+
+<h3>Belegungsplan — alle Module mit Einbaulage</h3>
+<div class="tw"><table>
+<tr><th>Kürzel</th><th>Modul</th><th>Seite</th><th class="num">X von…bis</th><th class="num">Y von…bis</th><th class="num">Z von…bis</th><th>Quelle</th></tr>
+<tr><td class="mono">BE-F</td><td>Festbett (Liegefläche)</td><td>voll</td><td class="num">15 … 1705</td><td class="num">20 … 1620</td><td class="num">937 … 995</td><td>SPR-BETT-01</td></tr>
+<tr><td class="mono">BE-A</td><td>Bettauszug 400</td><td>voll</td><td class="num">15 … 1705</td><td class="num">1620 … 2020</td><td class="num">935 … 995</td><td>SPR-BETT-01</td></tr>
+<tr><td class="mono">KÜ</td><td>Küchenblock CAMPANY — <b>Spüle hinten, Kartuschenkocher vorn</b></td><td>Beifahrer</td><td class="num">1270 … 1720</td><td class="num">1640 … 2690</td><td class="num">0 … 900</td><td>[B] Maß / [A] Lage</td></tr>
+<tr><td class="mono">KÜ-V</td><td>Arbeitsplatten-Klappverlängerung (vorn)</td><td>Beifahrer</td><td class="num">1270 … 1720</td><td class="num">2690 … ~3040</td><td class="num">900</td><td>[A] Lage prüfen</td></tr>
+<tr><td class="mono">KS</td><td>Kühlschrankschrank Eigenbau — Gerät <b>750 × 520 × 570</b></td><td>Fahrer</td><td class="num">0 … 610</td><td class="num">1640 … 2200</td><td class="num">0 … 900</td><td>[B] Gerätemaß / [A] Korpus</td></tr>
+<tr><td class="mono">SB</td><td>Sitzbank Eigenbau mit Trelino-Auszug, <b>steht auf dem Holzboden</b></td><td>Fahrer</td><td class="num">0 … 650</td><td class="num">2200 … 2700</td><td class="num">0 … 480 (+60 Polster → Sitz 540)</td><td>[A] Entwurf</td></tr>
+<tr><td class="mono">SB-L</td><td>Rückenlehne, geneigt, OK = Fensterbrüstung</td><td>Fahrer</td><td class="num">0 … ~130</td><td class="num">2200 … 2700</td><td class="num">540 … 830</td><td>[A] Entwurf</td></tr>
+<tr><td class="mono">TI</td><td>Tisch CAMPANY, Steckfuß</td><td>Fahrer/Mitte</td><td class="num">0 … 900</td><td class="num">2700 … 3180</td><td class="num"><b>OK 720</b></td><td>[B] Vorgabe</td></tr>
+<tr><td class="mono">POD</td><td><b>Fußpodest P = 120</b>, Bankbreite, nach vorn schräg auslaufend</td><td>Fahrer</td><td class="num">0 … 650 → 0 … 350</td><td class="num">2700 … 3300</td><td class="num">0 … 120</td><td>[A/V]</td></tr>
+<tr><td class="mono">HS1–6</td><td><b>Hängeschränke, eine durchgehende Kette</b>, an der oberen Airline-Schiene</td><td>Fahrer</td><td class="num">0 … 340</td><td class="num">200 … 3250</td><td class="num"><b>1530 … 1900</b></td><td>[B] UK / [A] Y-Lage</td></tr>
+<tr><td class="mono">—</td><td><b>Beifahrerwand über dem Bett: bewusst frei</b> (Anlehnwand)</td><td>Beifahrer</td><td class="num">—</td><td class="num">200 … 1600</td><td class="num">1100 … 1900</td><td>gesetzt</td></tr>
+<tr><td class="mono">IP1</td><td>iPad-Hauptbasis <b>unter dem Hängeschrank</b>, ausziehbarer Arm</td><td>Fahrer</td><td class="num">200 … 340</td><td class="num">ca. 900</td><td class="num">1500 … 1530</td><td>[A/V]</td></tr>
+<tr><td class="mono">DS</td><td>Drehsitze Fahrer/Beifahrer</td><td>beide</td><td class="num">110…610 / 1090…1590</td><td class="num">ab ~3270</td><td class="num"><b>Sitz 540</b></td><td>[B] Sitzhöhe / [V] Lage</td></tr>
+<tr><td class="mono">HF1</td><td>flaches Wertfach im Podest</td><td>Fahrer</td><td class="num">150 … 370</td><td class="num">2800 … 3100</td><td class="num">30 … 100</td><td>[A/V]</td></tr>
+<tr><td class="mono">HF2</td><td>flaches Wertfach unter der Bettplattform, Zugang nur mit angehobener Matratze</td><td>Fahrer</td><td class="num">100 … 400</td><td class="num">300 … 700</td><td class="num">937 … 972</td><td>[A/V]</td></tr>
+<tr><td class="mono">HF3</td><td><b>Safe</b> im festen Bankfach hinter dem Trelino-Auszug</td><td>Fahrer</td><td class="num">20 … 220</td><td class="num">2230 … 2675</td><td class="num">20 … 400</td><td>[A/V]</td></tr>
+<tr><td class="mono">TB</td><td><b>Technikblock</b> über dem Radkasten Fahrerseite (Schwerpunkt Y ≈ 950)</td><td>Fahrer</td><td class="num">0 … 520</td><td class="num">480 … 1580</td><td class="num">0 … 937</td><td>[A/V]</td></tr>
+<tr><td class="mono">GA-BOX</td><td>Laderaum-Boxensystem, Alu-Profile im Garagenboden</td><td>voll</td><td class="num">20 … 1700</td><td class="num">20 … 1620</td><td class="num">0 … 700</td><td>[A]</td></tr>
+<tr><td class="mono">GS1–4</td><td>Auflageleisten für den Bettauszug (Eigenbau)</td><td>beide</td><td class="num">30…90 · 520…580 · 1290…1350 · 1650…1710</td><td class="num">1640 … 2165 bzw. 2200</td><td class="num">900 … 934</td><td>Kap. 8</td></tr>
+<tr><td class="mono">DGT</td><td><b>Front Runner Slimline II Dachträger</b> mit 3 Solarmodulen</td><td>Dach</td><td class="num">ca. 1255 breit</td><td class="num">nach Aufmaß</td><td class="num">Dach + ca. 60</td><td>[A/V]</td></tr>
+</table></div>
+
+<h3>Funktionsablauf</h3>
+<ul>
+<li><b>Tagbetrieb:</b> Bett eingeschoben (1600 mm) = Sofa/Ablage; Durchgang vom Eingang bis zum Heck frei; Küche und Kühlschrankoberseite vollständig nutzbar; Drehsitze + Tisch + Bank = Sitzgruppe für 3–4 Personen.</li>
+<li><b>Nachtbetrieb:</b> Bett 400 mm ausziehen → 2000 mm Liegelänge in Fahrtrichtung, Kopfende am Heck, Fußende über Küche und Kühlschrankschrank. Der Gang wird ab Y&nbsp;1620 auf Bett­höhe geschlossen; Ein- und Ausstieg über die Schiebetür bleibt frei.</li>
+<li><b>Toilette:</b> Trelino Evo L fährt auf einem Vollauszug aus der Sitzbank in den Gang — genau gegenüber der Schiebetür, dadurch volle Stehhöhe und Lüftung.</li>
+<li><b>Kühlschrank:</b> Tür öffnet zum Gang, Öffnungswinkel auf ca. 90° begrenzt, Gerät nach vorn ausbaubar. Die Abluft geht durch die Rückwand in die <b>Garage</b> (Details in SPR-BAU-01, Kapitel 1).</li>
+<li><b>Vom Bett herunter:</b> eine <b>Klappstufe an der Kühlschrankschrankfront</b> bei Z 300 liegt direkt an der Bettvorderkante — von der Matratze auf die Bettkante setzen, Fuß auf die Stufe, dann auf den Boden.</li>
+<li><b>Laderaum:</b> Alu-Profile im Garagenboden nehmen Standard-Boxen formschlüssig auf — 8 Euro-Boxen 600 × 400 je Lage.</li>
+</ul>
+
+<h2 id="s2"><span class="no">2</span>Grundriss — Draufsicht Gesamtfahrzeug</h2>
+<figure class="zbox"><div class="zk"><b>GA-01 · Grundriss</b><span>Heck links · Front rechts · Fahrerseite oben · Bett eingeschoben, Auszug und Podest orange gestrichelt</span><span>SPR-GA-01</span></div>
+<svg viewBox="-480 -700 5000 3260" style="font-size:46px" role="img" aria-label="Grundriss Gesamtfahrzeug">
+<defs><marker id="g1" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="gh" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+
+<g transform="translate(-330,2420)"><line class="axis" x1="0" y1="0" x2="190" y2="0" marker-end="url(#g1)"/><line class="axis" x1="0" y1="0" x2="0" y2="-190" marker-end="url(#g1)"/><text class="axt" x="205" y="16">Y</text><text class="axt" x="-30" y="-215">X</text></g>
+
+<!-- Karosserie -->
+<line class="wand" x1="0" y1="0" x2="0" y2="1720"/>
+<line class="wand" x1="0" y1="0" x2="3270" y2="0"/>
+<line class="wand" x1="0" y1="1720" x2="1990" y2="1720"/>
+<line class="wand" x1="3250" y1="1720" x2="3270" y2="1720"/>
+<line class="pt dash" x1="1990" y1="1720" x2="3250" y2="1720"/>
+<path class="pt mitte" d="M3270,0 L3900,0 M3270,1720 L3900,1720 M3900,0 L3900,1720"/>
+<text class="dt2" x="3300" y="-80">Fahrerhaus</text>
+<rect class="pt" x="-70" y="83" width="70" height="1555"/>
+<line class="pt" x1="-70" y1="860" x2="0" y2="860"/>
+<text class="dt2" x="-330" y="880" transform="rotate(-90 -330 880)">Hecktüren licht 1555 [B]</text>
+<rect class="pt dash" x="750" y="0" width="830" height="200"/>
+<rect class="pt dash" x="750" y="1520" width="830" height="200"/>
+
+<!-- FESTBETT -->
+<rect class="soft" x="20" y="15" width="1600" height="1690"/>
+<line class="mitte" x1="20" y1="860" x2="2020" y2="860"/>
+<g class="pt dash"><line x1="60" y1="15" x2="60" y2="1705"/><line x1="550" y1="15" x2="550" y2="1705"/><line x1="1050" y1="15" x2="1050" y2="1705"/><line x1="1540" y1="15" x2="1540" y2="1705"/></g>
+<text class="dt2" x="820" y="130">Radkasten [V]</text>
+<text class="dt2" x="820" y="1660">Radkasten [V]</text>
+<text class="lbl" x="300" y="690" style="font-size:1.2em">FESTBETT 1600 × 1690</text>
+<text class="dt2" x="300" y="770">Kammlattenrost · Aufbau siehe SPR-BETT-01</text>
+<text class="dt2" x="120" y="420">Kopfende</text>
+<text class="dt2" x="70" y="1180">QT1</text><text class="dt2" x="560" y="1180">QT2</text><text class="dt2" x="1060" y="1180">QT3</text><text class="dt2" x="1550" y="1180">QT4</text>
+<text class="dt2" x="230" y="1470">Beifahrerwand bewusst frei — Anlehnwand zum Sitzen</text>
+
+<!-- TECHNIKBLOCK -->
+<rect class="pt" x="480" y="0" width="1100" height="470" style="stroke-dasharray:20 12"/>
+<text class="dv" x="520" y="385">TECHNIKBLOCK über dem Radkasten</text>
+<text class="dt2" x="520" y="445">Schwerpunkt Y ≈ 950 · Bedienseite zum Heck</text>
+
+<!-- AUSZUG -->
+<rect class="dashf" x="1620" y="15" width="400" height="1690"/>
+
+<!-- KÜHLSCHRANKSCHRANK -->
+<rect class="p" x="1640" y="0" width="560" height="610"/>
+<rect class="pt dash" x="1665" y="37" width="520" height="570"/>
+<text class="lbl" x="1690" y="140">KS Kühlschrank</text>
+<text class="dt2" x="1690" y="215">560 × 610 × H900</text>
+<text class="dt2" x="1690" y="330">Gerät 750 × 520 × 570</text>
+<text class="dt2" x="1690" y="400">Tür → Gang, max 90°</text>
+<text class="dt2" x="1690" y="470">Abluft → Garage</text>
+<rect x="1640" y="30" width="560" height="60" fill="url(#gh)" class="p"/>
+<rect x="1640" y="520" width="560" height="60" fill="url(#gh)" class="p"/>
+<text class="dt2" x="2080" y="78">GS1</text><text class="dt2" x="2080" y="568">GS2</text>
+
+<!-- SITZBANK -->
+<rect class="p" x="2200" y="0" width="500" height="650"/>
+<rect class="pt" x="2200" y="0" width="500" height="130"/>
+<text class="dt2" x="2720" y="300">Lehne</text>
+<rect class="pt dash" x="2300" y="240" width="330" height="390"/>
+<text class="lbl" x="2740" y="130">SB Sitzbank</text>
+<text class="dt2" x="2740" y="205">500 × 650 · Sitz-OK 540</text>
+<text class="dt2" x="2315" y="420">Trelino Evo L</text>
+<text class="dt2" x="2315" y="490">330×390×430</text>
+<rect class="dashf" x="2300" y="650" width="330" height="390"/>
+<text class="da" x="2320" y="890">ausgezogen</text>
+<text class="da" x="2320" y="960">410 mm</text>
+<rect class="pt" x="2230" y="20" width="450" height="200"/>
+<text class="dt2" x="2250" y="190">HF3 Safe</text>
+
+<!-- TISCH -->
+<rect class="dashf" x="2700" y="0" width="480" height="900"/>
+<circle class="pt" cx="3120" cy="840" r="45"/>
+<rect class="pt dash" x="200" y="0" width="3050" height="340"/>
+<text class="dt2" x="240" y="300">HS1–HS6 · eine Kette · UK Z 1530 · an der oberen Airline-Schiene</text>
+<text class="da" x="2740" y="440">TI · Tisch CAMPANY</text>
+<text class="da" x="2740" y="505">480 × 900, Steckfuß</text>
+<text class="da" x="2740" y="570">OK 720 [B]</text>
+
+<!-- PODEST -->
+<path class="dashf" d="M2700,0 L2700,650 L3080,650 L3300,350 L3300,0 Z"/>
+<text class="da" x="2740" y="1000">FUSSPODEST P = 120 [A/V]</text>
+<text class="da" x="2740" y="1060">nur Bankbreite, vorn schräg</text>
+<text class="da" x="2740" y="1120">Durchgang zum Fahrerhaus Z 0</text>
+<text class="dv" x="2900" y="1885">Einstieg Z 0 · elektrische Trittstufe</text>
+<text class="dv" x="150" y="1420">Laderaum mit Alu-Profilen für Standard-Boxen</text>
+
+<!-- DREHSITZE -->
+<circle class="pt dash" cx="3530" cy="360" r="360"/>
+<circle class="pt dash" cx="3530" cy="1340" r="360"/>
+<rect class="soft" x="3270" y="110" width="520" height="500" rx="40"/>
+<rect class="soft" x="3270" y="1090" width="520" height="500" rx="40"/>
+<text class="lbl" x="3310" y="330">FAHRER</text><text class="dt2" x="3310" y="405">gedreht</text>
+<text class="lbl" x="3310" y="1310">BEIFAHRER</text><text class="dt2" x="3310" y="1385">gedreht</text>
+
+<!-- Freitexte im Gang -->
+<text class="da" x="1720" y="1250" transform="rotate(-90 1720 1250)">AUSZUG 400 → Liegelänge 2000</text>
+<text class="dv" x="150" y="1290">GS1–GS4 = Auflageleisten 30×60 auf beiden Möbeln,</text>
+<text class="dv" x="150" y="1355">sie tragen den ausgezogenen Bettteil</text>
+
+<!-- KÜCHENBLOCK -->
+<rect class="p" x="1640" y="1270" width="1050" height="450"/>
+<line class="pt dash" x1="2165" y1="1270" x2="2165" y2="1720"/>
+<rect class="pt" x="1700" y="1330" width="400" height="340"/>
+<text class="dt2" x="1715" y="1470">Spüle 400×340</text><text class="dt2" x="1715" y="1540">Armatur versenkbar</text>
+<rect class="pt" x="2250" y="1300" width="400" height="380"/>
+<text class="dt2" x="2270" y="1440">Schubkasten</text><text class="dt2" x="2270" y="1510">Kartuschenkocher</text>
+<rect class="dashf" x="2690" y="1270" width="350" height="450"/>
+<text class="da" x="2710" y="1480" transform="rotate(-90 2710 1480)">Klapp-Verlängerung</text>
+<text class="lbl" x="1950" y="1180">KÜ · KÜCHENBLOCK</text>
+<text class="dt2" x="1950" y="1245">CAMPANY 1050×450×H900 [B]</text>
+<rect x="1640" y="1290" width="525" height="60" fill="url(#gh)" class="p"/>
+<rect x="1640" y="1650" width="525" height="60" fill="url(#gh)" class="p"/>
+<text class="dt2" x="2185" y="1345">GS3</text><text class="dt2" x="2185" y="1705">GS4</text>
+<path class="pt" d="M2500,1800 L1990,1800" marker-end="url(#g1)"/>
+<text class="dt2" x="2530" y="1818">Schiebetür schiebt nach hinten</text>
+
+<!-- Schnittlinien -->
+<g class="mitte"><line x1="1900" y1="-600" x2="1900" y2="2300"/><line x1="2380" y1="-600" x2="2380" y2="2300"/></g>
+<text class="dt" x="1830" y="-630">A</text><text class="dt" x="1830" y="2380">A</text>
+<text class="dt" x="2310" y="-630">B</text><text class="dt" x="2310" y="2380">B</text>
+
+<!-- Bemaßung oben -->
+<g class="dim">
+<line x1="20" y1="-180" x2="1620" y2="-180" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="1640" y1="-180" x2="2200" y2="-180" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="2200" y1="-180" x2="2700" y2="-180" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="2700" y1="-180" x2="3180" y2="-180" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="20" y1="-195" x2="20" y2="10"/><line x1="1620" y1="-195" x2="1620" y2="10"/><line x1="1640" y1="-195" x2="1640" y2="10"/>
+<line x1="2200" y1="-195" x2="2200" y2="10"/><line x1="2700" y1="-195" x2="2700" y2="10"/><line x1="3180" y1="-195" x2="3180" y2="10"/>
+<line x1="0" y1="-350" x2="3270" y2="-350" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="0" y1="-365" x2="0" y2="-165"/><line x1="3270" y1="-365" x2="3270" y2="-165"/>
+</g>
+<text class="dt" x="600" y="-215">1600 Bett</text>
+<text class="dt" x="1690" y="-215">560 KS</text>
+<text class="dt" x="2320" y="-215">500 SB</text>
+<text class="dt" x="2820" y="-215">480 TI</text>
+<text class="dv" x="1180" y="-390">Nutzlänge bis Sitzrückwand ≈ 3270 [V]</text>
+
+<!-- Bemaßung unten -->
+<g class="dim">
+<line x1="20" y1="1930" x2="1620" y2="1930" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="1640" y1="1930" x2="2690" y2="1930" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="2690" y1="1930" x2="3250" y2="1930" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="20" y1="1730" x2="20" y2="1945"/><line x1="1620" y1="1730" x2="1620" y2="1945"/><line x1="1640" y1="1730" x2="1640" y2="1945"/>
+<line x1="2690" y1="1730" x2="2690" y2="1945"/><line x1="3250" y1="1730" x2="3250" y2="1945"/>
+<line x1="1990" y1="2090" x2="3250" y2="2090" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="1990" y1="1730" x2="1990" y2="2105"/><line x1="3250" y1="1945" x2="3250" y2="2105"/>
+<line x1="1620" y1="2240" x2="2020" y2="2240" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="2020" y1="1730" x2="2020" y2="2255"/><line x1="1620" y1="1945" x2="1620" y2="2255"/>
+</g>
+<text class="dt" x="640" y="2010">1600</text>
+<text class="dt" x="1900" y="2010">1050 Küchenblock [B]</text>
+<text class="dt" x="2760" y="2010">560 Eingang</text>
+<text class="dv" x="2180" y="2170">Schiebetür-Ausschnitt 1260, Lage Y 1990…3250 [V]</text>
+<text class="da" x="2070" y="2255">Auszug 400 → Bugkante Y 2020</text>
+
+<!-- Bemaßung Breite -->
+<g class="dim">
+<line x1="-190" y1="0" x2="-190" y2="1720" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="-205" y1="0" x2="-60" y2="0"/><line x1="-205" y1="1720" x2="-60" y2="1720"/>
+<line x1="1885" y1="580" x2="1885" y2="1270" marker-start="url(#g1)" marker-end="url(#g1)"/>
+<line x1="2600" y1="650" x2="2600" y2="1270" marker-start="url(#g1)" marker-end="url(#g1)"/>
+</g>
+<text class="dv" x="-215" y="860" transform="rotate(-90 -215 860)">B1 = 1720 [V]</text>
+<text class="dt" x="1900" y="1000" transform="rotate(-90 1900 1000)">Gang 660</text>
+<text class="dt" x="2570" y="1040" transform="rotate(-90 2570 1040)">Gang 620</text>
+</svg>
+<figcaption>GA-01 — Alle Möbel stehen auf dem Holzboden (Z 0). Das <b>Fußpodest P = 120</b> (orange gestrichelt) liegt nur vor der Bank und läuft nach vorn schräg aus. Hängeschränke gestrichelt als Projektion: <b>alle sechs mit UK Z 1530</b>. Die Beifahrerwand bleibt frei — sie ist die Anlehnwand zum Sitzen.</figcaption>
+</figure>
+<h2 id="s3"><span class="no">3</span>Seitenansicht Fahrerseite</h2>
+<figure class="zbox"><div class="zk"><b>GA-02 · Ansicht Fahrerseite</b><span>Blick von der Fahrzeugmitte nach links · Heck links · Bettauszug blau gestrichelt</span><span>SPR-GA-02</span></div>
+<svg viewBox="-380 -460 4820 3010" style="font-size:46px" role="img" aria-label="Seitenansicht Fahrerseite">
+<defs><marker id="g2" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="gh2" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+<g transform="translate(-280,2280)"><line class="axis" x1="0" y1="0" x2="190" y2="0" marker-end="url(#g2)"/><line class="axis" x1="0" y1="0" x2="0" y2="-190" marker-end="url(#g2)"/><text class="axt" x="205" y="16">Y</text><text class="axt" x="-30" y="-215">Z</text></g>
+<!-- Hülle -->
+<line class="wand" x1="0" y1="1979" x2="3900" y2="1979"/>
+<line class="wand" x1="0" y1="1979" x2="0" y2="0"/>
+<line class="pt dash" x1="0" y1="0" x2="3900" y2="0"/>
+<text class="db" x="2400" y="-80">lichte Innenhöhe 1979 = 2009 − 30 Bodenaufbau</text>
+<path class="pt" d="M750,1979 L750,1729 L1580,1729 L1580,1979"/>
+<text class="dt2" x="880" y="1900">Radkasten [V]</text>
+<!-- Hängeschränke -->
+<rect class="soft" x="200" y="79" width="3050" height="370"/>
+<g class="pt"><line x1="708" y1="79" x2="708" y2="449"/><line x1="1216" y1="79" x2="1216" y2="449"/><line x1="1724" y1="79" x2="1724" y2="449"/><line x1="2232" y1="79" x2="2232" y2="449"/><line x1="2740" y1="79" x2="2740" y2="449"/></g>
+<text class="lbl" x="1150" y="230">HS1–HS6 · je 500 × 370 × 340 [B] · UK Z 1530 · OK Z 1900</text>
+<text class="dt2" x="1150" y="300">alle sechs gleich hoch, eine durchgehende Kette</text>
+<line class="pt dash" x1="0" y1="439" x2="3900" y2="439"/>
+<text class="dt2" x="3300" y="425">obere Airline-Schiene Mitte Z 1540</text>
+<line class="pt dash" x1="0" y1="1269" x2="3900" y2="1269"/>
+<text class="dt2" x="300" y="1255">untere Airline-Schiene Mitte Z 710</text>
+<rect class="pt dash" x="2020" y="549" width="1130" height="600"/>
+<text class="dv" x="2060" y="700">GROSSES FENSTER · UK Z 830 [B]</text>
+<text class="dv" x="2060" y="765">OK messen [V] — muss unter 1520 bleiben</text>
+<!-- Bett -->
+<rect class="fill" x="20" y="984" width="1600" height="58"/>
+<rect class="pt" x="20" y="864" width="1600" height="120"/>
+<text class="lbl" x="380" y="945">Matratze 1600 + 400, DM 120 [A]</text>
+<text class="dt2" x="380" y="1025">Querträger + Latten 58</text>
+<rect class="dashf" x="1620" y="984" width="400" height="58"/>
+<rect class="dashf" x="1620" y="864" width="400" height="120"/>
+<!-- Unterbau Bett -->
+<rect class="pt dash" x="20" y="1042" width="1600" height="140"/>
+<text class="dt2" x="700" y="1140">Wandauflage / Längsträger</text>
+<text class="dt2" x="140" y="1560">GARAGE lichte Höhe 937 · Länge 1620</text>
+<!-- Kühlschrankschrank -->
+<rect class="p" x="1640" y="1079" width="560" height="900"/>
+<rect class="pt" x="1660" y="1119" width="520" height="750"/>
+<text class="dt2" x="1675" y="1400">Kühlschrank</text><text class="dt2" x="1675" y="1460">750 × 520 × 570</text>
+<rect class="pt" x="1660" y="1869" width="520" height="90"/>
+<text class="dt2" x="1675" y="1935">Sockel + Klappstufe Z 300</text>
+<text class="dt2" x="1250" y="1060">Abluft nach hinten in die Garage</text>
+<line class="dim" x1="2160" y1="1050" x2="1900" y2="1050"/>
+<!-- Auflageleiste -->
+<rect x="1640" y="1045" width="560" height="34" fill="url(#gh2)" class="p"/>
+<text class="dv" x="2160" y="1035">GS1/GS2 Auflageleiste 30 + 4 HPL</text>
+<line class="dim" x1="2150" y1="1045" x2="2060" y2="1055"/>
+<!-- Sitzbank -->
+<rect class="p" x="2200" y="1499" width="500" height="480"/>
+<rect class="fill" x="2200" y="1439" width="500" height="60"/>
+<rect class="pt dash" x="2300" y="1549" width="330" height="430"/>
+<text class="dt2" x="2320" y="1780">Trelino 430</text>
+<text class="lbl" x="2210" y="1410">Sitzbank · Polster 60 → Sitz-OK Z 540</text>
+<path class="p" d="M2200,1439 L2200,1149 L2310,1149 L2310,1439"/>
+<text class="dt2" x="2330" y="1130">Rückenlehne geneigt, OK 830</text>
+<!-- Tisch -->
+<rect class="fill" x="2700" y="1259" width="480" height="20"/>
+<rect class="pt" x="3110" y="1279" width="40" height="580"/>
+<text class="lbl" x="2730" y="1330">Tisch OK Z 720 [B]</text>
+<rect class="soft" x="2700" y="1859" width="600" height="120"/>
+<text class="dt2" x="2720" y="1945">Fußpodest 120</text>
+<!-- Drehsitz -->
+<rect class="soft" x="3270" y="1439" width="520" height="80" rx="20"/>
+<rect class="soft" x="3700" y="1029" width="90" height="450" rx="20"/>
+<text class="lbl" x="3290" y="1440">Drehsitz</text>
+<text class="dt2" x="3290" y="1640">Sitzhöhe Z 540 [B]</text>
+<!-- Bemaßung -->
+<g class="dim">
+<line x1="4030" y1="1979" x2="4030" y2="1079" marker-start="url(#g2)" marker-end="url(#g2)"/>
+<line x1="4140" y1="1979" x2="4140" y2="984" marker-start="url(#g2)" marker-end="url(#g2)"/>
+<line x1="4250" y1="1979" x2="4250" y2="864" marker-start="url(#g2)" marker-end="url(#g2)"/>
+<line x1="2135" y1="1079" x2="4050" y2="1079"/><line x1="2025" y1="984" x2="4160" y2="984"/><line x1="2025" y1="864" x2="4270" y2="864"/><line x1="3900" y1="1979" x2="4270" y2="1979"/>
+<line x1="20" y1="700" x2="1620" y2="700" marker-start="url(#g2)" marker-end="url(#g2)"/>
+<line x1="1620" y1="700" x2="2020" y2="700" marker-start="url(#g2)" marker-end="url(#g2)"/>
+<line x1="20" y1="860" x2="20" y2="685"/><line x1="1620" y1="860" x2="1620" y2="685"/><line x1="2020" y1="860" x2="2020" y2="685"/>
+</g>
+<text class="dv" x="3990" y="1500" transform="rotate(-90 3990 1500)">900 Möbel-OK [B]</text>
+<text class="dt" x="4100" y="1520" transform="rotate(-90 4100 1520)">995 OK Latten</text>
+<text class="dt" x="4210" y="1520" transform="rotate(-90 4210 1520)">1115 OK Matratze</text>
+<text class="dt" x="700" y="660">1600 fest</text>
+<text class="da" x="1680" y="660">400 Auszug</text>
+</svg>
+</figure>
+
+<h2 id="s4"><span class="no">4</span>Seitenansicht Beifahrerseite</h2>
+<figure class="zbox"><div class="zk"><b>GA-03 · Ansicht Beifahrerseite</b><span>Blick von der Fahrzeugmitte nach rechts · Heck links · Schiebetürausschnitt gestrichelt</span><span>SPR-GA-03</span></div>
+<svg viewBox="-380 -460 4820 3010" style="font-size:46px" role="img" aria-label="Seitenansicht Beifahrerseite">
+<defs><marker id="g3" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="gh3" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+<g transform="translate(-280,2280)"><line class="axis" x1="0" y1="0" x2="190" y2="0" marker-end="url(#g3)"/><line class="axis" x1="0" y1="0" x2="0" y2="-190" marker-end="url(#g3)"/><text class="axt" x="205" y="16">Y</text><text class="axt" x="-30" y="-215">Z</text></g>
+<line class="wand" x1="0" y1="1979" x2="3900" y2="1979"/>
+<line class="wand" x1="0" y1="1979" x2="0" y2="0"/>
+<line class="pt dash" x1="0" y1="0" x2="3900" y2="0"/>
+<path class="pt" d="M750,1979 L750,1729 L1580,1729 L1580,1979"/>
+<text class="dt2" x="880" y="1900">Radkasten [V]</text>
+<!-- Schiebetürausschnitt -->
+<rect class="pt dash" x="1990" y="161" width="1260" height="1818"/>
+<text class="dv" x="2790" y="440">Schiebetür 1260 × 1818 [B]</text>
+<text class="dv" x="2790" y="510">Lage in Y unbedingt messen [V]</text>
+<!-- Beifahrerwand: Freihaltezone statt Haengeschraenke -->
+<text class="dt2" x="215" y="80">Decken- und Küchenstrahler statt Wandleuchten — nichts steht vor</text>
+<rect class="pt dash" x="150" y="150" width="1450" height="490"/>
+<text class="dv" x="230" y="270">ANLEHNWAND — keine Hängeschränke, keine Regale,</text>
+<text class="dv" x="230" y="340">keine vorstehenden Leuchten, nichts Hartes im Rücken</text>
+<text class="dt2" x="1010" y="450">iPad-Halterung sitzt <tspan font-weight="700">gegenüber</tspan> unter dem Hängeschrank</text>
+<text class="dt2" x="1010" y="520">der Fahrerseite — diese Wand bleibt vollständig frei</text>
+<!-- Bett -->
+<rect class="fill" x="20" y="984" width="1600" height="58"/>
+<rect class="pt" x="20" y="864" width="1600" height="120"/>
+<rect class="dashf" x="1620" y="984" width="400" height="58"/>
+<rect class="dashf" x="1620" y="864" width="400" height="120"/>
+<rect class="pt dash" x="20" y="1042" width="1600" height="140"/>
+<text class="dt2" x="140" y="1560">GARAGE 937 hoch</text>
+<text class="dt2" x="620" y="800">Sitzhöhe über Matratze 864</text>
+<!-- Küchenblock -->
+<rect class="p" x="1640" y="1079" width="1050" height="900"/>
+<line class="pt dash" x1="2165" y1="1079" x2="2165" y2="1979"/>
+<rect class="pt" x="1700" y="1079" width="400" height="180"/>
+<text class="dt2" x="1715" y="1200">Spüle</text>
+<rect class="pt" x="2250" y="1099" width="400" height="230"/>
+<text class="dt2" x="2270" y="1240">Kartuschenkocher</text>
+<text class="lbl" x="1660" y="1500">KÜCHENBLOCK CAMPANY · OK 900 [B]</text>
+<text class="dt2" x="1660" y="1570">Spüle hinten, Kartuschenkocher vorn · Mittelwand Y 2165</text>
+<text class="dt2" x="1660" y="1640">Kanister/Tauchpumpe nicht im Lieferumfang</text>
+<rect class="dashf" x="2690" y="1079" width="350" height="24"/>
+<text class="da" x="2710" y="1050">Klapp-Verlängerung</text>
+<!-- Auflageleiste -->
+<rect x="1640" y="1045" width="525" height="34" fill="url(#gh3)" class="p"/>
+<text class="dv" x="1250" y="1035">GS3/GS4</text>
+<line class="dim" x1="1500" y1="1045" x2="1650" y2="1058"/>
+<!-- Bemaßung -->
+<g class="dim">
+<line x1="20" y1="700" x2="1620" y2="700" marker-start="url(#g3)" marker-end="url(#g3)"/>
+<line x1="1620" y1="700" x2="2020" y2="700" marker-start="url(#g3)" marker-end="url(#g3)"/>
+<line x1="20" y1="860" x2="20" y2="685"/><line x1="1620" y1="860" x2="1620" y2="685"/><line x1="2020" y1="860" x2="2020" y2="685"/>
+<line x1="1640" y1="2080" x2="2690" y2="2080" marker-start="url(#g3)" marker-end="url(#g3)"/>
+<line x1="1640" y1="1984" x2="1640" y2="2095"/><line x1="2690" y1="1984" x2="2690" y2="2095"/>
+<line x1="1620" y1="2210" x2="2020" y2="2210" marker-start="url(#g3)" marker-end="url(#g3)"/>
+<line x1="1620" y1="2095" x2="1620" y2="2225"/><line x1="2020" y1="1050" x2="2020" y2="2225"/>
+</g>
+<text class="dt" x="700" y="660">1600 fest</text>
+<text class="da" x="1680" y="660">400 Auszug</text>
+<text class="dt" x="1980" y="2050">1050 Küchenblock</text>
+<text class="da" x="1500" y="2290">Auszug überdeckt die hinteren 380 mm der Arbeitsplatte</text>
+</svg>
+<figcaption>GA-03 — Der Küchenblock wird <b>normal eingebaut: Spüle zum Heck</b> (Y&nbsp;1700–2100), Kartuschenkocher und Klappverlängerung nach vorn. Dass die Spüle bei ausgezogenem Bett hinter dem Bettbug liegt und dann nicht erreichbar ist, ist <b>bewusst akzeptiert</b> — gekocht wird dann auf dem Kartuschenkocher, und zum Spülen wird das Bett eingeschoben.</figcaption>
+</figure>
+
+<h2 id="s5"><span class="no">5</span>Querschnitte</h2>
+<figure class="zbox"><div class="zk"><b>GA-04 · Schnitt A–A bei Y = 1900</b><span>Blick nach vorn · Bett AUSGEZOGEN · zeigt die Lastabtragung des Auszugs</span><span>SPR-GA-04</span></div>
+<svg viewBox="-460 -340 2820 2940" style="font-size:46px" role="img" aria-label="Schnitt A-A">
+<defs><marker id="g4" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="gh4" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+<g transform="translate(-360,2180)"><line class="axis" x1="0" y1="0" x2="190" y2="0" marker-end="url(#g4)"/><line class="axis" x1="0" y1="0" x2="0" y2="-190" marker-end="url(#g4)"/><text class="axt" x="205" y="16">X</text><text class="axt" x="-30" y="-215">Z</text></g>
+<line class="wand" x1="-40" y1="1979" x2="1760" y2="1979"/>
+<line class="wand" x1="0" y1="1979" x2="0" y2="120"/><line class="wand" x1="1720" y1="1979" x2="1720" y2="120"/>
+<path class="pt dash" d="M0,120 Q0,0 260,0 L1460,0 Q1720,0 1720,120"/>
+<!-- Möbel -->
+<rect x="0" y="1079" width="580" height="900" fill="url(#gh4)" class="p"/>
+<text class="lbl" x="60" y="1400">KÜHLSCHRANK-</text><text class="lbl" x="60" y="1470">SCHRANK</text><text class="dt2" x="60" y="1540">580 tief</text>
+<rect x="1270" y="1079" width="450" height="900" fill="url(#gh4)" class="p"/>
+<text class="lbl" x="1310" y="1400">KÜCHEN-</text><text class="lbl" x="1310" y="1470">BLOCK</text><text class="dt2" x="1310" y="1540">450 tief</text>
+<!-- Auflageleisten -->
+<rect x="30" y="1045" width="60" height="34" fill="url(#gh4)" class="p"/>
+<rect x="490" y="1045" width="60" height="34" fill="url(#gh4)" class="p"/>
+<rect x="1290" y="1045" width="60" height="34" fill="url(#gh4)" class="p"/>
+<rect x="1650" y="1045" width="60" height="34" fill="url(#gh4)" class="p"/>
+<!-- Bugprofil + Matratze -->
+<rect x="15" y="984" width="1690" height="60" fill="url(#gh4)" class="p"/>
+<rect class="pt" x="15" y="864" width="1690" height="120"/>
+<text class="lbl" x="620" y="945">Matratze</text>
+<text class="lbl" x="560" y="1030">Bugprofil Alu 60×40×3</text>
+<!-- Lastpfeile -->
+<g class="dim"><line x1="860" y1="700" x2="860" y2="855" marker-end="url(#g4)"/></g>
+<text class="dv" x="640" y="670">Sitzlast 120 kg × 1,5</text>
+<g class="dim">
+<line x1="60" y1="1120" x2="60" y2="1300" marker-end="url(#g4)"/><line x1="520" y1="1120" x2="520" y2="1300" marker-end="url(#g4)"/>
+<line x1="1320" y1="1120" x2="1320" y2="1300" marker-end="url(#g4)"/><line x1="1680" y1="1120" x2="1680" y2="1300" marker-end="url(#g4)"/>
+</g>
+<!-- Hängeschrank -->
+<rect class="soft" x="0" y="79" width="340" height="370"/>
+<text class="lbl" x="380" y="260">Hängeschrank Fahrerseite · UK 1530</text>
+<text class="dt2" x="380" y="330">Beifahrerseite bleibt frei</text>
+<!-- Bemaßung -->
+<g class="dim">
+<line x1="60" y1="760" x2="520" y2="760" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="520" y1="760" x2="1320" y2="760" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="1320" y1="760" x2="1680" y2="760" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="60" y1="1040" x2="60" y2="745"/><line x1="520" y1="1040" x2="520" y2="745"/><line x1="1320" y1="1040" x2="1320" y2="745"/><line x1="1680" y1="1040" x2="1680" y2="745"/>
+<line x1="580" y1="2100" x2="1270" y2="2100" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="580" y1="1984" x2="580" y2="2115"/><line x1="1270" y1="1984" x2="1270" y2="2115"/>
+<line x1="0" y1="2230" x2="1720" y2="2230" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="0" y1="2115" x2="0" y2="2245"/><line x1="1720" y1="1984" x2="1720" y2="2245"/>
+<line x1="1880" y1="1979" x2="1880" y2="1079" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="1990" y1="1979" x2="1990" y2="984" marker-start="url(#g4)" marker-end="url(#g4)"/>
+<line x1="1725" y1="1079" x2="1900" y2="1079"/><line x1="1710" y1="984" x2="2010" y2="984"/><line x1="1725" y1="1979" x2="2010" y2="1979"/>
+</g>
+<text class="dt" x="170" y="720">460</text>
+<text class="dt" x="800" y="720">800</text>
+<text class="dt" x="1420" y="720">360</text>
+<text class="dt" x="770" y="2170">Gang 690</text>
+<text class="dv" x="740" y="2300">B1 = 1720 [V]</text>
+<text class="dv" x="1840" y="1600" transform="rotate(-90 1840 1600)">900 [B]</text>
+<text class="dt" x="1950" y="1600" transform="rotate(-90 1950 1600)">995 OK Latten</text>
+<text class="dt2" x="-40" y="2420">Vier Auflagepunkte GS1–GS4 · größte Stützweite 800 mm über dem Gang</text>
+<text class="dt2" x="-40" y="2490">Durchbiegung dort rechnerisch 1,0 mm — mit wandnahen Auflagern wären es 9,8 mm</text>
+</svg>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>GA-05 · Schnitt B–B bei Y = 2380</b><span>Blick nach vorn · Sitzbank, Toilettenauszug, Küche, Schiebetür</span><span>SPR-GA-05</span></div>
+<svg viewBox="-460 -340 2820 2940" style="font-size:46px" role="img" aria-label="Schnitt B-B">
+<defs><marker id="g5" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="gh5" width="16" height="16" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="16" class="hl"/></pattern></defs>
+<g transform="translate(-360,2180)"><line class="axis" x1="0" y1="0" x2="190" y2="0" marker-end="url(#g5)"/><line class="axis" x1="0" y1="0" x2="0" y2="-190" marker-end="url(#g5)"/><text class="axt" x="205" y="16">X</text><text class="axt" x="-30" y="-215">Z</text></g>
+<line class="wand" x1="-40" y1="1979" x2="1760" y2="1979"/>
+<line class="wand" x1="0" y1="1979" x2="0" y2="120"/>
+<line class="wand" x1="1720" y1="161" x2="1720" y2="120"/>
+<path class="pt dash" d="M0,120 Q0,0 260,0 L1460,0 Q1720,0 1720,120"/>
+<line class="pt dash" x1="1720" y1="161" x2="1720" y2="1979"/>
+<text class="dv" x="1760" y="1000" transform="rotate(-90 1760 1000)">Schiebetür offen</text>
+<!-- Sitzbank -->
+<rect x="0" y="1499" width="650" height="480" fill="url(#gh5)" class="p"/>
+<rect class="fill" x="0" y="1439" width="650" height="60"/>
+<text class="lbl" x="40" y="1900">SITZBANK</text>
+<path class="p" d="M0,1439 L110,1439 L130,1149 L0,1149 Z"/>
+<text class="dt2" x="150" y="1200">Lehne, geneigt, OK 830</text>
+<text class="dt2" x="60" y="1420">Polster 60 → Sitz 540</text>
+<rect class="pt" x="20" y="1579" width="200" height="380"/>
+<text class="dt2" x="240" y="1700">HF3 Safe</text>
+<!-- Toilette ausgezogen -->
+<rect class="dashf" x="650" y="1549" width="390" height="430"/>
+<text class="da" x="680" y="1790">TRELINO</text>
+<text class="da" x="680" y="1860">ausgezogen</text>
+<path class="dashf" d="M640,1660 L300,1660"/>
+<text class="da" x="200" y="1620">Auszug 410</text>
+<!-- Tisch -->
+<rect class="fill" x="0" y="1259" width="900" height="20"/>
+<rect class="pt" x="820" y="1279" width="40" height="580"/>
+<text class="lbl" x="300" y="1240">Tisch OK 720, Steckfuß</text>
+<rect class="soft" x="0" y="1859" width="650" height="120"/>
+<text class="dt2" x="60" y="1945">Fußpodest 120</text>
+<!-- Küche -->
+<rect x="1270" y="1079" width="450" height="900" fill="url(#gh5)" class="p"/>
+<rect class="pt" x="1330" y="1079" width="340" height="24"/>
+<text class="lbl" x="1300" y="1400">KÜCHE</text><text class="dt2" x="1300" y="1470">OK 900</text>
+<!-- Hängeschrank -->
+<rect class="soft" x="0" y="79" width="340" height="370"/>
+<text class="lbl" x="380" y="210">Hängeschrank · UK 1530</text>
+<rect class="pt" x="200" y="449" width="140" height="30"/>
+<text class="dt2" x="380" y="290">darunter: iPad-Halterung mit Schwenkarm</text>
+<text class="dt2" x="380" y="360">Beifahrerwand gegenüber bleibt frei</text>
+<!-- Stehhöhe -->
+<g class="dim">
+<line x1="1120" y1="1979" x2="1120" y2="30" marker-start="url(#g5)" marker-end="url(#g5)"/>
+<line x1="650" y1="2100" x2="1270" y2="2100" marker-start="url(#g5)" marker-end="url(#g5)"/>
+<line x1="650" y1="1984" x2="650" y2="2115"/><line x1="1270" y1="1984" x2="1270" y2="2115"/>
+<line x1="0" y1="2230" x2="1720" y2="2230" marker-start="url(#g5)" marker-end="url(#g5)"/>
+<line x1="0" y1="2115" x2="0" y2="2245"/><line x1="1720" y1="1984" x2="1720" y2="2245"/>
+<line x1="1880" y1="1979" x2="1880" y2="1259" marker-start="url(#g5)" marker-end="url(#g5)"/>
+<line x1="905" y1="1259" x2="1900" y2="1259"/><line x1="1725" y1="1979" x2="1900" y2="1979"/>
+</g>
+<text class="db" x="1150" y="700">Stehhöhe 1979</text>
+<text class="dt" x="790" y="2170">Gang 620</text>
+<text class="dv" x="740" y="2300">B1 = 1720 [V]</text>
+<text class="dt" x="1840" y="1650" transform="rotate(-90 1840 1650)">720 Tisch</text>
+<text class="dt2" x="-40" y="2420">Die Toilette fährt genau gegenüber der Schiebetür aus — volle Stehhöhe, beste Lüftung, kein Möbelkonflikt</text>
+</svg>
+</figure>
+
+<h2 id="s6"><span class="no">6</span>Höhenschema Z</h2>
+<p>Alle Höhen ab <b>OK Holzboden</b> (Fahrzeugblech + 30&nbsp;mm Boden inkl. Dämmung). Die Kette hat
+zwei Fixpunkte: die <b>Möbelhöhe 900</b> oben und die <b>Sitzhöhe der Drehsitze 540</b> unten. Alles
+dazwischen leitet sich daraus ab.</p>
+<div class="tw"><table>
+<tr><th class="num">Z</th><th>Bezugsebene</th><th>Herleitung</th><th>Status</th></tr>
+<tr><td class="num">1979</td><td>Dachinnenkante</td><td>2009 Laderaumhöhe − 30 Bodenaufbau</td><td>[B]/[A]</td></tr>
+<tr><td class="num">1900</td><td>OK Hängeschränke</td><td>1530 + 370 Modulhöhe — <b>79 mm Luft bis zum Dach</b></td><td>abgeleitet</td></tr>
+<tr><td class="num"><b>1540</b></td><td><b>Mitte obere Airline-Schiene</b></td><td>am Fahrzeug gemessen, beide Seiten</td><td><b>[B]</b></td></tr>
+<tr><td class="num"><b>1530</b></td><td><b>UK Hängeschränke — alle sechs gleich</b></td><td>Vorgabe; die Schiene liegt 10 mm über der Schrankunterkante</td><td><b>[B]</b></td></tr>
+<tr><td class="num">1115</td><td>OK Matratze</td><td>995 + 120 Matratze → <b>Sitzhöhe im Bett 864</b></td><td>abgeleitet</td></tr>
+<tr><td class="num">995</td><td>OK Latten = OK Bugprofil</td><td>934 Gleitebene + 60 Profil + 1 Spiel</td><td>abgeleitet</td></tr>
+<tr><td class="num">972</td><td>OK Querträger</td><td>995 − 18 Lattenstärke</td><td>abgeleitet</td></tr>
+<tr><td class="num">937</td><td>UK Querträger = OK Wandauflage = <b>lichte Garagenhöhe</b></td><td>972 − 40 Profilhöhe</td><td>abgeleitet</td></tr>
+<tr><td class="num">934</td><td>Gleitebene des Auszugs</td><td>900 + 30 Auflageleiste + 4 HPL</td><td>Kernmaß</td></tr>
+<tr><td class="num"><b>900</b></td><td><b>OK Küchenblock = OK Kühlschrankschrank</b></td><td>CAMPANY-Maß H 900</td><td><b>[B]</b></td></tr>
+<tr><td class="num">860</td><td>OK Kühlschrank im Schrank</td><td>110 Sockel + 750 Gerätehöhe</td><td>abgeleitet</td></tr>
+<tr><td class="num"><b>830</b></td><td><b>UK großes Fenster Fahrerseite</b></td><td>am Fahrzeug gemessen — <b>bestimmt die OK der Rückenlehne</b></td><td><b>[B]</b></td></tr>
+<tr><td class="num">830</td><td>OK Rückenlehne Sitzbank</td><td>bündig mit der Fensterbrüstung — kein Polster vor dem Glas</td><td>abgeleitet</td></tr>
+<tr><td class="num"><b>720</b></td><td><b>OK Tisch</b></td><td>Vorgabe; = 600 über dem Podest</td><td><b>[B]</b></td></tr>
+<tr><td class="num"><b>710</b></td><td><b>Mitte untere Airline-Schiene</b></td><td>am Fahrzeug gemessen, beide Seiten</td><td><b>[B]</b></td></tr>
+<tr><td class="num"><b>540</b></td><td><b>OK Sitzpolster Bank = Sitzhöhe Drehsitz</b></td><td>480 Korpus + 60 Polster</td><td><b>[B]</b> Drehsitz / abgeleitet Bank</td></tr>
+<tr><td class="num">480</td><td>OK Bankkorpus</td><td>Innenmaß 444 für die Trelino Evo L (430) auf Seitenauszügen</td><td>abgeleitet</td></tr>
+<tr><td class="num">120</td><td><b>OK Fußpodest P</b></td><td>Rippen ≈ 102 + Deckel 15 + Belag 2–3</td><td>[A/V] Startwert</td></tr>
+<tr><td class="num">110</td><td>UK Kühlschrank</td><td>Sockel; darin die Klappstufe und die Zuluftöffnung</td><td>[A]</td></tr>
+<tr><td class="num">0</td><td><b>OK Holzboden</b></td><td>Fahrzeugblech + <b>30 mm</b> Boden inkl. Dämmung</td><td><b>[B]</b></td></tr>
+</table></div>
+
+<div class="hin stop"><b>Der eine offene Ergonomiekonflikt — bitte am 1:1-Provisorium entscheiden.</b>
+Sitzhöhe 540 und Tischoberkante 720 ergeben nur <b>180&nbsp;mm Höhendifferenz</b>. Üblich und bequem
+sind <b>270–300&nbsp;mm</b>. Bei 180 sitzt man mit hochgezogenen Knien am Tisch, und die Oberschenkel
+stoßen an die Tischunterseite (Tischplatte 20 dick → freie Höhe über dem Polster nur 160&nbsp;mm).
+Drei Wege:
+<b>① Tisch höher:</b> OK auf <b>810–840</b> setzen (Steckfuß verlängern). Dann stimmt der Abstand,
+und der Tisch liegt immer noch unter der Möbelhöhe 900.
+<b>② Sitz niedriger:</b> Bankpolster auf OK <b>450</b> — passt dann aber nicht mehr zu den Drehsitzen,
+und die Trelino Evo L (430 hoch) geht nicht mehr unter den Sitz.
+<b>③ Bei 720 bleiben</b> und den Tisch als Ablage-/Arbeitsfläche im Stehen-Sitzen-Mischbetrieb
+akzeptieren.
+<b>Meine Empfehlung ist ①</b> — sie kostet nur einen längeren Steckfuß und löst den Konflikt
+vollständig. Gebaut wird zunächst nach deiner Vorgabe 720; die endgültige Freigabe erfolgt beim
+Probesitzen, weil dort auch die reale Sitzhöhe der gedrehten Serienstühle einfließt.</div>
+
+<div class="hin ok"><b>Wie die Kette zusammenhängt:</b> die <b>Möbelhöhe 900</b> bestimmt Gleitebene,
+Querträger, Latten und Matratze — und damit die Sitzhöhe im Bett von <b>864&nbsp;mm</b>.
+Die <b>Sitzhöhe 540</b> bestimmt den Bankkorpus (480) und über die Trelino-Höhe dessen Innenmaß.
+Das <b>Podest 120</b> bestimmt die effektive Sitzhöhe über der Fußfläche (540 − 120 = <b>420&nbsp;mm</b>)
+— das ist genau der Bereich, in dem die Beine bei 90°-Kniewinkel entspannt stehen.
+Die <b>Fensterbrüstung 830</b> bestimmt die Oberkante der Rückenlehne, und die
+<b>obere Airline-Schiene 1540</b> bestimmt die Unterkante aller sechs Hängeschränke.</div>
+
+<h2 id="s7"><span class="no">7</span>Freigang- und Kollisionsprüfung</h2>
+<div class="tw"><table>
+<tr><th>Prüfung</th><th>Rechnung</th><th>Ergebnis</th></tr>
+<tr><td><b>Bettauszug ↔ Schiebetürausschnitt</b><br><span style="color:var(--var)">Anforderung: ≥ 80 mm</span></td><td>Bugkante ausgezogen Y 2020; gefordert AS ≥ 2020 + 80 = <b>2100</b>; angenommen AS ≈ 1990</td><td>⚠ <b>Entscheidungspunkt — AS zuerst messen.</b> Lösung siehe Kasten unten</td></tr>
+<tr><td>Bettauszug ↔ Küchenspüle</td><td>Auszug überdeckt Y 1640–2020; Spüle liegt jetzt <b>hinten</b> (Y 1700–2100)</td><td>✔ <b>bewusst akzeptiert:</b> bei ausgezogenem Bett ist die Spüle nicht erreichbar. Der Kartuschenkocher vorn bleibt nutzbar</td></tr>
+<tr><td>Bettauszug ↔ Kühlschranktür</td><td>Auszug ab Z 935; Türoberkante Z 860</td><td>✔ Kühlschrank auch bei ausgezogenem Bett nutzbar</td></tr>
+<tr><td><b>Bettauszug ↔ Hängeschränke</b></td><td>Matratzen-OK 1115; UK Schränke <b>1530</b></td><td>✔ <b>415 mm</b> — deutlich mehr Luft als vorher, weil die Schränke höher hängen</td></tr>
+<tr><td><b>Hängeschränke ↔ Dach</b></td><td>OK Schrank 1900; Dachinnenkante 1979</td><td>✔ 79 mm — reicht für Aufhängung und Kabelkanal, aber <b>kein weiterer Aufbau</b> darüber</td></tr>
+<tr><td><b>Hängeschränke ↔ großes Fenster</b></td><td>UK Schrank 1530; Fenster UK 830, OK <b>[V] messen</b></td><td>⚠ <b>Nur kritisch, wenn die Fenster-OK über 1520 liegt.</b> Bei einem üblichen 600–650 mm hohen Fenster liegt die OK bei 1430–1480 → passt. <b>Vor der Montage messen</b></td></tr>
+<tr><td>Hängeschränke ↔ Schiebetür</td><td>über der Türöffnung nur 1979 − 1818 = 161 mm frei</td><td>✘ Auf der Beifahrerseite unmöglich → <b>alle 6 auf die Fahrerseite</b></td></tr>
+<tr><td><b>Rückenlehne ↔ Fenster</b></td><td>OK Lehne 830 = UK Fenster 830</td><td>✔ die Lehne endet exakt an der Brüstung — kein Polster vor dem Glas, freier Blick im Sitzen</td></tr>
+<tr><td><b>Sitz ↔ Tisch</b></td><td>Sitz-OK 540, Tisch-OK 720 → 180 mm</td><td>⚠ <b>zu wenig</b> (üblich 270–300). Siehe Kasten in Kapitel 6</td></tr>
+<tr><td><b>Podest ↔ Durchgang zum Fahrerhaus</b></td><td>Podest X 0–650, nach vorn auf X 350 auslaufend; Durchgang zwischen den Sitzen X ≈ 610–1090</td><td>✔ Durchgang bleibt auf <b>Z 0</b>, keine Stufe im Weg nach vorn</td></tr>
+<tr><td>Toilettenauszug ↔ Bettauszug</td><td>Toilette Y 2300–2630; Bugkante max. Y 2020</td><td>✔ 280 mm</td></tr>
+<tr><td>Toilettenauszug ↔ Küchenblock</td><td>Toilette ragt bis X ≈ 1040; Küche ab X 1270</td><td>✔ 230 mm</td></tr>
+<tr><td><b>Kühlschranktür ↔ Gang</b></td><td>Türblatt 520 schwenkt aus X 610 in den Gang von <b>660 mm</b></td><td>⚠ knapp — <b>Öffnungswinkel auf 90° begrenzen</b>; Anschlagseite so wählen, dass die Tür nach vorn aufgeht</td></tr>
+<tr><td><b>Gangbreite</b></td><td>Kühlschrankschrank bis X 610, Küche ab X 1270</td><td>⚠ <b>660 mm</b> (vorher 690) — der größere Kühlschrank kostet 30 mm Gang. Weiterhin ausreichend, aber kein Spielraum mehr</td></tr>
+<tr><td>Sitzhöhe im Bett</td><td>1979 − 1115</td><td>✔ 864 mm — aufrecht sitzen möglich</td></tr>
+<tr><td>Garage</td><td>1690 × 1600 × 937, Radkästen Y 750–1580 je 200 tief</td><td>✔ 1320 mm durchgehende Breite zwischen den Radkästen; <b>Technikblock über dem Radkasten Fahrerseite</b></td></tr>
+<tr><td><b>Beinfreiheit Sitzgruppe</b></td><td>Bankvorderkante Y 2700 → Drehsitz-Vorderkante ≈ Y 3270</td><td>⚠ <b>570 mm</b>, der Tisch (480) überbrückt davon den größten Teil. <b>Nach dem Drehen der Sitze nachmessen</b>; ggf. Bank auf 450 kürzen</td></tr>
+<tr><td>Drehkreis Sitze</td><td>Ø ≈ 720 mm je Sitz</td><td>⚠ freier Bereich bis Y 3180 nötig; Tisch ist steckbar und wird zum Drehen entnommen</td></tr>
+<tr><td><b>Dachträger ↔ MaxxAir</b></td><td>Slimline II ca. 1255 breit; MaxxAir-Ausschnitt 400 × 400</td><td>⚠ Trägerraster so legen, dass die <b>Haube frei aufgeht</b> — Aussparung im Träger einplanen [V]</td></tr>
+</table></div>
+
+<h4>Airline-Schienen — was sie tragen und was nicht</h4>
+<div class="tw"><table>
+<tr><th>Schiene</th><th class="num">Mitte Z</th><th>Trägt</th><th>Hinweis</th></tr>
+<tr><td><b>obere Schiene</b>, beide Seiten</td><td class="num">1540</td><td><b>alle sechs Hängeschränke</b> (UK 1530)</td><td>Die Schiene liegt praktisch <b>an der Schrankunterkante</b>. Ein 370 mm hoher Schrank, der nur unten gehalten wird, erzeugt ein Kippmoment nach vorn — er braucht <b>zusätzlich oben eine Rückhaltung</b> (zweite Schiene, Dachholm oder Winkel in einen freigegebenen Strukturpunkt). <b>Vor der Montage klären, welcher zweite Anschlusspunkt real vorhanden ist</b></td></tr>
+<tr><td><b>untere Schiene</b>, beide Seiten</td><td class="num">710</td><td>Rückwandanbindung von Küche, Kühlschrankschrank und Sitzbank; <b>Wandauflagen des Betts</b> über Konsolen</td><td><b>Der elegante Nebeneffekt:</b> die Bett-Wandauflagen (OK Z 937) können über kurze Konsolen von der Schiene bei 710 nach oben abgestützt werden — <b>ohne eine einzige Bohrung ins Fahrzeugblech</b>. Tragfähigkeit der Airline-Beschläge beachten und je Auflage mindestens vier Fittings setzen</td></tr>
+</table></div>
+
+<div class="hin"><b>Freigang Bettbug → Schiebetür: die 80-mm-Forderung sauber auflösen.</b><br>
+Der voll ausgezogene Bug steht bei <b>Y 2020</b>. Damit 80 mm Abstand zum Ausschnitt bleiben, muss
+<b>AS ≥ 2100</b> sein. AS ist der einzige Wert, der das entscheidet — er wird als Erstes gemessen
+(Innenkante Hecktür → hintere Blechkante der Türöffnung).
+<ul>
+<li><b>Fall 1 — AS ≥ 2100:</b> nichts zu tun. Anforderung erfüllt, Bett bleibt 1600 / 2000.</li>
+<li><b>Fall 2 — AS zwischen 1950 und 2100 (wahrscheinlichster Fall): Eckausklinkung am Bug.</b>
+Die beifahrerseitigen 300 mm des <b>beweglichen</b> Kamms werden in Y um (2100 − AS) gekürzt, also
+typisch 80–150 mm. Betroffen sind nur die äußere Esche-Führungslatte und die beiden benachbarten
+Latten; Bugprofil, Riegel, Führung und Statik bleiben unverändert, weil die maßgebende Stützweite
+zwischen GS2 und GS3 liegt. Praktisch verliert man <b>eine Mattratzenecke am Fußende auf der
+Türseite</b> — dort, wo ohnehin niemand liegt. Die Matratzenklappe wird passend zugeschnitten.
+<b>Das ist die empfohlene Lösung</b>, weil die volle Liegelänge von 2000 mm erhalten bleibt.</li>
+<li><b>Fall 3 — AS &lt; 1950:</b> Auszug auf (AS − 80 − 1620) reduzieren, also Liegelänge unter
+1950 mm. Nur wählen, wenn Fall 2 aus einem anderen Grund ausscheidet — 2000 mm Liegelänge war eine
+Kernanforderung.</li>
+</ul>
+<b>Nicht möglich</b> ist es, das Bett nach hinten zu verschieben: es beginnt bereits bei Y 20 an den
+Hecktüren.</div>
+
+<h2 id="s8"><span class="no">8</span>Abstützung des ausgezogenen Betts</h2>
+<p>Der ausgezogene Bettteil überbrückt 400&nbsp;mm über beide Möbelzeilen. Wie er dabei abgestützt
+wird, ist die statisch entscheidende Frage des ganzen Ausbaus — und die Antwort ergibt sich direkt aus
+der Tatsache, dass Küche und Kühlschrankschrank <b>gleich hoch</b> sind.</p>
+
+<div class="hin ok"><b>Vier Auflageleisten GS1–GS4 statt Klappbein und Einzelpads.</b>
+Weil die Möbelhöhe beidseits 900&nbsp;mm beträgt, liegt der Auszug auf <b>beiden</b> Möbelzeilen auf.
+Ein Klappbein ist damit nicht nötig, die Bedienung bleibt einhändig, und es gibt kein Bauteil, das
+beim Ausziehen erst ausgeklappt werden muss.</div>
+
+<div class="hin"><b>Warum die Leisten gangnah und nicht wandnah sitzen — der maßgebende Nachweis.</b>
+Läge der Auszug nur auf zwei wandnahen Punkten auf, müsste das Bugprofil 60×40×3 rund
+<b>1690&nbsp;mm frei spannen</b>. Bei mittiger Sitzlast ergibt das rechnerisch ≈&nbsp;9,8&nbsp;mm
+Durchbiegung und verfehlt die geforderten 5&nbsp;mm deutlich. Mit den vier gangnahen Leisten sinkt die
+maßgebende Stützweite auf <b>800&nbsp;mm</b> und die Durchbiegung auf <b>≈&nbsp;1,0&nbsp;mm</b> —
+Faktor 10. Das ist der Grund für diese Anordnung, und der vollständige Nachweis steht in
+SPR-BETT-01, Kapitel&nbsp;7.</div>
+
+<div class="tw"><table>
+<tr><th>Position</th><th>Ausführung</th><th>Grund</th></tr>
+<tr><td>Auflagerpositionen X</td><td class="num">60 / 520 / 1320 / 1680</td><td>zwei Leisten je Möbel, jeweils direkt über der hinteren Korpuswand und über der Mittelwand</td></tr>
+<tr><td>Leisten GS1–GS4</td><td>Buche oder Esche 30 × 60, Länge = Wand → Mittelwand (Küche 525, Kühlschrankschrank 490)</td><td>Last geht durch reinen Druckkontakt über die Korpuswände nach unten</td></tr>
+<tr><td>Gleitfläche</td><td>4 mm HPL auf jeder Leiste, hinten 20 mm angeschrägt</td><td>Einfahrhilfe und dauerhafte Gleitpaarung; die Gleitebene liegt damit auf <b>Z 934</b></td></tr>
+<tr><td>Befestigung</td><td>je 4 × 4 × 20 <b>nur gegen Verrutschen</b></td><td>die 12-mm-Queenply-Arbeitsplatte wird bewusst <b>nicht auf Biegung</b> beansprucht</td></tr>
+<tr><td>Zusatznutzen</td><td>die wandseitige Leiste auf der Küche wirkt als Aufkantung</td><td>hält Geschirr davon ab, hinter die Arbeitsplatte zu rutschen</td></tr>
+<tr><td>Gewicht Bett gesamt</td><td class="num">≈ 42 kg</td><td>inklusive Leisten, ohne Matratze</td></tr>
+</table></div>
+
+<h2 id="s9"><span class="no">9</span>Noch zu messen</h2>
+<div class="tw"><table>
+<tr><th>Var.</th><th>Was</th><th>Zwischen welchen Punkten</th><th class="num">Tol.</th><th class="num">Annahme</th><th>Wirkung</th></tr>
+<tr><td class="mono">B1</td><td>Lichte Innenbreite über der Verkleidung</td><td>Verkleidung links → rechts, bei Y 100 / 800 / 1550 und Z ≈ 950; kleinster Wert zählt</td><td class="num">±3</td><td class="num">1720</td><td>Länge aller Querträger und Latten; Gangbreite</td></tr>
+<tr><td class="mono">AS</td><td><b>Lage des Schiebetürausschnitts</b></td><td>Innenkante Hecktür → hintere Blechkante der Türöffnung</td><td class="num">±10</td><td class="num">1990</td><td><b>Kritisch:</b> entscheidet, ob der Auszug in die Türöffnung ragt</td></tr>
+<tr><td class="mono">BA</td><td>Bodenaufbau</td><td>Fahrzeugblech → OK fertiger Boden</td><td class="num">±2</td><td class="num">30</td><td>verschiebt das gesamte Z-Schema; Möbel-OK bleibt 900 über dem fertigen Boden</td></tr>
+<tr><td class="mono">LR</td><td>Laderaumlänge bis Sitzrückwand</td><td>Innenkante Hecktür → Rückwand Fahrersitz in Fahrstellung</td><td class="num">±10</td><td class="num">3270</td><td>Beinfreiheit der Sitzgruppe; ggf. Bank 50 mm kürzen</td></tr>
+<tr><td class="mono">DK</td><td>Drehkreis-Freiraum der Sitze</td><td>Sitz drehen und den benötigten Bereich anzeichnen</td><td class="num">±10</td><td class="num">Ø 720</td><td>Position von Tisch und Bank</td></tr>
+<tr><td class="mono">RK</td><td>Radkästen</td><td>Y-Anfang/-Ende, Höhe, Einragtiefe je Seite</td><td class="num">±5</td><td class="num">Y 750–1580, h 250, t 200</td><td>Beine des Bett-Längsträgers, Garagennutzung</td></tr>
+<tr><td class="mono">FE</td><td>Fenster / Holme / Säulen</td><td>UK Fensterausschnitt; Mitte C- und D-Säule; Zwischenholme</td><td class="num">±5</td><td class="num">—</td><td>Schraubpunkte für Wandauflagen und Hängeschränke</td></tr>
+<tr><td class="mono">BP</td><td>Befestigungspunkte Boden</td><td>Zurrösen, Airlineschienen, vorhandene Gewinde</td><td class="num">±2</td><td class="num">—</td><td>Anbindung Bett, Bank, Küchenblock</td></tr>
+<tr><td class="mono">KM</td><td>Küchenblock: Lage der Mittelwand und der Spüle</td><td>am gelieferten Modul abmessen</td><td class="num">±5</td><td class="num">Mitte bei 525</td><td>Länge und Lage der Auflageleisten GS3/GS4</td></tr>
+<tr><td class="mono">TH</td><td>Tisch: tatsächliche Ausrichtung von B und T</td><td>am gelieferten Modul: welche Kante trägt den Steckfuß</td><td class="num">—</td><td class="num">480 in Y, 900 in X</td><td>Lage der Bank und die Beinfreiheit</td></tr>
+</table></div>
+
+<h2 id="s10"><span class="no">10</span>Offene Punkte und Empfehlungen</h2>
+<ul>
+<li><b>Kühlschrank-Lüftung geht in die Garage:</b> Zuluft ≥ 200 cm² unten in der gangseitigen
+Sockelfront, 25 mm Kaminschacht hinter dem Gerät, <b>Abluft ≥ 200 cm² durch die Rückwand in die
+Garage</b> — der Schrank grenzt dort direkt an. Damit die Wärme nicht in der Garage stehen bleibt,
+braucht diese <b>einen dauerhaft offenen Auslass ins Freie</b> (vorhandene Karosserieentlüftung
+prüfen, sonst ein Gitter im hinteren Seitenteil). Details in SPR-BAU-01, Kapitel 1.</li>
+<li><b>Wasser:</b> Kanister und Pumpe sind laut Rechnung ausdrücklich <b>nicht</b> geliefert. Zwei 12-l-Kanister passen in das Küchenfach, ein dritter als Reserve in die Garage. Als Pumpe wird die vorhandene <b>SEAFLO-Druckpumpe mit Druckspeicher</b> eingebaut — mit Auffangwanne und Leckagesensor darunter.</li>
+<li><b>Sitzbank als Stauraum:</b> Hinter der Toilette bleiben ca. 140 × 500 × 444 mm — dort sitzt der <b>Safe HF3</b>. Der Rest des Bankvolumens gehört dem Trelino-Auszug.</li>
+<li><b>Gurte/Sitzplätze:</b> Die Sitzbank ist als reine Wohnbank ausgelegt, <b>nicht</b> als
+Fahrgastsitz. Für einen zugelassenen dritten Sitzplatz wären geprüfte Gurtböcke mit Anbindung an die
+Karosserie nötig — das ist ein eigenes Thema mit Gutachten.</li>
+<li><b>Bettorientierung:</b> Kopfende ans Heck legen. Das Fußende liegt dann auf dem Auszug, der
+konstruktionsbedingt der weichere Teil ist, und der Einstieg erfolgt von vorn über den Gang.</li>
+<li><b>Reihenfolge beim Bauen:</b> Boden → Verkleidungs-Set → Wandbefestigungen (Nietmuttern) →
+Küchenblock einpassen und dessen echte Höhe messen → <b>erst dann</b> die Bett-Z-Kette festlegen und die
+Querträger ablängen. Das Bett ist das letzte Möbel, weil es sich nach allen anderen richtet.</li>
+</ul>
+
+<p style="margin-top:40px;border-top:1px solid var(--line);padding-top:14px"><small>
+SPR-GA-01 · Stand 06.08.2026 · Grundriss auf Basis der W907-Datenblattmaße, der CAMPANY-Rechnung RE2601250 und
+gekennzeichneter Annahmen. Die mit [A] und [V] markierten Werte sind Schätzungen bzw. am Fahrzeug zu
+prüfen. Ergänzt SPR-BETT-01; bei Abweichungen gilt das hier dokumentierte Höhenschema.</small></p>

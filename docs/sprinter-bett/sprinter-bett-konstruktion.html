@@ -1,0 +1,953 @@
+<title>Sprinter W907 L2H2 – Querbett 1600+400 Baudokumentation</title>
+<style>
+:root{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;
+  --mono:ui-monospace,"SF Mono","Cascadia Mono",Consolas,monospace;
+  --disp:"Bahnschrift","DIN Alternate","Franklin Gothic Medium","Arial Narrow",Arial,sans-serif;
+  --body:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+}
+@media (prefers-color-scheme: dark){:root{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;}}
+:root[data-theme="dark"]{
+  --paper:#14171a; --panel:#1b1f24; --ink:#e7eaed; --ink2:#9aa4ad; --line:#343b42;
+  --conf:#5cb884; --assum:#6ea3d8; --var:#e8834e; --grid:#242a30; --hatch:#6b747c;}
+:root[data-theme="light"]{
+  --paper:#f6f7f8; --panel:#ffffff; --ink:#171b1f; --ink2:#4a545d; --line:#d4d9de;
+  --conf:#2e7d4f; --assum:#2b5f9e; --var:#c8551b; --grid:#e3e7ea; --hatch:#8b949c;}
+html{background:var(--paper);color:var(--ink);font-family:var(--body);line-height:1.55;font-size:16px}
+body{max-width:1100px;margin:0 auto;padding:32px 20px 80px}
+h1,h2,h3{font-family:var(--disp);text-wrap:balance;line-height:1.15}
+h1{font-size:2rem;margin:0 0 4px}
+h2{font-size:1.4rem;margin:56px 0 12px;padding-top:18px;border-top:2px solid var(--ink)}
+h2 .no{color:var(--ink2);font-family:var(--mono);font-size:1rem;margin-right:10px}
+h3{font-size:1.05rem;margin:26px 0 8px}
+p{margin:10px 0;max-width:78ch}
+ul,ol{max-width:80ch}
+li{margin:4px 0}
+small,figcaption{color:var(--ink2)}
+.kopf{border:2px solid var(--ink);padding:18px 20px;display:flex;flex-wrap:wrap;gap:18px 40px;justify-content:space-between;margin-bottom:8px}
+.kopf .meta{font-family:var(--mono);font-size:.8rem;color:var(--ink2);line-height:1.7}
+.legende{display:flex;flex-wrap:wrap;gap:8px 18px;font-family:var(--mono);font-size:.78rem;margin:14px 0 4px}
+.legende span{display:inline-flex;align-items:center;gap:6px}
+.dot{width:12px;height:12px;border-radius:2px;display:inline-block}
+table{border-collapse:collapse;width:100%;margin:14px 0;font-size:.86rem;font-variant-numeric:tabular-nums}
+th,td{border:1px solid var(--line);padding:6px 9px;text-align:left;vertical-align:top}
+th{background:var(--grid);font-family:var(--disp);font-weight:600;font-size:.82rem}
+td.num,th.num{text-align:right;font-family:var(--mono);font-size:.82rem}
+td.mono{font-family:var(--mono);font-size:.8rem;white-space:nowrap}
+.tw{overflow-x:auto;margin:14px 0}
+.tw table{margin:0;min-width:720px}
+.tag{font-family:var(--mono);font-size:.72rem;padding:1px 6px;border-radius:3px;white-space:nowrap;border:1px solid}
+.tB{color:var(--conf);border-color:var(--conf)}
+.tA{color:var(--assum);border-color:var(--assum)}
+.tV{color:var(--var);border-color:var(--var);font-weight:700}
+.zbox{border:1.5px solid var(--ink);background:var(--panel);margin:22px 0;overflow-x:auto}
+.zbox .zk{display:flex;justify-content:space-between;flex-wrap:wrap;gap:4px 20px;border-bottom:1.5px solid var(--ink);padding:8px 14px;font-family:var(--mono);font-size:.75rem;color:var(--ink2)}
+.zbox .zk b{color:var(--ink);font-family:var(--disp);font-size:.9rem;letter-spacing:.02em}
+.zbox svg{display:block;margin:10px auto;min-width:640px;max-width:100%}
+.hin{border-left:4px solid var(--var);background:var(--panel);padding:10px 14px;margin:16px 0;max-width:80ch}
+.ok{border-left-color:var(--conf)}
+.toc{font-family:var(--mono);font-size:.82rem;columns:2;gap:40px;margin:18px 0;padding:14px 18px;border:1px solid var(--line);background:var(--panel)}
+.toc a{color:var(--ink);text-decoration:none;display:block;padding:2px 0}
+.toc a:hover,.toc a:focus-visible{color:var(--var);outline:none;text-decoration:underline}
+@media (max-width:700px){.toc{columns:1}}
+/* SVG-Zeichnungskonventionen (Koordinaten = mm) */
+svg text{font-family:var(--mono)}
+.p{stroke:var(--ink);fill:none;stroke-width:3.5;stroke-linejoin:miter}
+.pt{stroke:var(--ink);fill:none;stroke-width:1.8}
+.fill{fill:var(--grid);stroke:var(--ink);stroke-width:3.5}
+.alu{fill:none;stroke:var(--ink);stroke-width:3.5}
+.wand{stroke:var(--ink);stroke-width:6;fill:none}
+.hl{stroke:var(--hatch);stroke-width:1.6}
+.dash{stroke-dasharray:14 10}
+.dashf{stroke:var(--assum);fill:none;stroke-width:3;stroke-dasharray:16 10}
+.mitte{stroke:var(--hatch);stroke-width:1.4;stroke-dasharray:34 8 6 8}
+.dim{stroke:var(--ink2);stroke-width:1.6;fill:none}
+.dt{fill:var(--ink);font-size:34px}
+.dt2{fill:var(--ink2);font-size:28px}
+.dv{fill:var(--var);font-size:34px;font-weight:700}
+.da{fill:var(--assum);font-size:34px}
+.db{fill:var(--conf);font-size:34px}
+.lbl{fill:var(--ink);font-size:30px;font-family:var(--disp)}
+.axis{stroke:var(--ink);stroke-width:2.5;fill:none}
+.axt{fill:var(--ink);font-size:34px;font-weight:700}
+</style>
+
+<header class="kopf">
+  <div>
+    <h1>Querbett mit 400-mm-Auszug — Mercedes Sprinter W907 L2H2</h1>
+    <p style="margin:2px 0 0;color:var(--ink2)">Baudokumentation · Kammlatten-System auf Alu-Querträgern · Liegefläche 1600 mm, ausziehbar auf 2000 mm</p>
+    <div class="legende">
+      <span><span class="dot" style="background:var(--conf)"></span>[B] bestätigt (Datenblatt W907 / Vorgabe)</span>
+      <span><span class="dot" style="background:var(--assum)"></span>[A] angenommen (plausibel, prüfen)</span>
+      <span><span class="dot" style="background:var(--var)"></span>[V] variabel — <b>zwingend am Fahrzeug messen</b></span>
+    </div>
+  </div>
+  <div class="meta">
+    Zeichnungssatz&nbsp;SPR-BETT-01<br>
+    Stand&nbsp;06.08.2026<br>
+    Einheiten&nbsp;mm · Zeichnungen nicht maßstäblich —<br>es gelten ausschließlich die eingetragenen Maße<br>
+    Koordinaten:&nbsp;X&nbsp;=&nbsp;Fahrzeugbreite (0&nbsp;=&nbsp;Innenkante Verkleidung Fahrerseite)<br>
+    Y&nbsp;=&nbsp;Fahrtrichtung (0&nbsp;=&nbsp;Innenkante geschlossene Hecktüren)<br>
+    Z&nbsp;=&nbsp;Höhe (0&nbsp;=&nbsp;Oberkante Fahrzeugboden/Bodenplatte)
+  </div>
+</header>
+
+<nav class="toc" aria-label="Inhalt">
+  <a href="#s1">1 · Funktionsbeschreibung</a>
+  <a href="#s2">2 · Benötigte Fahrzeugmaße</a>
+  <a href="#s3">3 · Variantenvergleich &amp; Empfehlung</a>
+  <a href="#s4">4 · Technische Zeichnungen Z1–Z6</a>
+  <a href="#s5">5 · Detailzeichnungen Z7–Z10</a>
+  <a href="#s6">6 · Statische Dimensionierung</a>
+  <a href="#s7">7 · Material- und Stückliste</a>
+  <a href="#s8">8 · Zuschnittliste / Zuschnittplan</a>
+  <a href="#s9">9 · Beschlags- und Schraubenliste</a>
+  <a href="#s10">10 · Gesamtgewicht</a>
+  <a href="#s11">11 · Bauanleitung</a>
+  <a href="#s12">12 · Typische Fehler &amp; Risiken</a>
+  <a href="#s13">13 · Prüfliste vor Erstbelastung</a>
+</nav>
+
+<div class="hin ok"><b>Die drei Festlegungen, aus denen sich alles andere ergibt:</b>
+<b>①</b> Die Möbelhöhe von Küche und Kühlschrankschrank ist mit <b>900&nbsp;mm</b> bestätigt. Daraus
+folgt die gesamte Höhenkette: Gleitebene 934, OK Querträger 972, <b>OK Latten 995</b>,
+<b>OK Matratze 1115</b> — und damit <b>864&nbsp;mm Sitzhöhe im Bett</b>.
+<b>②</b> Der ausgezogene Bettteil liegt auf <b>vier Auflageleisten GS1–GS4</b> auf beiden Möbelzeilen
+auf. <b>Kein Klappbein, keine Einzelpads.</b> Die maßgebende Stützweite des Bugprofils sinkt damit von
+1690 auf 800&nbsp;mm und die Durchbiegung von 9,8 auf 1,0&nbsp;mm.
+<b>③</b> Der voll ausgezogene Bug hält <b>mindestens 80&nbsp;mm Abstand zum Schiebetürausschnitt</b>.
+Der Bug steht bei Y&nbsp;2020, gefordert ist damit AS&nbsp;≥&nbsp;2100. Liegt der gemessene Ausschnitt
+davor, wird der bewegliche Kamm auf den beifahrerseitigen 300&nbsp;mm um (2100&nbsp;−&nbsp;AS) gekürzt
+(<b>Eckausklinkung</b>); Bugprofil, Führung, Verriegelung und der maßgebende Statiknachweis zwischen
+GS2 und GS3 bleiben davon unberührt. Die vollständige Fallunterscheidung steht in SPR-GA-01,
+Kapitel&nbsp;7.</div>
+
+<h2 id="s1"><span class="no">1</span>Funktionsbeschreibung</h2>
+<p><b>System:</b> Quer eingebautes Festbett im Heck, Liegefläche aus zwei ineinandergreifenden
+Lattenkämmen (<b>Kammlatten-System</b>). Alle Latten laufen in Fahrtrichtung (Y) und liegen auf vier
+Aluminium-Querträgern (X), die links und rechts auf wandmontierten Multiplex-Auflageleisten und in
+Fahrzeugmitte auf einem Sperrholz-Kastenlängsträger mit zwei Stützbeinen ruhen.</p>
+<ul>
+  <li><b>Fester Kamm (8 Latten):</b> mit den Querträgern verschraubt, Fläche Y&nbsp;20…1580.</li>
+  <li><b>Beweglicher Kamm (8 Latten + Bugprofil):</b> Die Latten stecken in einem Aluminium-Bugprofil
+  60×40×3 und sind hinten durch eine aufgeschraubte Querleiste verbunden. Der Kamm gleitet auf
+  PE-Gleitband auf den Querträgern <b>genau 400&nbsp;mm</b> nach vorn: Liegefläche 1600&nbsp;→&nbsp;2000&nbsp;mm.</li>
+  <li><b>Führung:</b> Zwei Esche-Latten des beweglichen Kamms tragen seitliche Führungsnuten 8×6&nbsp;mm.
+  POM-Klötze am vorderen Querträger greifen in diese Nuten: sie führen seitlich (Spiel ±1,5&nbsp;mm),
+  halten den Kamm gegen Abheben nieder und begrenzen den Hub als Endanschlag auf 400&nbsp;mm.</li>
+  <li><b>Abstützung ausgezogen (Variante B):</b> Das Bugprofil gleitet auf <b>vier
+  Auflageleisten GS1–GS4</b> (Buche 30&nbsp;×&nbsp;60 mit 4-mm-HPL-Belag) — je zwei auf dem
+  Küchenblock und auf dem Kühlschrankschrank, jeweils gangseitig und wandseitig. Dauernder Kontakt ab
+  Auszugbeginn, kein Kippen, <b>kein Klappbein nötig</b>.</li>
+  <li><b>Verriegelung Fahrbetrieb:</b> Zwei Edelstahl-Federriegel Ø8 im Bugprofil greifen horizontal
+  in Buchsen des vorderen Querträgers; zusätzlich sichern die POM-Nasen den Kamm formschlüssig gegen Abheben.</li>
+  <li><b>Matratze:</b> zweiteilig — Hauptpolster 1560&nbsp;mm + angezipptes Klappelement 400&nbsp;mm,
+  das eingeschoben als Rückenlehne/Doppellage auf dem Bett liegt.</li>
+  <li><b>Belüftung:</b> 15 offene Längsspalte à 20&nbsp;mm (≈&nbsp;25&nbsp;% offene Fläche) plus
+  Querlüftung unter den Latten über die 40&nbsp;mm hohen Trägerzwischenräume.</li>
+  <li><b>Keine losen Teile:</b> Der Auszug ist unverlierbar geführt, die Matratzenklappe angezippt.
+  Bedienung einhändig: Riegel lösen, ziehen, fertig.</li>
+</ul>
+<p><b>Warum dieses System</b> (Kurzabwägung der vier geprüften Bauarten):
+Ein durchgehender Plattenboden (12–15&nbsp;mm) wiegt ähnlich viel, belüftet aber schlecht und braucht
+zusätzlich einen kompletten Auszugsrahmen. Ein Teleskoprahmen auf Schwerlast-Vollauszügen wiegt
+8–12&nbsp;kg mehr und ist die klapperanfälligste Lösung. Ein klassischer Quer-Lattenrost müsste
+1720&nbsp;mm frei spannen (Durchbiegung &gt;20&nbsp;mm) oder braucht dieselben Unterzüge. Das Kammsystem
+nutzt die Latten gleichzeitig als Liegefläche <i>und</i> als Auszugsmechanik — leichteste Variante
+mit der geringsten Teilezahl.</p>
+
+<h2 id="s2"><span class="no">2</span>Benötigte Fahrzeugmaße (vor dem Zuschnitt messen!)</h2>
+<p>Die Konstruktion ist mit den Variablen unten parametriert. Alle Zeichnungsmaße, die davon abhängen,
+sind orange markiert. <b>Erst messen, dann zuschneiden</b> — insbesondere B1, H2 und L1 steuern
+Plattformbreite, Pad-Höhe und die Freigabe des Auszugs über der Theke.</p>
+<div class="tw"><table>
+<tr><th>Var.</th><th>Was wird gemessen</th><th>Messpunkte (von … bis …)</th><th>Tol.</th><th>Annahme</th><th>Einfluss auf die Konstruktion</th></tr>
+<tr><td class="mono">B1</td><td>Lichte Innenbreite auf Plattformhöhe (Z≈995)</td><td>Oberfläche Wandverkleidung links → rechts, gemessen bei Y=100, 800 und 1550 (kleinster Wert zählt)</td><td class="num">±3</td><td class="num">1720</td><td>Länge der Querträger und Latten-Randabstände; Plattform = B1−30</td></tr>
+<tr><td class="mono">B2</td><td>Innenbreite zwischen Wandverkleidungen auf Höhe Wandauflage (Z≈937)</td><td>wie B1, auf Höhe der Auflageleisten</td><td class="num">±3</td><td class="num">1715</td><td>Länge Wandauflagen, Auflagerlänge der Querträger (min. 50 je Seite)</td></tr>
+<tr><td class="mono">L1</td><td>Hecktüren → heckseitige Kante der Kochtheke</td><td>Innenkante geschlossene Hecktür → Thekenkorpus-Kante (Y-Richtung)</td><td class="num">±5</td><td class="num">1640</td><td>Muss ≥1640 sein, sonst kollidiert Theke mit Bettvorderkante (Y=1620)</td></tr>
+<tr><td class="mono">H2</td><td>Höhe der Möbeloberkanten (Küche <b>und</b> Kühlschrankschrank)</td><td>OK fertiger Boden → OK Arbeitsplatte, an 4 Punkten</td><td class="num">±2</td><td class="num"><b>900 [B]</b></td><td><b>Fixpunkt der gesamten Z-Kette.</b> Gleitebene = H2 + 30 Leiste + 4 HPL = 934; UK Bugprofil = 935</td></tr>
+<tr><td class="mono">TK</td><td>Tiefe der Kochtheke (X)</td><td>Wandverkleidung rechts → Thekenfront</td><td class="num">±5</td><td class="num">500</td><td>X-Position der beiden Auflage-Pads (über Korpusseitenwänden!)</td></tr>
+<tr><td class="mono">LK</td><td>Länge des Küchenblocks (Y) und Lage der Korpuswände</td><td>Modulkante hinten → vorn; Außen- und Mittelwand am gelieferten Modul messen</td><td class="num">±5</td><td class="num"><b>1050 [B]</b></td><td>GS3/GS4 müssen die Last <b>über</b> die Korpuswände abtragen (Rückwand Y 1640, Mittelwand ≈ Y 2165)</td></tr>
+<tr><td class="mono">AS</td><td>Hecktüren → hintere Kante Schiebetürausschnitt</td><td>Innenkante Hecktür → Blechkante Türausschnitt</td><td class="num">±10</td><td class="num">1990</td><td>Nachweis: Auszug bis Y 2020 — bei AS &lt; 1950 den Küchenblock 50 mm nach vorn setzen</td></tr>
+<tr><td class="mono">H1</td><td>Gewünschte Oberkante Matratze</td><td>OK Fahrzeugboden → Wunschhöhe (Kopffreiheit + Garagenhöhe abwägen)</td><td class="num">±10</td><td class="num">1115</td><td>Ergibt sich aus H2: OK Latte = 995, OK Matratze = 995 + DM</td></tr>
+<tr><td class="mono">DM</td><td>Matratzenstärke</td><td>Herstellerangabe / vorhandene Matratze</td><td class="num">±10</td><td class="num">120</td><td>Z-Kette wie H1; Klappelement gleiche Stärke</td></tr>
+<tr><td class="mono">HU</td><td>Verfügbare Unterbauhöhe (Garage)</td><td>OK Boden → UK Querträger (= Z 937)</td><td class="num">−</td><td class="num">937</td><td>Ergibt sich aus H2; prüfen gegen Ladegut (Fahrräder etc.)</td></tr>
+<tr><td class="mono">RK</td><td>Radkästen: Y-Anfang/Ende, Höhe, Einragtiefe je Seite</td><td>Hecktür → Kastenkanten; Boden → höchster Punkt; Verkleidung → Kasteninnenkante</td><td class="num">±5</td><td class="num">Y 750–1580, h≈250, t≈200</td><td>Position der Längsträger-Beine (stehen VOR/HINTER dem Kasten auf dem Boden, X-Mitte frei)</td></tr>
+<tr><td class="mono">FE</td><td>Fenster/Holme: Unterkante Fensterausschnitt, Lage C-/D-Säule u. Zwischenholme</td><td>Boden → UK Fenster; Hecktür → Säulenmitten</td><td class="num">±5</td><td class="num">UK ≈ 1020, OK ≈ 1550</td><td>Wandauflage (OK 937) liegt unter dem Fenster; bestimmt zusätzlich die Höhe der Hängeschränke HS4–6</td></tr>
+<tr><td class="mono">BP</td><td>Befestigungspunkte: Airlineschienen, Zurrösen, Bodenaufbau (Stärke Holzboden), vorhandene Gewinde</td><td>Bestandsaufnahme fotografieren + vermessen</td><td class="num">±2</td><td class="num">—</td><td>Entscheidet Wand- und Bodenanbindung (Nietmuttern vs. Airline-Adapter vs. Verschraubung Bodenplatte)</td></tr>
+</table></div>
+<div class="hin"><b>Plausibilitätsprüfung nach dem Messen:</b> ① <b>Küche und Kühlschrankschrank
+müssen dieselbe Oberkante haben</b> (Δ ≤ 2 mm) — sonst kippelt der Auszug. ② H2 weicht um mehr als
+5&nbsp;mm von 900 ab → gesamte Z-Kette um die Differenz verschieben, nicht die Leisten dicker machen.
+③ L1 ≥ 1640. ④ AS ≥ 1950. ⑤ B1 und B2 an drei Y-Positionen messen — der <b>kleinste</b> Wert
+bestimmt die Trägerlänge.</div>
+
+<h2 id="s3"><span class="no">3</span>Variantenvergleich und Empfehlung</h2>
+<div class="tw"><table>
+<tr><th>Kriterium</th><th>Variante A — freitragender Auszug<br><small>Teleskop-Steifen bzw. Schwerlastauszüge, Theke unberührt</small></th><th>Variante B — abgestützter Auszug<br><small>4 Auflageleisten GS1–GS4 auf beiden Möbelzeilen</small></th></tr>
+<tr><td>Tragprinzip ausgezogen</td><td>Kragarm 440 mm hinter dem letzten Querträger; Rückverankerung über Niederhalter</td><td>Latten spannen 400 mm zwischen Querträger 4 und aufgelagertem Bugprofil — reine Biegung, kein Kragarm</td></tr>
+<tr><td>Erforderliche Mehrbauteile</td><td>2–3 Alu-Hohlprofile 80×20×2 als Teleskopsteifen <i>oder</i> 2 Schwerlast-Vollauszüge ≥500 mm, massive Führungsschuhe</td><td>4 Leisten Buche 30×60 mit HPL-Belag, je ~500 lang</td></tr>
+<tr><td>Mehrgewicht</td><td class="num">+6,5 … +11 kg</td><td class="num">+0,8 kg</td></tr>
+<tr><td>Durchbiegung Vorderkante bei 120 kg·1,5</td><td class="num">≈ 4–7 mm (nur mit 80×20×2-Steifen erreichbar)</td><td class="num">≈ 2,8 mm (Latten), 1,0 mm (Bugprofil über 800 mm)</td></tr>
+<tr><td>Bauaufwand</td><td>hoch: Präzisionsführungen, enge Toleranzen gegen Kippeln</td><td>gering: 4 Leisten auflegen und gegen Verrutschen sichern; Toleranzausgleich über Shims</td></tr>
+<tr><td>Geräusch im Fahrbetrieb</td><td>Teleskopspiel = Klapperquelle Nr. 1; Vollauszüge rasseln</td><td>eingeschoben liegt nichts auf den Möbeln; Kamm verriegelt + POM-Formschluss → still</td></tr>
+<tr><td>Belastung der Kochtheke</td><td class="num">0 N</td><td class="num">≤ 900 N je Leiste (nur ausgezogen); Last geht über die Korpuswände → unkritisch</td></tr>
+<tr><td>Bedienung</td><td>ziehen, fertig (1 Handgriff)</td><td><b>ziehen, fertig</b> — 1 Handgriff, kein Bein</td></tr>
+<tr><td>Langzeit</td><td>Führungsspiel wächst, nachstellen nötig</td><td>HPL-Belag tauschbar, sonst verschleißfrei</td></tr>
+</table></div>
+<div class="hin ok"><b>Empfehlung: eindeutig Variante B.</b> Sie ist ~6–10 kg leichter, steifer
+(kein Kragarm), mit Bordwerkzeug baubar und im Fahrbetrieb prinzipbedingt klapperfrei, weil der
+Auszug eingeschoben vollständig auf den Querträgern liegt und die Theke nur im ausgezogenen Zustand
+als Auflager dient. Die Möbellast von max. ≈0,9 kN je Leiste trägt jeder übliche 12-mm-Queenply-Korpus,
+wenn die Leisten die Last über die Korpuswände abtragen (Zeichnung Z9). Alle folgenden Kapitel
+sind für Variante B ausgearbeitet; die A-Auslegung (80×20×2-Teleskopsteifen) ist in Kap. 6 als
+Rückfallebene dokumentiert, falls die Theke später entfallen sollte.</div>
+<h2 id="s4"><span class="no">4</span>Technische Zeichnungen</h2>
+<p>Alle Koordinaten in mm. Farbcode in den Zeichnungen: schwarz/weiß&nbsp;=&nbsp;Konstruktion &amp; bestätigte
+Maße, <span style="color:var(--assum)">blau&nbsp;=&nbsp;angenommen bzw. ausgezogener Zustand (gestrichelt)</span>,
+<span style="color:var(--var)"><b>orange&nbsp;=&nbsp;variabel, am Fahrzeug messen</b></span>. Verdeckte Kanten gestrichelt.</p>
+
+<figure class="zbox"><div class="zk"><b>Z1 · Draufsicht Heckbereich</b><span>Ebene Z=995 (OK Latten) · eingeschoben, Auszug blau gestrichelt · X→rechts, Y→oben</span><span>SPR-BETT-01-Z1</span></div>
+<svg viewBox="-260 -160 2420 3520" role="img" aria-label="Draufsicht">
+<defs><marker id="a1" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<!-- Achsen -->
+<g transform="translate(-180,3170)"><line class="axis" x1="0" y1="0" x2="150" y2="0" marker-end="url(#a1)"/><line class="axis" x1="0" y1="0" x2="0" y2="-150" marker-end="url(#a1)"/><text class="axt" x="160" y="12">X</text><text class="axt" x="-14" y="-170">Y</text></g>
+<!-- Wände -->
+<line class="wand" x1="0" y1="3000" x2="0" y2="0"/>
+<line class="wand" x1="1750" y1="3000" x2="1750" y2="720"/>
+<line class="wand dash" x1="1750" y1="720" x2="1750" y2="0"/>
+<text class="lbl" transform="rotate(-90 1810 400)" x="1660" y="410">Schiebetürausschnitt ab Y=AS</text>
+<!-- Hecktüren -->
+<rect class="p" x="98" y="3000" width="1555" height="45"/>
+<line class="pt" x1="875" y1="3000" x2="875" y2="3045"/>
+<text class="lbl" x="700" y="3110">Hecktüren (geöffnet)</text>
+<!-- Radkästen (Bodenebene, verdeckt) -->
+<rect class="pt dash" x="0" y="1500" width="218" height="800"/>
+<rect class="pt dash" x="1532" y="1500" width="218" height="800"/>
+<text class="dt2" transform="rotate(-90 105 1900)" x="-40" y="1910">Radkasten (Boden)</text>
+<!-- Kochtheke -->
+<rect class="p" x="1250" y="90" width="500" height="1270"/>
+<text class="lbl" transform="rotate(-90 1520 700)" x="1370" y="710">Küchenblock OK Z 900</text>
+<!-- Wandauflagen (verdeckt) -->
+<rect class="pt dash" x="0" y="1360" width="18" height="1620"/>
+<rect class="pt dash" x="1732" y="1360" width="18" height="1620"/>
+<!-- Längsträger + Beine (verdeckt) -->
+<rect class="pt dash" x="830" y="1380" width="60" height="1620"/>
+<rect class="pt dash" x="822" y="2770" width="76" height="60"/>
+<rect class="pt dash" x="822" y="1570" width="76" height="60"/>
+<!-- Querträger (verdeckt unter Latten) -->
+<rect class="pt dash" x="20" y="2900" width="1710" height="40"/>
+<rect class="pt dash" x="20" y="2410" width="1710" height="40"/>
+<rect class="pt dash" x="20" y="1910" width="1710" height="40"/>
+<rect class="pt dash" x="20" y="1420" width="1710" height="40"/>
+<text class="dt2" x="30" y="2890">QT1</text><text class="dt2" x="30" y="2400">QT2</text><text class="dt2" x="30" y="1900">QT3</text><text class="dt2" x="30" y="1412">QT4</text>
+<!-- fester Kamm (8 Latten, gefüllt) -->
+<rect class="fill" x="45" y="1420" width="85" height="1540"/><rect class="fill" x="255" y="1420" width="85" height="1540"/><rect class="fill" x="465" y="1420" width="85" height="1540"/><rect class="fill" x="675" y="1420" width="85" height="1540"/><rect class="fill" x="885" y="1420" width="85" height="1540"/><rect class="fill" x="1095" y="1420" width="85" height="1540"/><rect class="fill" x="1305" y="1420" width="85" height="1540"/><rect class="fill" x="1515" y="1420" width="85" height="1540"/>
+<!-- beweglicher Kamm (8 Latten) -->
+<rect class="p" x="150" y="1380" width="85" height="1560"/><rect class="p" x="360" y="1380" width="85" height="1560"/><rect class="p" x="570" y="1380" width="85" height="1560"/><rect class="p" x="780" y="1380" width="85" height="1560"/><rect class="p" x="990" y="1380" width="85" height="1560"/><rect class="p" x="1200" y="1380" width="85" height="1560"/><rect class="p" x="1410" y="1380" width="85" height="1560"/><rect class="p" x="1620" y="1380" width="85" height="1560"/>
+<text class="dt2" x="155" y="2500" transform="rotate(-90 160 2500)">Esche P10</text>
+<text class="dt2" x="1415" y="2500" transform="rotate(-90 1420 2500)">Esche P10</text>
+<!-- Verbindungsleiste beweglicher Kamm -->
+<rect class="p" x="45" y="2860" width="1660" height="60"/>
+<text class="lbl" x="480" y="2845">Verbindungsleiste P12 (auf Latten, gleitet auf Filz)</text>
+<!-- Bugprofil geschlossen -->
+<rect class="fill" x="15" y="1380" width="1720" height="40" style="fill:var(--hatch);fill-opacity:.35"/>
+<text class="lbl" x="330" y="1345">Bugprofil P11 · Alu 60×40×3 (geschlossen, Y 1580–1620)</text>
+<!-- Bugprofil + Kammfront ausgezogen -->
+<rect class="dashf" x="15" y="980" width="1720" height="40"/>
+<line class="dashf" x1="192" y1="1380" x2="192" y2="1020"/><line class="dashf" x1="1452" y1="1380" x2="1452" y2="1020"/>
+<text class="da" x="240" y="1210">ausgezogen: Y 1980–2020</text>
+<!-- Pads -->
+<rect class="p" x="1310" y="970" width="60" height="80"/><rect class="p" x="1650" y="970" width="60" height="80"/>
+<rect class="p" x="45" y="970" width="60" height="80"/><rect class="p" x="490" y="970" width="60" height="80"/>
+<text class="lbl" x="1150" y="935">GS3 / GS4</text><text class="lbl" x="60" y="935">GS1 / GS2</text>
+<!-- Klappbein -->
+
+<!-- Federriegel -->
+<circle class="pt" cx="360" cy="1400" r="10"/><circle class="pt" cx="1360" cy="1400" r="10"/>
+<text class="dt2" x="420" y="1470">Federriegel P17, X=360/1360</text>
+<!-- Bemaßung unten: Breiten -->
+<g class="dim">
+<line x1="0" y1="3220" x2="1750" y2="3220" marker-start="url(#a1)" marker-end="url(#a1)"/><line x1="0" y1="3060" x2="0" y2="3240"/><line x1="1750" y1="3060" x2="1750" y2="3240"/>
+<line x1="15" y1="3130" x2="1735" y2="3130" marker-start="url(#a1)" marker-end="url(#a1)"/><line x1="15" y1="3060" x2="15" y2="3150"/><line x1="1735" y1="3060" x2="1735" y2="3150"/>
+</g>
+<text class="dv" x="770" y="3300">B1 = 1720 [V]</text>
+<text class="dt" x="640" y="3185" style="font-size:30px">Plattform B1−30 = 1690 · Randluft je 15</text>
+<!-- Bemaßung links: Y-Kette -->
+<g class="dim">
+<line x1="-90" y1="3000" x2="-90" y2="1420" marker-start="url(#a1)" marker-end="url(#a1)"/>
+<line x1="-90" y1="1420" x2="-90" y2="1380" /><line x1="-90" y1="1380" x2="-90" y2="980" marker-start="url(#a1)" marker-end="url(#a1)"/>
+<line x1="-30" y1="3000" x2="-105" y2="3000"/><line x1="-30" y1="1380" x2="-105" y2="1380"/><line x1="-30" y1="1420" x2="-105" y2="1420"/><line x1="-30" y1="980" x2="-105" y2="980"/>
+<line x1="-190" y1="3000" x2="-190" y2="980" marker-start="url(#a1)" marker-end="url(#a1)"/>
+</g>
+<text class="dt" transform="rotate(-90 -110 2280)" x="-330" y="2270">1600 (Y 20…1620)</text>
+<text class="da" transform="rotate(-90 -110 1215)" x="-260" y="1205">Auszug 400</text>
+<text class="dt" transform="rotate(-90 -210 2100)" x="-320" y="2090">2020 = OK Bug ausgezogen</text>
+<!-- QT-Mittenabstände rechts innen -->
+<g class="dim">
+<line x1="1810" y1="2920" x2="1810" y2="2430" marker-start="url(#a1)" marker-end="url(#a1)"/>
+<line x1="1810" y1="2430" x2="1810" y2="1930" marker-start="url(#a1)" marker-end="url(#a1)"/>
+<line x1="1810" y1="1930" x2="1810" y2="1440" marker-start="url(#a1)" marker-end="url(#a1)"/>
+<line x1="1755" y1="2920" x2="1825" y2="2920"/><line x1="1755" y1="2430" x2="1825" y2="2430"/><line x1="1755" y1="1930" x2="1825" y2="1930"/><line x1="1755" y1="1440" x2="1825" y2="1440"/>
+</g>
+<text class="dt" transform="rotate(-90 1850 2680)" x="1770" y="2672">490</text>
+<text class="dt" transform="rotate(-90 1850 2180)" x="1770" y="2172">500</text>
+<text class="dt" transform="rotate(-90 1850 1690)" x="1770" y="1682">490</text>
+<text class="dt2" transform="rotate(-90 1900 2200)" x="1660" y="2192">QT-Mittenabstände · Profil 40×40×2</text>
+<!-- Theke Maße -->
+<g class="dim">
+<line x1="1250" y1="30" x2="1750" y2="30" marker-start="url(#a1)" marker-end="url(#a1)"/><line x1="1250" y1="90" x2="1250" y2="15"/><line x1="1750" y1="90" x2="1750" y2="15"/>
+<line x1="1160" y1="3000" x2="1160" y2="1360" marker-start="url(#a1)" marker-end="url(#a1)"/><line x1="1250" y1="1360" x2="1145" y2="1360"/>
+</g>
+<text class="dv" x="1330" y="-10">TK = 450 [B]</text>
+<text class="dv" transform="rotate(-90 1140 2200)" x="960" y="2192">L1 = 1640 [V] (Hecktür→Küche)</text>
+<text class="dt2" x="60" y="60">Bugkante ausgezogen Y 2020 · Schiebetürausschnitt ab AS ≈ 1990 [V]</text>
+<text class="dt2" x="-250" y="3090">Luft zu Hecktüren 20</text>
+</svg>
+<figcaption style="padding:0 14px 12px">Z1 — Bewegungsraum Auszug: Y&nbsp;1620→2020, Hüllkurve frei von Schiebetür (Nachweis über Maß AS) und Theken-Oberbauten. Latten: 8+8 Stück 85&nbsp;mm breit, Teilung 105&nbsp;mm, Spalt 20&nbsp;mm.</figcaption>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z2 · Seitenansicht Beifahrerseite</b><span>Blick von Fahrzeugmitte nach rechts · Heck links · ausgezogen blau gestrichelt</span><span>SPR-BETT-01-Z2</span></div>
+<svg viewBox="-140 -120 3480 2500" role="img" aria-label="Seitenansicht Beifahrerseite">
+<defs><marker id="a2" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<g transform="translate(-60,2200)"><line class="axis" x1="0" y1="0" x2="150" y2="0" marker-end="url(#a2)"/><line class="axis" x1="0" y1="0" x2="0" y2="-150" marker-end="url(#a2)"/><text class="axt" x="160" y="12">Y</text><text class="axt" x="-14" y="-170">Z</text></g>
+<!-- Boden, Heckwand, Dach -->
+<line class="wand" x1="0" y1="2050" x2="3100" y2="2050"/>
+<line class="wand" x1="0" y1="2050" x2="0" y2="41"/>
+<line class="pt dash" x1="0" y1="41" x2="3100" y2="41"/>
+<text class="db" x="2350" y="90">Innenhöhe 2009 [B]</text>
+<!-- Radkasten -->
+<path class="pt" d="M700,2050 L700,1800 L1500,1800 L1500,2050"/>
+<text class="dt2" x="950" y="1930">Radkasten [V RK]</text>
+<!-- Fenster UK -->
+<line class="pt dash" x1="300" y1="1000" x2="2200" y2="1000"/>
+<text class="dv" x="1660" y="945">UK Fensterausschnitt ≈ Z 1050 [V FE]</text>
+<!-- Wandauflage -->
+<rect class="fill" x="20" y="1060" width="1620" height="140"/>
+<text class="lbl" x="400" y="1180">Wandauflage P02 · Multiplex 18×140 · OK Z 937</text>
+<!-- Querträger Querschnitte -->
+<rect class="fill" x="60" y="1020" width="40" height="40"/><rect class="fill" x="550" y="1020" width="40" height="40"/><rect class="fill" x="1050" y="1020" width="40" height="40"/><rect class="fill" x="1540" y="1020" width="40" height="40"/>
+<!-- Latten fest + beweglich geschlossen -->
+<rect class="p" x="40" y="1002" width="1540" height="18"/>
+<!-- Bugprofil geschlossen + ausgezogen -->
+<rect class="fill" x="1580" y="1002" width="40" height="60" style="fill:var(--hatch);fill-opacity:.35"/>
+<rect class="dashf" x="1980" y="1002" width="40" height="60"/>
+<line class="dashf" x1="1580" y1="1002" x2="1980" y2="1002"/><line class="dashf" x1="1580" y1="1020" x2="1980" y2="1020"/>
+<!-- Matratze -->
+<rect class="pt" x="20" y="882" width="1600" height="120"/>
+<rect class="pt dash" x="1220" y="762" width="400" height="120"/>
+<text class="dt2" x="1230" y="740">Klappelement 400, aufgelegt</text>
+<text class="lbl" x="600" y="960">Matratze 1560+400, DM=120 [A]</text>
+<!-- Längsträger/Beine verdeckt -->
+<rect class="pt dash" x="20" y="1060" width="1600" height="120"/>
+<rect class="pt dash" x="170" y="1180" width="60" height="870"/><rect class="pt dash" x="1370" y="1180" width="60" height="870"/>
+<!-- Kochtheke -->
+<rect class="p" x="1640" y="1150" width="1050" height="900"/>
+<line class="p" x1="1640" y1="1150" x2="2690" y2="1150"/>
+<line class="pt dash" x1="2165" y1="1165" x2="2165" y2="2050"/>
+<text class="dt2" x="2195" y="1600">Mittelwand ≈ Y 2165 [V]</text>
+<text class="lbl" x="2150" y="1750">Küchenblock 1050 × 450 × H 900</text>
+<!-- Pad -->
+<rect class="fill" x="1660" y="1096" width="500" height="34"/>
+<text class="lbl" x="2200" y="1120">GS3/GS4 · Leiste 30 + HPL 4 → OK Z 934</text>
+<!-- Schiebetür Marker -->
+<line class="pt dash" x1="2020" y1="41" x2="2020" y2="1000"/>
+<text class="dv" x="2300" y="300">AS ≈ 1990 [V]: Schiebetürausschnitt</text>
+<!-- Z-Kette rechts -->
+<g class="dim">
+<line x1="3010" y1="2050" x2="3010" y2="1130" marker-start="url(#a2)" marker-end="url(#a2)"/>
+<line x1="3120" y1="2050" x2="3120" y2="1060" marker-start="url(#a2)" marker-end="url(#a2)"/>
+<line x1="3230" y1="2050" x2="3230" y2="1002" marker-start="url(#a2)" marker-end="url(#a2)"/>
+<line x1="2915" y1="1130" x2="3030" y2="1130"/><line x1="2915" y1="2050" x2="3245" y2="2050"/><line x1="3060" y1="1060" x2="3140" y2="1060"/><line x1="2040" y1="1002" x2="3245" y2="1002"/>
+</g>
+<text class="dv" transform="rotate(-90 3000 1650)" x="2860" y="1642">H2 = 900 [B]</text>
+<text class="dt" transform="rotate(-90 3110 1700)" x="2930" y="1692">937 UK QT</text>
+<text class="dt" transform="rotate(-90 3220 1750)" x="3000" y="1742">995 OK Latten</text>
+<!-- Y-Maße oben -->
+<g class="dim">
+<line x1="20" y1="700" x2="1620" y2="700" marker-start="url(#a2)" marker-end="url(#a2)"/><line x1="20" y1="880" x2="20" y2="685"/><line x1="1620" y1="880" x2="1620" y2="685"/>
+<line x1="1620" y1="620" x2="2020" y2="620" marker-start="url(#a2)" marker-end="url(#a2)"/><line x1="2020" y1="990" x2="2020" y2="605"/><line x1="1620" y1="685" x2="1620" y2="605"/>
+<line x1="1640" y1="1090" x2="2020" y2="1090" marker-start="url(#a2)" marker-end="url(#a2)"/>
+</g>
+<text class="dt" x="700" y="675">1600 Liegefläche fest</text>
+<text class="da" x="1690" y="595">400 Auszug</text>
+<text class="dt2" x="1250" y="1080">Überdeckung Theke 380</text>
+<text class="dt2" x="20" y="2130">Y=0 Innenkante Hecktüren · OK Matratze Z 1115 · UK Bugprofil Z 935 · Gleitebene Z 934 = 900 + 30 + 4</text>
+</svg>
+<figcaption style="padding:0 14px 12px">Z2 — Der Bug gleitet ab Auszugbeginn auf den Pads (dauernder Kontakt, 1&nbsp;mm Gleitluft unbelastet). Weicht die reale Möbelhöhe von 900 ab, wird die <b>gesamte Z-Kette</b> um die Differenz verschoben — nicht die Leiste dicker gemacht.</figcaption>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z3 · Seitenansicht Fahrerseite</b><span>Blick von Fahrzeugmitte nach links · zur Vergleichbarkeit gespiegelt: Heck links</span><span>SPR-BETT-01-Z3</span></div>
+<svg viewBox="-140 -120 3340 2500" role="img" aria-label="Seitenansicht Fahrerseite">
+<defs><marker id="a3" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<g transform="translate(-60,2200)"><line class="axis" x1="0" y1="0" x2="150" y2="0" marker-end="url(#a3)"/><line class="axis" x1="0" y1="0" x2="0" y2="-150" marker-end="url(#a3)"/><text class="axt" x="160" y="12">Y</text><text class="axt" x="-14" y="-170">Z</text></g>
+<line class="wand" x1="0" y1="2050" x2="3100" y2="2050"/>
+<line class="wand" x1="0" y1="2050" x2="0" y2="41"/>
+<line class="pt dash" x1="0" y1="41" x2="3100" y2="41"/>
+<path class="pt" d="M700,2050 L700,1800 L1500,1800 L1500,2050"/>
+<text class="dt2" x="950" y="1930">Radkasten [V RK]</text>
+<line class="pt dash" x1="300" y1="1000" x2="2200" y2="1000"/>
+<text class="dv" x="330" y="975">UK Fenster [V FE]</text>
+<!-- Wandauflage mit Befestigungspunkten -->
+<rect class="fill" x="20" y="1060" width="1620" height="140"/>
+<g class="pt"><line x1="130" y1="1110" x2="170" y2="1150"/><line x1="170" y1="1110" x2="130" y2="1150"/><line x1="480" y1="1110" x2="520" y2="1150"/><line x1="520" y1="1110" x2="480" y2="1150"/><line x1="810" y1="1110" x2="850" y2="1150"/><line x1="850" y1="1110" x2="810" y2="1150"/><line x1="1140" y1="1110" x2="1180" y2="1150"/><line x1="1180" y1="1110" x2="1140" y2="1150"/><line x1="1490" y1="1110" x2="1530" y2="1150"/><line x1="1530" y1="1110" x2="1490" y2="1150"/></g>
+<text class="lbl" x="240" y="1250">P01 · 5× M8 Blindnietmutter in Säulen/Holme, OK Z 937 — Lage [V BP/FE]</text>
+<!-- QT + Latten + Bug -->
+<rect class="fill" x="60" y="1020" width="40" height="40"/><rect class="fill" x="550" y="1020" width="40" height="40"/><rect class="fill" x="1050" y="1020" width="40" height="40"/><rect class="fill" x="1540" y="1020" width="40" height="40"/>
+<rect class="p" x="40" y="1002" width="1540" height="18"/>
+<rect class="fill" x="1580" y="1002" width="40" height="60" style="fill:var(--hatch);fill-opacity:.35"/>
+<rect class="dashf" x="1980" y="1002" width="40" height="60"/>
+<line class="dashf" x1="1580" y1="1002" x2="1980" y2="1002"/><line class="dashf" x1="1580" y1="1020" x2="1980" y2="1020"/>
+<rect class="pt" x="20" y="882" width="1600" height="120"/>
+<!-- Längsträger sichtbar (Mitte) verdeckt gestrichelt + Beine -->
+<rect class="pt dash" x="20" y="1060" width="1600" height="120"/>
+<rect class="pt dash" x="170" y="1180" width="60" height="870"/><rect class="pt dash" x="1370" y="1180" width="60" height="870"/>
+<rect class="pt dash" x="120" y="2032" width="160" height="18"/><rect class="pt dash" x="1320" y="2032" width="160" height="18"/>
+<text class="dt2" x="90" y="1650" transform="rotate(-90 90 1650)">Bein P04 60×60</text>
+<text class="dt2" x="120" y="2130">Bodenplatte P06 · M8 in Zurrpunkt/Bodenschiene [V BP]</text>
+<!-- Klappbein ausgezogen -->
+<rect class="p" x="1640" y="1150" width="490" height="900"/>
+<rect class="fill" x="1660" y="1096" width="450" height="34"/>
+<text class="lbl" x="2160" y="1120">GS1/GS2 → OK Z 934</text>
+<text class="lbl" x="1700" y="1600">Kühlschrankschrank</text>
+<text class="dt2" x="1700" y="1660">490 × 580 × H 900</text>
+<!-- Bein eingeklappt -->
+
+<!-- Maße -->
+<g class="dim">
+<line x1="3010" y1="2050" x2="3010" y2="1062" marker-start="url(#a3)" marker-end="url(#a3)"/>
+<line x1="2030" y1="1062" x2="3030" y2="1062"/><line x1="2500" y1="2050" x2="3030" y2="2050"/>
+<line x1="20" y1="700" x2="1620" y2="700" marker-start="url(#a3)" marker-end="url(#a3)"/><line x1="20" y1="880" x2="20" y2="685"/><line x1="1620" y1="880" x2="1620" y2="685"/>
+<line x1="1620" y1="620" x2="2020" y2="620" marker-start="url(#a3)" marker-end="url(#a3)"/>
+</g>
+<text class="dt" transform="rotate(-90 3000 1600)" x="2810" y="1592">935 UK Bugprofil</text>
+<text class="dt" x="700" y="675">1600</text>
+<text class="da" x="1690" y="595">400 Auszug</text>
+<text class="dt2" x="20" y="2210">Fahrerseite: Lastabtrag ausgezogen über GS1/GS2 auf dem Kühlschrankschrank — kein Klappbein mehr</text>
+</svg>
+<figcaption style="padding:0 14px 12px">Z3 — Wandbefestigung nur in Karosseriesäulen/-holmen (M8-Blindnietmuttern), nie im Außenblech. Der Kühlschrankschrank muss dieselbe Oberkante haben wie der Küchenblock (Δ ≤ 2 mm).</figcaption>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z4 · Ansicht von hinten</b><span>durch geöffnete Hecktüren · X→rechts, Z→oben</span><span>SPR-BETT-01-Z4</span></div>
+<svg viewBox="-260 -160 2340 2560" role="img" aria-label="Heckansicht">
+<defs><marker id="a4" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker></defs>
+<g transform="translate(-180,2160)"><line class="axis" x1="0" y1="0" x2="150" y2="0" marker-end="url(#a4)"/><line class="axis" x1="0" y1="0" x2="0" y2="-150" marker-end="url(#a4)"/><text class="axt" x="160" y="12">X</text><text class="axt" x="-14" y="-170">Z</text></g>
+<!-- Kontur -->
+<line class="wand" x1="0" y1="2050" x2="1750" y2="2050"/>
+<path class="wand" d="M0,2050 L0,300 Q0,41 260,41 L1490,41 Q1750,41 1750,300 L1750,2050"/>
+<!-- Türausschnitt -->
+<line class="pt dash" x1="98" y1="2050" x2="98" y2="204"/><line class="pt dash" x1="1653" y1="2050" x2="1653" y2="204"/><line class="pt dash" x1="98" y1="204" x2="1653" y2="204"/>
+<!-- Radkästen -->
+<rect class="pt" x="0" y="1800" width="218" height="250"/><rect class="pt" x="1532" y="1800" width="218" height="250"/>
+<!-- Wandauflagen -->
+<rect class="fill" x="0" y="1060" width="18" height="140"/><rect class="fill" x="1732" y="1060" width="18" height="140"/>
+<!-- QT1 -->
+<rect class="p" x="20" y="1020" width="1710" height="40"/>
+<!-- Latten Querschnitte -->
+<g><rect class="fill" x="45" y="1002" width="85" height="18"/><rect class="fill" x="255" y="1002" width="85" height="18"/><rect class="fill" x="465" y="1002" width="85" height="18"/><rect class="fill" x="675" y="1002" width="85" height="18"/><rect class="fill" x="885" y="1002" width="85" height="18"/><rect class="fill" x="1095" y="1002" width="85" height="18"/><rect class="fill" x="1305" y="1002" width="85" height="18"/><rect class="fill" x="1515" y="1002" width="85" height="18"/>
+<rect class="p" x="150" y="1002" width="85" height="18"/><rect class="p" x="360" y="1002" width="85" height="18"/><rect class="p" x="570" y="1002" width="85" height="18"/><rect class="p" x="780" y="1002" width="85" height="18"/><rect class="p" x="990" y="1002" width="85" height="18"/><rect class="p" x="1200" y="1002" width="85" height="18"/><rect class="p" x="1410" y="1002" width="85" height="18"/><rect class="p" x="1620" y="1002" width="85" height="18"/></g>
+<!-- Längsträger + Bein (Bein bei Y200 sichtbar) -->
+<rect class="fill" x="830" y="1060" width="60" height="120"/>
+<rect class="pt" x="830" y="1180" width="60" height="870"/>
+<rect class="pt" x="750" y="2032" width="220" height="18"/>
+<text class="lbl" x="930" y="1160">Längsträger P03 60×120</text>
+<text class="lbl" x="990" y="1700">Bein P04/P05 60×60</text>
+<!-- Matratze -->
+<rect class="pt dash" x="15" y="882" width="1720" height="120"/>
+<text class="lbl" x="640" y="960">Matratze (gestrichelt)</text>
+<!-- Maße -->
+<g class="dim">
+<line x1="98" y1="-60" x2="1653" y2="-60" marker-start="url(#a4)" marker-end="url(#a4)"/><line x1="98" y1="200" x2="98" y2="-75"/><line x1="1653" y1="200" x2="1653" y2="-75"/>
+<line x1="0" y1="2160" x2="1750" y2="2160" marker-start="url(#a4)" marker-end="url(#a4)"/><line x1="0" y1="2055" x2="0" y2="2175"/><line x1="1750" y1="2055" x2="1750" y2="2175"/>
+<line x1="218" y1="1770" x2="1532" y2="1770" marker-start="url(#a4)" marker-end="url(#a4)"/><line x1="218" y1="1800" x2="218" y2="1755"/><line x1="1532" y1="1800" x2="1532" y2="1755"/>
+<line x1="1880" y1="2050" x2="1880" y2="1020" marker-start="url(#a4)" marker-end="url(#a4)"/><line x1="1990" y1="2050" x2="1990" y2="882" marker-start="url(#a4)" marker-end="url(#a4)"/>
+<line x1="1755" y1="1020" x2="1900" y2="1020"/><line x1="1740" y1="882" x2="2010" y2="882"/><line x1="1755" y1="2050" x2="2010" y2="2050"/>
+<line x1="-120" y1="2050" x2="-120" y2="1800" marker-start="url(#a4)" marker-end="url(#a4)"/><line x1="-135" y1="1800" x2="0" y2="1800"/>
+</g>
+<text class="db" x="700" y="-100">1555 lichte Hecktür [B]</text>
+<text class="dv" x="720" y="2280">B1 = 1720 [V]</text>
+<text class="db" x="700" y="1745">1350 zw. Radkästen [B]</text>
+<text class="dt" transform="rotate(-90 1870 1600)" x="1690" y="1592">972 OK QT</text>
+<text class="dv" transform="rotate(-90 1980 1560)" x="1760" y="1552">1115 OK Matratze</text>
+<text class="dt" transform="rotate(-90 -140 1925)" x="-1990" y="1917" style="transform-box:fill-box"></text>
+<text class="dt" x="-240" y="1770" style="font-size:30px">250 [A]</text>
+<text class="dt2" x="30" y="2130" style="font-size:30px"></text>
+</svg>
+<figcaption style="padding:0 14px 12px">Z4 — Plattform liegt komplett oberhalb der Radkästen; volle Breite B1 nutzbar. Matratzen-OK 1115 lässt <b>864&nbsp;mm Sitzhöhe</b> unter dem Dach.</figcaption>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z5 · Schnitt A–A</b><span>X–Z-Schnitt bei Y=800, fester Bettbereich · Schnittflächen gefüllt</span><span>SPR-BETT-01-Z5</span></div>
+<svg viewBox="-200 660 2260 1640" role="img" aria-label="Schnitt A-A">
+<defs><marker id="a5" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="h5" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" class="hl"/></pattern></defs>
+<line class="wand" x1="-40" y1="2050" x2="1790" y2="2050"/>
+<line class="wand" x1="0" y1="2050" x2="0" y2="700"/><line class="wand" x1="1750" y1="2050" x2="1750" y2="700"/>
+<!-- Radkästen geschnitten -->
+<rect x="0" y="1800" width="218" height="250" fill="url(#h5)" class="pt"/><rect x="1532" y="1800" width="218" height="250" fill="url(#h5)" class="pt"/>
+<!-- Wandauflagen geschnitten -->
+<rect x="0" y="1060" width="18" height="140" fill="url(#h5)" class="p"/><rect x="1732" y="1060" width="18" height="140" fill="url(#h5)" class="p"/>
+<!-- QT dahinter -->
+<rect class="pt dash" x="20" y="1020" width="1710" height="40"/>
+<text class="dt2" x="1180" y="1090">QT2/QT3 dahinter (nicht geschnitten)</text>
+<!-- Latten geschnitten -->
+<g><rect x="45" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="255" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="465" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="675" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="885" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="1095" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="1305" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="1515" y="1002" width="85" height="18" fill="url(#h5)" class="p"/>
+<rect x="150" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="360" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="570" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="780" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="990" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="1200" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="1410" y="1002" width="85" height="18" fill="url(#h5)" class="p"/><rect x="1620" y="1002" width="85" height="18" fill="url(#h5)" class="p"/></g>
+<!-- Längsträger geschnitten -->
+<rect x="830" y="1060" width="60" height="120" fill="url(#h5)" class="p"/>
+<line class="pt" x1="845" y1="1060" x2="845" y2="1180"/><line class="pt" x1="875" y1="1060" x2="875" y2="1180"/>
+<!-- Maße -->
+<g class="dim">
+<line x1="45" y1="920" x2="150" y2="920" marker-start="url(#a5)" marker-end="url(#a5)"/><line x1="45" y1="1000" x2="45" y2="905"/><line x1="150" y1="1000" x2="150" y2="905"/>
+<line x1="150" y1="860" x2="235" y2="860" marker-start="url(#a5)" marker-end="url(#a5)"/><line x1="235" y1="1000" x2="235" y2="845"/><line x1="150" y1="905" x2="150" y2="845"/>
+<line x1="235" y1="920" x2="255" y2="920" class="dim"/><line x1="255" y1="1000" x2="255" y2="905"/>
+<line x1="-100" y1="2050" x2="-100" y2="1200" marker-start="url(#a5)" marker-end="url(#a5)"/><line x1="-115" y1="1200" x2="0" y2="1200"/><line x1="-115" y1="2050" x2="-40" y2="2050"/>
+<line x1="-100" y1="1200" x2="-100" y2="1060" marker-start="url(#a5)" marker-end="url(#a5)"/><line x1="-115" y1="1060" x2="0" y2="1060"/>
+<line x1="820" y1="1210" x2="900" y2="1210"/><line x1="830" y1="1195" x2="830" y2="1225"/><line x1="890" y1="1195" x2="890" y2="1225"/>
+<line x1="960" y1="1060" x2="960" y2="1180" marker-start="url(#a5)" marker-end="url(#a5)"/><line x1="895" y1="1060" x2="975" y2="1060"/><line x1="895" y1="1180" x2="975" y2="1180"/>
+</g>
+<text class="dt" x="60" y="895">Teilung 105</text>
+<text class="dt" x="140" y="835">Latte 85</text>
+<text class="dt2" x="260" y="960">Spalt 20</text>
+<text class="dt" transform="rotate(-90 -120 1650)" x="-1770" y="1642" style="transform-box:content-box"></text>
+<text class="dt" x="-190" y="1650" transform="rotate(-90 -130 1650)">UK Auflage 797</text>
+<text class="dt" x="-165" y="1130" style="font-size:30px">140</text>
+<text class="dt" x="915" y="1250" style="font-size:30px">60</text>
+<text class="dt" x="985" y="1130" style="font-size:30px">120</text>
+<text class="dt2" x="45" y="2130">Latten 18×85 Pappelsperrholz (P08/P09), Esche 18×85 mit Führungsnut (P10) · Wandauflage 18×140 Birke-Multiplex</text>
+<text class="dt2" x="45" y="2195">Randluft Latte↔Wand 30 · Belüftung: 15 Spalte à 20 mm ≈ 25 % offene Fläche + Querlüftung durch 40 mm Trägerebene</text>
+</svg>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z6 · Schnitt B–B</b><span>Y–Z-Schnitt bei X=1430 (Pad-Spur), Zustand AUSGEZOGEN · eingeschoben grau gestrichelt</span><span>SPR-BETT-01-Z6</span></div>
+<svg viewBox="-160 660 3260 1680" role="img" aria-label="Schnitt B-B">
+<defs><marker id="a6" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="h6" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" class="hl"/></pattern></defs>
+<line class="wand" x1="0" y1="2050" x2="3060" y2="2050"/>
+<line class="wand" x1="0" y1="2050" x2="0" y2="750"/>
+<!-- QT geschnitten -->
+<rect x="60" y="1020" width="40" height="40" fill="url(#h6)" class="p"/><rect x="550" y="1020" width="40" height="40" fill="url(#h6)" class="p"/><rect x="1050" y="1020" width="40" height="40" fill="url(#h6)" class="p"/><rect x="1540" y="1020" width="40" height="40" fill="url(#h6)" class="p"/>
+<text class="dt2" x="45" y="1105">QT1</text><text class="dt2" x="535" y="1105">QT2</text><text class="dt2" x="1035" y="1105">QT3</text><text class="dt2" x="1525" y="1105">QT4</text>
+<!-- PE-Gleitband -->
+<line class="pt" x1="55" y1="1016" x2="105" y2="1016"/><line class="pt" x1="545" y1="1016" x2="595" y2="1016"/><line class="pt" x1="1045" y1="1016" x2="1095" y2="1016"/><line class="pt" x1="1535" y1="1016" x2="1585" y2="1016"/>
+<text class="dt2" x="100" y="1170">PE-Gleitband 0,5 auf allen QT-Oberseiten</text>
+<!-- bewegliche Latte ausgezogen (Längsschnitt, X=1430 → M-Latte 1410-1495) -->
+<rect x="460" y="1002" width="1520" height="18" fill="url(#h6)" class="p"/>
+<!-- Bugprofil ausgezogen geschnitten -->
+<rect x="1980" y="1002" width="40" height="60" fill="url(#h6)" class="p"/>
+<!-- eingeschobene Lage -->
+<line class="pt dash" x1="60" y1="1002" x2="460" y2="1002"/><line class="pt dash" x1="60" y1="1020" x2="460" y2="1020"/>
+<rect class="pt dash" x="1580" y="1002" width="40" height="60"/>
+<text class="dt2" x="120" y="975">eingeschoben: Lattenende bei Y=60</text>
+<!-- Theke -->
+<rect class="p" x="1640" y="1130" width="1270" height="920"/>
+<line class="pt dash" x1="1960" y1="1145" x2="1960" y2="2050"/>
+<rect x="1960" y="1063" width="80" height="63" fill="url(#h6)" class="p"/>
+<line class="p" x1="1955" y1="1061" x2="2045" y2="1061"/>
+<text class="lbl" x="2070" y="1100">GS3/GS4 · Leiste 30 + HPL 4</text>
+<text class="dt2" x="1990" y="1600" transform="rotate(-90 1990 1600)">Last über die Korpuswand</text>
+<!-- Matratze ausgezogen -->
+<rect class="pt dash" x="420" y="882" width="1600" height="120"/>
+<text class="dt2" x="900" y="950">Matratze + Klappelement (ausgezogen eben)</text>
+<!-- Maße -->
+<g class="dim">
+<line x1="1580" y1="760" x2="1980" y2="760" marker-start="url(#a6)" marker-end="url(#a6)"/><line x1="1580" y1="985" x2="1580" y2="745"/><line x1="1980" y1="985" x2="1980" y2="745"/>
+<line x1="460" y1="820" x2="1580" y2="820" marker-start="url(#a6)" marker-end="url(#a6)"/><line x1="460" y1="1000" x2="460" y2="805"/>
+<line x1="1560" y1="1160" x2="2020" y2="1160" marker-start="url(#a6)" marker-end="url(#a6)"/><line x1="1560" y1="1160" x2="1560" y2="1145"/><line x1="2020" y1="1052" x2="2020" y2="1175"/>
+<line x1="1990" y1="1220" x2="2030" y2="1220"/><line x1="1980" y1="1235" x2="1980" y2="1205"/><line x1="2020" y1="1235" x2="2020" y2="1205"/>
+</g>
+<text class="da" x="1680" y="735">Hub 400 (Anschlag P15)</text>
+<text class="dt" x="740" y="795">Resteinhängung 1120 auf QT2–QT4</text>
+<text class="dt" x="1600" y="1215">Freie Spannweite 400</text>
+<text class="dt" x="2050" y="1250" style="font-size:30px">Auflager 40 auf GS</text>
+<text class="dt2" x="45" y="2130">Lattenende ausgezogen bei Y=460 → 90 mm Überstand hinter QT2, Latte liegt auf QT2/QT3/QT4 + Pad/Bein · Durchbiegung Feld 400 bei 600 N: 2,8 mm</text>
+<text class="dt2" x="45" y="2200">Fahrverriegelung: Bug an QT4 (Detail Z8) · Führung/Niederhalter an QT4 (Detail Z7) · Auflage siehe Z9</text>
+</svg>
+</figure>
+<h2 id="s5"><span class="no">5</span>Detailzeichnungen</h2>
+
+<figure class="zbox"><div class="zk"><b>Z7 · Übergang fester Kamm / Auszug — Führung, Niederhalter, Endanschlag</b><span>oben: Draufsicht (3:1) · unten: Schnitt C–C (X–Z)</span><span>SPR-BETT-01-Z7</span></div>
+<svg viewBox="-60 -170 2160 2060" role="img" aria-label="Detail Kammfuehrung">
+<defs><marker id="a7" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="h7" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" class="hl"/></pattern></defs>
+<!-- ===== Draufsicht (Maßstab 3:1, lokale Koordinaten) ===== -->
+<!-- F-Latte links: x 0..255, M-Esche: x 315..570, F rechts: 630..885 ; QT4 Band quer y 400..520 -->
+<rect class="fill" x="0" y="0" width="255" height="1000"/>
+<rect class="fill" x="630" y="0" width="255" height="1000"/>
+<text class="lbl" x="40" y="80">P08 fest</text><text class="lbl" x="670" y="80">P08 fest</text>
+<!-- QT4 unter den Latten -->
+<rect class="pt dash" x="-40" y="400" width="965" height="120"/>
+<text class="lbl" x="-30" y="380">QT4 (verdeckt)</text>
+<!-- Esche-Latte -->
+<rect class="p" x="315" y="-40" width="255" height="1040"/>
+<line class="pt dash" x1="330" y1="-40" x2="330" y2="1000"/><line class="pt dash" x1="555" y1="-40" x2="555" y2="1000"/>
+<text class="lbl" x="350" y="80">P10 Esche, beweglich</text>
+<text class="dt2" x="352" y="140">seitl. Nut 6×5, beidseitig</text>
+<!-- POM-Klötze in den Spalten -->
+<rect x="255" y="400" width="60" height="180" fill="url(#h7)" class="p"/>
+<rect x="570" y="400" width="60" height="180" fill="url(#h7)" class="p"/>
+<circle class="pt" cx="285" cy="440" r="9"/><circle class="pt" cx="285" cy="540" r="9"/>
+<circle class="pt" cx="600" cy="440" r="9"/><circle class="pt" cx="600" cy="540" r="9"/>
+<text class="lbl" x="940" y="470">P15 POM-Führungsklotz 20×60×16,</text>
+<text class="dt2" x="940" y="520">je 2× M5×20 in Nietmutter QT4</text>
+<!-- Nase angedeutet -->
+<line class="p" x1="315" y1="420" x2="315" y2="560"/><line class="p" x1="570" y1="420" x2="570" y2="560"/>
+<!-- Anschlag -->
+<line class="p" x1="345" y1="880" x2="540" y2="880"/>
+<text class="dt2" x="940" y="880">Nutende = Endanschlag: Hub exakt 400</text>
+<line class="dim" x1="620" y1="880" x2="920" y2="885"/>
+<!-- Maße Draufsicht -->
+<g class="dim">
+<line x1="255" y1="-60" x2="315" y2="-60" marker-start="url(#a7)" marker-end="url(#a7)"/>
+<line x1="315" y1="240" x2="330" y2="240"/><line x1="315" y1="225" x2="315" y2="255"/><line x1="330" y1="225" x2="330" y2="255"/>
+</g>
+<text class="dt" x="60" y="-100" style="font-size:30px">Spalt 20</text>
+<text class="dt2" x="360" y="250">Nuttiefe 5 / Naseneingriff 3,5 → Spiel X ±1,5</text>
+<!-- ===== Schnitt C-C ===== -->
+<g transform="translate(0,1150)">
+<text class="lbl" x="0" y="-30">Schnitt C–C durch Nut und Klotz (3:1) · Z-Werte real</text>
+<!-- QT4 -->
+<rect x="0" y="254" width="1000" height="120" fill="url(#h7)" class="p"/>
+<text class="lbl" x="1020" y="330">QT4 40×40×2 · OK Z 972</text>
+<!-- Esche Latte 85x18: hier 255x54, Bottom auf QT top (y254): slat y 200..254 -->
+<rect x="330" y="200" width="255" height="54" fill="url(#h7)" class="p"/>
+<!-- Nut beidseitig: 6 hoch (18mm→54: 1/3), Tiefe 5→15 -->
+<rect x="330" y="218" width="15" height="18" fill="var(--paper)" class="pt"/>
+<rect x="570" y="218" width="15" height="18" fill="var(--paper)" class="pt"/>
+<!-- POM Klötze: sitzen auf QT, Höhe 16mm→48: y 206..254, Nase in Nut -->
+<path d="M255,254 L255,206 L341,206 L341,222 L330,222 L330,232 L341,232 L341,254 z" fill="url(#h7)" class="p" transform="translate(0,0)"/>
+<path d="M660,254 L660,206 L574,206 L574,222 L585,222 L585,232 L574,232 L574,254 z" fill="url(#h7)" class="p"/>
+<text class="lbl" x="80" y="180">P15</text><text class="lbl" x="700" y="180">P15</text>
+<!-- PE Band -->
+<line class="pt" x1="300" y1="250" x2="620" y2="250"/>
+<text class="dt2" x="1210" y="270">PE-Gleitband 0,5</text>
+<!-- Maße -->
+<g class="dim">
+<line x1="1180" y1="200" x2="1180" y2="254" marker-start="url(#a7)" marker-end="url(#a7)"/><line x1="590" y1="200" x2="1195" y2="200"/><line x1="1010" y1="254" x2="1195" y2="254"/>
+<line x1="250" y1="218" x2="250" y2="236" /><line x1="235" y1="218" x2="345" y2="218"/><line x1="235" y1="236" x2="345" y2="236"/>
+</g>
+<text class="dt" x="1210" y="180" style="font-size:30px">Latte 18</text>
+<text class="dt" x="60" y="235" style="font-size:30px">Nut 6 hoch</text>
+<text class="dt2" x="0" y="450">Funktion: seitliche Führung (X), Niederhalter gegen Abheben (Z, Formschluss), Endanschlag (Y).</text>
+<text class="dt2" x="0" y="510">Spiel Z: 1 mm · Klotzhöhe 16 → Nutmitte Z 981.</text>
+<text class="dt2" x="0" y="570">Position: an QT4 beidseitig der beiden Esche-Latten (X 150–235 und 1410–1495).</text>
+<text class="dt2" x="0" y="630">Nut endet 60 vor Lattenhinterkante → Kamm nur nach Klotzdemontage ausbaubar.</text>
+</g>
+</svg>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z8 · Fahrverriegelung, eingeschobener Zustand</b><span>Y–Z-Schnitt bei X=360 (2. Riegel bei X=1360) · 3:1</span><span>SPR-BETT-01-Z8</span></div>
+<svg viewBox="-80 -80 2000 1000" role="img" aria-label="Detail Verriegelung">
+<defs><marker id="a8" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="h8" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" class="hl"/></pattern></defs>
+<!-- Skalierung 3:1, lokal: Y horizontal (Heck links), Z vertikal. QT4: Y1540-1580 -> x 0..120, Z990-1030 -> Kasten -->
+<!-- Latte oben durchlaufend: Z1030-1048 -> y 96..150 ; Ausschnitt: Latte fest endet bei Y1580: x120 -->
+<rect x="-60" y="96" width="180" height="54" fill="url(#h8)" class="p"/>
+<text class="lbl" x="-60" y="60">P08 feste Latte (endet Y 1580, OK Z 995)</text>
+<!-- QT4 Hohlprofil geschnitten: außen 120 breit, 120 hoch (40mm), Wand 2mm->6 -->
+<g class="p"><rect x="0" y="150" width="120" height="120" fill="none"/><rect x="6" y="156" width="108" height="108" fill="url(#h8)" style="stroke-width:1.5"/></g>
+<text class="lbl" x="-60" y="545">QT4 Alu 40×40×2</text>
+<!-- Bugprofil 60x40x3: Y1580-1620 -> x 120..240, Z988-1048 -> y 150+? Z1048->y96? OK Latte=1048: profile top y96, Höhe 60mm->180: y 96..276 -->
+<g class="p"><rect x="122" y="96" width="120" height="180" fill="none"/><rect x="131" y="105" width="102" height="162" fill="url(#h8)" style="stroke-width:1.5"/></g>
+<text class="lbl" x="620" y="20">P11 Bugprofil 60×40×3</text>
+<!-- M-Latte steckt im Profil: von rechts kommend bis x 122 -->
+<rect class="pt" x="242" y="96" width="500" height="54" fill="url(#h8)"/>
+<text class="lbl" x="620" y="80">P09 bewegl. Latte, stumpf ans Profil (Winkel P19 innen)</text>
+<!-- Filzband Kontaktfuge -->
+<rect x="118" y="150" width="6" height="120" class="pt" fill="var(--var)" fill-opacity=".5"/>
+<text class="dt2" x="430" y="220">Filz 2 in Kontaktfuge (klapperfrei)</text>
+<line class="dim" x1="420" y1="226" x2="126" y2="212"/>
+<!-- Federriegel: Gehäuse unter Bugprofil, Bolzen Ø8 bei Z1010 (y = 150+ (1030-1010)*3=210) durch Profilwand in QT4-Buchse -->
+<rect class="p" x="150" y="290" width="220" height="70" fill="url(#h8)"/>
+<text class="lbl" x="390" y="345">P17 Federriegel, Gehäuse M5 an UK Bugprofil</text>
+<rect class="p" x="60" y="196" width="150" height="28" fill="var(--grid)"/>
+<line class="p" x1="150" y1="224" x2="150" y2="290"/>
+<!-- Buchse -->
+<g class="pt"><line x1="60" y1="188" x2="114" y2="188"/><line x1="60" y1="232" x2="114" y2="232"/></g>
+<text class="lbl" x="-60" y="430">Messingbuchse Ø10×1, eingeklebt in QT4-Rückwand, Bohrung Ø8,2</text>
+<line class="dim" x1="240" y1="420" x2="95" y2="235"/>
+<!-- Maße -->
+<g class="dim">
+<line x1="60" y1="510" x2="120" y2="510" marker-start="url(#a8)" marker-end="url(#a8)"/><line x1="60" y1="230" x2="60" y2="525"/><line x1="120" y1="275" x2="120" y2="525"/>
+<line x1="1300" y1="96" x2="1300" y2="276" marker-start="url(#a8)" marker-end="url(#a8)"/><line x1="750" y1="96" x2="1315" y2="96"/><line x1="245" y1="276" x2="1315" y2="276"/>
+<line x1="1440" y1="150" x2="1440" y2="210" marker-start="url(#a8)" marker-end="url(#a8)"/><line x1="1315" y1="150" x2="1455" y2="150"/><line x1="215" y1="210" x2="1455" y2="210"/>
+</g>
+<text class="dt" x="240" y="600">Eingriff 20 (Bolzen Ø8)</text>
+<text class="dt" x="1330" y="200" style="font-size:30px">60</text>
+<text class="dt" x="1470" y="190" style="font-size:30px">Bolzenachse Z 952</text>
+<text class="dt2" x="-60" y="660">Bedienung: 2 Zugknöpfe unter der Bettvorderkante. Federkraft hält Bolzen ausgefahren → selbstsichernd.</text>
+<text class="dt2" x="-60" y="720">Redundanz: POM-Formschluss P15 + Reibung des Kamms (≈35 kg) — öffnet sich fahrdynamisch nicht.</text>
+<text class="dt2" x="-60" y="780">Toleranz: Buchse nach Riegelmontage auf der Achse bohren (durch Riegelöse ankörnen) → spielfrei Ø8,2/Ø8.</text>
+</svg>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z9 · Auflageleisten GS1–GS4</b><span>X–Z-Schnitt bei Y=2000 durch eine Leiste · 3:1</span><span>SPR-BETT-01-Z9</span></div>
+<svg viewBox="-80 -140 2100 1060" role="img" aria-label="Detail Pad">
+<defs><marker id="a9" markerWidth="12" markerHeight="12" refX="9" refY="5" orient="auto"><path d="M0,1.5 L10,5 L0,8.5 z" fill="context-stroke"/></marker>
+<pattern id="h9" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" class="hl"/></pattern></defs>
+<!-- 3:1 lokal, X horizontal. Arbeitsplatte 15mm -> 45: y 300..345, OK Theke Z920 -> y300 -->
+<rect x="-60" y="300" width="1300" height="45" fill="url(#h9)" class="p"/>
+<text class="lbl" x="-60" y="390">Arbeitsplatte 12 Queenply · OK Z 900 [B]</text>
+<!-- Korpuswand darunter -->
+<rect class="pt dash" x="700" y="345" width="45" height="400"/>
+<text class="dt2" x="770" y="600">Korpuswand — die Leiste überbrückt Rückwand und Mittelwand</text>
+<!-- Pad 60 breit -> 180: x 300..480, Höhe 63->189: y 111..300 -->
+<rect x="300" y="111" width="180" height="189" fill="url(#h9)" class="p"/>
+<text class="lbl" x="900" y="235">GS · Leiste Buche 30 × 60 × ca. 500</text>
+<line class="dim" x1="890" y1="228" x2="484" y2="215"/>
+<!-- Shims -->
+<rect class="pt" x="300" y="282" width="180" height="18" fill="var(--grid)"/>
+<text class="dt2" x="900" y="300">Shims flächig, Feinjustage auf Z 934 ± 1</text>
+<line class="dim" x1="890" y1="293" x2="484" y2="291"/>
+<!-- HPL -->
+<rect class="p" x="292" y="99" width="196" height="12" fill="var(--grid)"/>
+<text class="lbl" x="900" y="160">HPL-Belag 4, aufgeleimt, Fase 20 hinten</text>
+<line class="dim" x1="890" y1="152" x2="492" y2="106"/>
+<!-- Bugprofil darüber: UK 988 -> Luft 1mm->3: Profil y -84..96 (60mm=180) -->
+<g class="p"><rect x="150" y="-84" width="700" height="180" fill="none"/><rect x="159" y="-75" width="682" height="162" fill="url(#h9)" style="stroke-width:1.5"/></g>
+<text class="lbl" x="900" y="-40">P11 Bugprofil (läuft in X durch)</text>
+<!-- Führungswange am äußeren Pad -->
+<rect x="480" y="30" width="36" height="270" fill="url(#h9)" class="p"/>
+<text class="lbl" x="560" y="-110">Wange 12 an GS4 → X-Führung, Spiel 2</text>
+<line class="dim" x1="552" y1="-100" x2="500" y2="34"/>
+<!-- Schrauben von unten -->
+<line class="pt" x1="350" y1="440" x2="350" y2="180"/><line class="pt" x1="430" y1="440" x2="430" y2="180"/>
+<path class="pt" d="M340,440 L360,440 M340,430 L360,430"/>
+<text class="dt2" x="150" y="490">4× Spax 4×20 von oben — nur gegen Verrutschen, die Last geht durch Druckkontakt</text>
+<!-- Maße -->
+<g class="dim">
+<line x1="240" y1="99" x2="240" y2="300" marker-start="url(#a9)" marker-end="url(#a9)"/><line x1="285" y1="99" x2="225" y2="99"/><line x1="295" y1="300" x2="225" y2="300"/>
+<line x1="1450" y1="-84" x2="1450" y2="96" marker-start="url(#a9)" marker-end="url(#a9)"/><line x1="855" y1="-84" x2="1465" y2="-84"/><line x1="855" y1="96" x2="1465" y2="96"/>
+<line x1="1560" y1="96" x2="1560" y2="99"/><line x1="1545" y1="96" x2="1575" y2="96"/><line x1="1545" y1="99" x2="1575" y2="99"/>
+</g>
+<text class="dt" x="60" y="210" transform="rotate(-90 60 210)">30 + 4 HPL</text>
+<text class="dt" x="1480" y="20" style="font-size:30px">60</text>
+<text class="dt" x="1590" y="105" style="font-size:30px">Gleitluft 1 (unbelastet)</text>
+<text class="dt2" x="-60" y="660">Lastfall: max 0,9 kN je Leiste (Kap. 6) → Biegung über 490–525 mm Stützweite.</text>
+<text class="dt2" x="-60" y="720">GS1 X 30–90 · GS2 X 490–550 · GS3 X 1290–1350 · GS4 X 1650–1710 · alle Y 1640–2165 [V]</text>
+<text class="dt2" x="-60" y="780">Der Bug gleitet ab Auszugbeginn über alle vier Leisten → kein Kippmoment, kein Absacken.</text>
+</svg>
+</figure>
+
+<figure class="zbox"><div class="zk"><b>Z10 · Explosionsdarstellung</b><span>Baugruppen von oben nach unten · Montagereihenfolge = von unten nach oben</span><span>SPR-BETT-01-Z10</span></div>
+<svg viewBox="-60 -60 2560 2600" role="img" aria-label="Explosionsdarstellung">
+<defs><pattern id="hx" width="14" height="14" patternTransform="rotate(45)" patternUnits="userSpaceOnUse"><line x1="0" y1="0" x2="0" y2="14" class="hl"/></pattern></defs>
+<line class="mitte" x1="860" y1="-40" x2="860" y2="2500"/>
+<!-- Ebene 1: Matratze -->
+<g transform="translate(0,0)">
+<rect class="pt" x="60" y="0" width="1560" height="90" rx="14"/><line class="pt dash" x1="1230" y1="0" x2="1230" y2="90"/>
+<text class="lbl" x="1680" y="40">Matratze 1560 + Klappelement 400</text><text class="dt2" x="1680" y="80">(angezippt, DM=120)</text>
+</g>
+<!-- Ebene 2: Verbindungsleiste -->
+<g transform="translate(0,240)">
+<rect class="fill" x="60" y="0" width="1600" height="40"/>
+<text class="lbl" x="1680" y="30">P12 Verbindungsleiste 18×60×1660</text><text class="dt2" x="1680" y="70">verschraubt auf P09/P10, Filzgleiter</text>
+</g>
+<!-- Ebene 3: beweglicher Kamm -->
+<g transform="translate(0,420)">
+<rect class="fill" x="30" y="80" width="1660" height="50" style="fill:var(--hatch);fill-opacity:.35"/>
+<rect class="p" x="120" y="130" width="60" height="640"/><rect class="p" x="330" y="130" width="60" height="640"/><rect class="p" x="540" y="130" width="60" height="640"/><rect class="p" x="750" y="130" width="60" height="640"/><rect class="p" x="960" y="130" width="60" height="640"/><rect class="p" x="1170" y="130" width="60" height="640"/><rect class="p" x="1380" y="130" width="60" height="640"/><rect class="p" x="1590" y="130" width="60" height="640"/>
+<rect class="dashf" x="40" y="20" width="24" height="160"/>
+<text class="lbl" x="1720" y="60">P11 Bugprofil Alu 60×40×3, L=1690</text>
+<text class="dt2" x="1720" y="100">mit 2× P17 Federriegel (kein Klappbein)</text>
+<text class="lbl" x="1720" y="160">P09 6× Latte Pappel 18×85×1560</text>
+<text class="lbl" x="1720" y="210">P10 2× Latte Esche 18×85×1560, Nut 6×5</text>
+</g>
+<!-- Ebene 4: fester Kamm -->
+<g transform="translate(0,1280)">
+<rect class="fill" x="225" y="0" width="60" height="620"/><rect class="fill" x="435" y="0" width="60" height="620"/><rect class="fill" x="645" y="0" width="60" height="620"/><rect class="fill" x="855" y="0" width="60" height="620"/><rect class="fill" x="1065" y="0" width="60" height="620"/><rect class="fill" x="1275" y="0" width="60" height="620"/><rect class="fill" x="1485" y="0" width="60" height="620"/><rect class="fill" x="15" y="0" width="60" height="620"/>
+<text class="lbl" x="1720" y="40">P08 8× Latte Pappel 18×85×1540</text>
+<text class="dt2" x="1720" y="80">je 2× Spax 4×40 pro QT, vorgebohrt/gesenkt</text>
+</g>
+<!-- Ebene 5: QT + Kleinteile -->
+<g transform="translate(0,1980)">
+<rect class="alu" x="20" y="0" width="1710" height="26"/><rect class="alu" x="20" y="60" width="1710" height="26"/><rect class="alu" x="20" y="120" width="1710" height="26"/><rect class="alu" x="20" y="180" width="1710" height="26"/>
+<rect class="p" x="330" y="172" width="26" height="42" fill="url(#hx)"/><rect class="p" x="1430" y="172" width="26" height="42" fill="url(#hx)"/>
+<text class="lbl" x="1770" y="20">P07 4× QT Alu 40×40×2, L=1710</text>
+<text class="dt2" x="1770" y="60">+ PE-Gleitband, je 2 Winkel P18</text>
+<text class="lbl" x="1770" y="130">P15/P16 4× POM-Klotz an QT4</text>
+<text class="dt2" x="1770" y="170">+ 2× Buchse Verriegelung</text>
+</g>
+<!-- Ebene 6: Unterbau -->
+<g transform="translate(0,2320)">
+<rect class="fill" x="0" y="0" width="26" height="140"/><rect class="fill" x="1724" y="0" width="26" height="140"/>
+<rect class="fill" x="700" y="30" width="350" height="60"/>
+<rect class="pt" x="790" y="90" width="40" height="80"/><rect class="pt" x="920" y="90" width="40" height="80"/>
+<rect class="pt" x="760" y="170" width="100" height="14"/><rect class="pt" x="890" y="170" width="100" height="14"/>
+<text class="lbl" x="60" y="40">P01/P02 Wandauflagen 18×140×1620</text>
+<text class="dt2" x="60" y="80">je 5× M8 in Nietmuttern</text>
+<text class="lbl" x="1080" y="40">P03 Längsträger-Kasten 60×120×1620</text>
+<text class="dt2" x="1080" y="80">P04/P05 Beine 60×60 · P06 Bodenplatten</text>
+</g>
+</svg>
+<figcaption style="padding:0 14px 12px">Z10 — Alle Schraubverbindungen lösbar (Demontage in Baugruppen: Matratze → P12 → beweglicher Kamm nach Lösen der P15-Klötze → Latten → QT → Unterbau). Leimfugen nur <i>innerhalb</i> von Baugruppen (Kastenprofile P03/P04/P05, Pads, Nut-Leisten).</figcaption>
+</figure>
+<h2 id="s6"><span class="no">6</span>Statische Dimensionierung</h2>
+<h3>Lastannahmen</h3>
+<ul>
+<li>Nutzlast verteilt: 180 kg · Sicherheitsfaktor 1,5 = <b>2,65 kN</b> auf 2,0 × 1,72 m</li>
+<li>Punktlast (Einsteigen, Knie/Gesäß): 120 kg · 1,5 = <b>1,77 kN</b>; die 120-mm-Matratze verteilt auf ≥3 Latten → <b>600 N je Latte</b> als Bemessungswert</li>
+<li>Vorderkante Sitzlast ausgezogen: 120 kg · 1,5 = 1,77 kN auf das Bugprofil</li>
+<li>Seitenlast (Drehen/Hinsetzen): 0,3 kN horizontal in X an OK Matratze (Z 1115) — geht als Schub über die verschraubten Latten in QT → Wandauflagen (Formschluss POM verhindert Kammverschiebung in X)</li>
+<li>Fahrbetrieb: Verzögerung 1 g längs → Kamm (≈35 kg) erzeugt 0,35 kN auf die Verriegelung; 2 Riegel Ø8 (Abscheren ≫ 5 kN) + POM-Formschluss → mehrfach überbestimmt</li>
+</ul>
+<h3>Lastpfade</h3>
+<p>Matratze → Latten (Biegung, Felder 450/460/450 bzw. 400) → Querträger (Biegung, 2 Felder à 845) →
+links/rechts Wandauflagen (Schub in M8-Nietmuttern der Säulen) und mittig Längsträger →
+2 Beine → Bodenplatten → Fahrzeugboden. Ausgezogen zusätzlich: Bugprofil → <b>4 Leisten GS1–GS4</b> →
+Korpuswände von Küche und Kühlschrankschrank → Boden.</p>
+<div class="tw"><table>
+<tr><th>Bauteil / Nachweis</th><th class="num">Last</th><th class="num">Spannweite</th><th>Querschnitt (E-Modul)</th><th class="num">Durchbiegung</th><th class="num">Spannung σ</th><th class="num">SF vorh.</th><th>Bewertung</th></tr>
+<tr><td>Latte fest, mittleres Feld</td><td class="num">600 N Punkt</td><td class="num">460</td><td>Pappelsperrholz 18×85 (7 000 N/mm²)</td><td class="num">3,9 mm</td><td class="num">15 N/mm²</td><td class="num">≈2,5</td><td>✔ maßgebend für Lattenwahl</td></tr>
+<tr><td>Latte im Auszugfeld (QT4→Bug)</td><td class="num">600 N Punkt</td><td class="num">400</td><td>wie oben</td><td class="num">2,8 mm</td><td class="num">13 N/mm²</td><td class="num">≈2,9</td><td>✔ &lt; 5 mm gefordert</td></tr>
+<tr><td>Querträger QT1–4</td><td class="num">1 200 N Punkt</td><td class="num">845 (2 Felder)</td><td>Alu 40×40×2, EN AW-6060 T66 (70 000)</td><td class="num">3,0 mm</td><td class="num">70 N/mm²</td><td class="num">2,3</td><td>✔ Alu halbiert Gewicht ggü. Holz 40×80</td></tr>
+<tr><td>Längsträger P03</td><td class="num">0,9 kN Punkt</td><td class="num">1 200 (Beinabstand)</td><td>Sperrholzkasten 60×120, Steg 2×15 (7 000)</td><td class="num">1,0 mm</td><td class="num">&lt;8 N/mm²</td><td class="num">&gt;4</td><td>✔ bewusst übersteif (Torsionsrückgrat)</td></tr>
+<tr><td>Bein P04/P05 (Knicken)</td><td class="num">1,4 kN</td><td class="num">L=850</td><td>Kasten 60×60×15 Sperrholz</td><td class="num">—</td><td class="num">—</td><td class="num">&gt;10</td><td>✔ unkritisch</td></tr>
+
+<tr><td><b>Bugprofil zwischen GS2 und GS3</b> (über dem Gang)</td><td class="num">1 770 N Punkt</td><td class="num">800</td><td>Alu 60×40×3 (70 000)</td><td class="num"><b>1,0 mm</b></td><td class="num">48 N/mm²</td><td class="num">3,3</td><td>✔ <b>maßgebender Nachweis</b> — mit wandnahen Auflagern wären es 1690 mm und 9,8 mm</td></tr>
+<tr><td>Auflageleiste GS (Biegung)</td><td class="num">885 N mittig</td><td class="num">490–525</td><td>Buche 30×60 (13 000)</td><td class="num">1,5 mm</td><td class="num">12,9 N/mm²</td><td class="num">&gt;4</td><td>✔ Last geht als 2 × 450 N in die Korpuswände</td></tr>
+<tr><td>POM-Nase / Esche-Nut (Abheben des Kamms)</td><td class="num">845 N je Nase</td><td class="num">—</td><td>Nutflanke 5×80 Eingriff</td><td class="num">—</td><td class="num">2,1 N/mm²</td><td class="num">≈2,5</td><td>✔ Formschluss gegen Abheben; ohne Klappbein kein Fehlbedienungsfall mehr</td></tr>
+</table></div>
+<h3>Material sparen / nicht sparen</h3>
+<ul>
+<li><b>Sparen möglich:</b> P03-Stege dürfen auf 12 mm reduziert werden (−0,5 kg); P12 auf 18×50 (−0,1 kg); QT1 (Heck, geringste Last) theoretisch 40×30×2 — wegen Gleichteile-Logik nicht empfohlen.</li>
+<li><b>Nicht sparen:</b> P10 Esche-Latten (Nut schwächt den Querschnitt), <b>Bugprofil P11</b> — es ist das maßgebende Bauteil, ein kleineres Profil geht nicht —, POM-Klötze, Wandauflagen-Dicke 18 (Lochleibung der M8).</li>
+<li><b>Rückfallebene Variante A</b> (falls Theke entfällt): 2 Teleskopsteifen Alu 80×20×2 unter den Esche-Lattenspuren, geführt in POM-Schuhen an QT3/QT4; Kragarm 440, Rückspann 480: δ ≈ 3,2 mm bei 0,9 kN. Mehrgewicht +3,2 kg, deutlich höherer Passungsaufwand.</li>
+</ul>
+
+<h2 id="s7"><span class="no">7</span>Material- und Stückliste</h2>
+<div class="tw"><table>
+<tr><th>Nr.</th><th>Bezeichnung</th><th class="num">Stk</th><th class="num">L</th><th class="num">B</th><th class="num">S/H</th><th>Material</th><th class="num">kg/Stk</th><th class="num">kg ges.</th><th>Funktion</th></tr>
+<tr><td class="mono">P01</td><td>Wandauflage Fahrerseite</td><td class="num">1</td><td class="num">1620</td><td class="num">140</td><td class="num">18</td><td>Birke-Multiplex</td><td class="num">2,8</td><td class="num">2,8</td><td>Auflager QT links, Wandanbindung</td></tr>
+<tr><td class="mono">P02</td><td>Wandauflage Beifahrerseite</td><td class="num">1</td><td class="num">1620</td><td class="num">140</td><td class="num">18</td><td>Birke-Multiplex</td><td class="num">2,8</td><td class="num">2,8</td><td>Auflager QT rechts</td></tr>
+<tr><td class="mono">P03</td><td>Längsträger-Kastenprofil</td><td class="num">1</td><td class="num">1620</td><td class="num">60</td><td class="num">120</td><td>Pappelsperrholz 15, verleimt</td><td class="num">3,2</td><td class="num">3,2</td><td>Mittelauflager, Torsionssteifigkeit</td></tr>
+<tr><td class="mono">P04/05</td><td>Bein vorn/hinten</td><td class="num">2</td><td class="num">850</td><td class="num">60</td><td class="num">60</td><td>Pappelsperrholz 15, Kasten</td><td class="num">1,0</td><td class="num">2,0</td><td>Stützen Längsträger</td></tr>
+<tr><td class="mono">P06</td><td>Bodenplatte</td><td class="num">2</td><td class="num">220</td><td class="num">120</td><td class="num">18</td><td>Birke-Multiplex</td><td class="num">0,33</td><td class="num">0,65</td><td>Lasteinleitung Boden, M8-Anbindung</td></tr>
+<tr><td class="mono">P07</td><td>Querträger QT1–QT4</td><td class="num">4</td><td class="num">1710</td><td class="num">40</td><td class="num">40/2</td><td>Alu EN AW-6060 T66</td><td class="num">1,4</td><td class="num">5,6</td><td>Haupttragrichtung X, Gleitbahn</td></tr>
+<tr><td class="mono">P08</td><td>Latte fester Kamm</td><td class="num">8</td><td class="num">1540</td><td class="num">85</td><td class="num">18</td><td>Queenply/Pappelsperrholz</td><td class="num">1,0</td><td class="num">8,1</td><td>Liegefläche fest</td></tr>
+<tr><td class="mono">P09</td><td>Latte beweglicher Kamm</td><td class="num">6</td><td class="num">1560</td><td class="num">85</td><td class="num">18</td><td>Queenply/Pappelsperrholz</td><td class="num">1,0</td><td class="num">6,2</td><td>Liegefläche Auszug</td></tr>
+<tr><td class="mono">P10</td><td>Führungslatte mit Nut 6×5</td><td class="num">2</td><td class="num">1560</td><td class="num">85</td><td class="num">18</td><td>Esche massiv</td><td class="num">1,6</td><td class="num">3,3</td><td>Führung, Niederhalter, Endanschlag</td></tr>
+<tr><td class="mono">P11</td><td>Bugprofil</td><td class="num">1</td><td class="num">1690</td><td class="num">40</td><td class="num">60/3</td><td>Alu EN AW-6060</td><td class="num">2,6</td><td class="num">2,6</td><td>Bettvorderkante, Lastverteiler, Riegelträger</td></tr>
+<tr><td class="mono">P12</td><td>Verbindungsleiste</td><td class="num">1</td><td class="num">1660</td><td class="num">60</td><td class="num">18</td><td>Kiefer/Fichte gehobelt</td><td class="num">0,8</td><td class="num">0,8</td><td>hält Kammteilung hinten, Anti-Racking</td></tr>
+
+<tr><td class="mono">GS1–GS4</td><td>Auflageleiste + HPL-Belag 4</td><td class="num">4</td><td class="num">490–525</td><td class="num">60</td><td class="num">30</td><td>Buche/Esche + HPL</td><td class="num">0,2</td><td class="num">0,8</td><td>tragen den Auszug — 2 auf der Küche, 2 auf dem Kühlschrankschrank</td></tr>
+<tr><td class="mono">P15</td><td>Führungs-/Niederhalteklotz</td><td class="num">4</td><td class="num">60</td><td class="num">20</td><td class="num">16</td><td>POM natur</td><td class="num">0,03</td><td class="num">0,1</td><td>X-Führung, Z-Formschluss, Anschlag</td></tr>
+<tr><td class="mono">P16</td><td>Distanz-/Shimsatz</td><td class="num">1</td><td colspan="3">Plattenreste 0,5–3</td><td>HPL/Sperrholz</td><td class="num">0,1</td><td class="num">0,1</td><td>Höhenjustage Pads/Auflagen</td></tr>
+<tr><td class="mono">P17</td><td>Federriegel Ø8 + Messingbuchse</td><td class="num">2</td><td colspan="3">Hub 20</td><td>Edelstahl/Messing</td><td class="num">0,15</td><td class="num">0,3</td><td>Fahrverriegelung</td></tr>
+<tr><td class="mono">P18</td><td>Anschlusswinkel QT→Auflage</td><td class="num">8</td><td class="num">40</td><td class="num">40</td><td class="num">4</td><td>Alu</td><td class="num">0,05</td><td class="num">0,4</td><td>Auflagersicherung (Z und Y)</td></tr>
+<tr><td class="mono">P19</td><td>Latten-Anschlusswinkel an P11</td><td class="num">16</td><td class="num">60</td><td class="num">30</td><td class="num">3</td><td>Alu 30×30</td><td class="num">0,03</td><td class="num">0,5</td><td>Latten↔Bugprofil</td></tr>
+<tr><td class="mono">P20</td><td>PE-Gleitband, Filz, Kleinteile</td><td class="num">1</td><td colspan="3">≈7 m / 2 m</td><td>PE-UHMW 0,5 sk / Filz 2</td><td class="num">—</td><td class="num">0,5</td><td>Gleiten, Entkoppeln</td></tr>
+<tr><th colspan="8">Summe Konstruktion (ohne Schrauben ≈1,3 kg, ohne Matratze)</th><th class="num">≈ 40,8</th><th></th></tr>
+</table></div>
+
+<h2 id="s8"><span class="no">8</span>Zuschnittliste / Zuschnittplan</h2>
+<div class="tw"><table>
+<tr><th>Rohmaterial</th><th class="num">Bedarf</th><th>Zuschnitt (Sägereihenfolge)</th></tr>
+<tr><td>Queenply/Pappelsperrholz <b>18 mm</b>, 2500×1250</td><td class="num">1 Platte</td><td>① Querschnitt bei 1560 → Tafel A 1560×1250. ② Tafel A in 14 Streifen à 85 auftrennen (Sägeblatt 3 mm, Rest ≈36). ③ 8 Streifen auf 1540 ablängen (P08), 6 bleiben 1560 (P09). ④ Resttafel 940×1250: Shims P16, Probestücke, Reserve-Latte quer nicht möglich — Reste aufheben.</td></tr>
+<tr><td>Pappelsperrholz <b>15 mm</b>, 2500×1250</td><td class="num">1 Platte (≈45 % genutzt)</td><td>① Längsstreifen: 2× 120 × 1620 (P03-Stege), 2× 30 × 1620 (P03-Gurte). ② Aus Rest: 4× 60 × 850 und 4× 30 × 850 (P04/P05), 6 Schotts 90×30. Rest = Reserve.</td></tr>
+<tr><td>Birke-Multiplex <b>18 mm</b>, Zuschnitt 1700×650</td><td class="num">1 Zuschnitt</td><td>2× 1620×140 (P01/P02), 2× 220×120 (P06), Rest Shims/Reserve.</td></tr>
+<tr><td>Esche massiv, gehobelt 18×85</td><td class="num">2× 1600</td><td>Auf 1560 ablängen; Nut 6×5 beidseitig fräsen (Nutmitte 9 ab Unterkante), Nut endet 60 vor Hinterkante, vorn offen; Kanten brechen (P10).</td></tr>
+<tr><td>Kiefer/Fichte gehobelt 18×60</td><td class="num">1× 1800</td><td>Auf 1660 ablängen (P12).</td></tr>
+<tr><td>Alu-Vierkantrohr 40×40×2, EN AW-6060</td><td class="num">2× 6000</td><td>Stab 1: 3× 1710 (QT1–3). Stab 2: 1× 1710 (QT4); Rest für P18-Winkel-Ersatz/Probestücke.</td></tr>
+<tr><td>Alu-Rechteckrohr 60×40×3</td><td class="num">1× 2000</td><td>1× 1690 (P11); Rest 300 für Beinkonsole/Anschlagmuster.</td></tr>
+
+<tr><td>Buche oder Esche 30×60</td><td class="num">1× 2200</td><td>GS1/GS2 auf 490, GS3/GS4 auf 525 ablängen (Endmaß erst nach Aufmaß KM/KSM). HPL-Streifen 4 mm aufleimen (PU), hinten 20 mm anfasen.</td></tr>
+<tr><td>POM-Platte 16</td><td class="num">100×150</td><td>4× 60×20, Nase 10×3,5 anfräsen/feilen (P15).</td></tr>
+</table></div>
+<div class="hin"><b>Zuschnitt-Grundsätze:</b> Alle Plattenteile längs zur Deckfurnier-Faser der Latten
+(Faser in Y = Spannrichtung!). Erst B1/B2 messen, dann QT- und Lattenlängen final ablängen:
+QT-Länge = B2 − 35; Latten enden 30 vor dem Plattformrand; Lattenteilung = (B1 − 30 − 85) / 15. Sägeblatt-Schnittfuge 3 mm überall eingerechnet.</div>
+
+<h2 id="s9"><span class="no">9</span>Beschlags- und Schraubenliste</h2>
+<div class="tw"><table>
+<tr><th class="num">Anz.</th><th>Artikel</th><th>Verwendung / Vorbohrung</th></tr>
+<tr><td class="num">10</td><td>Blindnietmutter M8, Stahl verzinkt oder A2, Flachkopf</td><td>Wandanbindung P01/P02 in C-/D-Säule u. Wandholme; Bohrung Ø11 ins Karosserieblech (nur Säulen/Holme, Kanten entgraten, Zinkspray)</td></tr>
+<tr><td class="num">10</td><td>M8×30 Linsenkopf A2 + Karosseriescheibe 8,4×24</td><td>P01/P02 → Nietmuttern; Anzug 15 Nm</td></tr>
+<tr><td class="num">4</td><td>M8-Anbindung Boden (je nach Bestand: Zurrpunktadapter, Airline-Fitting oder M8-Rampa in 9-mm-Holzboden + Sika 252)</td><td>P06 → Fahrzeugboden [V BP]</td></tr>
+<tr><td class="num">8</td><td>Aluwinkel 40×40×4 (P18) + 16× M6×12 Linsenkopf + 16× Blindnietmutter M6 Alu</td><td>QT-Enden ↔ P01/P02 (M6-Nietmuttern in QT-Seitenwand; im Holz Ø4 vorbohren, 4,5×30 Spax)</td></tr>
+<tr><td class="num">4</td><td>Rampa-Muffe M6×12 + M6×20 Senkkopf</td><td>QT ↔ P03-Obergurt (durch QT-Bodenwand, Bohrung Ø6,5)</td></tr>
+<tr><td class="num">64</td><td>Blechschraube 4,2×32 Senkkopf, verzinkt</td><td>P08/P09/P10 auf QT: je Kreuzung 2 Stk; Latte Ø4,5 gesenkt, Alu Ø3,3 vorgebohrt</td></tr>
+<tr><td class="num">16</td><td>Winkel P19 + 32× M5×12 + 32 Nietmutter M5 + 32× Blechschraube 4,2×16</td><td>Latten P09/P10 ↔ Bugprofil P11 (Winkel innen, unsichtbar)</td></tr>
+<tr><td class="num">16</td><td>Spax 4×30 Senkkopf</td><td>P12 auf P09/P10 (Ø3 vorbohren); 8 Filzgleiter Ø20 unter P12 über den festen Latten</td></tr>
+<tr><td class="num">8</td><td>M5×20 Senkkopf + Nietmutter M5</td><td>POM-Klötze P15 an QT4</td></tr>
+<tr><td class="num">2</td><td>Edelstahl-Federriegel Bolzen Ø8, Hub 20, mit Zugknopf + 4× M5×10</td><td>P17 unter P11; Messingbuchsen Ø10×1×15 in QT4 einkleben (2K-Epoxi)</td></tr>
+<tr><td class="num">16</td><td>Spax 4×20</td><td>GS1–GS4 nur <b>gegen Verrutschen</b> auf die Möbeloberseiten schrauben — die Last geht durch Druckkontakt, nicht durch die Schraube</td></tr>
+
+<tr><td class="num">—</td><td>PE-UHMW-Gleitband 19×0,5 selbstklebend (7 m), Filzband 25×2 (2 m), Ponal D3/PU-Leim, Sika 252, Zinkspray, Wachs</td><td>QT-Oberseiten, Kontaktfugen, Kastenverleimung, Kantenschutz</td></tr>
+</table></div>
+<p><b>Leimflächen</b> (D3-Weißleim, gepresst): P03 Stege↔Gurte + Schotts; P04/P05 Kastenwände;
+HPL-Belag auf GS1–GS4; sonst <b>keine</b> Verleimung zwischen Baugruppen — das System
+bleibt vollständig demontierbar. <b>Knarz-Schutz:</b> jede Holz-Alu-Kontaktfläche bekommt PE- oder
+Filzband; Schraubverbindungen mit Unterlegscheibe; Latten-Senkungen mit Wachs behandeln.</p>
+
+<h2 id="s10"><span class="no">10</span>Geschätztes Gesamtgewicht</h2>
+<div class="tw"><table>
+<tr><th>Baugruppe</th><th class="num">kg</th></tr>
+<tr><td>Unterbau (P01–P06, P18)</td><td class="num">12,3</td></tr>
+<tr><td>Querträgerebene (P07, P15–P17, P20)</td><td class="num">6,5</td></tr>
+<tr><td>Fester Kamm (P08)</td><td class="num">8,1</td></tr>
+<tr><td>Beweglicher Kamm (P09–P12, P19)</td><td class="num">13,4</td></tr>
+<tr><td>Auflageleisten GS1–GS4 + Schrauben gesamt</td><td class="num">2,1</td></tr>
+<tr><th>Konstruktion gesamt (ohne Matratze)</th><th class="num">≈ 42 kg (±10 %)</th></tr>
+<tr><td>zzgl. Matratze 2000×1690×120, RG35 Kaltschaum, zweiteilig</td><td class="num">≈ 15–17</td></tr>
+</table></div>
+
+<h2 id="s11"><span class="no">11</span>Schritt-für-Schritt-Bauanleitung</h2>
+<ol>
+<li><b>Messen</b> (Kap. 2) und alle [V]-Werte in die Zeichnungen eintragen; Plausibilitätsprüfung durchführen. Erst dann Material ablängen.</li>
+<li><b>Nietmuttern setzen:</b> Positionen der Säulen/Holme ermitteln (Magnet/Klopfen/Verkleidung ab), Ø11 bohren, entgraten, Zinkspray, M8-Blindnietmuttern setzen (Setzgerät).</li>
+<li><b>Wandauflagen P01/P02</b> ablängen, Schraubenbild übertragen (von den gesetzten Muttern abnehmen!), Ø9 bohren, mit M8×30 montieren. Oberkante beidseitig exakt auf <b>Z 937</b> nivellieren (Wasserwaage + Laser, Fahrzeug ebenstehend).</li>
+<li><b>Längsträger P03 verleimen</b> (Stege+Gurte+Schotts, über Nacht pressen), Beine P04/P05 verleimen, P03 mit Beinen und Bodenplatten P06 verschrauben (M8/Rampa), im Fahrzeug mittig (X 830–890) ausrichten, OK ebenfalls <b>Z 937</b>, am Boden befestigen.</li>
+<li><b>Querträger P07</b> auf B2−35 ablängen, M6-Nietmuttern für P18 und P15 setzen, Riegelbuchsen-Position an QT4 anzeichnen (noch nicht bohren), PE-Gleitband aufkleben, auflegen und über P18-Winkel + Rampa an P03 fixieren. Diagonalen und Y-Abstände (490/500/490) prüfen.</li>
+<li><b>Festen Kamm P08</b> auflegen: Abstandslehre 105/20 aus Restholz sägen; Latten mit 2× 4,2×32 je Kreuzung verschrauben (vorbohren, senken). Außenlatten 45 vom Plattformrand.</li>
+<li><b>Esche-Latten P10</b> nuten, alle beweglichen Latten P09/P10 mit P19-Winkeln an das Bugprofil P11 schrauben — Teilung exakt mit derselben Lehre, auf ebener Fläche vormontieren.</li>
+<li><b>Beweglichen Kamm einsetzen</b> (von vorn einschieben), POM-Klötze P15 in die Nuten einfädeln und an QT4 verschrauben; Spiel prüfen: X ±1,5, Z 1. Hub testen: exakt 400 bis Nutend-Anschlag.</li>
+<li><b>Verbindungsleiste P12</b> hinten auf die beweglichen Latten schrauben (Filzgleiter unterseitig über den festen Latten).</li>
+<li><b>Verriegelung:</b> Federriegel P17 unter P11 montieren, Kamm einschieben, durch die Riegelösen in die QT4-Wand körnen, Ø8,2 bohren, Buchsen einkleben. Funktion: satt, spielfrei, hörbares Einrasten.</li>
+<li><b>Auflageleisten GS1–GS4</b> herstellen (30 × 60 + 4 mm HPL, Einfahrfase 20 hinten) und auf Küche und Kühlschrankschrank so legen, dass sie <b>über den Korpuswänden</b> tragen. Mit flächigen Shims auf <b>OK Z 934 ± 1</b> nivellieren: Bug unbelastet 1 mm Luft, belastet satt aufliegend.</li>
+
+<li><b>Endkontrolle Beweglichkeit:</b> Auszug mit Matratzenlast von einer Person bedienbar (&lt;100 N Zugkraft); ggf. Gleitflächen wachsen.</li>
+<li><b>Prüfliste Kap. 13</b> abarbeiten, dann Belastungstest.</li>
+</ol>
+
+<h2 id="s12"><span class="no">12</span>Typische Fehler und Sicherheitsrisiken</h2>
+<ul>
+<li><b>Vor dem Messen sägen.</b> B1 variiert je nach Verkleidung um ±20 mm — QT zu lang/kurz ruiniert die Auflager.</li>
+<li><b>Schrauben ins Außenblech oder in Hohlraum-Sicken</b> → Korrosion, Beulen. Nur Säulen/Verstärkungsholme, nie ohne Endoskop-/Magnetprüfung bohren.</li>
+<li><b>Wandauflagen nicht nivelliert:</b> 5 mm Höhendifferenz verspannt die QT, der Kamm klemmt. Laser benutzen, Fahrzeug eben stellen.</li>
+<li><b>Lattenteilung ohne Lehre:</b> 2 mm Summenfehler über 16 Latten blockiert den Auszug. Immer mit Abstandslehre montieren.</li>
+<li><b>Auflageleisten nicht über den Korpuswänden:</b> liegen GS1–GS4 zwischen den Wänden, biegt sich die 12-mm-Arbeitsplatte unter 900 N durch und kann reißen. Die Wandpositionen am gelieferten Modul messen (Maß KM), nicht schätzen.</li>
+<li><b>Ungleiche Möbelhöhen:</b> Küche und Kühlschrankschrank müssen dieselbe Oberkante haben (Δ ≤ 2 mm), sonst kippelt der ausgezogene Bug auf zwei statt vier Leisten.</li>
+<li><b>Vergessene Verriegelung:</b> Kamm (35 kg) wird bei Vollbremsung zum Geschoss. Zwei unabhängige Riegel + Checklisten-Gewohnheit; optional Kontaktschalter mit LED.</li>
+<li><b>Quietschen nach Wochen:</b> fehlendes PE-/Filzband an einer einzigen Kontaktstelle reicht. Systematisch alle Holz-Alu-Fugen belegen, nach 500 km nachziehen.</li>
+<li><b>Feuchte unter der Matratze:</b> Spalte nicht zustellen (Bettkasten-Boxen mit Abstand zur Lattenunterkante ≥40 mm), Matratze regelmäßig aufstellen.</li>
+<li><b>Gasfedern/schwere Vollauszüge nachrüsten „für Komfort“:</b> zerstört die Gewichtsbilanz und bringt Klappern zurück — beim Kammprinzip bleiben.</li>
+</ul>
+
+<h2 id="s13"><span class="no">13</span>Prüfliste vor dem ersten Belastungstest</h2>
+<div class="tw"><table>
+<tr><th>✓</th><th>Prüfpunkt</th><th>Sollwert</th></tr>
+<tr><td>☐</td><td>Alle M8-Wandschrauben mit Drehmoment angezogen</td><td class="mono">15 Nm, Farbmarkierung</td></tr>
+<tr><td>☐</td><td>Bodenanbindung P06 fest, Sika ausgehärtet</td><td class="mono">≥48 h Aushärtung</td></tr>
+<tr><td>☐</td><td>OK QT links = rechts = Mitte</td><td class="mono">Δ ≤ 2 mm</td></tr>
+<tr><td>☐</td><td>QT-Abstände 490/500/490, Diagonalen Plattform</td><td class="mono">Δ Diagonale ≤ 3 mm</td></tr>
+<tr><td>☐</td><td>Alle 64 Lattenschrauben gesetzt und versenkt</td><td class="mono">bündig, kein Überstand</td></tr>
+<tr><td>☐</td><td>Hub Auszug bis Anschlag</td><td class="mono">400 ± 2 mm</td></tr>
+<tr><td>☐</td><td>Zugkraft Auszug (mit Matratze)</td><td class="mono">≤ 100 N, ruckfrei</td></tr>
+<tr><td>☐</td><td>Spiel beweglicher Kamm quer / Abheben</td><td class="mono">X ≤ 3 mm, Z ≤ 1,5 mm</td></tr>
+<tr><td>☐</td><td>Beide Federriegel rasten selbsttätig, spielfrei</td><td class="mono">hörbares Klick, kein Wackeln am Bug</td></tr>
+<tr><td>☐</td><td>GS1–GS4: Bug liegt belastet auf allen vier Leisten satt auf, unbelastet 1 mm Luft</td><td class="mono">Fühlerlehre, OK Z 934 ± 1</td></tr>
+<tr><td>☐</td><td>OK Querträger überall gleich</td><td class="mono">Z 937 ± 2</td></tr>
+<tr><td>☐</td><td>Rütteltest eingeschoben (kräftig am Bug rütteln)</td><td class="mono">kein Klappern/Knarzen</td></tr>
+<tr><td>☐</td><td>Statischer Test 1: 2 Personen mittig, 5 min, eingeschoben</td><td class="mono">keine bleibende Verformung, δ Latten &lt; 5 mm</td></tr>
+<tr><td>☐</td><td>Statischer Test 2: 120 kg auf Bugmitte über dem Gang, ausgezogen</td><td class="mono">δ ≤ 5 mm (Rechenwert 1,0), Möbel ohne Knacken</td></tr>
+<tr><td>☐</td><td>Probefahrt 20 km (Kopfsteinpflaster/Landstraße), danach Schrauben-Nachzug</td><td class="mono">alle Verbindungen fest</td></tr>
+</table></div>
+
+<p style="margin-top:40px;border-top:1px solid var(--line);padding-top:14px"><small>
+SPR-BETT-01 · Stand 06.08.2026 · Parametrische Vorkonstruktion auf Basis der W907-Datenblattmaße (bestätigt) und
+gekennzeichneter Annahmen. Vor Baubeginn sämtliche [V]-Maße am Fahrzeug erfassen und die
+Plausibilitätsprüfung in Kap. 2 durchführen. Angaben zur Statik sind ingenieurmäßige Abschätzungen
+für den Selbstbau, keine bauaufsichtliche Bemessung.</small></p>
